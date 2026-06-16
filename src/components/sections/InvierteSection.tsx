@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { TrendingUp, BarChart3, Users, Zap } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
 
 const metrics = [
-  { icon: TrendingUp, value: "5–6%",     label: "Rentabilidad bruta anual",  bg: "#E3F3FB", color: "#0671AE" },
-  { icon: BarChart3,  value: "35–40%",   label: "Plusvalía proyectada",      bg: "#EBF7CC", color: "#65A81A" },
-  { icon: Users,      value: "Alta",     label: "Demanda de arriendo",       bg: "#E3F3FB", color: "#0671AE" },
-  { icon: Zap,        value: "Domótica", label: "Gastos comunes reducidos",  bg: "#EBF7CC", color: "#65A81A" },
+  { iconName: "trending-up", value: "5–6%",     label: "Rentabilidad bruta anual",  bg: "#E3F3FB", color: "#0671AE" },
+  { iconName: "bar-chart-3",  value: "35–40%",   label: "Plusvalía proyectada",      bg: "#EBF7CC", color: "#65A81A" },
+  { iconName: "users",        value: "Alta",     label: "Demanda de arriendo",       bg: "#E3F3FB", color: "#0671AE" },
+  { iconName: "zap",          value: "Domótica", label: "Gastos comunes reducidos",  bg: "#EBF7CC", color: "#65A81A" },
 ];
 
 export const InvierteSection = () => {
@@ -37,16 +37,16 @@ export const InvierteSection = () => {
 
           {/* RIGHT (3/5): 4 tarjetas una al lado de la otra, altura = columna izquierda */}
           <div className="lg:col-span-3 grid grid-cols-2 lg:grid-cols-4 gap-4 h-full">
-            {metrics.map(({ icon: Icon, value, label, bg, color }) => (
+            {metrics.map(({ iconName, value, label, bg, color }) => (
               <div
                 key={label}
                 className="bg-white rounded-2xl px-4 py-6 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-4 h-full text-center"
               >
                 <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm"
-                  style={{ backgroundColor: bg }}
+                  style={{ backgroundColor: bg, color }}
                 >
-                  <Icon size={30} style={{ color }} aria-hidden="true" />
+                  <Icon name={iconName} size={30} />
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-[#033D6B] mb-1">{value}</p>

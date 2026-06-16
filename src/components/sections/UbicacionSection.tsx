@@ -1,12 +1,12 @@
-import { MapPin, ShoppingCart, GraduationCap, Heart, Store, Train, Zap } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 
 const bullets = [
-  { icon: Train,        text: "Línea 4 del metro — Estación San Miguel" },
-  { icon: MapPin,       text: "Av. Santa Rosa y Av. Departamental" },
-  { icon: ShoppingCart, text: "Supermercados y comercio a metros" },
-  { icon: GraduationCap,text: "Colegios y universidades cercanas" },
-  { icon: Heart,        text: "Hospital El Pino y Clínica Santa Rosa" },
-  { icon: Zap,          text: "Rápida conexión a autopistas urbanas" },
+  { iconName: "metro",        text: "Línea 4 del metro — Estación San Miguel" },
+  { iconName: "bancos",       text: "Av. Santa Rosa y Av. Departamental" },
+  { iconName: "supermercados", text: "Supermercados y comercio a metros" },
+  { iconName: "colegios",     text: "Colegios y universidades cercanas" },
+  { iconName: "centros-medicos", text: "Hospital El Pino y Clínica Santa Rosa" },
+  { iconName: "areas-verdes", text: "Rápida conexión a autopistas urbanas" },
 ];
 
 const pois = [
@@ -34,10 +34,10 @@ export const UbicacionSection = () => {
               En el corazón de San Miguel, a pasos de todo lo que necesitas para vivir conectado a la ciudad.
             </p>
             <div className="space-y-4">
-              {bullets.map(({ icon: Icon, text }) => (
+              {bullets.map(({ iconName, text }) => (
                 <div key={text} className="flex items-start gap-3">
-                  <div className="mt-0.5 w-8 h-8 bg-[#E3F3FB] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Icon size={15} className="text-[#0671AE]" aria-hidden="true" />
+                  <div className="mt-0.5 w-8 h-8 bg-[#E3F3FB] rounded-full flex items-center justify-center flex-shrink-0 text-[#0671AE]">
+                    <Icon name={iconName} size={16} />
                   </div>
                   <p className="text-[#4A6275] text-sm leading-relaxed pt-1">{text}</p>
                 </div>
