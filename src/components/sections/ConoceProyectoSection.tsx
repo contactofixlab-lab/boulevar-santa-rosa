@@ -50,24 +50,29 @@ const PhotoCard = ({
   label: string;
   src: string;
   style?: React.CSSProperties;
-}) => (
-  <div
-    className="relative overflow-hidden rounded-2xl shadow-sm group transition-transform hover:shadow-md"
-    style={{ position: "relative", ...style }}
-  >
-    <Image
-      src={src}
-      alt={label}
-      fill
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      className="object-cover group-hover:scale-105 transition-transform duration-300"
-      priority={false}
-    />
-    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-4 py-3">
-      <p className="text-white text-xs font-semibold tracking-wide">{label}</p>
+}) => {
+  const height = style?.height ? parseInt(style.height as string) : 280;
+  const width = 500;
+
+  return (
+    <div
+      className="relative overflow-hidden rounded-2xl shadow-sm group transition-transform hover:shadow-md"
+      style={style}
+    >
+      <Image
+        src={src}
+        alt={label}
+        width={width}
+        height={height}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        priority={false}
+      />
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-4 py-3">
+        <p className="text-white text-xs font-semibold tracking-wide">{label}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const ConoceProyectoSection = () => {
   const [selectedType, setSelectedType] = useState<PhotoType>("departamento");
