@@ -7,7 +7,6 @@ import { ConoceProyectoSection } from "@/components/sections/ConoceProyectoSecti
 import { AreasComunes } from "@/components/sections/AreasComunes";
 import { InvierteSection } from "@/components/sections/InvierteSection";
 import { TipologiasPreview } from "@/components/sections/TipologiasPreview";
-import { AsesorSection } from "@/components/sections/AsesorSection";
 import { AgendaVisita } from "@/components/sections/AgendaVisita";
 
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
         <AreasComunes />
         <InvierteSection />
         <TipologiasPreview />
-        <AsesorSection />
         <AgendaVisita />
       </main>
       <Footer />
