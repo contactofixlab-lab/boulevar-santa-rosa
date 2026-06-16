@@ -52,13 +52,15 @@ const PhotoCard = ({
 }) => {
   return (
     <div
-      className="relative overflow-hidden rounded-2xl shadow-sm group transition-transform hover:shadow-md"
+      className="relative overflow-hidden rounded-2xl shadow-sm group transition-transform hover:shadow-md bg-gray-100"
       style={{ ...style }}
     >
       <img
         src={src}
         alt={label}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+        decoding="async"
       />
     </div>
   );
