@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { getUsers, deleteUser, createUser, updateUser } from '@/lib/auth';
-import { User } from '@/types';
+import { User, UserRole } from '@/types';
 import { Proyecto } from '@/types/domain';
 import { UserPlus, Pencil, Trash2, X, Search, Check } from 'lucide-react';
 import FilterPanel, { FilterConfig } from '@/components/FilterPanel';
@@ -36,15 +36,24 @@ export default function AdminPage() {
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [editingUser, setEditingUser] = useState<User | null>(null);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    nombre: string;
+    apellido1: string;
+    apellido2: string;
+    email: string;
+    password: string;
+    area: string;
+    role: UserRole;
+    proyectos: string[];
+  }>({
     nombre: '',
     apellido1: '',
     apellido2: '',
     email: '',
     password: '',
     area: AREAS[0],
-    role: 'finanzas' as const,
-    proyectos: [] as string[],
+    role: 'finanzas',
+    proyectos: [],
   });
 
   useEffect(() => {
@@ -153,8 +162,9 @@ export default function AdminPage() {
     );
 
     if (filters.search) {
+      const searchLower = filters.search.toLowerCase();
       filtered = filtered.filter(u =>
-        `${u.nombre} ${u.apellido1} ${u.apellido2} ${u.email}`.toLowerCase().includes(filters.search.toLowerCase())
+        `${u.nombre} ${u.apellido1} ${u.apellido2} ${u.email}`.toLowerCase().includes(searchLower)
       );
     }
 

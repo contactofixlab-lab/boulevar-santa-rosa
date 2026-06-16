@@ -12,7 +12,7 @@ export default function BBDDPage() {
     setIsConnecting(true);
     // Simulación de conexión
     setTimeout(() => {
-      setConnecting(false);
+      setIsConnecting(false);
       // setConnected(true); // Descomenta cuando el CRM esté listo
     }, 2000);
   };
