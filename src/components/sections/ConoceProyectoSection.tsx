@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 type PhotoType = "departamento" | "areas-comunes" | "fachada";
 
@@ -14,19 +13,19 @@ interface Photo {
 
 const photosByType: Record<PhotoType, Photo[]> = {
   departamento: [
-    { id: "d1", label: "Living Comedor Cocina", type: "departamento", src: "/renders/Departamento/Living Comerdor Cocina.jpg" },
-    { id: "d2", label: "Living Comedor", type: "departamento", src: "/renders/Departamento/Living Comedor.jpg" },
+    { id: "d1", label: "Living Comedor Cocina", type: "departamento", src: "/renders/Departamento/Living-Comerdor-Cocina.jpg" },
+    { id: "d2", label: "Living Comedor", type: "departamento", src: "/renders/Departamento/Living-Comedor.jpg" },
     { id: "d3", label: "Cocina", type: "departamento", src: "/renders/Departamento/Cocina.jpg" },
-    { id: "d4", label: "Cocina 2", type: "departamento", src: "/renders/Departamento/Cocina 2.jpg" },
+    { id: "d4", label: "Cocina 2", type: "departamento", src: "/renders/Departamento/Cocina-2.jpg" },
     { id: "d5", label: "Dormitorio Principal", type: "departamento", src: "/renders/Departamento/Dormitorio.jpg" },
-    { id: "d6", label: "Dormitorio 2", type: "departamento", src: "/renders/Departamento/Dormitorio 2.jpg" },
-    { id: "d7", label: "Dormitorio 3", type: "departamento", src: "/renders/Departamento/Dormitorio 3.jpg" },
+    { id: "d6", label: "Dormitorio 2", type: "departamento", src: "/renders/Departamento/Dormitorio-2.jpg" },
+    { id: "d7", label: "Dormitorio 3", type: "departamento", src: "/renders/Departamento/Dormitorio-3.jpg" },
     { id: "d8", label: "Baño", type: "departamento", src: "/renders/Departamento/Baño.jpg" },
   ],
   "areas-comunes": [
-    { id: "a1", label: "Quincho", type: "areas-comunes", src: "/renders/Easpacios Comunes/Quincho.jpg" },
-    { id: "a2", label: "Sala Multiuso", type: "areas-comunes", src: "/renders/Easpacios Comunes/Sala Multiuso.jpg" },
-    { id: "a3", label: "Sala Multiuso - Foto 2", type: "areas-comunes", src: "/renders/Easpacios Comunes/Sala Multiuso foto 2.jpg" },
+    { id: "a1", label: "Quincho", type: "areas-comunes", src: "/renders/Areas-Comunes/Quincho.jpg" },
+    { id: "a2", label: "Sala Multiuso", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso.jpg" },
+    { id: "a3", label: "Sala Multiuso - Foto 2", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso-foto-2.jpg" },
   ],
   fachada: [
     { id: "f1", label: "Frontal", type: "fachada", src: "/renders/Fachada/Frontal.jpg" },
@@ -54,15 +53,12 @@ const PhotoCard = ({
   return (
     <div
       className="relative overflow-hidden rounded-2xl shadow-sm group transition-transform hover:shadow-md"
-      style={{ position: "relative", ...style }}
+      style={{ ...style }}
     >
-      <Image
+      <img
         src={src}
         alt={label}
-        fill
-        className="object-cover group-hover:scale-105 transition-transform duration-300"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        priority={false}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
       />
     </div>
   );
