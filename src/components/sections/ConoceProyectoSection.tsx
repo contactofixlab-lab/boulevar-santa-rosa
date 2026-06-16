@@ -1,70 +1,67 @@
 "use client";
 
 import { useState } from "react";
-import { ImageIcon } from "lucide-react";
+import Image from "next/image";
 
-type PhotoType = "departamento" | "terraza" | "areas-comunes" | "amenidades";
+type PhotoType = "departamento" | "areas-comunes" | "fachada";
 
 interface Photo {
   id: string;
   label: string;
   type: PhotoType;
-  colorA: string;
-  colorB: string;
+  src: string;
 }
 
 const photosByType: Record<PhotoType, Photo[]> = {
   departamento: [
-    { id: "d1", label: "Sala de estar", type: "departamento", colorA: "#b8d4e8", colorB: "#7aa8c8" },
-    { id: "d2", label: "Cocina", type: "departamento", colorA: "#a8c8a0", colorB: "#6ea870" },
-    { id: "d3", label: "Dormitorio principal", type: "departamento", colorA: "#c8b8d8", colorB: "#9890b8" },
-    { id: "d4", label: "Baño suite", type: "departamento", colorA: "#b8cce0", colorB: "#88aac8" },
-    { id: "d5", label: "Dormitorio secundario", type: "departamento", colorA: "#d4c8b0", colorB: "#a89878" },
-  ],
-  terraza: [
-    { id: "t1", label: "Terraza principal", type: "terraza", colorA: "#90c8a8", colorB: "#60a880" },
-    { id: "t2", label: "Terraza con vista", type: "terraza", colorA: "#a8d4b0", colorB: "#78b880" },
-    { id: "t3", label: "Terraza gourmet", type: "terraza", colorA: "#b8dcc0", colorB: "#88b890" },
+    { id: "d1", label: "Living Comedor Cocina", type: "departamento", src: "/renders/Departamento/Living Comerdor Cocina.jpg" },
+    { id: "d2", label: "Living Comedor", type: "departamento", src: "/renders/Departamento/Living Comedor.jpg" },
+    { id: "d3", label: "Cocina", type: "departamento", src: "/renders/Departamento/Cocina.jpg" },
+    { id: "d4", label: "Cocina 2", type: "departamento", src: "/renders/Departamento/Cocina 2.jpg" },
+    { id: "d5", label: "Dormitorio Principal", type: "departamento", src: "/renders/Departamento/Dormitorio.jpg" },
+    { id: "d6", label: "Dormitorio 2", type: "departamento", src: "/renders/Departamento/Dormitorio 2.jpg" },
+    { id: "d7", label: "Dormitorio 3", type: "departamento", src: "/renders/Departamento/Dormitorio 3.jpg" },
+    { id: "d8", label: "Baño", type: "departamento", src: "/renders/Departamento/Baño.jpg" },
   ],
   "areas-comunes": [
-    { id: "a1", label: "Piscina", type: "areas-comunes", colorA: "#a8c8e8", colorB: "#6a9cc8" },
-    { id: "a2", label: "Gimnasio", type: "areas-comunes", colorA: "#d8b8c8", colorB: "#b08090" },
-    { id: "a3", label: "Sala de juegos", type: "areas-comunes", colorA: "#c8d4a0", colorB: "#98a870" },
-    { id: "a4", label: "Lobby", type: "areas-comunes", colorA: "#d0c0d8", colorB: "#a890b0" },
+    { id: "a1", label: "Quincho", type: "areas-comunes", src: "/renders/Easpacios Comunes/Quincho.jpg" },
+    { id: "a2", label: "Sala Multiuso", type: "areas-comunes", src: "/renders/Easpacios Comunes/Sala Multiuso.jpg" },
+    { id: "a3", label: "Sala Multiuso - Foto 2", type: "areas-comunes", src: "/renders/Easpacios Comunes/Sala Multiuso foto 2.jpg" },
   ],
-  amenidades: [
-    { id: "am1", label: "Estacionamientos", type: "amenidades", colorA: "#c8b8a8", colorB: "#988878" },
-    { id: "am2", label: "Bodegas", type: "amenidades", colorA: "#b8c8d8", colorB: "#8898b8" },
-    { id: "am3", label: "Zonas verdes", type: "amenidades", colorA: "#a8d8b0", colorB: "#78b880" },
+  fachada: [
+    { id: "f1", label: "Frontal", type: "fachada", src: "/renders/Fachada/Frontal.jpg" },
+    { id: "f2", label: "Lateral", type: "fachada", src: "/renders/Fachada/Lateral.jpg" },
+    { id: "f3", label: "Entrada", type: "fachada", src: "/renders/Fachada/Entrada.jpg" },
+    { id: "f4", label: "Retail", type: "fachada", src: "/renders/Fachada/SR_RETAIL_010.jpg" },
   ],
 };
 
 const filterLabels: Record<PhotoType, string> = {
   departamento: "Departamentos",
-  terraza: "Terrazas",
   "areas-comunes": "Áreas Comunes",
-  amenidades: "Amenidades",
+  fachada: "Fachada",
 };
 
 const PhotoCard = ({
   label,
-  colorA,
-  colorB,
+  src,
   style = {},
 }: {
   label: string;
-  colorA: string;
-  colorB: string;
+  src: string;
   style?: React.CSSProperties;
 }) => (
   <div
     className="relative overflow-hidden rounded-2xl shadow-sm group transition-transform hover:shadow-md"
-    style={{ background: `linear-gradient(135deg, ${colorA}, ${colorB})`, ...style }}
+    style={style}
   >
-    <div className="absolute inset-0 flex items-center justify-center opacity-20">
-      <ImageIcon size={40} className="text-white" />
-    </div>
-    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/55 to-transparent px-4 py-3">
+    <Image
+      src={src}
+      alt={label}
+      fill
+      className="object-cover group-hover:scale-105 transition-transform duration-300"
+    />
+    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-4 py-3">
       <p className="text-white text-xs font-semibold tracking-wide">{label}</p>
     </div>
   </div>
