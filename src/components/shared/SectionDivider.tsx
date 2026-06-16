@@ -1,25 +1,17 @@
 interface SectionDividerProps {
-  color1?: string;
-  color2?: string;
+  fromColor?: string;
+  toColor?: string;
   height?: number;
-  direction?: "top" | "bottom";
 }
 
 export const SectionDivider = ({
-  color1 = "#E3F3FB",
-  color2 = "#FFFFFF",
-  height = 80,
-  direction = "bottom",
+  fromColor = "#E3F3FB",
+  toColor = "#FFFFFF",
+  height = 100,
 }: SectionDividerProps) => {
-  const viewBox = direction === "top" ? "0 0 1440 120" : "0 0 1440 120";
-  const pathD =
-    direction === "top"
-      ? "M0,40 Q360,0 720,40 T1440,40 L1440,120 L0,120 Z"
-      : "M0,80 Q360,120 720,80 T1440,80 L1440,0 L0,0 Z";
-
   return (
     <svg
-      viewBox={viewBox}
+      viewBox="0 0 1440 160"
       className="w-full"
       style={{ height: `${height}px` }}
       preserveAspectRatio="none"
@@ -27,18 +19,33 @@ export const SectionDivider = ({
     >
       <defs>
         <linearGradient id="dividerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor={color1} />
-          <stop offset="100%" stopColor={color2} />
+          <stop offset="0%" stopColor={fromColor} />
+          <stop offset="100%" stopColor={toColor} />
         </linearGradient>
       </defs>
-      <path d={pathD} fill={color1} />
+
+      {/* Onda superior suave - comienza desde arriba */}
       <path
-        d={direction === "top"
-          ? "M0,50 Q360,20 720,50 T1440,50 L1440,120 L0,120 Z"
-          : "M0,90 Q360,110 720,90 T1440,90 L1440,0 L0,0 Z"}
-        fill={color2}
-        opacity="0.5"
+        d="M 0,30 Q 360,0 720,30 T 1440,30 L 1440,0 L 0,0 Z"
+        fill={fromColor}
       />
+
+      {/* Onda principal - ondulación grande y suave */}
+      <path
+        d="M 0,40 Q 240,10 480,40 T 960,40 T 1440,40 L 1440,80 Q 1080,110 720,80 Q 360,50 0,80 Z"
+        fill="url(#dividerGrad)"
+        opacity="0.8"
+      />
+
+      {/* Onda secundaria para más fluidez */}
+      <path
+        d="M 0,70 Q 360,100 720,70 T 1440,70 L 1440,120 L 0,120 Z"
+        fill={toColor}
+        opacity="0.6"
+      />
+
+      {/* Base sólida */}
+      <rect x="0" y="120" width="1440" height="40" fill={toColor} />
     </svg>
   );
 };
