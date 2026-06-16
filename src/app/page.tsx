@@ -15,17 +15,17 @@ export default function Home() {
       <Header />
       <main className="pt-16">
         <HeroSection />
-        <SectionDivider color1="#E3F3FB" color2="#FFFFFF" />
+        <SectionDivider fromColor="#E3F3FB" toColor="#FFFFFF" />
         <StatsBand />
-        <SectionDivider color1="#E3F3FB" color2="#FFFFFF" />
+        <SectionDivider fromColor="#E3F3FB" toColor="#FFFFFF" />
         <UbicacionSection />
-        <SectionDivider color1="#FFFFFF" color2="#F4F9FB" />
+        <SectionDivider fromColor="#FFFFFF" toColor="#F4F9FB" />
         <ConoceProyectoSection />
-        <SectionDivider color1="#F4F9FB" color2="#F4F9FB" />
+        <SectionDivider fromColor="#F4F9FB" toColor="#F4F9FB" />
         <InvierteSection />
-        <SectionDivider color1="#F4F9FB" color2="#FFFFFF" />
+        <SectionDivider fromColor="#F4F9FB" toColor="#FFFFFF" />
         <TipologiasPreview />
-        <SectionDivider color1="#FFFFFF" color2="#FFFFFF" />
+        <SectionDivider fromColor="#FFFFFF" toColor="#FFFFFF" />
         <AgendaVisita />
       </main>
       <Footer />
