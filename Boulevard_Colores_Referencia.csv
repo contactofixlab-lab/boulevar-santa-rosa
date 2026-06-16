@@ -1,0 +1,46 @@
+Column1;Column2;Column3;Column4
+TOKEN;CÓDIGO HEX;COMPONENTE/ELEMENTO;DESCRIPCIÓN
+primary-blue;#0671AE;Títulos secundarios;"Texto en spans de títulos (ej: ""Proyecto"" ""Conectividad"")"
+primary-blue;#0671AE;Links y hover;Color de hover en links de navegación
+primary-blue;#0671AE;Iconos;Color de iconos en tarjetas de stats y ubicación
+primary-blue;#0671AE;Botones outline;Bordes en botones secundarios
+primary-green;#84CE25;Botones CTA;"Botón ""Cotizar ahora"" y acciones principales"
+primary-green;#84CE25;Líneas decorativas;Línea horizontal bajo títulos
+primary-green;#84CE25;Badges;Fondo de badges de urgencia
+primary-green;#84CE25;Iconos accent;Color de checkmark y elementos verdes
+navy;#033D6B;Títulos principales;H1 H2 y headings principales
+navy;#033D6B;AgendaVisita section;Fondo de sección (bg principal)
+navy;#033D6B;Text dark;Texto oscuro en tarjetas y labels
+navy;#033D6B;Footer;Encabezados de secciones en footer
+accent-green-dark;#65A81A;Iconos alternos;Color de iconos en Stats (Car Package)
+accent-green-dark;#65A81A;Fondos hover;Background de hover en cards
+surface-blue;#E3F3FB;Fondos de secciones;Fondo de StatsBand y UbicacionSection
+surface-blue;#E3F3FB;Icon backgrounds;Fondo de cuadrados con iconos (blue)
+surface-blue;#E3F3FB;Badges info;Background de badges informativos
+surface-blue;#E3F3FB;Social icons bg;Fondo de botones de redes sociales
+surface-green;#EBF7CC;Fondos alternos;Fondo de tarjetas de stats alternadas
+surface-green;#EBF7CC;Icon backgrounds;Fondo de cuadrados con iconos (green)
+surface-light;#F4F9FB;Fondos base;Fondo de ConoceProyecto AreasComunes InvierteSection
+surface-light;#F4F9FB;Fondos alternos;Alternancia de fondos entre secciones
+slate-blue;#4A6275;Texto secundario;Párrafos descriptivos y labels pequeños
+slate-blue;#4A6275;Subtítulos;Texto de apoyo en tarjetas
+white;#FFFFFF;Fondos tarjetas;Fondo de todas las tarjetas (Stats Areas Invierte)
+white;#FFFFFF;Footer;Fondo del footer
+white;#FFFFFF;Texto light;Texto blanco en secciones oscuras
+;;;
+BOTONES;;;
+primary (verde);#84CE25;Botón CTA;"Todos los ""Cotizar"" ""Agendar"" acciones principales"
+secondary (azul);#0671AE;Botón secundario;Ver galería completa acciones alternativas
+outline (azul);Border #0671AE;Botón outline;Descargar brochure acciones terciarias
+disabled (gris);#D1D5DB;Estado deshabilitado;Botones inactivos
+;;;
+GRADIENTES Y OVERLAYS;;;
+Overlay oscuro;rgba(0 0 0 0.55);ConoceProyectoSection;Overlay inferior en tarjetas de foto
+Overlay fade;transparent ? #033D6B;AgendaVisita;Gradiente derecho en imagen
+Overlay header;#033D6B ? transparent;AgendaVisita;Gradiente superior en imagen
+;;;
+BORDES Y SOMBRAS;;;
+Border gray;#E5E7EB;Tarjetas;Borde sutil de tarjetas
+Border gray;#F3F4F6;Footer;Línea divisoria en footer
+Shadow sm;rgba(0 0 0 0.05);Tarjetas;Sombra sutil en cards
+Shadow md;rgba(0 0 0 0.1);Hover cards;Sombra al hover en tarjetas
