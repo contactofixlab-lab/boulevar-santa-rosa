@@ -64,9 +64,6 @@ const PhotoCard = ({
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         priority={false}
       />
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-4 py-3 z-10">
-        <p className="text-white text-xs font-semibold tracking-wide">{label}</p>
-      </div>
     </div>
   );
 };
