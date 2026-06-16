@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import { WhatsAppFAB } from "@/components/layout/WhatsAppFAB";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${poppins.variable} h-full antialiased`}
+      className={`${nunitoSans.variable} h-full antialiased`}
       style={{ scrollBehavior: "smooth" }}
     >
       <body className="min-h-full flex flex-col bg-white text-slate-900">

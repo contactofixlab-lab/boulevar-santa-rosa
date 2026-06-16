@@ -33,7 +33,7 @@ const config: Config = {
         error: "#DC2626",
       },
       fontFamily: {
-        sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
+        sans: ["var(--font-nunito-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {
         "2xl": ["28px", { lineHeight: "1.2" }],
