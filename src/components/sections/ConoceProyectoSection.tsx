@@ -110,8 +110,7 @@ export const ConoceProyectoSection = () => {
               <PhotoCard
                 key={p.id}
                 label={p.label}
-                colorA={p.colorA}
-                colorB={p.colorB}
+                src={p.src}
                 style={{ height: "280px" }}
               />
             ))}
@@ -124,8 +123,7 @@ export const ConoceProyectoSection = () => {
                 <PhotoCard
                   key={p.id}
                   label={p.label}
-                  colorA={p.colorA}
-                  colorB={p.colorB}
+                  src={p.src}
                   style={{ height: "220px" }}
                 />
               ))}
