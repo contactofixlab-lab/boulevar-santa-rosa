@@ -2,6 +2,21 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Montserrat Fonts */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
