@@ -22,13 +22,9 @@ export const InvierteSection = () => {
               <span className="text-[#0671AE]">San Miguel</span>
             </h2>
             <div className="w-14 h-[3px] bg-[#84CE25] rounded-full mb-6" />
-            <p className="text-[#4A6275] text-base leading-relaxed mb-4">
+            <p className="text-[#4A6275] text-base leading-relaxed mb-8">
               San Miguel es una de las comunas con mayor crecimiento en Santiago.
               La demanda de arriendo supera la oferta y la plusvalía crece año a año.
-            </p>
-            <p className="text-[#4A6275] text-sm leading-relaxed mb-8">
-              Boulevard Santa Rosa combina ubicación privilegiada, diseño moderno y domótica
-              integrada para maximizar tu retorno de inversión.
             </p>
             <Link href="/cotizador">
               <Button variant="primary" size="md">Cotizar ahora →</Button>
