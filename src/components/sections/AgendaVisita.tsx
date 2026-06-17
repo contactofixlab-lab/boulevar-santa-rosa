@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 
 const contactInfo = [
   { icon: Phone,  text: "+56 9 9535 0637",          href: "tel:+56995350637" },
@@ -154,9 +153,7 @@ export const AgendaVisita = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
             {contactInfo.map(({ icon: Icon, text, href }) => (
               <div key={text} className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Icon size={11} className="text-[#84CE25]" aria-hidden="true" />
-                </div>
+                <Icon size={16} className="text-[#84CE25] flex-shrink-0" aria-hidden="true" />
                 {href ? (
                   <a href={href} className="text-white/75 text-xs hover:text-white transition-colors">{text}</a>
                 ) : (
@@ -189,14 +186,14 @@ export const AgendaVisita = () => {
             </div>
 
             <div className="flex gap-2">
-              <Button variant="primary" size="md" className="flex-1 bg-[#0671AE] hover:bg-[#0559A0] text-white text-xs py-2">
+              <button className="flex-1 inline-flex items-center justify-center bg-[#0671AE] hover:bg-[#0559A0] text-white font-semibold px-6 py-3 text-xs rounded-full transition-colors">
                 Agendar reunión
-              </Button>
+              </button>
               <a
                 href="https://wa.me/56995350637"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-1 bg-[#84CE25] hover:bg-[#7BB820] text-[#033D6B] font-semibold px-3 py-2 rounded-lg transition-colors text-xs"
+                className="flex-1 inline-flex items-center justify-center gap-1 bg-[#84CE25] hover:bg-[#7BB820] text-[#033D6B] font-semibold px-6 py-3 text-xs rounded-full transition-colors"
               >
                 <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current" aria-hidden="true">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
