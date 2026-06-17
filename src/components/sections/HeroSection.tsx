@@ -3,29 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 
-// Genera una onda S-curve que fluye desde el lado DERECHO (x=1440)
-// hacia el lado IZQUIERDO con oscilaciones verticales.
-// Cada línea parte a una altura y0 y tiene una leve deriva diagonal hacia abajo.
-function sWave(y0: number, drift = 80): string {
-  const a = 28; // amplitud de oscilación vertical
-  const d = drift; // cuánto baja al llegar al extremo izquierdo
-  return [
-    `M1440,${y0}`,
-    `C1300,${y0 - a}   1150,${y0 + a + d * 0.1}  1000,${y0 + d * 0.2}`,
-    `S 800,${y0 - a + d * 0.3}   640,${y0 + d * 0.4}`,
-    `S 440,${y0 + a + d * 0.55}  280,${y0 + d * 0.65}`,
-    `S 120,${y0 - a + d * 0.8}     0,${y0 + d}`,
-  ].join(" ");
-}
-
 export const HeroSection = () => {
-  // 18 ondas S-curve que nacen del borde derecho en distintas alturas (60–790)
-  const LINES = Array.from({ length: 18 }, (_, i) => ({
-    y: 60 + i * 42,
-    drift: 50 + i * 3,
-    opacity: i < 3 ? 0.22 : i < 8 ? 0.18 - i * 0.008 : Math.max(0.04, 0.12 - i * 0.006),
-    w: i < 3 ? 1.8 : i < 7 ? 1.3 : 0.9,
-  }));
 
   return (
     <section className="relative bg-white overflow-hidden min-h-[92vh] flex items-center pt-20">
@@ -136,50 +114,10 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* ── ONDULACIONES DIAGONALES ──
-          Nacen del lado derecho (x=1440) y fluyen en diagonal hacia abajo-izquierda.
-          Cada línea es un S-curve con 4 segmentos bezier = hartas ondulaciones.
-          Se desvanecen hacia la izquierda gracias al mask con gradiente. ── */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        viewBox="0 0 1440 860"
-        preserveAspectRatio="none"
-        fill="none"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="wlFade" x1="1" y1="0.5" x2="0" y2="0.5">
-            <stop offset="0%"   stopColor="white" stopOpacity="1" />
-            <stop offset="50%"  stopColor="white" stopOpacity="0.65" />
-            <stop offset="80%"  stopColor="white" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="white" stopOpacity="0" />
-          </linearGradient>
-          <mask id="wlMask">
-            <rect width="1440" height="860" fill="url(#wlFade)" />
-          </mask>
-        </defs>
-
-        <g mask="url(#wlMask)">
-          {LINES.map(({ y, drift, opacity, w }, i) => (
-            <path
-              key={i}
-              d={sWave(y, drift)}
-              stroke="#0671AE"
-              strokeWidth={w}
-              opacity={opacity}
-            />
-          ))}
-        </g>
-      </svg>
 
       {/* ── Contenido izquierdo ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-20">
         <div className="max-w-[490px]">
-
-          <span className="inline-block bg-[#E3F3FB] text-[#0671AE] text-xs font-semibold
-                           px-4 py-1.5 rounded-full tracking-wide mb-5">
-            San Miguel, Santiago
-          </span>
 
           <h1 className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold text-[#033D6B]
                          leading-[1.15] mb-5">
@@ -193,7 +131,7 @@ export const HeroSection = () => {
             A pasos del metro y con áreas comunes exclusivas.
           </p>
 
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-3">
             <Link href="/cotizador">
               <Button variant="primary" size="md" className="shadow-lg">
                 Cotizar ahora →
@@ -203,29 +141,9 @@ export const HeroSection = () => {
               Descargar brochure ↓
             </Button>
           </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-[#EBF7CC] rounded-full flex items-center justify-center flex-shrink-0">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M2 7L5.5 10.5L12 3.5" stroke="#65A81A" strokeWidth="2"
-                  strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <p className="text-xs text-[#4A6275]">
-              Proyecto inmobiliario{" "}
-              <strong className="text-[#033D6B]">Boulevard Santa Rosa</strong>{" "}— San Miguel
-            </p>
-          </div>
         </div>
       </div>
 
-      {/* ── Onda inferior → Stats ── */}
-      <div className="absolute bottom-0 left-0 right-0 leading-none pointer-events-none" aria-hidden="true">
-        <svg viewBox="0 0 1440 90" preserveAspectRatio="none"
-          className="block w-full h-20 md:h-24" fill="#E3F3FB">
-          <path d="M0,45 C200,90 400,10 600,50 C800,88 1000,15 1200,48 C1320,65 1380,38 1440,45 L1440,90 L0,90 Z" />
-        </svg>
-      </div>
     </section>
   );
 };

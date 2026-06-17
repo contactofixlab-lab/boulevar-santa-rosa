@@ -35,10 +35,10 @@ export const AgendaVisita = () => {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
 
         {/* ── IZQUIERDA: imagen / render del proyecto ── */}
-        <div className="relative overflow-hidden min-h-[320px] lg:min-h-full">
+        <div className="relative overflow-hidden min-h-[256px] lg:min-h-full">
           {/* Imagen placeholder — render del edificio */}
           <svg
             viewBox="0 0 720 640"
@@ -140,22 +140,22 @@ export const AgendaVisita = () => {
         </div>
 
         {/* ── DERECHA: título + datos de contacto + formulario ── */}
-        <div className="flex flex-col justify-center px-8 md:px-12 pt-24 pb-14 lg:pt-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-3">
+        <div className="flex flex-col justify-center px-6 md:px-10 pt-16 pb-10 lg:pt-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
             Agenda tu{" "}
             <span className="text-[#84CE25]">visita</span>
           </h2>
-          <div className="w-14 h-[3px] bg-[#84CE25] rounded-full mb-5" />
-          <p className="text-white/70 text-sm leading-relaxed mb-8">
+          <div className="w-12 h-[2px] bg-[#84CE25] rounded-full mb-4" />
+          <p className="text-white/70 text-xs leading-relaxed mb-6">
             Visita nuestro departamento piloto y conoce de primera mano la calidad y diseño de Boulevard Santa Rosa.
           </p>
 
           {/* Datos de contacto */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
             {contactInfo.map(({ icon: Icon, text, href }) => (
-              <div key={text} className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Icon size={13} className="text-[#84CE25]" aria-hidden="true" />
+              <div key={text} className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Icon size={11} className="text-[#84CE25]" aria-hidden="true" />
                 </div>
                 {href ? (
                   <a href={href} className="text-white/75 text-xs hover:text-white transition-colors">{text}</a>
@@ -167,19 +167,19 @@ export const AgendaVisita = () => {
           </div>
 
           {/* Formulario */}
-          <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6">
-            <div className="space-y-3 mb-5">
+          <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-4">
+            <div className="space-y-2 mb-4">
               {[
-                { name: "nombre",   label: "Nombre completo", type: "text",  placeholder: "Tu nombre" },
-                { name: "email",    label: "Email",           type: "email", placeholder: "tu@email.com" },
-                { name: "telefono", label: "Teléfono",        type: "tel",   placeholder: "+56 9 ..." },
+                { name: "nombre",   label: "Nombre", type: "text",  placeholder: "Tu nombre" },
+                { name: "email",    label: "Email",  type: "email", placeholder: "tu@email.com" },
+                { name: "telefono", label: "Teléfono", type: "tel",   placeholder: "+56 9..." },
               ].map(({ name, label, type, placeholder }) => (
                 <div key={name}>
-                  <label className="block text-xs font-medium text-white/70 mb-1">{label}</label>
+                  <label className="block text-xs font-medium text-white/70 mb-0.5">{label}</label>
                   <input
                     type={type}
                     name={name}
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#84CE25]/60 transition"
+                    className="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-xs text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#84CE25]/60 transition"
                     placeholder={placeholder}
                     value={form[name as keyof typeof form]}
                     onChange={handleChange}
@@ -188,17 +188,17 @@ export const AgendaVisita = () => {
               ))}
             </div>
 
-            <div className="flex gap-3">
-              <Button variant="primary" size="md" className="flex-1">
+            <div className="flex gap-2">
+              <Button variant="primary" size="md" className="flex-1 bg-[#0671AE] hover:bg-[#0559A0] text-white text-xs py-2">
                 Agendar reunión
               </Button>
               <a
                 href="https://wa.me/56995350637"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-4 py-2.5 rounded-full transition-colors text-sm"
+                className="flex-1 inline-flex items-center justify-center gap-1 bg-[#84CE25] hover:bg-[#7BB820] text-[#033D6B] font-semibold px-3 py-2 rounded-lg transition-colors text-xs"
               >
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current" aria-hidden="true">
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current" aria-hidden="true">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
                   <path d="M11.998 0C5.373 0 .007 5.367.007 11.993c0 2.117.553 4.101 1.518 5.832L0 24l6.335-1.495c1.645.895 3.516 1.41 5.663 1.41 6.625 0 11.991-5.367 11.991-11.993S18.623 0 11.998 0zm0 21.836c-1.95 0-3.761-.522-5.324-1.424l-.38-.226-3.961.936.986-3.854-.249-.4A9.823 9.823 0 012.17 11.993c0-5.43 4.4-9.839 9.83-9.839 5.428 0 9.828 4.409 9.828 9.839 0 5.431-4.4 9.843-9.83 9.843z"/>
                 </svg>
@@ -206,7 +206,7 @@ export const AgendaVisita = () => {
               </a>
             </div>
 
-            <p className="text-white/40 text-xs text-center mt-3">
+            <p className="text-white/40 text-xs text-center mt-2">
               Al enviar aceptas nuestra política de privacidad.
             </p>
           </div>
