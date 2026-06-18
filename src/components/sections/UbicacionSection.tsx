@@ -36,9 +36,7 @@ export const UbicacionSection = () => {
             <div className="space-y-4">
               {bullets.map(({ iconName, text }) => (
                 <div key={text} className="flex items-start gap-3">
-                  <div className="mt-0.5 w-8 h-8 bg-[#E3F3FB] rounded-full flex items-center justify-center flex-shrink-0 text-[#0671AE]">
-                    <Icon name={iconName} size={16} />
-                  </div>
+                  <Icon name={iconName} size={18} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
                   <p className="text-[#4A6275] text-sm leading-relaxed pt-1">{text}</p>
                 </div>
               ))}

@@ -101,9 +101,7 @@ export const TipologiasPreview = () => {
             <ul className="space-y-3 mb-8">
               {features.map((f) => (
                 <li key={f} className="flex items-start gap-3">
-                  <div className="mt-0.5 w-5 h-5 bg-[#84CE25] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Check size={11} className="text-white" aria-hidden="true" />
-                  </div>
+                  <Check size={16} className="text-[#84CE25] flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-[#4A6275] text-sm">{f}</span>
                 </li>
               ))}

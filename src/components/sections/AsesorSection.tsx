@@ -83,9 +83,7 @@ export const AsesorSection = () => {
             <div className="grid grid-cols-1 gap-3 mt-6">
               {trustItems.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-[#EBF7CC] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Icon size={15} className="text-[#65A81A]" aria-hidden="true" />
-                  </div>
+                  <Icon size={18} className="text-[#65A81A] flex-shrink-0" aria-hidden="true" />
                   <span className="text-[#4A6275] text-sm">{label}</span>
                 </div>
               ))}
