@@ -1,13 +1,16 @@
 import Image from "next/image";
 
+import React from "react";
+
 interface IconProps {
   name: string;
   size?: number;
   className?: string;
   alt?: string;
+  style?: React.CSSProperties;
 }
 
-export const Icon = ({ name, size = 24, className = "", alt }: IconProps) => {
+export const Icon = ({ name, size = 24, className = "", alt, style }: IconProps) => {
   const iconPath = `/iconos/${name}.svg`;
 
   return (
@@ -20,6 +23,7 @@ export const Icon = ({ name, size = 24, className = "", alt }: IconProps) => {
       style={{
         width: `${size}px`,
         height: `${size}px`,
+        ...style,
       }}
     />
   );

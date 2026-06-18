@@ -12,30 +12,30 @@ const navLinks = [
 export const Footer = () => {
   return (
     <footer className="bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+      <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
           {/* Logo + tagline */}
           <div className="md:col-span-1">
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-4">
               <Image
                 src="/Boulevard_horizontal_color.png"
                 alt="Boulevard Santa Rosa"
-                width={180}
-                height={60}
-                className="h-16 w-auto object-contain"
+                width={160}
+                height={54}
+                className="h-14 w-auto object-contain"
               />
             </Link>
-            <p className="text-[#4A6275] text-sm leading-relaxed mb-8">
-              Nuevo proyecto inmobiliario en el corazón de San Miguel, Santiago.
+            <p className="text-[#4A6275] text-xs leading-relaxed mb-4">
+              Nuevo proyecto inmobiliario en San Miguel, Santiago.
             </p>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <a
                 href="#"
-                className="w-8 h-8 bg-[#E3F3FB] hover:bg-[#0671AE] hover:text-white text-[#0671AE] rounded-lg flex items-center justify-center transition-colors"
+                className="w-7 h-7 bg-[#E3F3FB] hover:bg-[#0671AE] hover:text-white text-[#0671AE] rounded flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                   <circle cx="12" cy="12" r="4"/>
                   <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
@@ -43,19 +43,19 @@ export const Footer = () => {
               </a>
               <a
                 href="#"
-                className="w-8 h-8 bg-[#E3F3FB] hover:bg-[#0671AE] hover:text-white text-[#0671AE] rounded-lg flex items-center justify-center transition-colors"
+                className="w-7 h-7 bg-[#E3F3FB] hover:bg-[#0671AE] hover:text-white text-[#0671AE] rounded flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
               </a>
               <a
                 href="#"
-                className="w-8 h-8 bg-[#E3F3FB] hover:bg-[#0671AE] hover:text-white text-[#0671AE] rounded-lg flex items-center justify-center transition-colors"
+                className="w-7 h-7 bg-[#E3F3FB] hover:bg-[#0671AE] hover:text-white text-[#0671AE] rounded flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                   <rect x="2" y="9" width="4" height="12"/>
                   <circle cx="4" cy="4" r="2"/>
@@ -66,15 +66,15 @@ export const Footer = () => {
 
           {/* Navegación */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-5 text-[#033D6B]">
+            <h4 className="font-semibold text-xs uppercase tracking-wider mb-4 text-[#033D6B]">
               Navegación
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#4A6275] hover:text-[#0671AE] text-sm transition-colors"
+                    className="text-[#4A6275] hover:text-[#0671AE] text-xs transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -83,46 +83,32 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Proyecto */}
-          <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-5 text-[#033D6B]">
-              El Proyecto
-            </h4>
-            <ul className="space-y-3 text-sm text-[#4A6275]">
-              <li><Link href="/tipologias" className="hover:text-[#0671AE] transition-colors">Tipologías</Link></li>
-              <li><Link href="/proyecto#areas-comunes" className="hover:text-[#0671AE] transition-colors">Áreas Comunes</Link></li>
-              <li><Link href="/galeria" className="hover:text-[#0671AE] transition-colors">Galería</Link></li>
-              <li><Link href="/proceso-compra" className="hover:text-[#0671AE] transition-colors">Proceso de Compra</Link></li>
-              <li><Link href="/cotizador" className="hover:text-[#0671AE] transition-colors">Cotizador</Link></li>
-            </ul>
-          </div>
-
           {/* Sala de Ventas */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-5 text-[#033D6B]">
+            <h4 className="font-semibold text-xs uppercase tracking-wider mb-4 text-[#033D6B]">
               Sala de Ventas
             </h4>
-            <div className="space-y-2.5 text-sm text-[#4A6275]">
+            <div className="space-y-2 text-xs text-[#4A6275]">
               <p>San Miguel, Santiago, Chile</p>
               <a href="tel:+56995350637" className="block hover:text-[#0671AE] transition-colors font-medium text-[#033D6B]">
                 +56 9 9535 0637
               </a>
-              <a href="mailto:ventas_carrera@almago.cl" className="block hover:text-[#0671AE] transition-colors text-xs break-all">
+              <a href="mailto:ventas_carrera@almago.cl" className="block hover:text-[#0671AE] transition-colors break-all">
                 ventas_carrera@almago.cl
               </a>
-              <p className="text-xs">Lun–Dom · 10:00 a 19:00 hrs.</p>
+              <p>Lun–Dom · 10:00 a 19:00 hrs.</p>
             </div>
           </div>
 
         </div>
 
-        <div className="border-t border-gray-100 pt-7 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-gray-100 pt-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[#4A6275] text-xs">
             &copy; 2026 Boulevard Santa Rosa. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-2 text-[#4A6275] text-xs">
             <span>Powered by</span>
-            <span className="bg-[#E3F3FB] px-2 py-0.5 rounded text-[#0671AE] font-medium">
+            <span className="bg-[#E3F3FB] px-2 py-0.5 rounded text-[#0671AE] font-medium text-xs">
               Mobysuite
             </span>
           </div>
