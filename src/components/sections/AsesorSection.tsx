@@ -103,9 +103,7 @@ export const AsesorSection = () => {
 
             {/* Tarjeta asesor */}
             <div className="bg-white rounded-2xl p-5 shadow-sm mb-8 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#E3F3FB] flex items-center justify-center flex-shrink-0">
-                <UserCheck size={20} className="text-[#0671AE]" aria-hidden="true" />
-              </div>
+              <UserCheck size={24} className="text-[#0671AE] flex-shrink-0" aria-hidden="true" />
               <div>
                 <p className="font-bold text-[#033D6B]">Enrique Polidori</p>
                 <p className="text-[#4A6275] text-sm">ventas_carrera@almago.cl</p>
@@ -115,17 +113,13 @@ export const AsesorSection = () => {
             {/* Datos de contacto */}
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-[#E3F3FB] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Phone size={15} className="text-[#0671AE]" aria-hidden="true" />
-                </div>
+                <Phone size={18} className="text-[#0671AE] flex-shrink-0" aria-hidden="true" />
                 <a href="tel:+56995350637" className="text-[#033D6B] font-semibold hover:text-[#0671AE] transition-colors">
                   +56 9 9535 0637
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-[#E3F3FB] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Clock size={15} className="text-[#0671AE]" aria-hidden="true" />
-                </div>
+                <Clock size={18} className="text-[#0671AE] flex-shrink-0" aria-hidden="true" />
                 <span className="text-[#4A6275] text-sm">Lunes a domingo · 10:00 a 19:00 hrs.</span>
               </div>
             </div>

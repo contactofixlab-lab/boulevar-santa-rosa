@@ -38,12 +38,7 @@ export const InvierteSection = () => {
                 key={label}
                 className="bg-white rounded-2xl px-4 py-6 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-4 h-full text-center"
               >
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm"
-                  style={{ backgroundColor: bg, color }}
-                >
-                  <Icon name={iconName} size={30} />
-                </div>
+                <Icon name={iconName} size={32} className="text-[#0671AE] flex-shrink-0" aria-hidden="true" />
                 <div>
                   <p className="text-2xl font-bold text-[#033D6B] mb-1">{value}</p>
                   <p className="text-xs text-[#4A6275] leading-snug">{label}</p>
