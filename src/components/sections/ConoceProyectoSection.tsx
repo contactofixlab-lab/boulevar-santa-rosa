@@ -65,7 +65,7 @@ export const ConoceProyectoSection = () => {
   const goNext = () => setActiveIndex((i) => (i + 1) % photos.length);
 
   return (
-    <section className="py-16 bg-[#F4F9FB]">
+    <section className="relative py-16 bg-[#F4F9FB] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Título CENTRADO */}
         <div className="text-center mb-10">
@@ -288,6 +288,22 @@ export const ConoceProyectoSection = () => {
           </div>
         )}
       </div>
+
+      {/* ── Curva de transición hacia "Invierte en San Miguel" (blanco) ── */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-20 md:h-28 pointer-events-none"
+        viewBox="0 0 1440 200"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,168 C8,140 30,105 76,97
+             L1370,97
+             C1390,97 1412,55 1440,0
+             L1440,200 L0,200 Z"
+          fill="white"
+        />
+      </svg>
     </section>
   );
 };

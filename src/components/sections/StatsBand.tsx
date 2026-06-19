@@ -1,34 +1,26 @@
 import { Icon } from "@/components/ui/Icon";
 
 const stats = [
-  { iconName: "proyecto-pisos", value: "6",  label: "Pisos totales",    color: "#0671AE", bg: "#E3F3FB" },
-  { iconName: "departamentos",  value: "94", label: "Departamentos",    color: "#0671AE", bg: "#E3F3FB" },
-  { iconName: "estacionamiento", value: "62", label: "Estacionamientos", color: "#65A81A", bg: "#EBF7CC" },
-  { iconName: "bodegas",        value: "48", label: "Bodegas",          color: "#65A81A", bg: "#EBF7CC" },
+  { iconName: "proyecto-pisos",  value: "6",  label: "Pisos totales",     iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
+  { iconName: "departamentos",   value: "94", label: "Departamentos",     iconColor: "#84CE25", bgGradient: "rgba(132, 206, 37, 0.08)" },
+  { iconName: "estacionamiento", value: "62", label: "Estacionamientos",  iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
+  { iconName: "bodegas",         value: "48", label: "Bodegas",           iconColor: "#84CE25", bgGradient: "rgba(132, 206, 37, 0.08)" },
 ];
 
 export const StatsBand = () => {
   return (
-    <section className="relative bg-[#E3F3FB] py-8">
+    <section className="relative bg-white py-12">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {stats.map(({ iconName, value, label, bg, color }) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {stats.map(({ iconName, value, label, iconColor, bgGradient }) => (
             <div
               key={label}
-              className="bg-white rounded-2xl shadow-sm py-6 px-5 flex flex-col items-center gap-4 hover:shadow-md transition-shadow"
+              className="rounded-2xl shadow-sm p-8 flex flex-col items-center gap-5 hover:shadow-md transition-shadow"
+              style={{ backgroundColor: bgGradient }}
             >
-              <div className="flex items-center gap-4">
-                <div
-                  className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: bg }}
-                >
-                  <div style={{ color }}>
-                    <Icon name={iconName} size={32} />
-                  </div>
-                </div>
-                <span className="text-5xl font-bold text-[#033D6B]">{value}</span>
-              </div>
-              <span className="text-sm text-[#4A6275] font-medium">{label}</span>
+              <Icon name={iconName} size={40} style={{ color: iconColor }} aria-hidden="true" />
+              <span className="text-4xl font-bold text-[#033D6B]">{value}</span>
+              <span className="text-sm text-[#4A6275] font-medium text-center">{label}</span>
             </div>
           ))}
         </div>

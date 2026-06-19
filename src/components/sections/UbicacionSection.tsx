@@ -18,7 +18,7 @@ const pois = [
 
 export const UbicacionSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="relative py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
           {/* Left: título encima de los bullets */}
@@ -95,6 +95,22 @@ export const UbicacionSection = () => {
           ))}
         </div>
       </div>
+
+      {/* ── Curva de transición hacia "Conoce el Proyecto" (#F4F9FB) ── */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-20 md:h-28 pointer-events-none"
+        viewBox="0 0 1440 200"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,168 C8,140 30,105 76,97
+             L1370,97
+             C1390,97 1412,55 1440,0
+             L1440,200 L0,200 Z"
+          fill="#F4F9FB"
+        />
+      </svg>
     </section>
   );
 };
