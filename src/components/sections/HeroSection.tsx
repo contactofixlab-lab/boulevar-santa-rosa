@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/Button";
  */
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[82vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[94vh] flex items-center overflow-hidden">
 
       {/* ── Imagen del render COMPLETA de fondo ── */}
       <div
@@ -35,9 +35,9 @@ export const HeroSection = () => {
         aria-hidden="true"
       />
 
-      {/* ── Borde inferior: curva medida píxel a píxel de la referencia "curvatura.png" ── */}
+      {/* ── Borde inferior: misma curva asimétrica usada en el resto de las secciones ── */}
       <svg
-        className="absolute bottom-0 left-0 w-full h-28 md:h-36 pointer-events-none"
+        className="absolute bottom-0 left-0 w-full h-20 md:h-28 pointer-events-none"
         viewBox="0 0 1440 200"
         preserveAspectRatio="none"
         aria-hidden="true"
@@ -55,10 +55,10 @@ export const HeroSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pb-10">
         <div className="max-w-[520px]">
 
-          <h1 className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold text-white
+          <h1 className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold
                          leading-[1.15] mb-5 drop-shadow-sm">
-            Vive conectado<br />
-            al nuevo{" "}
+            <span className="text-[#5BB8EC]">Vive conectado<br />
+            al nuevo</span>{" "}
             <span className="text-[#84CE25]">San Miguel</span>
           </h1>
 

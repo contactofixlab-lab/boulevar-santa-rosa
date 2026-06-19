@@ -9,18 +9,21 @@ const stats = [
 
 export const StatsBand = () => {
   return (
-    <section className="relative bg-white py-12">
+    // Sin fondo propio: las cards quedan montadas mitad sobre la foto del hero, mitad sobre el blanco
+    <section className="relative z-20 pb-6 md:pb-10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-1 md:gap-1.5 -mt-[78px] md:-mt-[103px]">
           {stats.map(({ iconName, value, label, iconColor, bgGradient }) => (
             <div
               key={label}
-              className="rounded-2xl shadow-sm p-8 flex flex-col items-center gap-5 hover:shadow-md transition-shadow"
-              style={{ backgroundColor: bgGradient }}
+              className="w-full md:w-4/5 mx-auto rounded-xl shadow-md px-3 py-4 md:px-4 md:py-5 flex flex-row items-center justify-center gap-2.5 hover:shadow-lg transition-shadow"
+              style={{ background: `linear-gradient(${bgGradient}, ${bgGradient}), #ffffff` }}
             >
-              <Icon name={iconName} size={40} style={{ color: iconColor }} aria-hidden="true" />
-              <span className="text-4xl font-bold text-[#033D6B]">{value}</span>
-              <span className="text-sm text-[#4A6275] font-medium text-center">{label}</span>
+              <Icon name={iconName} size={32} style={{ color: iconColor }} className="flex-shrink-0" aria-hidden="true" />
+              <div className="flex flex-col items-start gap-0.5 min-w-0">
+                <span className="text-2xl md:text-3xl font-bold text-[#033D6B] leading-none">{value}</span>
+                <span className="text-xs md:text-sm text-[#4A6275] font-medium leading-tight">{label}</span>
+              </div>
             </div>
           ))}
         </div>

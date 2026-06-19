@@ -10,29 +10,27 @@ const bullets = [
 ];
 
 const pois = [
-  { emoji: "🛒", label: "Supermercados" },
-  { emoji: "🎓", label: "Educación" },
-  { emoji: "🏥", label: "Salud" },
-  { emoji: "🏪", label: "Comercio" },
+  { iconName: "supermercados",   label: "Supermercados" },
+  { iconName: "colegios",        label: "Educación" },
+  { iconName: "centros-medicos", label: "Salud" },
+  { iconName: "building-2",      label: "Comercio" },
 ];
 
 export const UbicacionSection = () => {
   return (
     <section className="relative py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
-          {/* Left: título encima de los bullets */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          {/* Left: título + bullets, sin párrafo descriptivo */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#033D6B] mb-3">
-              Ubicación &{" "}
+            <h2 className="text-3xl md:text-4xl font-bold text-[#033D6B] mb-3 leading-tight">
+              Ubicación
+              <br />
               <span className="text-[#0671AE]">Conectividad</span>
             </h2>
             {/* Línea verde decorativa */}
             <div className="w-14 h-[3px] bg-[#84CE25] rounded-full mb-6" />
 
-            <p className="text-[#4A6275] mb-7 leading-relaxed text-base">
-              En el corazón de San Miguel, a pasos de todo lo que necesitas para vivir conectado a la ciudad.
-            </p>
             <div className="space-y-4">
               {bullets.map(({ iconName, text }) => (
                 <div key={text} className="flex items-start gap-3">
@@ -43,7 +41,7 @@ export const UbicacionSection = () => {
             </div>
           </div>
 
-          {/* Right: map with rounded corners and grid overlay */}
+          {/* Right: map con tooltip y tarjeta POI flotante */}
           <div className="relative w-full rounded-3xl overflow-hidden shadow-lg bg-[#d8edf8]" style={{ aspectRatio: "4/3" }}>
             {/* Map grid lines */}
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400" aria-hidden="true">
@@ -74,25 +72,27 @@ export const UbicacionSection = () => {
               <circle cx="200" cy="192" r="22" fill="none" stroke="#0671AE" strokeWidth="1.5" opacity="0.4"/>
               <circle cx="200" cy="192" r="32" fill="none" stroke="#0671AE" strokeWidth="1" opacity="0.2"/>
             </svg>
-            {/* Label */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0671AE]/80 to-transparent p-4">
-              <p className="text-white text-xs font-semibold">Boulevard Santa Rosa</p>
-              <p className="text-white/70 text-xs">San Miguel, Santiago, Chile</p>
+            {/* Tooltip junto al pin */}
+            <div className="absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-full bg-white rounded-lg shadow-md px-3 py-1.5 whitespace-nowrap">
+              <p className="text-[#033D6B] text-xs font-semibold">Boulevard Santa Rosa</p>
+              <p className="text-[#4A6275] text-[10px]">San Miguel, Santiago, Chile</p>
+            </div>
+
+            {/* Tarjeta flotante con POIs, montada en la parte inferior del mapa */}
+            <div className="absolute bottom-3 left-3 right-3 bg-white rounded-2xl shadow-lg py-3 px-2 grid grid-cols-4 gap-1">
+              {pois.map(({ iconName, label }, i) => (
+                <div key={label} className="flex flex-col items-center gap-1.5 text-center">
+                  <Icon
+                    name={iconName}
+                    size={20}
+                    className={i % 2 === 0 ? "text-[#84CE25]" : "text-[#0671AE]"}
+                    aria-hidden="true"
+                  />
+                  <span className="text-[#033D6B] text-[10px] font-medium leading-tight">{label}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* POI cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {pois.map(({ emoji, label }) => (
-            <div
-              key={label}
-              className="flex flex-col items-center gap-3 bg-[#F4F9FB] hover:bg-[#E3F3FB] rounded-2xl p-6 transition-colors"
-            >
-              <span className="text-3xl" aria-hidden="true">{emoji}</span>
-              <span className="font-semibold text-[#033D6B] text-sm text-center">{label}</span>
-            </div>
-          ))}
         </div>
       </div>
 
