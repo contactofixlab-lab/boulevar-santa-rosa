@@ -1,12 +1,52 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, ArrowRight } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  ArrowRight,
+  User,
+  Home,
+  MessageSquare,
+  ChevronDown,
+  CalendarCheck,
+} from "lucide-react";
 
 const phones = [
   { text: "+56 9 9535 0637", href: "tel:+56995350637" },
   { text: "+56 2 9535 0637", href: "tel:+56229535637" },
 ];
+
+type FieldProps = {
+  icon: React.ElementType;
+  label: string;
+  name: string;
+  type?: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+};
+
+const FormField = ({ icon: Icon, label, name, type = "text", value, onChange, placeholder }: FieldProps) => (
+  <div>
+    <label className="block text-[11px] font-semibold text-[#4A6275] uppercase tracking-wide mb-1.5">
+      {label}
+    </label>
+    <div className="relative">
+      <Icon size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#0671AE]/50" aria-hidden="true" />
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="w-full bg-[#F4F9FB] border border-transparent rounded-xl pl-10 pr-3.5 py-3 text-sm text-[#033D6B]
+                   placeholder:text-[#4A6275]/50 focus:outline-none focus:bg-white focus:border-[#0671AE]
+                   focus:ring-4 focus:ring-[#0671AE]/10 transition-all"
+      />
+    </div>
+  </div>
+);
 
 export const AgendaVisita = () => {
   const [form, setForm] = useState({
@@ -105,92 +145,112 @@ export const AgendaVisita = () => {
           </div>
 
           {/* ── CENTRO: formulario blanco ── */}
-          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label className="block text-xs font-medium text-[#4A6275] mb-1">Nombre completo</label>
-                <input
-                  type="text"
+          <div className="bg-white rounded-3xl shadow-2xl shadow-black/20 overflow-hidden">
+            {/* Barra de acento con los colores de marca */}
+            <div className="h-1.5 bg-gradient-to-r from-[#0671AE] via-[#5BB8EC] to-[#84CE25]" />
+
+            <div className="p-6 md:p-8">
+              {/* Header del formulario */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-10 h-10 rounded-xl bg-[#E3F3FB] flex items-center justify-center flex-shrink-0">
+                  <CalendarCheck size={18} className="text-[#0671AE]" aria-hidden="true" />
+                </span>
+                <div>
+                  <p className="text-[#033D6B] font-semibold text-sm leading-tight">Completa tus datos</p>
+                  <p className="text-[#4A6275] text-xs">Te contactamos en menos de 24 horas</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                <FormField
+                  icon={User}
+                  label="Nombre completo"
                   name="nombre"
                   value={form.nombre}
                   onChange={handleChange}
                   placeholder="Tu nombre"
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#033D6B]
-                             placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0671AE]/40 focus:border-[#0671AE] transition"
                 />
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-[#4A6275] mb-1">Correo electrónico</label>
-                <input
-                  type="email"
+                <FormField
+                  icon={Mail}
+                  label="Correo electrónico"
                   name="email"
+                  type="email"
                   value={form.email}
                   onChange={handleChange}
                   placeholder="tu@email.com"
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#033D6B]
-                             placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0671AE]/40 focus:border-[#0671AE] transition"
                 />
-              </div>
-              <div>
-                <label className="block text-xs font-medium text-[#4A6275] mb-1">Teléfono</label>
-                <input
-                  type="tel"
+                <FormField
+                  icon={Phone}
+                  label="Teléfono"
                   name="telefono"
+                  type="tel"
                   value={form.telefono}
                   onChange={handleChange}
                   placeholder="+56 9..."
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#033D6B]
-                             placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0671AE]/40 focus:border-[#0671AE] transition"
                 />
+                <div>
+                  <label className="block text-[11px] font-semibold text-[#4A6275] uppercase tracking-wide mb-1.5">
+                    ¿En qué estás interesado?
+                  </label>
+                  <div className="relative">
+                    <Home size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#0671AE]/50 pointer-events-none" aria-hidden="true" />
+                    <select
+                      name="interes"
+                      value={form.interes}
+                      onChange={handleChange}
+                      className="w-full bg-[#F4F9FB] border border-transparent rounded-xl pl-10 pr-9 py-3 text-sm text-[#033D6B]
+                                 focus:outline-none focus:bg-white focus:border-[#0671AE] focus:ring-4 focus:ring-[#0671AE]/10
+                                 transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="">Selecciona una opción</option>
+                      <option value="comprar">Comprar para vivir</option>
+                      <option value="invertir">Invertir</option>
+                      <option value="informacion">Información general</option>
+                    </select>
+                    <ChevronDown size={16} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#4A6275]/60 pointer-events-none" aria-hidden="true" />
+                  </div>
+                </div>
               </div>
-              <div>
-                <label className="block text-xs font-medium text-[#4A6275] mb-1">¿En qué estás interesado?</label>
-                <select
-                  name="interes"
-                  value={form.interes}
-                  onChange={handleChange}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#033D6B]
-                             focus:outline-none focus:ring-2 focus:ring-[#0671AE]/40 focus:border-[#0671AE] transition appearance-none bg-white"
-                >
-                  <option value="">Selecciona una opción</option>
-                  <option value="comprar">Comprar para vivir</option>
-                  <option value="invertir">Invertir</option>
-                  <option value="informacion">Información general</option>
-                </select>
+
+              <div className="mb-4">
+                <label className="block text-[11px] font-semibold text-[#4A6275] uppercase tracking-wide mb-1.5">
+                  Mensaje
+                </label>
+                <div className="relative">
+                  <MessageSquare size={16} className="absolute left-3.5 top-3.5 text-[#0671AE]/50" aria-hidden="true" />
+                  <textarea
+                    name="mensaje"
+                    value={form.mensaje}
+                    onChange={handleChange}
+                    rows={3}
+                    placeholder="Cuéntanos qué buscas..."
+                    className="w-full bg-[#F4F9FB] border border-transparent rounded-xl pl-10 pr-3.5 py-3 text-sm text-[#033D6B] resize-none
+                               placeholder:text-[#4A6275]/50 focus:outline-none focus:bg-white focus:border-[#0671AE]
+                               focus:ring-4 focus:ring-[#0671AE]/10 transition-all"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="mb-4">
-              <label className="block text-xs font-medium text-[#4A6275] mb-1">Mensaje</label>
-              <textarea
-                name="mensaje"
-                value={form.mensaje}
-                onChange={handleChange}
-                rows={3}
-                placeholder="Cuéntanos qué buscas..."
-                className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-[#033D6B] resize-none
-                           placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0671AE]/40 focus:border-[#0671AE] transition"
-              />
-            </div>
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
+                <label className="flex items-center gap-2.5 text-xs text-[#4A6275] cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    name="acepta"
+                    checked={form.acepta}
+                    onChange={handleChange}
+                    className="w-4 h-4 rounded-md border-gray-300 accent-[#0671AE] focus:ring-[#0671AE]/30 cursor-pointer"
+                  />
+                  Acepto la{" "}
+                  <a href="#" className="text-[#0671AE] font-medium hover:underline">política de privacidad</a>
+                </label>
 
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <label className="flex items-center gap-2 text-xs text-[#4A6275] cursor-pointer">
-                <input
-                  type="checkbox"
-                  name="acepta"
-                  checked={form.acepta}
-                  onChange={handleChange}
-                  className="w-4 h-4 rounded border-gray-300 text-[#0671AE] focus:ring-[#0671AE]/40"
-                />
-                Acepto la{" "}
-                <a href="#" className="text-[#0671AE] hover:underline">política de privacidad</a>
-              </label>
-
-              <button className="inline-flex items-center gap-2 bg-[#0671AE] hover:bg-[#0559A0] text-white
-                                 font-semibold px-6 py-2.5 text-sm rounded-full transition-colors">
-                Enviar
-                <ArrowRight size={16} aria-hidden="true" />
-              </button>
+                <button className="group inline-flex items-center gap-2 bg-[#0671AE] hover:bg-[#055A8C] text-white
+                                   font-semibold px-7 py-3 text-sm rounded-full shadow-lg shadow-[#0671AE]/25
+                                   hover:shadow-xl hover:shadow-[#0671AE]/30 hover:-translate-y-0.5 transition-all">
+                  Enviar solicitud
+                  <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
+                </button>
+              </div>
             </div>
           </div>
 
