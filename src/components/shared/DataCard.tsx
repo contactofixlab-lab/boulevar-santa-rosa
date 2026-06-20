@@ -1,15 +1,18 @@
 import React from "react";
 import { LucideIcon } from "lucide-react";
+import { Icon as ImageIcon } from "@/components/ui/Icon";
 
 interface DataCardProps {
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  iconName?: string;
   title: string;
   description: string;
   className?: string;
 }
 
 export const DataCard: React.FC<DataCardProps> = ({
-  icon: Icon,
+  icon: LucideIconComp,
+  iconName,
   title,
   description,
   className = "",
@@ -26,7 +29,11 @@ export const DataCard: React.FC<DataCardProps> = ({
     >
       <div className="flex justify-center mb-4">
         <div className="w-12 h-12 bg-surface-green rounded-lg flex items-center justify-center">
-          <Icon className="w-6 h-6 text-primary-green" />
+          {iconName ? (
+            <ImageIcon name={iconName} size={24} className="text-primary-blue" aria-hidden="true" />
+          ) : (
+            LucideIconComp && <LucideIconComp className="w-6 h-6 text-primary-blue" />
+          )}
         </div>
       </div>
       <h3 className="text-lg font-bold text-primary-blue mb-2">{title}</h3>

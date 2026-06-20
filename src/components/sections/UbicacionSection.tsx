@@ -6,14 +6,14 @@ const bullets = [
   { iconName: "supermercados", text: "Supermercados y comercio a metros" },
   { iconName: "colegios",     text: "Colegios y universidades cercanas" },
   { iconName: "centros-medicos", text: "Hospital El Pino y Clínica Santa Rosa" },
-  { iconName: "areas-verdes", text: "Rápida conexión a autopistas urbanas" },
+  { iconName: "autopista",    text: "Rápida conexión a autopistas urbanas" },
 ];
 
 const pois = [
   { iconName: "supermercados",   label: "Supermercados" },
   { iconName: "colegios",        label: "Educación" },
   { iconName: "centros-medicos", label: "Salud" },
-  { iconName: "building-2",      label: "Comercio" },
+  { iconName: "mercado",         label: "Comercio" },
 ];
 
 export const UbicacionSection = () => {

@@ -10,8 +10,42 @@ interface IconProps {
   style?: React.CSSProperties;
 }
 
+// Iconografía nueva (public/iconos/iconos mejores). Mapea los nombres usados
+// en el sitio al PNG correspondiente; lo que no tiene equivalente cae al set
+// SVG anterior en public/iconos.
+const NEW_ICONS: Record<string, string> = {
+  metro: "metro",
+  bancos: "banco",
+  supermercados: "supermercado",
+  colegios: "colegio",
+  "centros-medicos": "centro-salud",
+  "areas-verdes": "areas-verdes",
+  dormitorios: "dormitorios",
+  banos: "bano",
+  "proyecto-pisos": "pisos",
+  departamentos: "edificio",
+  mercado: "mercado",
+  autopista: "autopista",
+  parques: "parques",
+  carabineros: "carabineros",
+  quincho: "quincho",
+  "sala-multiuso": "sala-multiuso",
+  bicicletero: "bicicletero",
+  telefono: "telefono",
+  correo: "correo",
+  direccion: "direccion",
+  "cocina-equipada": "cocina-equipada",
+  ventanas: "ventanas",
+  "agua-caliente": "agua-caliente",
+  entretenimiento: "entretenimiento",
+  web: "web",
+};
+
 export const Icon = ({ name, size = 24, className = "", alt, style }: IconProps) => {
-  const iconPath = `/iconos/${name}.svg`;
+  const newIcon = NEW_ICONS[name];
+  const iconPath = newIcon
+    ? `/iconos/iconos%20mejores/${newIcon}.png`
+    : `/iconos/${name}.svg`;
 
   return (
     <Image

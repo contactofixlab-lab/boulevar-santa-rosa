@@ -1,10 +1,13 @@
 import Image from "next/image";
-import { Phone, Clock, Shield, UserCheck, Home } from "lucide-react";
+import { Clock, Shield, UserCheck, type LucideIcon as LucideIconType } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 
-const trustItems = [
+type TrustItem = { icon?: LucideIconType; iconName?: string; label: string };
+
+const trustItems: TrustItem[] = [
   { icon: Shield,    label: "Asesoría experta y transparente" },
   { icon: UserCheck, label: "Acompañamiento personalizado" },
-  { icon: Home,      label: "Tu nuevo hogar, nuestra prioridad" },
+  { iconName: "departamentos", label: "Tu nuevo hogar, nuestra prioridad" },
 ];
 
 export const AsesorSection = () => {
@@ -81,9 +84,13 @@ export const AsesorSection = () => {
 
             {/* Trust items */}
             <div className="grid grid-cols-1 gap-3 mt-6">
-              {trustItems.map(({ icon: Icon, label }) => (
+              {trustItems.map(({ icon: LucideIcon, iconName, label }) => (
                 <div key={label} className="flex items-center gap-3">
-                  <Icon size={18} className="text-[#65A81A] flex-shrink-0" aria-hidden="true" />
+                  {iconName ? (
+                    <Icon name={iconName} size={18} className="text-[#65A81A] flex-shrink-0" aria-hidden="true" />
+                  ) : (
+                    LucideIcon && <LucideIcon size={18} className="text-[#65A81A] flex-shrink-0" aria-hidden="true" />
+                  )}
                   <span className="text-[#4A6275] text-sm">{label}</span>
                 </div>
               ))}
@@ -113,7 +120,7 @@ export const AsesorSection = () => {
             {/* Datos de contacto */}
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3">
-                <Phone size={18} className="text-[#0671AE] flex-shrink-0" aria-hidden="true" />
+                <Icon name="telefono" size={18} className="text-[#0671AE] flex-shrink-0" aria-hidden="true" />
                 <a href="tel:+56995350637" className="text-[#033D6B] font-semibold hover:text-[#0671AE] transition-colors">
                   +56 9 9535 0637
                 </a>

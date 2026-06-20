@@ -1,12 +1,21 @@
-import { Flame, Monitor, Star, Bike, Leaf, Car } from "lucide-react";
+import { Monitor, Car, type LucideIcon } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 
-const areas = [
-  { icon: Flame,   label: "Quinchos",         desc: "Espacios para asados y reuniones",  bg: "#FFF3E0", color: "#E07820" },
-  { icon: Monitor, label: "Co-work",           desc: "Sala de trabajo colaborativo",       bg: "#E3F3FB", color: "#0671AE" },
-  { icon: Star,    label: "Sala Multiuso",     desc: "Eventos y actividades sociales",     bg: "#EDE7F6", color: "#7B5EA7" },
-  { icon: Bike,    label: "Bicicletero",       desc: "Estacionamiento seguro de bicicletas", bg: "#EBF7CC", color: "#65A81A" },
-  { icon: Leaf,    label: "Áreas Verdes",      desc: "Jardines y espacios de descanso",   bg: "#EBF7CC", color: "#65A81A" },
-  { icon: Car,     label: "Estac. de Visita",  desc: "Para tus invitados",                bg: "#E3F3FB", color: "#0671AE" },
+type Area = {
+  icon?: LucideIcon;
+  iconName?: string;
+  label: string;
+  desc: string;
+  bg: string;
+};
+
+const areas: Area[] = [
+  { iconName: "quincho",       label: "Quinchos",         desc: "Espacios para asados y reuniones",  bg: "#FFF3E0" },
+  { icon: Monitor,             label: "Co-work",           desc: "Sala de trabajo colaborativo",       bg: "#E3F3FB" },
+  { iconName: "sala-multiuso", label: "Sala Multiuso",     desc: "Eventos y actividades sociales",     bg: "#EDE7F6" },
+  { iconName: "bicicletero",   label: "Bicicletero",       desc: "Estacionamiento seguro de bicicletas", bg: "#EBF7CC" },
+  { iconName: "areas-verdes",  label: "Áreas Verdes",      desc: "Jardines y espacios de descanso",   bg: "#EBF7CC" },
+  { icon: Car,                 label: "Estac. de Visita",  desc: "Para tus invitados",                bg: "#E3F3FB" },
 ];
 
 export const AreasComunes = () => {
@@ -27,7 +36,7 @@ export const AreasComunes = () => {
 
         {/* 6 cards en fila */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {areas.map(({ icon: Icon, label, desc, bg, color }) => (
+          {areas.map(({ icon: LucideIcon, iconName, label, desc, bg }) => (
             <div
               key={label}
               className="group flex flex-col rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 overflow-visible"
@@ -43,7 +52,11 @@ export const AreasComunes = () => {
                               w-12 h-12 rounded-full bg-white shadow-md
                               flex items-center justify-center"
                 >
-                  <Icon size={22} style={{ color }} aria-hidden="true" />
+                  {iconName ? (
+                    <Icon name={iconName} size={22} className="text-[#033D6B]" aria-hidden="true" />
+                  ) : (
+                    LucideIcon && <LucideIcon size={22} className="text-[#033D6B]" aria-hidden="true" />
+                  )}
                 </div>
               </div>
 

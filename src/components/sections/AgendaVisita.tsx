@@ -11,6 +11,7 @@ import {
   ChevronDown,
   CalendarCheck,
 } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 
 const phones = [
   { text: "+56 9 9535 0637", href: "tel:+56995350637" },
@@ -128,7 +129,7 @@ export const AgendaVisita = () => {
                              text-white text-sm font-medium rounded-full px-4 py-2.5 transition-colors w-fit"
                 >
                   <span className="w-7 h-7 rounded-full bg-[#84CE25] flex items-center justify-center flex-shrink-0">
-                    <Phone size={13} className="text-[#033D6B]" aria-hidden="true" />
+                    <Icon name="telefono" size={13} className="text-[#033D6B]" aria-hidden="true" />
                   </span>
                   {text}
                 </a>

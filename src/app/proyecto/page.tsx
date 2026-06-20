@@ -14,9 +14,13 @@ const iconMap: Record<string, any> = {
   piscina: Icons.Waves,
   gimnasio: Icons.Dumbbell,
   coworking: Icons.Laptop,
-  "areas-verdes": Icons.Leaf,
   seguridad: Icons.Shield,
   estacionamientos: Icons.ParkingCircle,
+};
+
+// "Áreas Verdes" sí tiene equivalente en el nuevo set de íconos (public/iconos/iconos mejores)
+const newIconMap: Record<string, string> = {
+  "areas-verdes": "areas-verdes",
 };
 
 export default function ProyectoPage() {
@@ -57,7 +61,8 @@ export default function ProyectoPage() {
               {areas.map((area) => (
                 <DataCard
                   key={area.id}
-                  icon={iconMap[area.id] || Icons.Building2}
+                  iconName={newIconMap[area.id]}
+                  icon={newIconMap[area.id] ? undefined : iconMap[area.id] || Icons.Building2}
                   title={area.nombre}
                   description={area.descripcion}
                 />

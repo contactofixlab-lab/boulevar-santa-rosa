@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 
 export default function ContactoPage() {
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ export default function ContactoPage() {
                 <h3 className="text-2xl font-bold text-primary-blue">Información de Contacto</h3>
 
                 <div className="flex gap-4">
-                  <Phone className="w-6 h-6 text-primary-green flex-shrink-0 mt-1" />
+                  <Icon name="telefono" size={24} className="text-primary-green flex-shrink-0 mt-1" aria-hidden="true" />
                   <div>
                     <p className="font-semibold text-primary-blue">Teléfono</p>
                     <a href="tel:+56973301234" className="text-slate-blue hover:text-primary-blue">
@@ -49,7 +49,7 @@ export default function ContactoPage() {
                 </div>
 
                 <div className="flex gap-4">
-                  <Mail className="w-6 h-6 text-primary-green flex-shrink-0 mt-1" />
+                  <Icon name="correo" size={24} className="text-primary-green flex-shrink-0 mt-1" aria-hidden="true" />
                   <div>
                     <p className="font-semibold text-primary-blue">Email</p>
                     <a href="mailto:ventas@boulevardsantarosa.cl" className="text-slate-blue hover:text-primary-blue">
@@ -59,7 +59,7 @@ export default function ContactoPage() {
                 </div>
 
                 <div className="flex gap-4">
-                  <MapPin className="w-6 h-6 text-primary-green flex-shrink-0 mt-1" />
+                  <Icon name="direccion" size={24} className="text-primary-green flex-shrink-0 mt-1" aria-hidden="true" />
                   <div>
                     <p className="font-semibold text-primary-blue">Ubicación</p>
                     <p className="text-slate-blue">San Miguel, Santiago</p>
