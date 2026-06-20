@@ -57,7 +57,7 @@ export const HeroSection = () => {
 
           <h1 className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold
                          leading-[1.15] mb-5 drop-shadow-sm">
-            <span className="text-[#5BB8EC]">Vive conectado<br />
+            <span className="text-white">Vive conectado<br />
             al nuevo</span>{" "}
             <span className="text-[#84CE25]">San Miguel</span>
           </h1>
