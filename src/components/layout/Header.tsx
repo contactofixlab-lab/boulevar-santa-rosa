@@ -8,12 +8,12 @@ import { Menu, X } from "lucide-react";
 import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 
 const navLinks = [
-  { href: "/proyecto", label: "Proyecto" },
+  { href: "/", label: "Proyecto" },
   { href: "/ubicacion", label: "Ubicación" },
-  { href: "/tipologias", label: "Departamentos" },
-  { href: "/proyecto#areas-comunes", label: "Áreas Comunes" },
-  { href: "/#inversion", label: "Inversión" },
-  { href: "/contacto", label: "Contacto" },
+  // { href: "/tipologias", label: "Departamentos" },  // Oculto
+  // { href: "/proyecto#areas-comunes", label: "Áreas Comunes" },  // Oculto
+  // { href: "/#inversion", label: "Inversión" },  // Oculto
+  // { href: "/contacto", label: "Contacto" },  // Oculto
   { href: "/cotizador-opciones", label: "Opciones Cotizador" },
 ];
 
