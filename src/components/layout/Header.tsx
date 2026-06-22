@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/proyecto#areas-comunes", label: "Áreas Comunes" },
   { href: "/#inversion", label: "Inversión" },
   { href: "/contacto", label: "Contacto" },
+  { href: "/cotizador-opciones", label: "Opciones Cotizador" },
 ];
 
 export const Header = () => {

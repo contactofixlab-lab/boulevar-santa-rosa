@@ -266,13 +266,15 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
             </div>
 
             {/* Botones */}
-            <div className="flex flex-col gap-3 pt-4 border-t border-surface-blue">
-              <Button variant="outline" size="md" disabled title="Ficha disponible próximamente" className="w-full opacity-50 cursor-not-allowed">
-                Descargar ficha
-              </Button>
-              <Button variant="secondary" size="md" className="w-full" onClick={() => setShowForm(true)}>
-                Solicitar cotización
-              </Button>
+            <div className="pt-4 border-t border-surface-blue">
+              <div className="flex gap-3 mb-3">
+                <Button variant="outline" size="md" disabled title="Ficha disponible próximamente" className="flex-1 opacity-50 cursor-not-allowed">
+                  Descargar ficha
+                </Button>
+                <Button variant="secondary" size="md" className="flex-1" onClick={() => setShowForm(true)}>
+                  Solicitar cotización
+                </Button>
+              </div>
               <p className="text-xs text-slate-blue text-center">Asesoría personalizada con nuestros ejecutivos</p>
             </div>
           </div>
