@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 
 /**
  * Hero con foto de fondo completa (edificio, locales, bus, personas) y el borde
@@ -69,11 +69,14 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Link href="/cotizador">
-              <Button variant="primary" size="md" className="shadow-xl">
-                Cotizar ahora →
-              </Button>
-            </Link>
+            <Button
+              variant="primary"
+              size="md"
+              className="shadow-xl"
+              onClick={() => cotizadorDialogHandle.openWithPayload(undefined)}
+            >
+              Cotizar ahora →
+            </Button>
             <Button
               variant="outline"
               size="md"

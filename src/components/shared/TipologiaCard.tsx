@@ -1,5 +1,8 @@
+"use client";
+
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import { Button } from "@/components/ui/Button";
+import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 import type { Tipologia } from "@/lib/data/tipologias";
 
 const statusMap = {
@@ -48,7 +51,12 @@ export const TipologiaCard = ({ tipologia: t }: TipologiaCardProps) => {
         </p>
       )}
 
-      <Button variant="primary" size="md" className="w-full">
+      <Button
+        variant="primary"
+        size="md"
+        className="w-full"
+        onClick={() => cotizadorDialogHandle.openWithPayload(t.id)}
+      >
         Ver Detalles
       </Button>
     </div>

@@ -33,12 +33,15 @@ const statusLabel = {
 
 interface CotizadorDetalleProps {
   tipologias: Tipologia[];
+  initialSelectedId?: string;
 }
 
-export const CotizadorDetalle = ({ tipologias }: CotizadorDetalleProps) => {
+export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDetalleProps) => {
   const departamentos = tipologias.filter((t) => t.tipo === "departamento");
   const [selectedId, setSelectedId] = useState(
-    departamentos.find((t) => t.destacado)?.id || departamentos[0]?.id
+    (initialSelectedId && departamentos.some((t) => t.id === initialSelectedId) ? initialSelectedId : undefined) ||
+      departamentos.find((t) => t.destacado)?.id ||
+      departamentos[0]?.id
   );
   const [submitted, setSubmitted] = useState(false);
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 
 const navLinks = [
   { href: "/proyecto", label: "Proyecto" },
@@ -55,9 +56,13 @@ export const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Link href="/cotizador">
-            <Button variant="primary" size="sm">Cotizar →</Button>
-          </Link>
+          <Button
+            variant="primary"
+            size="sm"
+            onClick={() => cotizadorDialogHandle.openWithPayload(undefined)}
+          >
+            Cotizar →
+          </Button>
         </div>
 
         {/* Mobile toggle */}
@@ -83,9 +88,17 @@ export const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Link href="/cotizador" onClick={() => setMobileOpen(false)}>
-            <Button variant="primary" size="sm" className="w-full">Cotizar →</Button>
-          </Link>
+          <Button
+            variant="primary"
+            size="sm"
+            className="w-full"
+            onClick={() => {
+              setMobileOpen(false);
+              cotizadorDialogHandle.openWithPayload(undefined);
+            }}
+          >
+            Cotizar →
+          </Button>
         </div>
       )}
     </header>
