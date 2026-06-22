@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { TipologiaCard } from "@/components/shared/TipologiaCard";
+import { CotizadorDetalle } from "@/components/sections/CotizadorDetalle";
 import type { Tipologia } from "@/lib/data/tipologias";
 import { MOBYSUITE_IFRAME_URL } from "@/lib/mobysuite/iframe";
 import { MOBYSUITE_WIDGET_SCRIPT, isMobysuiteWidgetConfigured } from "@/lib/mobysuite/widget";
@@ -110,13 +110,7 @@ const WidgetMode = ({ tipologias }: { tipologias: Tipologia[] }) => {
         </span>
       </div>
       <div ref={containerRef} id="mobysuite-widget">
-        {loaded && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-[fadeIn_0.3s_ease-in-out]">
-            {tipologias.slice(0, 4).map((t) => (
-              <TipologiaCard key={t.id} tipologia={t} />
-            ))}
-          </div>
-        )}
+        {loaded && <CotizadorDetalle tipologias={tipologias} />}
       </div>
     </div>
   );
@@ -141,10 +135,6 @@ const ApiMode = ({
         {dataSource === "mobysuite" ? "Datos en vivo de Mobysuite" : "Datos mock (Mobysuite no respondió)"}
       </span>
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {tipologias.map((t) => (
-        <TipologiaCard key={t.id} tipologia={t} />
-      ))}
-    </div>
+    <CotizadorDetalle tipologias={tipologias} />
   </div>
 );

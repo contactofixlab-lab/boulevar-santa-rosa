@@ -1,4 +1,4 @@
-import { TipologiaCard } from "@/components/shared/TipologiaCard";
+import { CotizadorDetalle } from "@/components/sections/CotizadorDetalle";
 import { getTipologiasFromMobysuite } from "@/lib/mobysuite/api";
 
 export const metadata = { title: "Cotizador (embed) - Boulevard Santa Rosa" };
@@ -16,11 +16,7 @@ export default async function CotizadorEmbedPage() {
       <div className="max-w-5xl mx-auto">
         <h1 className="text-2xl font-bold text-primary-blue mb-1">Cotiza tu espacio</h1>
         <p className="text-sm text-slate-blue mb-6">Boulevard Santa Rosa · vista embebida</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {data.map((t) => (
-            <TipologiaCard key={t.id} tipologia={t} />
-          ))}
-        </div>
+        <CotizadorDetalle tipologias={data} />
       </div>
     </div>
   );
