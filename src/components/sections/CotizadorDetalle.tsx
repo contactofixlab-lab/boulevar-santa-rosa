@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Ruler, X, Plus } from "lucide-react";
+import { Check, X, Leaf } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/shared/StatusBadge";
 import { Alert } from "@/components/shared/Alert";
@@ -9,14 +9,13 @@ import { PlanoReferencial } from "@/components/shared/PlanoReferencial";
 import { Icon } from "@/components/ui/Icon";
 import type { Tipologia } from "@/lib/data/tipologias";
 
-const TOTAL_PISOS = 6;
+const TOTAL_PISOS = 7;
 
 const EQUIPAMIENTO = [
-  "Cocina equipada con muebles y cubierta",
-  "Baño completo con cerámicas",
-  "Ventanas termopanel doble acristalamiento",
-  "Preinstalación de aire acondicionado",
-  "Terminaciones de primer nivel",
+  "Cocina equipada con horno, encimera y campana",
+  "Dormitorios con closet",
+  "Dormitorio principal en suite",
+  "Buena iluminación natural",
 ];
 
 const statusMap = {
@@ -30,13 +29,6 @@ const statusLabel = {
   presale: "Pre-venta",
   vendido: "Vendido",
 };
-
-interface CartItem {
-  id: string;
-  tipo: string;
-  nombre: string;
-  precioUF: number;
-}
 
 interface ContactForm {
   nombre: string;
@@ -59,15 +51,6 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
       departamentos[0]?.id
   );
 
-  const [cart, setCart] = useState<CartItem[]>([
-    {
-      id: selectedDeptoId!,
-      tipo: "departamento",
-      nombre: departamentos.find((t) => t.id === selectedDeptoId)?.nombre || "",
-      precioUF: departamentos.find((t) => t.id === selectedDeptoId)?.precioUF || 0,
-    },
-  ]);
-
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState<ContactForm>({ nombre: "", email: "", telefono: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -77,23 +60,7 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
 
   const totalPisos = Math.max(TOTAL_PISOS, ...departamentos.map((t) => t.piso || 0));
 
-  const handleSelectDepto = (id: string) => {
-    setSelectedDeptoId(id);
-    setCart([{ id, tipo: "departamento", nombre: departamentos.find((t) => t.id === id)?.nombre || "", precioUF: departamentos.find((t) => t.id === id)?.precioUF || 0 }]);
-  };
-
-  const handleAddToCart = (bien: Tipologia) => {
-    if (!cart.some((item) => item.id === bien.id)) {
-      setCart([...cart, { id: bien.id, tipo: bien.tipo, nombre: bien.nombre, precioUF: bien.precioUF }]);
-    }
-  };
-
-  const handleRemoveFromCart = (id: string) => {
-    if (id !== selectedDeptoId) {
-      setCart(cart.filter((item) => item.id !== id));
-    }
-  };
-
+  // Formulario view
   if (showForm) {
     return (
       <div className="bg-white border-2 border-surface-blue rounded-2xl p-6 md:p-8 max-w-2xl mx-auto">
@@ -102,19 +69,13 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
           Nos pondremos en contacto en menos de 2 horas para finalizar tu cotización.
         </p>
 
-        {/* Resumen del carrito */}
         <div className="bg-surface-blue rounded-xl p-4 mb-6">
-          <h3 className="text-sm font-bold text-primary-blue mb-3">Bienes a cotizar:</h3>
-          <div className="space-y-2">
-            {cart.map((item) => (
-              <p key={item.id} className="text-sm text-secondary-navy">
-                {item.nombre} • <span className="font-bold text-primary-green">UF {item.precioUF.toLocaleString()}</span>
-              </p>
-            ))}
-          </div>
+          <h3 className="text-sm font-bold text-primary-blue mb-3">Bien a cotizar:</h3>
+          <p className="text-sm text-secondary-navy">
+            {selected.nombre} • <span className="font-bold text-primary-green">UF {selected.precioUF.toLocaleString()}</span>
+          </p>
         </div>
 
-        {/* Formulario */}
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -165,12 +126,7 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
             <Button type="submit" variant="secondary" size="md">
               Enviar cotización
             </Button>
-            <Button
-              type="button"
-              variant="outline"
-              size="md"
-              onClick={() => setShowForm(false)}
-            >
+            <Button type="button" variant="outline" size="md" onClick={() => setShowForm(false)}>
               Cancelar
             </Button>
           </div>
@@ -179,8 +135,9 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
     );
   }
 
+  // Modal view (referencia Figma)
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       {submitted && (
         <Alert
           variant="success"
@@ -190,162 +147,133 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
         />
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_280px] gap-6">
-        {/* ── Izquierda: lista de departamentos ── */}
-        <div className="bg-white border-2 border-surface-blue rounded-2xl p-4">
-          <h3 className="text-sm font-bold text-primary-blue mb-3">Departamentos</h3>
-          <div className="space-y-2">
-            {departamentos.map((t) => (
-              <button
-                key={t.id}
-                onClick={() => handleSelectDepto(t.id)}
-                className={`w-full text-left rounded-lg border-2 px-3 py-2 transition-colors text-xs ${
-                  t.id === selectedDeptoId
-                    ? "border-primary-blue bg-surface-blue"
-                    : "border-surface-blue bg-white hover:border-primary-blue/50"
-                }`}
-              >
-                <p className="font-bold text-primary-blue">{t.nombre}</p>
-                <p className="text-slate-blue">UF {t.precioUF.toLocaleString()}</p>
-              </button>
-            ))}
-          </div>
-        </div>
+      <div className="bg-white border-2 border-surface-blue rounded-2xl p-8 shadow-lg">
+        <h2 className="text-2xl font-bold text-primary-blue mb-1">Detalle del departamento</h2>
+        <p className="text-sm text-slate-blue mb-6">
+          {selected.nombre} • <span className="font-bold">{selected.dormitorios}D + {selected.banos}B</span>
+        </p>
 
-        {/* ── Centro: detalle del departamento ── */}
-        <div className="bg-white border-2 border-surface-blue rounded-2xl p-6">
-          <h2 className="text-xl font-bold text-secondary-navy mb-4">Detalle del departamento</h2>
-
-          {/* Plano + Ubicación */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
-            <div>
-              <div className="relative bg-surface-blue rounded-xl p-4 flex items-center justify-center aspect-square">
-                <PlanoReferencial className="w-full h-full" />
-                <span className="absolute top-2 right-2 bg-primary-blue text-white text-xs font-bold px-2 py-1 rounded-full">
-                  Plano
-                </span>
-              </div>
-              <p className="text-xs text-slate-blue mt-1">Imagen referencial</p>
-            </div>
-
-            <div>
-              <p className="text-xs font-bold text-slate-blue uppercase mb-2">Ubicación en edificio</p>
-              <div className="flex flex-col gap-1">
-                {Array.from({ length: totalPisos }, (_, i) => totalPisos - i).map((piso) => (
-                  <div
-                    key={piso}
-                    className={`h-6 rounded flex items-center justify-center text-xs font-bold transition-all ${
-                      piso === selected.piso
-                        ? "bg-primary-green text-white"
-                        : "bg-surface-blue text-slate-blue"
-                    }`}
-                  >
-                    {piso === selected.piso ? `Piso ${piso} ✓` : piso}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Características */}
-          <div className="mb-6">
-            <p className="text-xs font-bold text-slate-blue uppercase mb-3">Características</p>
-            <div className="grid grid-cols-2 gap-2">
-              {selected.m2 && (
-                <div className="flex items-center gap-2 text-sm">
-                  <Ruler size={14} className="text-primary-blue" />
-                  <span className="text-secondary-navy">{selected.m2} m²</span>
-                </div>
-              )}
-              {selected.dormitorios && (
-                <div className="flex items-center gap-2 text-sm">
-                  <Icon name="dormitorios" size={14} className="text-primary-blue" />
-                  <span className="text-secondary-navy">{selected.dormitorios}D</span>
-                </div>
-              )}
-              {selected.banos && (
-                <div className="flex items-center gap-2 text-sm">
-                  <Icon name="banos" size={14} className="text-primary-blue" />
-                  <span className="text-secondary-navy">{selected.banos}B</span>
-                </div>
-              )}
-              <div>
-                <StatusBadge status={statusMap[selected.estado]}>
-                  {statusLabel[selected.estado]}
-                </StatusBadge>
-              </div>
-            </div>
-          </div>
-
-          {/* Equipamiento */}
+        <div className="grid grid-cols-1 md:grid-cols-[350px_1fr] gap-8 mb-8">
+          {/* Foto + Plano Izquierda */}
           <div>
-            <p className="text-xs font-bold text-slate-blue uppercase mb-2">Equipamiento</p>
-            <ul className="space-y-1">
-              {EQUIPAMIENTO.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-xs">
-                  <Check size={12} className="text-primary-green flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-blue">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="bg-slate-300 rounded-xl h-80 flex items-center justify-center mb-4 overflow-hidden">
+              <PlanoReferencial className="w-full h-full" />
+            </div>
+            <p className="text-xs text-slate-blue text-center">
+              Las imágenes y dimensiones son referenciales y podrían experimentar variaciones durante el desarrollo del proyecto.
+            </p>
+          </div>
+
+          {/* Info Derecha */}
+          <div className="space-y-6">
+            {/* Ubicación en el edificio + Floor plan */}
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Ubicación en el edificio</h3>
+                <div className="space-y-1">
+                  <p className="text-xs text-slate-blue font-semibold">Torre A</p>
+                  <p className="text-xs text-slate-blue mb-3">Planta Tipo (Pisos 3 al 6)</p>
+                  {/* Floor plan mini */}
+                  <div className="bg-surface-blue rounded-lg p-3 mb-2">
+                    <div className="grid grid-cols-2 gap-1">
+                      {[...Array(4)].map((_, i) => (
+                        <div key={i} className={`h-8 rounded ${i === 1 ? "bg-primary-green" : "bg-white border border-primary-blue"}`} />
+                      ))}
+                    </div>
+                  </div>
+                  {/* Floor stack */}
+                  <div className="flex flex-col gap-1 mt-4">
+                    <p className="text-xs font-semibold text-slate-blue mb-2">Asimiles</p>
+                    {Array.from({ length: totalPisos }, (_, i) => totalPisos - i).map((piso) => (
+                      <div
+                        key={piso}
+                        className={`h-5 rounded flex items-center justify-center text-[10px] font-bold ${
+                          piso === selected.piso
+                            ? "bg-primary-green text-white"
+                            : "bg-surface-blue text-slate-blue"
+                        }`}
+                      >
+                        {piso === selected.piso && "← 305"}
+                        {!selected.piso || piso !== selected.piso ? piso : ""}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Características */}
+              <div>
+                <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Características</h3>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Leaf size={18} className="text-primary-green" />
+                      <span className="text-xs text-secondary-navy">Superficie útil</span>
+                    </div>
+                    <span className="text-sm font-bold text-secondary-navy">{selected.m2} m²</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Leaf size={18} className="text-primary-green" />
+                      <span className="text-xs text-secondary-navy">Terraza</span>
+                    </div>
+                    <span className="text-sm font-bold text-secondary-navy">4,20 m²</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Leaf size={18} className="text-primary-green" />
+                      <span className="text-xs text-secondary-navy">Superficie total</span>
+                    </div>
+                    <span className="text-sm font-bold text-secondary-navy">49,51 m²</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Icon name="dormitorios" size={18} className="text-primary-green" />
+                      <span className="text-xs text-secondary-navy">Orientación</span>
+                    </div>
+                    <span className="text-sm font-bold text-secondary-navy">Norponiente</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Icon name="dormitorios" size={18} className="text-primary-green" />
+                      <span className="text-xs text-secondary-navy">Piso</span>
+                    </div>
+                    <span className="text-sm font-bold text-secondary-navy">{selected.piso}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-secondary-navy">Estado</span>
+                    <StatusBadge status={statusMap[selected.estado]}>
+                      {statusLabel[selected.estado]}
+                    </StatusBadge>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Equipamiento y terminaciones */}
+            <div>
+              <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Equipamiento y terminaciones</h3>
+              <ul className="space-y-2">
+                {EQUIPAMIENTO.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <Check size={16} className="text-primary-green flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-secondary-navy">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* ── Derecha: carrito y otros bienes ── */}
-        <div className="space-y-4">
-          {/* Carrito */}
-          <div className="bg-white border-2 border-surface-blue rounded-2xl p-4">
-            <h3 className="text-sm font-bold text-primary-blue mb-3">Mi cotización</h3>
-            <div className="space-y-2 mb-4">
-              {cart.map((item) => (
-                <div key={item.id} className="flex items-center justify-between bg-surface-blue p-2 rounded-lg">
-                  <div>
-                    <p className="text-xs font-bold text-secondary-navy">{item.nombre}</p>
-                    <p className="text-xs text-primary-green font-bold">UF {item.precioUF.toLocaleString()}</p>
-                  </div>
-                  {item.id !== selectedDeptoId && (
-                    <button onClick={() => handleRemoveFromCart(item.id)} className="text-slate-blue hover:text-primary-blue">
-                      <X size={14} />
-                    </button>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <Button variant="secondary" size="sm" className="w-full" onClick={() => setShowForm(true)}>
-              Solicitar cotización
-            </Button>
-          </div>
-
-          {/* Otros bienes */}
-          {otrosBienes.length > 0 && (
-            <div className="bg-white border-2 border-surface-blue rounded-2xl p-4">
-              <h3 className="text-sm font-bold text-primary-blue mb-3">Agregar bienes</h3>
-              <div className="space-y-2">
-                {otrosBienes.map((bien) => {
-                  const inCart = cart.some((item) => item.id === bien.id);
-                  return (
-                    <button
-                      key={bien.id}
-                      onClick={() => handleAddToCart(bien)}
-                      disabled={inCart}
-                      className={`w-full text-left rounded-lg border-2 p-2 text-xs transition-colors flex items-center justify-between ${
-                        inCart
-                          ? "border-surface-blue bg-surface-green opacity-50 cursor-not-allowed"
-                          : "border-surface-blue bg-white hover:border-primary-blue"
-                      }`}
-                    >
-                      <div>
-                        <p className="font-bold text-primary-blue">{bien.nombre}</p>
-                        <p className="text-slate-blue">UF {bien.precioUF.toLocaleString()}</p>
-                      </div>
-                      <Plus size={14} className={inCart ? "text-slate-blue" : "text-primary-green"} />
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+        {/* Botones */}
+        <div className="flex items-center gap-3 pt-6 border-t border-surface-blue">
+          <Button variant="outline" size="md" disabled title="Ficha disponible próximamente" className="opacity-50 cursor-not-allowed">
+            Descargar ficha
+          </Button>
+          <Button variant="secondary" size="md" onClick={() => setShowForm(true)}>
+            Solicitar cotización
+          </Button>
+          <p className="text-xs text-slate-blue ml-auto">Asesoría personalizada con nuestros ejecutivos</p>
         </div>
       </div>
     </div>
