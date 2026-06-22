@@ -135,9 +135,9 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
     );
   }
 
-  // Modal view (referencia Figma)
+  // Modal view - Layout 3 columnas (Figma reference)
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       {submitted && (
         <Alert
           variant="success"
@@ -153,127 +153,129 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
           {selected.nombre} • <span className="font-bold">{selected.dormitorios}D + {selected.banos}B</span>
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-[350px_1fr] gap-8 mb-8">
-          {/* Foto + Plano Izquierda */}
-          <div>
-            <div className="bg-slate-300 rounded-xl h-80 flex items-center justify-center mb-4 overflow-hidden">
+        {/* Grid 3 columnas */}
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_300px_1fr] gap-8 mb-8">
+
+          {/* ══════════════════════════════════════════ */}
+          {/* COLUMNA 1: FOTO DEL DEPARTAMENTO (Solitaria) */}
+          {/* ══════════════════════════════════════════ */}
+          <div className="space-y-3">
+            <div className="bg-slate-300 rounded-xl h-96 flex items-center justify-center overflow-hidden border-2 border-primary-blue">
               <PlanoReferencial className="w-full h-full" />
             </div>
-            <p className="text-xs text-slate-blue text-center">
+            <p className="text-xs text-slate-blue text-center leading-tight">
               Las imágenes y dimensiones son referenciales y podrían experimentar variaciones durante el desarrollo del proyecto.
             </p>
           </div>
 
-          {/* Info Derecha */}
-          <div className="space-y-6">
-            {/* Ubicación en el edificio + Floor plan */}
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Ubicación en el edificio</h3>
-                <div className="space-y-1">
-                  <p className="text-xs text-slate-blue font-semibold">Torre A</p>
-                  <p className="text-xs text-slate-blue mb-3">Planta Tipo (Pisos 3 al 6)</p>
-                  {/* Floor plan mini */}
-                  <div className="bg-surface-blue rounded-lg p-3 mb-2">
-                    <div className="grid grid-cols-2 gap-1">
-                      {[...Array(4)].map((_, i) => (
-                        <div key={i} className={`h-8 rounded ${i === 1 ? "bg-primary-green" : "bg-white border border-primary-blue"}`} />
-                      ))}
-                    </div>
-                  </div>
-                  {/* Floor stack */}
-                  <div className="flex flex-col gap-1 mt-4">
-                    <p className="text-xs font-semibold text-slate-blue mb-2">Asimiles</p>
-                    {Array.from({ length: totalPisos }, (_, i) => totalPisos - i).map((piso) => (
+          {/* ══════════════════════════════════════════ */}
+          {/* COLUMNA 2: UBICACIÓN EN EL EDIFICIO */}
+          {/* ══════════════════════════════════════════ */}
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-2">Ubicación en el edificio</h3>
+              <p className="text-sm font-semibold text-secondary-navy mb-1">Torre A</p>
+              <p className="text-xs text-slate-blue mb-4">Planta Tipo (Pisos 3 al 6)</p>
+            </div>
+
+            {/* Floor plan 2D del piso - PLACEHOLDER PARA IMAGEN */}
+            <div>
+              <p className="text-xs font-semibold text-slate-blue mb-2">Planta del piso</p>
+              <div className="bg-slate-200 rounded-lg h-32 flex items-center justify-center border-2 border-dashed border-primary-blue">
+                <p className="text-xs text-slate-blue text-center">Imagen del floor plan del piso</p>
+              </div>
+            </div>
+
+            {/* Edificio en altura - PLACEHOLDER PARA IMAGEN con flecha */}
+            <div>
+              <p className="text-xs font-semibold text-slate-blue mb-2">Edificio en altura</p>
+              <div className="bg-slate-200 rounded-lg p-3 h-48 flex flex-col items-center justify-center border-2 border-dashed border-primary-blue relative">
+                {/* Flecha visual apuntando al piso */}
+                <div className="absolute left-0 flex items-center gap-1">
+                  {Array.from({ length: totalPisos }, (_, i) => totalPisos - i).map((piso) => (
+                    <div key={piso} className="flex items-center gap-1">
+                      {piso === selected.piso && (
+                        <div className="text-primary-green font-bold text-xl animate-pulse">➜</div>
+                      )}
                       <div
-                        key={piso}
-                        className={`h-5 rounded flex items-center justify-center text-[10px] font-bold ${
+                        className={`w-8 h-6 rounded flex items-center justify-center text-[9px] font-bold border ${
                           piso === selected.piso
-                            ? "bg-primary-green text-white"
-                            : "bg-surface-blue text-slate-blue"
+                            ? "bg-primary-green text-white border-primary-green"
+                            : "bg-white text-slate-blue border-primary-blue"
                         }`}
                       >
-                        {piso === selected.piso && "← 305"}
-                        {!selected.piso || piso !== selected.piso ? piso : ""}
+                        {piso}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
+                <p className="text-xs text-slate-blue">Imagen del edificio (altura)</p>
               </div>
+            </div>
+          </div>
 
-              {/* Características */}
-              <div>
-                <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Características</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Leaf size={18} className="text-primary-green" />
-                      <span className="text-xs text-secondary-navy">Superficie útil</span>
-                    </div>
-                    <span className="text-sm font-bold text-secondary-navy">{selected.m2} m²</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Leaf size={18} className="text-primary-green" />
-                      <span className="text-xs text-secondary-navy">Terraza</span>
-                    </div>
-                    <span className="text-sm font-bold text-secondary-navy">4,20 m²</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Leaf size={18} className="text-primary-green" />
-                      <span className="text-xs text-secondary-navy">Superficie total</span>
-                    </div>
-                    <span className="text-sm font-bold text-secondary-navy">49,51 m²</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Icon name="dormitorios" size={18} className="text-primary-green" />
-                      <span className="text-xs text-secondary-navy">Orientación</span>
-                    </div>
-                    <span className="text-sm font-bold text-secondary-navy">Norponiente</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Icon name="dormitorios" size={18} className="text-primary-green" />
-                      <span className="text-xs text-secondary-navy">Piso</span>
-                    </div>
-                    <span className="text-sm font-bold text-secondary-navy">{selected.piso}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-secondary-navy">Estado</span>
-                    <StatusBadge status={statusMap[selected.estado]}>
-                      {statusLabel[selected.estado]}
-                    </StatusBadge>
-                  </div>
+          {/* ══════════════════════════════════════════ */}
+          {/* COLUMNA 3: CARACTERÍSTICAS + EQUIPAMIENTO */}
+          {/* ══════════════════════════════════════════ */}
+          <div className="space-y-6">
+
+            {/* RECUADRO: Características */}
+            <div className="bg-surface-blue border-2 border-primary-blue rounded-xl p-5">
+              <h3 className="text-xs font-bold text-primary-blue uppercase tracking-wide mb-4">Características</h3>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-secondary-navy">Superficie útil</span>
+                  <span className="text-sm font-bold text-primary-green">{selected.m2} m²</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-secondary-navy">Terraza</span>
+                  <span className="text-sm font-bold text-primary-green">4,20 m²</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-secondary-navy">Superficie total</span>
+                  <span className="text-sm font-bold text-primary-green">49,51 m²</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-secondary-navy">Orientación</span>
+                  <span className="text-sm font-bold text-secondary-navy">Norponiente</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-secondary-navy">Piso</span>
+                  <span className="text-sm font-bold text-secondary-navy">{selected.piso}</span>
+                </div>
+                <div className="flex items-center justify-between border-t pt-3">
+                  <span className="text-sm text-secondary-navy">Estado</span>
+                  <StatusBadge status={statusMap[selected.estado]}>
+                    {statusLabel[selected.estado]}
+                  </StatusBadge>
                 </div>
               </div>
             </div>
 
-            {/* Equipamiento y terminaciones */}
-            <div>
-              <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Equipamiento y terminaciones</h3>
+            {/* RECUADRO: Equipamiento y terminaciones */}
+            <div className="bg-surface-green border-2 border-primary-green rounded-xl p-5">
+              <h3 className="text-xs font-bold text-primary-blue uppercase tracking-wide mb-4">Equipamiento y terminaciones</h3>
               <ul className="space-y-2">
                 {EQUIPAMIENTO.map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <Check size={16} className="text-primary-green flex-shrink-0 mt-0.5" />
+                    <Check size={14} className="text-primary-green flex-shrink-0 mt-0.5 font-bold" />
                     <span className="text-sm text-secondary-navy">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
 
-        {/* Botones */}
-        <div className="flex items-center gap-3 pt-6 border-t border-surface-blue">
-          <Button variant="outline" size="md" disabled title="Ficha disponible próximamente" className="opacity-50 cursor-not-allowed">
-            Descargar ficha
-          </Button>
-          <Button variant="secondary" size="md" onClick={() => setShowForm(true)}>
-            Solicitar cotización
-          </Button>
-          <p className="text-xs text-slate-blue ml-auto">Asesoría personalizada con nuestros ejecutivos</p>
+            {/* Botones */}
+            <div className="flex flex-col gap-3 pt-4 border-t border-surface-blue">
+              <Button variant="outline" size="md" disabled title="Ficha disponible próximamente" className="w-full opacity-50 cursor-not-allowed">
+                Descargar ficha
+              </Button>
+              <Button variant="secondary" size="md" className="w-full" onClick={() => setShowForm(true)}>
+                Solicitar cotización
+              </Button>
+              <p className="text-xs text-slate-blue text-center">Asesoría personalizada con nuestros ejecutivos</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
