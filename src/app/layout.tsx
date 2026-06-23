@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { WhatsAppFAB } from "@/components/layout/WhatsAppFAB";
 import { CotizadorDialogGlobal } from "@/components/sections/CotizadorDialogGlobal";
 import { getTipologiasFromMobysuite } from "@/lib/mobysuite/api";
@@ -43,6 +44,7 @@ export default async function RootLayout({
         {children}
         <WhatsAppFAB />
         <CotizadorDialogGlobal tipologias={tipologias} />
+        <Analytics />
       </body>
     </html>
   );
