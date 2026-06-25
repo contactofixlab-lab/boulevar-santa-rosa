@@ -241,9 +241,15 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
           {/* ══════════════════════════════════════════ */}
           <div className="space-y-6">
 
-            {/* RECUADRO: Características */}
+            {/* RECUADRO: Características de Detalles */}
             <div className="bg-surface-blue border-2 border-primary-blue rounded-xl p-5">
-              <h3 className="text-xs font-bold text-primary-blue uppercase tracking-wide mb-4">Características</h3>
+              <div className="mb-5">
+                <h3 className="text-xs font-bold text-primary-blue uppercase tracking-wide mb-3">Características de Detalles</h3>
+                <div className="bg-primary-blue text-white rounded-lg p-3 text-center">
+                  <p className="text-xs font-semibold mb-1">Precio</p>
+                  <p className="text-2xl font-bold">UF {selected.precioUF.toLocaleString()}</p>
+                </div>
+              </div>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-secondary-navy">Superficie útil</span>
