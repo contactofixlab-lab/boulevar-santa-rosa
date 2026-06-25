@@ -18,7 +18,7 @@ const pois = [
 
 export const UbicacionSection = () => {
   return (
-    <section className="relative py-20 bg-white overflow-hidden">
+    <section className="relative py-12 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: título + bullets, sin párrafo descriptivo */}
@@ -41,41 +41,70 @@ export const UbicacionSection = () => {
             </div>
           </div>
 
-          {/* Right: map con tooltip y tarjeta POI flotante */}
-          <div className="relative w-full rounded-3xl overflow-hidden shadow-lg bg-[#d8edf8]" style={{ aspectRatio: "4/3" }}>
-            {/* Map grid lines */}
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400" aria-hidden="true">
-              <defs>
-                <pattern id="mapGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#b8d5e8" strokeWidth="0.7"/>
-                </pattern>
-              </defs>
-              <rect width="400" height="400" fill="#d8edf8"/>
-              <rect width="400" height="400" fill="url(#mapGrid)"/>
-              {/* Streets */}
-              <rect x="0" y="185" width="400" height="14" fill="#b5cee0" rx="2"/>
-              <rect x="185" y="0" width="14" height="400" fill="#b5cee0" rx="2"/>
-              <rect x="0" y="280" width="400" height="8" fill="#c5dae8" rx="1"/>
-              <rect x="280" y="0" width="8" height="400" fill="#c5dae8" rx="1"/>
-              <rect x="0" y="100" width="400" height="6" fill="#c8dcea" rx="1"/>
-              <rect x="100" y="0" width="6" height="400" fill="#c8dcea" rx="1"/>
-              {/* Blocks */}
-              <rect x="110" y="110" width="65" height="65" fill="#c2d9e9" rx="3" opacity="0.7"/>
-              <rect x="195" y="110" width="75" height="65" fill="#c2d9e9" rx="3" opacity="0.6"/>
-              <rect x="110" y="205" width="65" height="65" fill="#c2d9e9" rx="3" opacity="0.6"/>
-              <rect x="295" y="205" width="60" height="65" fill="#c2d9e9" rx="3" opacity="0.5"/>
-              {/* Pin */}
-              <circle cx="200" cy="192" r="14" fill="#0671AE" opacity="0.9"/>
-              <circle cx="200" cy="192" r="7" fill="white"/>
-              <circle cx="200" cy="192" r="3" fill="#0671AE"/>
-              {/* Pulse ring */}
-              <circle cx="200" cy="192" r="22" fill="none" stroke="#0671AE" strokeWidth="1.5" opacity="0.4"/>
-              <circle cx="200" cy="192" r="32" fill="none" stroke="#0671AE" strokeWidth="1" opacity="0.2"/>
-            </svg>
-            {/* Tooltip junto al pin */}
-            <div className="absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-full bg-white rounded-lg shadow-md px-3 py-1.5 whitespace-nowrap">
-              <p className="text-[#033D6B] text-xs font-semibold">Boulevard Santa Rosa</p>
-              <p className="text-[#4A6275] text-[10px]">San Miguel, Santiago, Chile</p>
+          {/* Right: map con imagen real y puntos de interés */}
+          <div className="relative w-full rounded-3xl overflow-hidden shadow-lg" style={{ aspectRatio: "1672/941" }}>
+            {/* Imagen del mapa */}
+            <img
+              src="/Frame 4.png"
+              alt="Mapa de ubicación Boulevard Santa Rosa"
+              className="w-full h-full object-cover"
+            />
+
+            {/* Puntos de interés - Adaptados del CSS de Figma */}
+            {/* Hospital (1077px, 132px) */}
+            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "64.3%", top: "14%" }}>
+              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="centros-medicos" size={24} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Supermercado (1275px, 248px) */}
+            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "76.2%", top: "26.3%" }}>
+              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="supermercados" size={24} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Educación (1340px, 259px) */}
+            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "80.1%", top: "27.5%" }}>
+              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="colegios" size={24} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Comercio (1153px, 262px) */}
+            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "68.9%", top: "27.8%" }}>
+              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="mercado" size={24} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Banco (471px, 257px) */}
+            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "28.1%", top: "27.3%" }}>
+              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="bancos" size={24} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Comercio 2 (437px, 396px) */}
+            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "26.1%", top: "42%" }}>
+              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="mercado" size={24} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Comercio 3 (387px, 554px) */}
+            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "23.1%", top: "58.8%" }}>
+              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="mercado" size={24} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Punto central - Boulevard (744px, 488px) */}
+            <div className="absolute w-14 h-14 flex items-center justify-center" style={{ left: "44.4%", top: "51.8%" }}>
+              <div className="w-14 h-14 rounded-full border-3 border-[#0671AE] flex items-center justify-center bg-white shadow-lg">
+                <div className="w-6 h-6 rounded-full bg-[#0671AE]" />
+              </div>
             </div>
 
             {/* Tarjeta flotante con POIs, montada en la parte inferior del mapa */}

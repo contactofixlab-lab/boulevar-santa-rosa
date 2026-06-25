@@ -41,7 +41,7 @@ const metrics = [
 
 export const InvierteSection = () => {
   return (
-    <section id="inversion" className="py-20 bg-white">
+    <section id="inversion" className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 items-stretch">
 

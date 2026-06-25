@@ -65,7 +65,7 @@ export const ConoceProyectoSection = () => {
   const goNext = () => setActiveIndex((i) => (i + 1) % photos.length);
 
   return (
-    <section className="relative py-16 bg-[#F4F9FB] overflow-hidden">
+    <section className="relative py-10 bg-[#F4F9FB] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Título CENTRADO */}
         <div className="text-center mb-10">

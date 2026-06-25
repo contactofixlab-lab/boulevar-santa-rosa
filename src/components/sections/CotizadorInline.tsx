@@ -9,7 +9,7 @@ interface CotizadorInlineProps {
 
 export const CotizadorInline = ({ tipologias }: CotizadorInlineProps) => {
   return (
-    <section className="py-20 bg-surface-light">
+    <section className="py-12 bg-surface-light">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <p className="text-primary-green font-semibold uppercase text-sm tracking-wide mb-2">

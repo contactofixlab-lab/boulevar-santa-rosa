@@ -106,7 +106,7 @@ export const AgendaVisita = () => {
         aria-hidden="true"
       />
 
-      <div className="relative z-30 max-w-7xl mx-auto px-6 py-40 md:py-44">
+      <div className="relative z-30 max-w-7xl mx-auto px-6 py-28 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.4fr] gap-8 lg:gap-10 items-center max-w-3xl">
 
           {/* ── IZQUIERDA: título + descripción + contacto ── */}
