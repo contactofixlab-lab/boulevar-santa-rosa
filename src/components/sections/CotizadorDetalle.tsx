@@ -154,24 +154,18 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
         {/* Selector de departamentos */}
         {departamentos.length > 1 && (
           <div className="mb-8">
-            <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Selecciona un departamento</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            <label className="block text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Selecciona un departamento</label>
+            <select
+              value={selectedDeptoId || ""}
+              onChange={(e) => setSelectedDeptoId(e.target.value)}
+              className="w-full px-4 py-3 border-2 border-surface-blue rounded-lg focus:border-primary-blue focus:outline-none bg-white text-secondary-navy font-semibold"
+            >
               {departamentos.map((depto) => (
-                <button
-                  key={depto.id}
-                  onClick={() => setSelectedDeptoId(depto.id)}
-                  className={`p-3 rounded-lg border-2 transition-all text-center ${
-                    selectedDeptoId === depto.id
-                      ? "border-primary-green bg-surface-green"
-                      : "border-surface-blue hover:border-primary-blue"
-                  }`}
-                >
-                  <p className="text-xs font-bold text-secondary-navy">{depto.nombre}</p>
-                  <p className="text-xs text-slate-blue mt-1">{depto.dormitorios}D+{depto.banos}B</p>
-                  <p className="text-xs font-semibold text-primary-green mt-1">UF {depto.precioUF.toLocaleString()}</p>
-                </button>
+                <option key={depto.id} value={depto.id}>
+                  {depto.nombre} • {depto.dormitorios}D+{depto.banos}B • UF {depto.precioUF.toLocaleString()}
+                </option>
               ))}
-            </div>
+            </select>
             <div className="border-b border-surface-blue mt-6 mb-6" />
           </div>
         )}
