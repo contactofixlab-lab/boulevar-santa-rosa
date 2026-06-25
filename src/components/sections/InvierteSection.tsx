@@ -37,6 +37,14 @@ const metrics = [
     bgGradient: "rgba(132, 206, 37, 0.12)",
     iconColor: "#84CE25"
   },
+  {
+    iconName: "store",
+    value: "Disponibles",
+    title: "Locales comerciales",
+    description: "Oportunidades de inversión en espacios de retail",
+    bgGradient: "rgba(6, 113, 174, 0.12)",
+    iconColor: "#0671AE"
+  },
 ];
 
 export const InvierteSection = () => {
@@ -68,7 +76,7 @@ export const InvierteSection = () => {
           </div>
 
           {/* RIGHT (3/4): 4 tarjetas intercaladas azul/verde, más alargadas, responsive */}
-          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 h-full">
+          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 h-full">
             {metrics.map(({ iconName, value, title, description, bgGradient, iconColor }) => (
               <div
                 key={title}
