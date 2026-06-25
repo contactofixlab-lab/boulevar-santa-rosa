@@ -42,7 +42,10 @@ interface CotizadorDetalleProps {
 }
 
 export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDetalleProps) => {
-  const departamentos = tipologias.filter((t) => t.tipo === "departamento");
+  // Filtrar solo departamentos disponibles
+  const departamentos = tipologias
+    .filter((t) => t.tipo === "departamento" && t.estado === "disponible")
+    .sort((a, b) => (b.destacado ? 1 : 0) - (a.destacado ? 1 : 0));
   const otrosBienes = tipologias.filter((t) => t.tipo !== "departamento");
 
   const [selectedDeptoId, setSelectedDeptoId] = useState(
@@ -148,6 +151,31 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
       )}
 
       <div className="bg-white border-2 border-surface-blue rounded-2xl p-8 shadow-lg">
+        {/* Selector de departamentos */}
+        {departamentos.length > 1 && (
+          <div className="mb-8">
+            <h3 className="text-xs font-bold text-slate-blue uppercase tracking-wide mb-3">Selecciona un departamento</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {departamentos.map((depto) => (
+                <button
+                  key={depto.id}
+                  onClick={() => setSelectedDeptoId(depto.id)}
+                  className={`p-3 rounded-lg border-2 transition-all text-center ${
+                    selectedDeptoId === depto.id
+                      ? "border-primary-green bg-surface-green"
+                      : "border-surface-blue hover:border-primary-blue"
+                  }`}
+                >
+                  <p className="text-xs font-bold text-secondary-navy">{depto.nombre}</p>
+                  <p className="text-xs text-slate-blue mt-1">{depto.dormitorios}D+{depto.banos}B</p>
+                  <p className="text-xs font-semibold text-primary-green mt-1">UF {depto.precioUF.toLocaleString()}</p>
+                </button>
+              ))}
+            </div>
+            <div className="border-b border-surface-blue mt-6 mb-6" />
+          </div>
+        )}
+
         <h2 className="text-2xl font-bold text-primary-blue mb-1">Detalle del departamento</h2>
         <p className="text-sm text-slate-blue mb-6">
           {selected.nombre} • <span className="font-bold">{selected.dormitorios}D + {selected.banos}B</span>
