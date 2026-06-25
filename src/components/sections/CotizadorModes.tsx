@@ -96,7 +96,7 @@ const WidgetMode = ({ tipologias }: { tipologias: Tipologia[] }) => {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto rounded-2xl border-2 border-dashed border-primary-blue/40 p-6 bg-surface-blue/30">
+    <div className="max-w-5xl mx-auto">
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-primary-blue uppercase tracking-wide">
           #mobysuite-widget
@@ -109,7 +109,7 @@ const WidgetMode = ({ tipologias }: { tipologias: Tipologia[] }) => {
           {loaded ? "Widget cargado ✓" : "Cargando widget…"}
         </span>
       </div>
-      <div ref={containerRef} id="mobysuite-widget">
+      <div ref={containerRef} id="mobysuite-widget" className="bg-white rounded-2xl shadow-lg p-8">
         {loaded && <CotizadorDetalle tipologias={tipologias} />}
       </div>
     </div>
@@ -123,7 +123,7 @@ const ApiMode = ({
   tipologias: Tipologia[];
   dataSource: "mobysuite" | "mock";
 }) => (
-  <div>
+  <div className="max-w-5xl mx-auto">
     <div className="flex justify-center mb-6">
       <span
         className={`text-xs font-semibold px-3 py-1 rounded-full ${
@@ -135,6 +135,8 @@ const ApiMode = ({
         {dataSource === "mobysuite" ? "Datos en vivo de Mobysuite" : "Datos mock (Mobysuite no respondió)"}
       </span>
     </div>
-    <CotizadorDetalle tipologias={tipologias} />
+    <div className="bg-white rounded-2xl shadow-lg p-8">
+      <CotizadorDetalle tipologias={tipologias} />
+    </div>
   </div>
 );

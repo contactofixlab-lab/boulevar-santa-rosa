@@ -140,7 +140,7 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
 
   // Modal view - Layout 3 columnas (Figma reference)
   return (
-    <div className="max-w-7xl mx-auto">
+    <div>
       {submitted && (
         <Alert
           variant="success"
@@ -150,7 +150,7 @@ export const CotizadorDetalle = ({ tipologias, initialSelectedId }: CotizadorDet
         />
       )}
 
-      <div className="bg-white border-2 border-surface-blue rounded-2xl p-8 shadow-lg">
+      <div className="border-2 border-surface-blue rounded-2xl p-8">
         {/* Selector de departamentos */}
         {departamentos.length > 1 && (
           <div className="mb-8">
