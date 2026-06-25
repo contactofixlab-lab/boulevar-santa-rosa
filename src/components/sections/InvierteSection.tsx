@@ -6,42 +6,42 @@ import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 
 const metrics = [
   {
-    iconName: "trending-up",
-    value: "5–6%",
-    title: "Rentabilidad bruta estimada",
-    description: "Ingresos estables desde el primer día",
+    iconName: "home",
+    value: "95",
+    title: "Departamentos",
+    description: "Espacios residenciales disponibles",
     bgGradient: "rgba(6, 113, 174, 0.12)",
     iconColor: "#0671AE"
   },
   {
-    iconName: "bar-chart-3",
-    value: "35–40%",
-    title: "Plusvalía proyectada a 5 años",
-    description: "Crecimiento sostenido del valor de inversión",
+    iconName: "box",
+    value: "71",
+    title: "Bodegas",
+    description: "Espacios de almacenamiento",
     bgGradient: "rgba(132, 206, 37, 0.12)",
     iconColor: "#84CE25"
   },
   {
-    iconName: "users",
-    value: "Alta",
-    title: "Alta demanda de arriendo",
-    description: "Excelente ubicación para vivir o invertir",
+    iconName: "car",
+    value: "61",
+    title: "Estacionamientos",
+    description: "Espacios de estacionamiento",
     bgGradient: "rgba(6, 113, 174, 0.12)",
     iconColor: "#0671AE"
-  },
-  {
-    iconName: "zap",
-    value: "Domótica",
-    title: "Domótica y gastos comunes reducidos",
-    description: "Eficiencia y tecnología al servicio de tu hogar",
-    bgGradient: "rgba(132, 206, 37, 0.12)",
-    iconColor: "#84CE25"
   },
   {
     iconName: "store",
-    value: "Disponibles",
+    value: "19",
     title: "Locales comerciales",
-    description: "Oportunidades de inversión en espacios de retail",
+    description: "Espacios para retail y negocios",
+    bgGradient: "rgba(132, 206, 37, 0.12)",
+    iconColor: "#84CE25"
+  },
+  {
+    iconName: "layers",
+    value: "10",
+    title: "Pisos",
+    description: "Niveles disponibles en el edificio",
     bgGradient: "rgba(6, 113, 174, 0.12)",
     iconColor: "#0671AE"
   },
