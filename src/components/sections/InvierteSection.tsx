@@ -6,44 +6,36 @@ import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 
 const metrics = [
   {
-    iconName: "home",
-    value: "95",
-    title: "Departamentos",
-    description: "Espacios residenciales disponibles",
+    iconName: "trending-up",
+    value: "5–6%",
+    title: "Rentabilidad bruta estimada",
+    description: "Ingresos estables desde el primer día",
     bgGradient: "rgba(6, 113, 174, 0.12)",
     iconColor: "#0671AE"
   },
   {
-    iconName: "box",
-    value: "71",
-    title: "Bodegas",
-    description: "Espacios de almacenamiento",
+    iconName: "bar-chart-3",
+    value: "35–40%",
+    title: "Plusvalía proyectada a 5 años",
+    description: "Crecimiento sostenido del valor de inversión",
     bgGradient: "rgba(132, 206, 37, 0.12)",
     iconColor: "#84CE25"
   },
   {
-    iconName: "car",
-    value: "61",
-    title: "Estacionamientos",
-    description: "Espacios de estacionamiento",
+    iconName: "users",
+    value: "Alta",
+    title: "Alta demanda de arriendo",
+    description: "Excelente ubicación para vivir o invertir",
     bgGradient: "rgba(6, 113, 174, 0.12)",
     iconColor: "#0671AE"
   },
   {
-    iconName: "store",
-    value: "19",
-    title: "Locales comerciales",
-    description: "Espacios para retail y negocios",
+    iconName: "zap",
+    value: "Domótica",
+    title: "Domótica y gastos comunes reducidos",
+    description: "Eficiencia y tecnología al servicio de tu hogar",
     bgGradient: "rgba(132, 206, 37, 0.12)",
     iconColor: "#84CE25"
-  },
-  {
-    iconName: "layers",
-    value: "10",
-    title: "Pisos",
-    description: "Niveles disponibles en el edificio",
-    bgGradient: "rgba(6, 113, 174, 0.12)",
-    iconColor: "#0671AE"
   },
 ];
 
@@ -76,7 +68,7 @@ export const InvierteSection = () => {
           </div>
 
           {/* RIGHT (3/4): 4 tarjetas intercaladas azul/verde, más alargadas, responsive */}
-          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 h-full">
+          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 h-full">
             {metrics.map(({ iconName, value, title, description, bgGradient, iconColor }) => (
               <div
                 key={title}

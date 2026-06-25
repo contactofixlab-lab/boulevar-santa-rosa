@@ -13,11 +13,11 @@ export const StatsBand = () => {
     // Sin fondo propio: las cards quedan montadas mitad sobre la foto del hero, mitad sobre el blanco
     <section className="relative z-20 pb-6 md:pb-10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-1 md:gap-1.5 -mt-[78px] md:-mt-[103px]">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-1 md:gap-1 -mt-[78px] md:-mt-[103px]">
           {stats.map(({ iconName, value, label, iconColor, bgGradient }) => (
             <div
               key={label}
-              className="w-full md:w-4/5 mx-auto rounded-xl shadow-md px-3 py-4 md:px-4 md:py-5 flex flex-row items-center justify-center gap-2.5 hover:shadow-lg transition-shadow"
+              className="max-w-[160px] md:max-w-none mx-auto rounded-xl shadow-md px-3 py-4 md:px-4 md:py-5 flex flex-row items-center justify-center gap-2.5 hover:shadow-lg transition-shadow"
               style={{ background: `linear-gradient(${bgGradient}, ${bgGradient}), #ffffff` }}
             >
               <Icon name={iconName} size={32} style={{ color: iconColor }} className="flex-shrink-0" aria-hidden="true" />
