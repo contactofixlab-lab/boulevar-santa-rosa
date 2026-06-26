@@ -1,4 +1,7 @@
+"use client";
+
 import { Icon } from "@/components/ui/Icon";
+import { SlideInSection } from "@/components/ui/SlideInSection";
 
 const bullets = [
   { iconName: "metro",        text: "Línea 4 del metro — Estación San Miguel" },
@@ -22,7 +25,7 @@ export const UbicacionSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: título + bullets, sin párrafo descriptivo */}
-          <div>
+          <SlideInSection direction="left">
             <h2 className="text-3xl md:text-4xl font-bold text-[#033D6B] mb-3 leading-tight">
               Ubicación
               <br />
@@ -39,10 +42,11 @@ export const UbicacionSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </SlideInSection>
 
           {/* Right: map con imagen real y puntos de interés */}
-          <a
+          <SlideInSection direction="right">
+          <
             href="https://maps.google.com/?q=Boulevard+Santa+Rosa,+San+Miguel,+Santiago,+Chile"
             target="_blank"
             rel="noopener noreferrer"
@@ -128,6 +132,7 @@ export const UbicacionSection = () => {
               ))}
             </div>
           </a>
+          </SlideInSection>
         </div>
 
         {/* Dirección debajo del mapa */}
