@@ -69,12 +69,12 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Link href="/#cotizador">
+            <Link href="/#cotizador" className="block">
               <Button
                 variant="primary"
                 size="md"
-                className="shadow-xl"
-                as="div"
+                className="shadow-xl cursor-pointer"
+                type="button"
               >
                 Cotizar ahora →
               </Button>
