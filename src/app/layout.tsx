@@ -43,6 +43,7 @@ export default async function RootLayout({
         {children}
         <WhatsAppFAB />
         <CotizadorDialogGlobal tipologias={tipologias} />
+        <script src="https://cdn.mobysuite.com/quote/js/app.js"></script>
       </body>
     </html>
   );

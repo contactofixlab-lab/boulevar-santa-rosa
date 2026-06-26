@@ -12,25 +12,12 @@ export const EncuentraEspacioIdeal = () => {
           <div className="w-14 h-[3px] bg-[#84CE25] rounded-full mx-auto mt-3" />
         </div>
 
-        {/* Cotizador Mobysuite */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <div id="mobysuite-cotizador-boulevard"></div>
-          <script
-            src="https://cotizador.mobysuite.cl/cotizador.js"
-            data-real-estate="Boulevard Santa Rosa"
-            data-project-id=""
-            data-container="mobysuite-cotizador-boulevard"
-            data-template="default"
-            data-country-code="CL"
-            data-show-real-estate-logo="true"
-            data-real-estate-logo-url="/Boulevard_horizontal_color.png"
-            data-show-project-logo="true"
-            data-primary-color="#0671AE"
-            data-secondary-color="#84CE25"
-            data-success-view-type="simple"
-            data-hide-selected-assets="false"
-            data-use-secondary-image="false"
-          ></script>
+        {/* Cotizador Mobysuite - Web Component */}
+        <div className="flex justify-center w-full" style={{ minHeight: "600px" }}>
+          <div style={{ width: "100%", maxWidth: "1200px" }}>
+            {/* @ts-ignore */}
+            <mobysuite-quote></mobysuite-quote>
+          </div>
         </div>
       </div>
     </section>
