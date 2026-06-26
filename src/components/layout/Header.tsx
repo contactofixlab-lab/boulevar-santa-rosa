@@ -10,11 +10,10 @@ import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 const navLinks = [
   { href: "/", label: "Proyecto" },
   { href: "/ubicacion", label: "Ubicación" },
-  // { href: "/tipologias", label: "Departamentos" },  // Oculto
-  // { href: "/proyecto#areas-comunes", label: "Áreas Comunes" },  // Oculto
-  // { href: "/#inversion", label: "Inversión" },  // Oculto
-  // { href: "/contacto", label: "Contacto" },  // Oculto
-  { href: "/cotizador-opciones", label: "Opciones Cotizador" },
+  { href: "/#proyecto", label: "Conoce" },
+  { href: "/#inversion", label: "Invierte" },
+  { href: "/#cotizador", label: "Tu Espacio" },
+  { href: "/#agenda", label: "Agendar" },
 ];
 
 export const Header = () => {

@@ -1,0 +1,381 @@
+================================================================================
+DOCUMENTACIÓN COTIZADOR WEB MOBYSUITE v2.0.4 - MANUAL DE USUARIO
+================================================================================
+
+Proyecto: Boulevard Santa Rosa
+Fecha: 2026-06-25
+Versión: 2.0.4
+
+================================================================================
+1. IMPLEMENTACIÓN
+================================================================================
+
+El cotizador se integra en la página mediante un script que inyecta un contenedor.
+
+ESTRUCTURA BASE HTML:
+─────────────────────────────────────────────────────────────────────────────
+<!-- Contenedor donde se monta el cotizador -->
+<div id="mobysuite-cotizador"></div>
+
+<!-- Script de inyección -->
+<script
+    src="https://[URL-MOBYSUITE]/cotizador.js"
+    data-real-estate="Boulevard Santa Rosa"
+    data-project-id="[PROJECT-ID]"
+    data-container="mobysuite-cotizador"
+></script>
+─────────────────────────────────────────────────────────────────────────────
+
+IMPORTANTE: El script se inyecta automáticamente. Se configura con atributos
+data-* en el script.
+
+
+================================================================================
+2. PARÁMETROS DE CONFIGURACIÓN
+================================================================================
+
+PARÁMETROS OBLIGATORIOS (NO se pueden cambiar):
+─────────────────────────────────────────────────────────────────────────────
+
+real-estate
+  • Tipo: Text
+  • Obligatorio: SÍ
+  • Descripción: Nombre de la inmobiliaria como se encuentra registrada en
+    Mobysuite. Debe coincidir exactamente.
+
+project-id
+  • Tipo: Numérico
+  • Obligatorio: SÍ
+  • Descripción: ID del proyecto en Mobysuite. Identifica de forma única el
+    proyecto Boulevard Santa Rosa.
+
+
+PARÁMETROS CUSTOMIZABLES (Sí se pueden cambiar):
+─────────────────────────────────────────────────────────────────────────────
+
+template
+  • Tipo: Text
+  • Default: "default"
+  • Descripción: Plantilla a utilizar para el cotizador. Define la estructura
+    visual base. Puede variar según las opciones que proporcione Mobysuite.
+
+country-code
+  • Tipo: Text (ISO 3166-1)
+  • Default: "CL"
+  • Descripción: Código del país. Para Chile: "CL"
+
+show-real-estate-logo
+  • Tipo: Boolean
+  • Default: true
+  • Descripción: Mostrar logo de la inmobiliaria (Boulevard) en el cotizador
+
+real-estate-logo-url
+  • Tipo: Text (URL)
+  • Default: null
+  • Descripción: URL del logo de la inmobiliaria. Si no se proporciona, usa
+    el registrado en Mobysuite. Para Boulevard: /Boulevard_horizontal_color.png
+
+show-project-logo
+  • Tipo: Boolean
+  • Default: true
+  • Descripción: Mostrar logo del proyecto en el cotizador
+
+primary-color
+  • Tipo: Text (Hex color)
+  • Default: null
+  • Descripción: Color primario del cotizador. Boulevard: #0671AE
+  • Formato: #RRGGBB
+
+secondary-color
+  • Tipo: Text (Hex color)
+  • Default: null
+  • Descripción: Color secundario (acentos, botones). Boulevard: #84CE25
+  • Formato: #RRGGBB
+
+hide-selected-assets
+  • Tipo: Boolean
+  • Default: false
+  • Descripción: Ocultar tabla de bienes con precios precisos
+    • true: Muestra tabla sin precios específicos
+    • false: Muestra tabla con precios
+
+use-secondary-image
+  • Tipo: Boolean
+  • Default: false
+  • Descripción: Mostrar segunda imagen de cada bien registrada en Mobysuite
+    • true: Muestra segunda imagen
+    • false: Muestra primera imagen
+
+success-view-type
+  • Tipo: Text
+  • Default: "simple"
+  • Descripción: Tipo de vista después de envío del formulario
+  • Opciones: "simple", "detailed"
+
+typology
+  • Tipo: Text
+  • Default: null
+  • Descripción: Filtrar por tipología específica (opcional)
+  • Ejemplos: "departamento", "bodega", "estacionamiento"
+
+custom-observations-question
+  • Tipo: Text
+  • Default: "Observaciones"
+  • Descripción: Texto personalizado para el campo de observaciones (opcional)
+
+age-range-required
+  • Tipo: Boolean
+  • Default: false
+  • Descripción: Hacer obligatorio el campo de rango de edad
+
+profession-required
+  • Tipo: Boolean
+  • Default: false
+  • Descripción: Hacer obligatorio el campo de profesión
+
+terms-text
+  • Tipo: Text
+  • Default: null
+  • Descripción: Texto personalizado para términos y privacidad (opcional)
+
+terms-url
+  • Tipo: Text (URL)
+  • Default: null
+  • Descripción: URL de página con información de términos (opcional)
+
+
+================================================================================
+3. CAMPOS DEL FORMULARIO (NO CUSTOMIZABLE)
+================================================================================
+
+⚠️ IMPORTANTE: Los siguientes campos son obligatorios y NO se pueden cambiar.
+   Son proporcionados automáticamente por Mobysuite. NO se pueden agregar,
+   quitar ni modificar estos campos.
+
+nombre
+  • Tipo: Text
+  • Obligatorio: SÍ
+  • Descripción: Nombre del interesado
+
+apellido
+  • Tipo: Text
+  • Obligatorio: SÍ
+  • Descripción: Apellido del interesado
+
+correo (email)
+  • Tipo: Email
+  • Obligatorio: SÍ
+  • Descripción: Correo electrónico del interesado
+  • Validación: Debe ser un email válido
+
+telefono
+  • Tipo: Text
+  • Obligatorio: SÍ
+  • Descripción: Teléfono de contacto
+  • Formato: Para Chile, formato de número telefónico válido
+
+rango_edad
+  • Tipo: Select (Dropdown)
+  • Obligatorio: NO (a menos que se configure con age-range-required=true)
+  • Descripción: Rango de edad del interesado
+  • Opciones: 18-25, 26-35, 36-45, 46-55, 56-65, 65+
+
+sexo
+  • Tipo: Select (Dropdown)
+  • Obligatorio: NO
+  • Descripción: Género del interesado
+  • Opciones: Masculino, Femenino, Otro
+
+destino_compra
+  • Tipo: Select (Dropdown)
+  • Obligatorio: NO
+  • Descripción: Intención de compra del interesado
+  • Opciones: Vivienda propia, Inversión, Otro
+
+observaciones
+  • Tipo: Textarea
+  • Obligatorio: NO
+  • Descripción: Campo para observaciones o comentarios adicionales del
+    interesado
+
+
+✓ CONCLUSIÓN: NO se pueden agregar, quitar ni modificar los campos del
+  formulario. Son los que proporciona Mobysuite automáticamente.
+
+
+================================================================================
+4. COLORES BOULEVARD SANTA ROSA
+================================================================================
+
+Diseño System de Boulevard Santa Rosa - Colores a usar en el cotizador:
+
+Token: primary-blue
+  • Color HEX: #0671AE
+  • Uso en Cotizador: Color primario (primary-color)
+  • Aplicación: Botones principales, enlaces, bordes destacados
+
+Token: primary-green
+  • Color HEX: #84CE25
+  • Uso en Cotizador: Color secundario (secondary-color)
+  • Aplicación: Acentos, botones secundarios, highlights
+
+Token: navy
+  • Color HEX: #033D6B
+  • Uso en Cotizador: Títulos y textos principales
+  • Aplicación: Títulos, encabezados
+
+Token: surface-blue
+  • Color HEX: #E3F3FB
+  • Uso en Cotizador: Fondos suaves
+  • Aplicación: Fondos de secciones, inputs
+
+Token: slate-blue
+  • Color HEX: #4A6275
+  • Uso en Cotizador: Texto secundario, placeholders
+  • Aplicación: Descripciones, textos auxiliares
+
+
+================================================================================
+5. CONFIGURACIÓN FINAL PARA BOULEVARD
+================================================================================
+
+SCRIPT CON PARÁMETROS CUSTOMIZADOS:
+─────────────────────────────────────────────────────────────────────────────
+<div id="mobysuite-cotizador-boulevard"></div>
+
+<script
+    src="https://[URL-MOBYSUITE]/cotizador.js"
+    data-real-estate="[REAL-ESTATE-PLACEHOLDER]"
+    data-project-id="[PROJECT-ID-PLACEHOLDER]"
+    data-container="mobysuite-cotizador-boulevard"
+    data-template="default"
+    data-country-code="CL"
+    data-show-real-estate-logo="true"
+    data-real-estate-logo-url="/Boulevard_horizontal_color.png"
+    data-show-project-logo="true"
+    data-primary-color="#0671AE"
+    data-secondary-color="#84CE25"
+    data-success-view-type="simple"
+    data-hide-selected-assets="false"
+    data-use-secondary-image="false"
+></script>
+─────────────────────────────────────────────────────────────────────────────
+
+NOTAS IMPORTANTES:
+  • Reemplazar [REAL-ESTATE-PLACEHOLDER] con el nombre exacto en Mobysuite
+  • Reemplazar [PROJECT-ID-PLACEHOLDER] con el ID del proyecto en Mobysuite
+  • Los colores #0671AE (azul) y #84CE25 (verde) ya están configurados
+  • El logo de Boulevard está en /public/Boulevard_horizontal_color.png
+  • Los campos del formulario se mantienen tal como Mobysuite los proporciona
+  • El cotizador se integrará en la sección "Encuentra tu espacio ideal"
+
+
+================================================================================
+6. SOLUCIÓN DE PROBLEMAS
+================================================================================
+
+ERROR: "¡Que lastima! Ya no quedan más propiedades disponibles para cotizar"
+───────────────────────────────────────────────────────────────────────────
+Significa que no hay propiedades disponibles para el filtro actual.
+Verificar:
+  • El project-id es correcto
+  • Hay propiedades disponibles en Mobysuite para ese proyecto
+  • El país/country-code es correcto
+  • Los filtros de tipología (si los hay) son válidos
+
+
+ERROR: El formulario no valida correctamente
+───────────────────────────────────────────────────────────────────────────
+Asegurarse de que:
+  • Los campos obligatorios estén presentes (nombre, apellido, correo, teléfono)
+  • El email sea válido (ej: usuario@dominio.com)
+  • El teléfono tenga formato válido para Chile (ej: +56912345678)
+  • Si hay campos adicionales requeridos, estén completos
+
+
+ERROR: El cotizador no carga
+───────────────────────────────────────────────────────────────────────────
+Verificar:
+  • La URL del script es correcta
+  • El contenedor div existe en la página
+  • El data-container coincide con el id del div
+  • No hay errores de CORS
+  • La conexión a internet es válida
+
+
+================================================================================
+7. RESUMEN: ¿QUÉ SÍ Y QUÉ NO SE PUEDE CAMBIAR?
+================================================================================
+
+ELEMENTO                         | SE PUEDE CAMBIAR | DETALLES
+─────────────────────────────────┼─────────────────┼────────────────────────
+Campos del formulario            | ❌ NO            | Son los que trae Mobysuite
+                                 |                 | No se pueden agregar/quitar
+─────────────────────────────────┼─────────────────┼────────────────────────
+real-estate                      | ❌ NO            | Obligatorio, debe coincidir
+                                 |                 | con Mobysuite
+─────────────────────────────────┼─────────────────┼────────────────────────
+project-id                       | ❌ NO            | Obligatorio, debe coincidir
+                                 |                 | con Mobysuite
+─────────────────────────────────┼─────────────────┼────────────────────────
+Colores primario/secundario      | ✓ SÍ             | Se personalizan con
+                                 |                 | primary-color y
+                                 |                 | secondary-color
+─────────────────────────────────┼─────────────────┼────────────────────────
+Logo inmobiliaria                | ✓ SÍ             | Se personaliza con
+                                 |                 | real-estate-logo-url
+─────────────────────────────────┼─────────────────┼────────────────────────
+Logo proyecto                    | ✓ SÍ             | Se controla con
+                                 |                 | show-project-logo
+─────────────────────────────────┼─────────────────┼────────────────────────
+Country-code                     | ✓ SÍ             | Se puede cambiar al código
+                                 |                 | del país correspondiente
+─────────────────────────────────┼─────────────────┼────────────────────────
+Plantilla visual                 | ✓ SÍ             | Se puede cambiar el parámetro
+                                 |                 | template si Mobysuite ofrece
+                                 |                 | opciones
+─────────────────────────────────┼─────────────────┼────────────────────────
+Texto de términos                | ✓ SÍ             | Se puede personalizar con
+                                 |                 | terms-text y terms-url
+─────────────────────────────────┼─────────────────┼────────────────────────
+Texto campo observaciones        | ✓ SÍ             | Se puede personalizar con
+                                 |                 | custom-observations-question
+─────────────────────────────────┼─────────────────┼────────────────────────
+
+
+================================================================================
+8. PRÓXIMOS PASOS
+================================================================================
+
+1. ✓ Confirmar real-estate exacto registrado en Mobysuite
+   Contactar con Mobysuite para obtener el nombre exacto
+
+2. ✓ Confirmar project-id de Boulevard Santa Rosa en Mobysuite
+   Contactar con Mobysuite para obtener el ID numérico
+
+3. ✓ Reemplazar placeholders en el script
+   [REAL-ESTATE-PLACEHOLDER] → nombre exacto
+   [PROJECT-ID-PLACEHOLDER] → ID numérico
+
+4. ✓ Integrar en la sección "Encuentra tu espacio ideal" de la landing
+   Crear componente React con el script
+
+5. ✓ Remover sección anterior "Cotiza tu departamento"
+   Eliminar CotizadorInline del flujo
+
+6. ✓ Actualizar menú de navegación
+   Proyecto → Ubicación → Conoce → Invierte → Tu Espacio → Agendar
+
+7. ✓ Hacer QA completo
+   Probar en navegador
+   Verificar validaciones
+   Confirmar envío de formulario
+
+
+================================================================================
+FIN DE DOCUMENTACIÓN
+================================================================================
+
+Última actualización: 2026-06-25
+Versión: 2.0.4
+Estado: Listo para implementación

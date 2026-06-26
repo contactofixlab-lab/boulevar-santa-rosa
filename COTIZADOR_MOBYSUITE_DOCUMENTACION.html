@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Cotizador Mobysuite v2.0.4</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1, h2, h3 { color: #033D6B; }
+        h1 { border-bottom: 3px solid #84CE25; padding-bottom: 10px; }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        table th {
+            background: #0671AE;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .code-block {
+            background: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid #0671AE;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .required { color: #d32f2f; font-weight: bold; }
+        .optional { color: #388e3c; font-weight: bold; }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📋 Documentación Cotizador Web Mobysuite v2.0.4</h1>
+<p><strong>Proyecto:</strong> Boulevard Santa Rosa</p>
+<p><strong>Fecha:</strong> 2026-06-25</p>
+
+<!-- SECCIÓN 1: IMPLEMENTACIÓN -->
+<div class="section">
+    <h2>1. Implementación</h2>
+    <p>El cotizador se integra en la página mediante un script que inyecta un contenedor.</p>
+
+    <h3>Estructura Base HTML:</h3>
+    <div class="code-block">
+&lt;!-- Contenedor donde se monta el cotizador --&gt;
+&lt;div id="mobysuite-cotizador"&gt;&lt;/div&gt;
+
+&lt;!-- Script de inyección --&gt;
+&lt;script
+    src="https://[URL-MOBYSUITE]/cotizador.js"
+    data-real-estate="Boulevard Santa Rosa"
+    data-project-id="[PROJECT-ID]"
+    data-container="mobysuite-cotizador"
+&gt;&lt;/script&gt;
+    </div>
+
+    <div class="success">
+        <strong>✓ IMPORTANTE:</strong> El script se inyecta automáticamente. Se configura con atributos data-* en el script.
+    </div>
+</div>
+
+<!-- SECCIÓN 2: PARÁMETROS DE CONFIGURACIÓN -->
+<div class="section">
+    <h2>2. Parámetros de Configuración</h2>
+
+    <h3>Parámetros Obligatorios (NO se pueden cambiar):</h3>
+    <table>
+        <tr>
+            <th>Parámetro</th>
+            <th>Tipo</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td><code>real-estate</code></td>
+            <td>Text</td>
+            <td><strong>Obligatorio.</strong> Nombre de la inmobiliaria como se encuentra registrada en Mobysuite</td>
+        </tr>
+        <tr>
+            <td><code>project-id</code></td>
+            <td>Numérico</td>
+            <td><strong>Obligatorio.</strong> ID del proyecto en Mobysuite</td>
+        </tr>
+    </table>
+
+    <h3>Parámetros Customizables (Sí se pueden cambiar):</h3>
+    <table>
+        <tr>
+            <th>Parámetro</th>
+            <th>Tipo</th>
+            <th>Default</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td><code>template</code></td>
+            <td>Text</td>
+            <td>"default"</td>
+            <td>Plantilla a utilizar para el cotizador. Define la estructura visual base.</td>
+        </tr>
+        <tr>
+            <td><code>country-code</code></td>
+            <td>Text</td>
+            <td>"CL"</td>
+            <td>Código del país (ISO 3166-1). Para Chile: "CL"</td>
+        </tr>
+        <tr>
+            <td><code>show-real-estate-logo</code></td>
+            <td>Boolean</td>
+            <td>true</td>
+            <td>Mostrar logo de la inmobiliaria en el cotizador</td>
+        </tr>
+        <tr>
+            <td><code>real-estate-logo-url</code></td>
+            <td>Text</td>
+            <td>null</td>
+            <td>URL del logo de la inmobiliaria. Si no se proporciona, usa el registrado en Mobysuite</td>
+        </tr>
+        <tr>
+            <td><code>show-project-logo</code></td>
+            <td>Boolean</td>
+            <td>true</td>
+            <td>Mostrar logo del proyecto en el cotizador</td>
+        </tr>
+        <tr>
+            <td><code>primary-color</code></td>
+            <td>Text (Hex)</td>
+            <td>#0671AE</td>
+            <td>Color primario del cotizador. Formato: #RRGGBB</td>
+        </tr>
+        <tr>
+            <td><code>secondary-color</code></td>
+            <td>Text (Hex)</td>
+            <td>#84CE25</td>
+            <td>Color secundario (acentos, botones). Formato: #RRGGBB</td>
+        </tr>
+        <tr>
+            <td><code>hide-selected-assets</code></td>
+            <td>Boolean</td>
+            <td>false</td>
+            <td>Ocultar tabla de bienes con precios precisos. Si es true, muestra tabla sin precios específicos</td>
+        </tr>
+        <tr>
+            <td><code>use-secondary-image</code></td>
+            <td>Boolean</td>
+            <td>false</td>
+            <td>Mostrar segunda imagen de cada bien registrada en Mobysuite</td>
+        </tr>
+        <tr>
+            <td><code>success-view-type</code></td>
+            <td>Text</td>
+            <td>"simple"</td>
+            <td>Tipo de vista después de envío. Opciones: "simple", "detailed"</td>
+        </tr>
+        <tr>
+            <td><code>typology</code></td>
+            <td>Text</td>
+            <td>null</td>
+            <td>Opcional. Filtrar por tipología específica (ej: "departamento", "bodega")</td>
+        </tr>
+    </table>
+</div>
+
+<!-- SECCIÓN 3: CAMPOS DEL FORMULARIO -->
+<div class="section">
+    <h2>3. Campos del Formulario (NO Customizable)</h2>
+
+    <div class="warning">
+        <strong>⚠️ IMPORTANTE:</strong> Los siguientes campos son obligatorios y NO se pueden cambiar. Los trae Mobysuite automáticamente:
+    </div>
+
+    <table>
+        <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Obligatorio</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td><code>nombre</code></td>
+            <td>Text</td>
+            <td>✓ Sí</td>
+            <td>Nombre del interesado</td>
+        </tr>
+        <tr>
+            <td><code>apellido</code></td>
+            <td>Text</td>
+            <td>✓ Sí</td>
+            <td>Apellido del interesado</td>
+        </tr>
+        <tr>
+            <td><code>correo</code></td>
+            <td>Email</td>
+            <td>✓ Sí</td>
+            <td>Email del interesado</td>
+        </tr>
+        <tr>
+            <td><code>telefono</code></td>
+            <td>Text</td>
+            <td>✓ Sí</td>
+            <td>Teléfono de contacto</td>
+        </tr>
+        <tr>
+            <td><code>rango_edad</code></td>
+            <td>Select</td>
+            <td>Opcional</td>
+            <td>Rango de edad (ej: 18-25, 26-35, 36-45, etc.)</td>
+        </tr>
+        <tr>
+            <td><code>sexo</code></td>
+            <td>Select</td>
+            <td>Opcional</td>
+            <td>Género (Masculino, Femenino, Otro)</td>
+        </tr>
+        <tr>
+            <td><code>destino_compra</code></td>
+            <td>Select</td>
+            <td>Opcional</td>
+            <td>Destino de compra (Vivienda propia, Inversión, Otro)</td>
+        </tr>
+        <tr>
+            <td><code>observaciones</code></td>
+            <td>Textarea</td>
+            <td>Opcional</td>
+            <td>Campo para observaciones adicionales</td>
+        </tr>
+    </table>
+
+    <div class="success">
+        <strong>✓ CONCLUSIÓN:</strong> NO se pueden agregar, quitar ni modificar los campos del formulario. Son los que trae Mobysuite.
+    </div>
+</div>
+
+<!-- SECCIÓN 4: COLORES BOULEVARD -->
+<div class="section">
+    <h2>4. Colores Boulevard Santa Rosa</h2>
+
+    <table>
+        <tr>
+            <th>Token</th>
+            <th>Color</th>
+            <th>Uso en Cotizador</th>
+        </tr>
+        <tr>
+            <td><code>primary-blue</code></td>
+            <td style="background: #0671AE; color: white;">#0671AE</td>
+            <td>Color primario (primary-color)</td>
+        </tr>
+        <tr>
+            <td><code>primary-green</code></td>
+            <td style="background: #84CE25; color: #333;">#84CE25</td>
+            <td>Color secundario (secondary-color)</td>
+        </tr>
+        <tr>
+            <td><code>navy</code></td>
+            <td style="background: #033D6B; color: white;">#033D6B</td>
+            <td>Títulos y textos principales</td>
+        </tr>
+        <tr>
+            <td><code>surface-blue</code></td>
+            <td style="background: #E3F3FB; color: #333;">#E3F3FB</td>
+            <td>Fondos suaves</td>
+        </tr>
+        <tr>
+            <td><code>slate-blue</code></td>
+            <td style="background: #4A6275; color: white;">#4A6275</td>
+            <td>Texto secundario</td>
+        </tr>
+    </table>
+</div>
+
+<!-- SECCIÓN 5: CONFIGURACIÓN FINAL PARA BOULEVARD -->
+<div class="section">
+    <h2>5. Configuración Final para Boulevard</h2>
+
+    <h3>Script con parámetros customizados:</h3>
+    <div class="code-block">
+&lt;div id="mobysuite-cotizador-boulevard"&gt;&lt;/div&gt;
+
+&lt;script
+    src="https://[URL-MOBYSUITE]/cotizador.js"
+    data-real-estate="[REAL-ESTATE-PLACEHOLDER]"
+    data-project-id="[PROJECT-ID-PLACEHOLDER]"
+    data-container="mobysuite-cotizador-boulevard"
+    data-template="default"
+    data-country-code="CL"
+    data-show-real-estate-logo="true"
+    data-real-estate-logo-url="/Boulevard_horizontal_color.png"
+    data-show-project-logo="true"
+    data-primary-color="#0671AE"
+    data-secondary-color="#84CE25"
+    data-success-view-type="simple"
+    data-hide-selected-assets="false"
+    data-use-secondary-image="false"
+&gt;&lt;/script&gt;
+    </div>
+
+    <div class="success">
+        <strong>✓ NOTAS IMPORTANTES:</strong>
+        <ul>
+            <li>Reemplazar [REAL-ESTATE-PLACEHOLDER] y [PROJECT-ID-PLACEHOLDER] cuando se confirmen los valores</li>
+            <li>Los colores #0671AE (azul) y #84CE25 (verde) ya están configurados</li>
+            <li>El logo de Boulevard está en /public/Boulevard_horizontal_color.png</li>
+            <li>Los campos del formulario se mantienen tal como Mobysuite los proporciona</li>
+            <li>El cotizador se integrará en la sección "Encuentra tu espacio ideal"</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SECCIÓN 6: SOLUCIÓN DE PROBLEMAS -->
+<div class="section">
+    <h2>6. Solución de Problemas</h2>
+
+    <h3>Error: "¡Que lastima! Ya no quedan más propiedades disponibles para cotizar"</h3>
+    <p>Significa que no hay propiedades disponibles para el filtro actual. Verificar:</p>
+    <ul>
+        <li>El project-id es correcto</li>
+        <li>Hay propiedades disponibles en Mobysuite para ese proyecto</li>
+        <li>El país/país-code es correcto</li>
+    </ul>
+
+    <h3>El formulario no valida correctamente</h3>
+    <p>Asegurarse de que:</p>
+    <ul>
+        <li>Los campos obligatorios estén presentes (nombre, apellido, correo, teléfono)</li>
+        <li>El email sea válido</li>
+        <li>El teléfono tenga formato válido para Chile</li>
+    </ul>
+</div>
+
+<!-- SECCIÓN 7: RESUMEN DE CAMBIOS PERMITIDOS -->
+<div class="section">
+    <h2>7. Resumen: ¿Qué SÍ y QUÉ NO se puede cambiar?</h2>
+
+    <table>
+        <tr>
+            <th>Elemento</th>
+            <th>¿Se puede cambiar?</th>
+            <th>Detalles</th>
+        </tr>
+        <tr>
+            <td>Campos del formulario</td>
+            <td style="background: #ffcccc;"><strong>❌ NO</strong></td>
+            <td>Son los que trae Mobysuite. No se pueden agregar/quitar campos</td>
+        </tr>
+        <tr>
+            <td>real-estate</td>
+            <td style="background: #ffcccc;"><strong>❌ NO</strong></td>
+            <td>Es obligatorio y debe coincidir con Mobysuite</td>
+        </tr>
+        <tr>
+            <td>project-id</td>
+            <td style="background: #ffcccc;"><strong>❌ NO</strong></td>
+            <td>Es obligatorio y debe coincidir con Mobysuite</td>
+        </tr>
+        <tr>
+            <td>Colores primario/secundario</td>
+            <td style="background: #ccffcc;"><strong>✓ SÍ</strong></td>
+            <td>Se personalizan con primary-color y secondary-color</td>
+        </tr>
+        <tr>
+            <td>Logo inmobiliaria</td>
+            <td style="background: #ccffcc;"><strong>✓ SÍ</strong></td>
+            <td>Se personaliza con real-estate-logo-url</td>
+        </tr>
+        <tr>
+            <td>Logo proyecto</td>
+            <td style="background: #ccffcc;"><strong>✓ SÍ</strong></td>
+            <td>Se controla con show-project-logo</td>
+        </tr>
+        <tr>
+            <td>Country-code</td>
+            <td style="background: #ccffcc;"><strong>✓ SÍ</strong></td>
+            <td>Se puede cambiar al código del país correspondiente</td>
+        </tr>
+        <tr>
+            <td>Plantilla visual</td>
+            <td style="background: #ccffcc;"><strong>✓ SÍ</strong></td>
+            <td>Se puede cambiar el parámetro template si Mobysuite ofrece opciones</td>
+        </tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>📝 Próximos Pasos</h2>
+    <ol>
+        <li>Confirmar <code>real-estate</code> exacto registrado en Mobysuite</li>
+        <li>Confirmar <code>project-id</code> de Boulevard Santa Rosa en Mobysuite</li>
+        <li>Reemplazar placeholders en el script</li>
+        <li>Integrar en la sección "Encuentra tu espacio ideal" de la landing</li>
+        <li>Remover sección anterior "Cotiza tu departamento"</li>
+        <li>Actualizar menú de navegación</li>
+    </ol>
+</div>
+
+</body>
+</html>
