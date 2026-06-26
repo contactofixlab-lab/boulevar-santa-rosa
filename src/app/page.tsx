@@ -5,7 +5,7 @@ import { StatsBand } from "@/components/sections/StatsBand";
 import { UbicacionSection } from "@/components/sections/UbicacionSection";
 import { ConoceProyectoSection } from "@/components/sections/ConoceProyectoSection";
 import { InvierteSection } from "@/components/sections/InvierteSection";
-import { CotizadorMobysuite } from "@/components/sections/CotizadorMobysuite";
+import { EncuentraEspacioIdeal } from "@/components/sections/EncuentraEspacioIdeal";
 import { AgendaVisita } from "@/components/sections/AgendaVisita";
 
 export default async function Home() {
@@ -18,7 +18,7 @@ export default async function Home() {
         <UbicacionSection />
         <ConoceProyectoSection />
         <InvierteSection />
-        <CotizadorMobysuite />
+        <EncuentraEspacioIdeal />
         <AgendaVisita />
       </main>
       <Footer />
