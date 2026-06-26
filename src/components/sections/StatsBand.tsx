@@ -2,6 +2,7 @@
 
 import { Icon } from "@/components/ui/Icon";
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 const stats = [
   { iconName: "proyecto-pisos",  value: "10",  label: "Pisos totales",     iconColor: "#0671AE" },
@@ -11,7 +12,7 @@ const stats = [
   { iconName: "store",           value: "19", label: "Locales comerciales", iconColor: "#0671AE" },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -19,7 +20,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
