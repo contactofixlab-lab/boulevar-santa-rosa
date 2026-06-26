@@ -10,9 +10,9 @@ import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/#ubicacion", label: "Ubicación" },
-  { href: "/#conoce", label: "Conoce" },
+  { href: "/#conoce", label: "Proyecto" },
   { href: "/#invierte", label: "Invierte" },
-  { href: "/#cotizador", label: "Tu Espacio" },
+  { href: "/#cotizador", label: "Cotizar" },
   { href: "/#agenda", label: "Agendar" },
 ];
 
