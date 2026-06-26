@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Nunito_Sans } from "next/font/google";
 import { WhatsAppFAB } from "@/components/layout/WhatsAppFAB";
 import { CotizadorDialogGlobal } from "@/components/sections/CotizadorDialogGlobal";
@@ -43,7 +44,7 @@ export default async function RootLayout({
         {children}
         <WhatsAppFAB />
         <CotizadorDialogGlobal tipologias={tipologias} />
-        <script src="https://cdn.mobysuite.com/quote/js/app.js"></script>
+        <Script src="https://cdn.mobysuite.com/quote/js/app.js" strategy="lazyOnload" />
       </body>
     </html>
   );
