@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
+import { motion } from "framer-motion";
 
 const metrics = [
   {
@@ -69,21 +70,47 @@ export const InvierteSection = () => {
             </Link>
           </div>
 
-          {/* RIGHT (3/4): 4 tarjetas intercaladas azul/verde, más alargadas, responsive */}
+          {/* RIGHT (3/4): 4 tarjetas con glass 3D */}
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 h-full">
-            {metrics.map(({ iconName, value, title, description, bgGradient, iconColor }) => (
-              <div
+            {metrics.map(({ iconName, value, title, description, iconColor }, idx) => (
+              <motion.div
                 key={title}
-                className="rounded-2xl px-5 py-12 sm:py-14 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-5 sm:gap-6 h-full text-center"
-                style={{ backgroundColor: bgGradient, color: iconColor }}
+                whileHover={{ y: -12, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                className="rounded-2xl px-5 py-12 sm:py-14 flex flex-col items-center justify-center gap-5 sm:gap-6 h-full text-center group overflow-hidden relative"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255, 255, 255, 0.25)",
+                  boxShadow: `
+                    0 8px 32px rgba(0, 0, 0, 0.1),
+                    inset 0 1px 2px rgba(255, 255, 255, 0.3),
+                    0 0 30px ${idx % 2 === 0 ? 'rgba(6, 113, 174, 0.15)' : 'rgba(132, 206, 37, 0.15)'}
+                  `,
+                }}
               >
-                <Icon name={iconName} size={48} style={{ color: iconColor }} aria-hidden="true" />
-                <div className="space-y-2">
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background: `radial-gradient(circle at center, ${iconColor}15, transparent)`,
+                  }}
+                />
+
+                <motion.div
+                  whileHover={{ scale: 1.15, rotate: -5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="relative z-10"
+                >
+                  <Icon name={iconName} size={48} style={{ color: iconColor }} aria-hidden="true" />
+                </motion.div>
+
+                <div className="space-y-2 relative z-10">
                   <p className="text-3xl sm:text-4xl font-bold text-[#033D6B]">{value}</p>
                   <p className="text-xs sm:text-sm font-semibold text-[#033D6B]">{title}</p>
                   <p className="text-xs text-[#4A6275] leading-relaxed">{description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
