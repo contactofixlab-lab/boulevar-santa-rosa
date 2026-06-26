@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
-import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 
 const metrics = [
   {
@@ -58,13 +58,15 @@ export const InvierteSection = () => {
               San Miguel es una de las comunas con mayor crecimiento en Santiago.
               La demanda de arriendo supera la oferta y la plusvalía crece año a año.
             </p>
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() => cotizadorDialogHandle.openWithPayload(undefined)}
-            >
-              Cotizar ahora →
-            </Button>
+            <Link href="/#cotizador">
+              <Button
+                variant="primary"
+                size="md"
+                as="div"
+              >
+                Cotizar ahora →
+              </Button>
+            </Link>
           </div>
 
           {/* RIGHT (3/4): 4 tarjetas intercaladas azul/verde, más alargadas, responsive */}

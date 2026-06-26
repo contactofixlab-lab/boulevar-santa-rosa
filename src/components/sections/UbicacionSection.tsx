@@ -18,7 +18,7 @@ const pois = [
 
 export const UbicacionSection = () => {
   return (
-    <section className="relative py-12 bg-white overflow-hidden">
+    <section id="ubicacion" className="relative py-12 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: título + bullets, sin párrafo descriptivo */}

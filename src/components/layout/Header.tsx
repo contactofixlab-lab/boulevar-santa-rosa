@@ -8,10 +8,10 @@ import { Menu, X } from "lucide-react";
 import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 
 const navLinks = [
-  { href: "/", label: "Proyecto" },
-  { href: "/ubicacion", label: "Ubicación" },
-  { href: "/#proyecto", label: "Conoce" },
-  { href: "/#inversion", label: "Invierte" },
+  { href: "/", label: "Inicio" },
+  { href: "/#ubicacion", label: "Ubicación" },
+  { href: "/#conoce", label: "Conoce" },
+  { href: "/#invierte", label: "Invierte" },
   { href: "/#cotizador", label: "Tu Espacio" },
   { href: "/#agenda", label: "Agendar" },
 ];
