@@ -42,61 +42,67 @@ export const UbicacionSection = () => {
           </div>
 
           {/* Right: map con imagen real y puntos de interés */}
-          <div className="relative w-full rounded-3xl overflow-hidden shadow-lg" style={{ aspectRatio: "1672/941" }}>
+          <a
+            href="https://maps.google.com/?q=Boulevard+Santa+Rosa,+San+Miguel,+Santiago,+Chile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative w-full rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer block"
+            style={{ aspectRatio: "1.3/1" }}
+          >
             {/* Imagen del mapa */}
             <img
               src="/Frame 4.png"
-              alt="Mapa de ubicación Boulevard Santa Rosa"
+              alt="Mapa de ubicación Boulevard Santa Rosa - Click para abrir en Google Maps"
               className="w-full h-full object-cover"
             />
 
             {/* Puntos de interés - Adaptados del CSS de Figma */}
             {/* Hospital (1077px, 132px) */}
-            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "64.3%", top: "14%" }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="centros-medicos" size={24} className="text-[#033D6B]" />
+            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "64.3%", top: "14%" }}>
+              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="centros-medicos" size={20} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Supermercado (1275px, 248px) */}
-            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "76.2%", top: "26.3%" }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="supermercados" size={24} className="text-[#033D6B]" />
+            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "76.2%", top: "26.3%" }}>
+              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="supermercados" size={20} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Educación (1340px, 259px) */}
-            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "80.1%", top: "27.5%" }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="colegios" size={24} className="text-[#033D6B]" />
+            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "80.1%", top: "27.5%" }}>
+              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="colegios" size={20} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Comercio (1153px, 262px) */}
-            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "68.9%", top: "27.8%" }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="mercado" size={24} className="text-[#033D6B]" />
+            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "68.9%", top: "27.8%" }}>
+              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="mercado" size={20} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Banco (471px, 257px) */}
-            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "28.1%", top: "27.3%" }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="bancos" size={24} className="text-[#033D6B]" />
+            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "28.1%", top: "27.3%" }}>
+              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="bancos" size={20} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Comercio 2 (437px, 396px) */}
-            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "26.1%", top: "42%" }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="mercado" size={24} className="text-[#033D6B]" />
+            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "26.1%", top: "42%" }}>
+              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="mercado" size={20} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Comercio 3 (387px, 554px) */}
-            <div className="absolute w-12 h-12 flex items-center justify-center" style={{ left: "23.1%", top: "58.8%" }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="mercado" size={24} className="text-[#033D6B]" />
+            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "23.1%", top: "58.8%" }}>
+              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
+                <Icon name="mercado" size={20} className="text-[#033D6B]" />
               </div>
             </div>
 
@@ -121,7 +127,7 @@ export const UbicacionSection = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
