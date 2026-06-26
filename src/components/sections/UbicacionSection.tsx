@@ -47,7 +47,7 @@ export const UbicacionSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="relative w-full rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer block"
-            style={{ aspectRatio: "1.3/1" }}
+            style={{ aspectRatio: "16/9" }}
           >
             {/* Imagen del mapa */}
             <img
