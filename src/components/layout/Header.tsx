@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { cotizadorDialogHandle } from "@/lib/cotizadorDialog";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -56,13 +54,6 @@ export const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Button
-            variant="primary"
-            size="sm"
-            onClick={() => cotizadorDialogHandle.openWithPayload(undefined)}
-          >
-            Cotizar →
-          </Button>
         </div>
 
         {/* Mobile toggle */}
@@ -88,17 +79,6 @@ export const Header = () => {
               {link.label}
             </Link>
           ))}
-          <Button
-            variant="primary"
-            size="sm"
-            className="w-full"
-            onClick={() => {
-              setMobileOpen(false);
-              cotizadorDialogHandle.openWithPayload(undefined);
-            }}
-          >
-            Cotizar →
-          </Button>
         </div>
       )}
     </header>
