@@ -9,7 +9,7 @@ const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/#ubicacion", label: "Ubicación" },
   { href: "/#conoce", label: "Proyecto" },
-  { href: "/#invierte", label: "Invierte" },
+  { href: "/#inversion", label: "Invierte" },
   { href: "/#cotizador", label: "Cotizar" },
   { href: "/#agenda", label: "Agendar" },
 ];
