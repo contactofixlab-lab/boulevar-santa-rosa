@@ -128,11 +128,11 @@ export const UbicacionSection = () => {
               ))}
             </div>
           </a>
-          {/* Dirección debajo del mapa */}
-          <div className="mt-4 text-center md:text-left">
-            <p className="text-sm font-semibold text-[#033D6B] mb-1">Boulevard Santa Rosa</p>
-            <p className="text-sm text-[#4A6275]">Avenida Santa Rosa, San Miguel, Santiago, Chile</p>
-          </div>
+        </div>
+
+        {/* Dirección debajo del mapa */}
+        <div className="mt-6 text-center md:text-left">
+          <p className="text-sm text-[#4A6275]">{/* Dirección: */ }</p>
         </div>
       </div>
 
