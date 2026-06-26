@@ -1,7 +1,7 @@
 import { Icon } from "@/components/ui/Icon";
 
 const stats = [
-  { iconName: "proyecto-pisos",  value: "6",  label: "Pisos totales",     iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
+  { iconName: "proyecto-pisos",  value: "10",  label: "Pisos totales",     iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
   { iconName: "departamentos",   value: "94", label: "Departamentos",     iconColor: "#84CE25", bgGradient: "rgba(132, 206, 37, 0.08)" },
   { iconName: "estacionamiento", value: "62", label: "Estacionamientos",  iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
   { iconName: "bodegas",         value: "48", label: "Bodegas",           iconColor: "#84CE25", bgGradient: "rgba(132, 206, 37, 0.08)" },
@@ -13,7 +13,7 @@ export const StatsBand = () => {
     // Sin fondo propio: las cards quedan montadas mitad sobre la foto del hero, mitad sobre el blanco
     <section className="relative z-20 pb-6 md:pb-10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-0 md:gap-0 -mt-[78px] md:-mt-[103px]">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 -mt-[78px] md:-mt-[103px]">
           {stats.map(({ iconName, value, label, iconColor, bgGradient }) => (
             <div
               key={label}
