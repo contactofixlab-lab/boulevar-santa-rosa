@@ -31,7 +31,7 @@ export const UbicacionSection = () => {
             {/* Línea verde decorativa */}
             <div className="w-14 h-[3px] bg-[#84CE25] rounded-full mb-6" />
 
-            <div className="space-y-4">
+            <div className="space-y-4 pb-6">
               {bullets.map(({ iconName, text }) => (
                 <div key={text} className="flex items-start gap-3">
                   <Icon name={iconName} size={18} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
@@ -128,6 +128,11 @@ export const UbicacionSection = () => {
               ))}
             </div>
           </a>
+          {/* Dirección debajo del mapa */}
+          <div className="mt-4 text-center md:text-left">
+            <p className="text-sm font-semibold text-[#033D6B] mb-1">Boulevard Santa Rosa</p>
+            <p className="text-sm text-[#4A6275]">Avenida Santa Rosa, San Miguel, Santiago, Chile</p>
+          </div>
         </div>
       </div>
 
