@@ -106,12 +106,6 @@ export const Footer = () => {
           <p className="text-[#4A6275] text-xs">
             &copy; 2026 Boulevard Santa Rosa. Todos los derechos reservados.
           </p>
-          <div className="flex items-center gap-2 text-[#4A6275] text-xs">
-            <span>Powered by</span>
-            <span className="bg-[#E3F3FB] px-2 py-0.5 rounded text-[#0671AE] font-medium text-xs">
-              Mobysuite
-            </span>
-          </div>
         </div>
 
       </div>
