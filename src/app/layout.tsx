@@ -44,7 +44,25 @@ export default async function RootLayout({
         {children}
         <WhatsAppFAB />
         <CotizadorDialogGlobal tipologias={tipologias} />
-        <Script src="https://cdn.mobysuite.com/quote/js/app.js" strategy="lazyOnload" />
+
+        {/* Mobysuite Cotizador - Configuración con proyecto real */}
+        <Script
+          src="https://cdn.mobysuite.com/quote/js/app.js"
+          strategy="lazyOnload"
+          data-real-estate="inesdesuarezdos"
+          data-project-id="4"
+          data-container="mobysuite-quote"
+          data-template="default"
+          data-country-code="CL"
+          data-show-real-estate-logo="true"
+          data-real-estate-logo-url="/Boulevard_horizontal_color.png"
+          data-show-project-logo="true"
+          data-primary-color="#0671AE"
+          data-secondary-color="#84CE25"
+          data-success-view-type="simple"
+          data-hide-selected-assets="false"
+          data-use-secondary-image="false"
+        />
       </body>
     </html>
   );
