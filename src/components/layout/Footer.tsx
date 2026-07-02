@@ -66,18 +66,6 @@ export const Footer = async () => {
             </div>
           </div>
 
-          {/* UF Hoy */}
-          <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
-              UF Hoy
-            </h4>
-            <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-3 py-2 border border-[#0671AE]/20 inline-block">
-              <p className="text-2xl font-bold text-[#0671AE]">
-                ${Math.round(uf.value)}
-              </p>
-            </div>
-          </div>
-
           {/* Navegación */}
           <div>
             <h4 className="font-semibold text-xs uppercase tracking-wider mb-4 text-[#033D6B]">
@@ -111,6 +99,18 @@ export const Footer = async () => {
                 ventas_carrera@almago.cl
               </a>
               <p>Lun–Dom · 10:00 a 19:00 hrs.</p>
+            </div>
+          </div>
+
+          {/* UF Hoy */}
+          <div>
+            <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
+              UF Hoy
+            </h4>
+            <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block">
+              <p className="text-4xl font-bold text-[#0671AE]">
+                ${Math.round(uf.value)}
+              </p>
             </div>
           </div>
 
