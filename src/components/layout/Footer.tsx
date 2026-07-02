@@ -15,7 +15,7 @@ export const Footer = async () => {
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
 
           {/* Logo + tagline */}
           <div className="md:col-span-1">
@@ -66,6 +66,21 @@ export const Footer = async () => {
             </div>
           </div>
 
+          {/* UF Hoy */}
+          <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-xl p-5 border border-[#0671AE]/20">
+            <h4 className="font-semibold text-xs uppercase tracking-wider mb-3 text-[#033D6B]">
+              UF Hoy
+            </h4>
+            <div className="bg-white rounded-lg p-4 border border-[#0671AE]/10">
+              <p className="text-2xl font-bold text-[#0671AE]">
+                ${uf.value.toLocaleString("es-CL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </p>
+              <p className="text-xs text-[#4A6275] mt-2">
+                Actualizado hoy
+              </p>
+            </div>
+          </div>
+
           {/* Navegación */}
           <div>
             <h4 className="font-semibold text-xs uppercase tracking-wider mb-4 text-[#033D6B]">
@@ -107,9 +122,6 @@ export const Footer = async () => {
         <div className="border-t border-gray-100 pt-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[#4A6275] text-xs">
             &copy; 2026 Boulevard Santa Rosa. Todos los derechos reservados.
-          </p>
-          <p className="text-[#4A6275] text-xs font-medium">
-            UF Hoy: <span className="text-[#0671AE]">${uf.value.toLocaleString("es-CL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </p>
         </div>
 
