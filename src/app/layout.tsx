@@ -49,6 +49,7 @@ export default async function RootLayout({
         <Script
           src="https://cdn.mobysuite.com/quote/js/app.js"
           strategy="lazyOnload"
+          data-version="2"
           data-real-estate="inesdesuarez"
           data-project-id="4"
           data-container="mobysuite-quote"
