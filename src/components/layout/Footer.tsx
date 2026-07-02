@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getUFToday } from "@/lib/uf";
 
 const navLinks = [
   { href: "/proyecto",       label: "El Proyecto" },
@@ -9,7 +10,8 @@ const navLinks = [
   { href: "/contacto",       label: "Contacto" },
 ];
 
-export const Footer = () => {
+export const Footer = async () => {
+  const uf = await getUFToday();
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10">
@@ -105,6 +107,9 @@ export const Footer = () => {
         <div className="border-t border-gray-100 pt-5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[#4A6275] text-xs">
             &copy; 2026 Boulevard Santa Rosa. Todos los derechos reservados.
+          </p>
+          <p className="text-[#4A6275] text-xs font-medium">
+            UF Hoy: <span className="text-[#0671AE]">${uf.value.toLocaleString("es-CL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
           </p>
         </div>
 
