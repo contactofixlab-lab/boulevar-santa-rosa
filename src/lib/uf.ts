@@ -1,12 +1,9 @@
 export async function getUFToday(): Promise<{ value: number; date: string; error?: string }> {
   try {
     const response = await fetch(
-      "https://www.bcentral.cl/api/indicador/uf/últimas/1",
+      "https://mindicador.cl/api/uf",
       {
-        headers: {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        },
-        next: { revalidate: 86400 }, // Cachear 24 horas (UF se actualiza 1 vez al día)
+        next: { revalidate: 3600 }, // Cachear 1 hora (UF se actualiza diariamente)
       }
     );
 
@@ -14,21 +11,26 @@ export async function getUFToday(): Promise<{ value: number; date: string; error
 
     const data = await response.json();
 
-    if (data.UF && data.UF.length > 0) {
-      const ufData = data.UF[0];
+    if (data.serie && data.serie.length > 0) {
+      const ufData = data.serie[0]; // Primera entrada es el más reciente
+      const fechaUTC = new Date(ufData.fecha);
+      // Convertir a fecha local de Chile (UTC-4 o UTC-3)
+      const fechaLocal = fechaUTC.toISOString().split("T")[0];
+
       return {
-        value: parseFloat(ufData.Valor),
-        date: ufData.Fecha,
+        value: ufData.valor,
+        date: fechaLocal,
       };
     }
 
     throw new Error("No UF data available");
   } catch (error) {
-    // Fallback: UF aproximada (actualizar manualmente si es necesario)
+    // Fallback: retornar error pero con estructura válida
+    console.error("Error fetching UF:", error);
     return {
-      value: 37200, // Valor aproximado - fallback
+      value: 0,
       date: new Date().toISOString().split("T")[0],
-      error: "Usando valor aproximado",
+      error: "No se pudo obtener la UF",
     };
   }
 }
