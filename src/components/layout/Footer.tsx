@@ -67,13 +67,15 @@ export const Footer = async () => {
           </div>
 
           {/* UF Hoy */}
-          <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-xl p-4 border border-[#0671AE]/20 flex flex-col justify-center">
-            <h4 className="font-semibold text-sm uppercase tracking-wider mb-2 text-[#033D6B]">
+          <div>
+            <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
               UF Hoy
             </h4>
-            <p className="text-3xl font-bold text-[#0671AE]">
-              ${uf.value.toFixed(2)}
-            </p>
+            <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-3 py-2 border border-[#0671AE]/20 inline-block">
+              <p className="text-2xl font-bold text-[#0671AE]">
+                ${Math.round(uf.value)}
+              </p>
+            </div>
           </div>
 
           {/* Navegación */}
