@@ -67,18 +67,13 @@ export const Footer = async () => {
           </div>
 
           {/* UF Hoy */}
-          <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-xl p-5 border border-[#0671AE]/20">
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-3 text-[#033D6B]">
+          <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-xl p-4 border border-[#0671AE]/20 flex flex-col justify-center">
+            <h4 className="font-semibold text-sm uppercase tracking-wider mb-2 text-[#033D6B]">
               UF Hoy
             </h4>
-            <div className="bg-white rounded-lg p-4 border border-[#0671AE]/10">
-              <p className="text-2xl font-bold text-[#0671AE]">
-                ${uf.value.toLocaleString("es-CL", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-              </p>
-              <p className="text-xs text-[#4A6275] mt-2">
-                Actualizado hoy
-              </p>
-            </div>
+            <p className="text-3xl font-bold text-[#0671AE]">
+              ${uf.value.toFixed(2)}
+            </p>
           </div>
 
           {/* Navegación */}
