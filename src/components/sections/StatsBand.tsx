@@ -12,7 +12,7 @@ const stats = [
   { iconName: "departamentos",   value: "94", label: "Departamentos",     iconColor: "#84CE25", bgGradient: "rgba(132, 206, 37, 0.08)" },
   { iconName: "estacionamiento", value: "62", label: "Estacionamientos",  iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
   { iconName: "bodegas",         value: "48", label: "Bodegas",           iconColor: "#84CE25", bgGradient: "rgba(132, 206, 37, 0.08)" },
-  { iconName: "store",           value: "19", label: "Locales comerciales", iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
+  { iconName: "departamentos",   value: "19", label: "Locales comerciales", iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
 ];
 
 const containerVariants: Variants = {
