@@ -162,3 +162,46 @@ html {
     scroll-behavior: smooth;
   }
 }
+
+/* ── Customización Cotizador Mobysuite ── */
+/* Botón COTIZAR - Verde de marca */
+[class*="mobysuite"] button[class*="submit"],
+[class*="mobysuite"] button[class*="quote"],
+[class*="mobysuite"] button[class*="btn-primary"],
+.mobysuite-quote button[type="submit"],
+[data-container="mobysuite-quote"] button[class*="primary"] {
+  background-color: #84CE25 !important;
+  color: #033D6B !important;
+  font-weight: 600 !important;
+}
+
+/* Total/Precio - Azul de marca */
+[class*="mobysuite"] [class*="total"],
+[class*="mobysuite"] [class*="price"],
+[class*="mobysuite"] [class*="amount"],
+.mobysuite-quote .total,
+.mobysuite-quote .price {
+  color: #0671AE !important;
+  font-weight: bold !important;
+}
+
+/* Fondo del total */
+[class*="mobysuite"] [class*="total-section"],
+[class*="mobysuite"] [class*="summary"],
+.mobysuite-quote .summary-box {
+  background-color: #F4F9FB !important;
+  border-color: #0671AE !important;
+}
+
+/* Headings - Azul oscuro */
+[class*="mobysuite"] h1,
+[class*="mobysuite"] h2,
+[class*="mobysuite"] h3 {
+  color: #033D6B !important;
+}
+
+/* Links y acentos */
+[class*="mobysuite"] a,
+[class*="mobysuite"] [class*="link"] {
+  color: #0671AE !important;
+}
