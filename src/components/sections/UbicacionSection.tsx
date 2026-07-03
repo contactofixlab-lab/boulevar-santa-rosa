@@ -4,12 +4,11 @@ import { Icon } from "@/components/ui/Icon";
 import { SlideInSection } from "@/components/ui/SlideInSection";
 
 const bullets = [
-  { iconName: "metro",        text: "Línea 4 del metro — Estación San Miguel" },
-  { iconName: "bancos",       text: "Av. Santa Rosa y Av. Departamental" },
-  { iconName: "supermercados", text: "Supermercados y comercio a metros" },
-  { iconName: "colegios",     text: "Colegios y universidades cercanas" },
-  { iconName: "centros-medicos", text: "Hospital El Pino y Clínica Santa Rosa" },
-  { iconName: "autopista",    text: "Rápida conexión a autopistas urbanas" },
+  { iconName: "metro",        text: "Metro Línea 2 operativa por Gran Avenida" },
+  { iconName: "metro",        text: "Línea 9 proyectada por Av. Santa Rosa" },
+  { iconName: "colegios",     text: "Estación proyectada cercana a la esquina del proyecto" },
+  { iconName: "autopista",    text: "Conexión a Av. Departamental y Ruta 5" },
+  { iconName: "supermercados", text: "Servicios, salud, educación y comercio en el entorno" },
 ];
 
 const pois = [
@@ -23,7 +22,7 @@ export const UbicacionSection = () => {
   return (
     <section id="ubicacion" className="relative py-12 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[0.75fr_1.25fr] gap-12 items-start">
           {/* Left: título + bullets, sin párrafo descriptivo */}
           <SlideInSection direction="left">
             <h2 className="text-3xl md:text-4xl font-bold text-[#033D6B] mb-3 leading-tight">
@@ -51,7 +50,7 @@ export const UbicacionSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="relative w-full rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer block"
-            style={{ aspectRatio: "16/9" }}
+            style={{ aspectRatio: "4/5" }}
           >
             {/* Imagen del mapa */}
             <img
@@ -62,51 +61,51 @@ export const UbicacionSection = () => {
 
             {/* Puntos de interés - Adaptados del CSS de Figma */}
             {/* Hospital (1077px, 132px) */}
-            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "64.3%", top: "14%" }}>
-              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="centros-medicos" size={20} className="text-[#033D6B]" />
+            <div className="absolute w-7 h-7 flex items-center justify-center" style={{ left: "64.3%", top: "14%" }}>
+              <div className="w-7 h-7 rounded-full border-1.5 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="centros-medicos" size={14} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Supermercado (1275px, 248px) */}
-            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "76.2%", top: "26.3%" }}>
-              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="supermercados" size={20} className="text-[#033D6B]" />
+            <div className="absolute w-7 h-7 flex items-center justify-center" style={{ left: "76.2%", top: "26.3%" }}>
+              <div className="w-7 h-7 rounded-full border-1.5 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="supermercados" size={14} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Educación (1340px, 259px) */}
-            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "80.1%", top: "27.5%" }}>
-              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="colegios" size={20} className="text-[#033D6B]" />
+            <div className="absolute w-7 h-7 flex items-center justify-center" style={{ left: "80.1%", top: "27.5%" }}>
+              <div className="w-7 h-7 rounded-full border-1.5 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="colegios" size={14} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Comercio (1153px, 262px) */}
-            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "68.9%", top: "27.8%" }}>
-              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="mercado" size={20} className="text-[#033D6B]" />
+            <div className="absolute w-7 h-7 flex items-center justify-center" style={{ left: "68.9%", top: "27.8%" }}>
+              <div className="w-7 h-7 rounded-full border-1.5 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="mercado" size={14} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Banco (471px, 257px) */}
-            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "28.1%", top: "27.3%" }}>
-              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="bancos" size={20} className="text-[#033D6B]" />
+            <div className="absolute w-7 h-7 flex items-center justify-center" style={{ left: "28.1%", top: "27.3%" }}>
+              <div className="w-7 h-7 rounded-full border-1.5 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="bancos" size={14} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Comercio 2 (437px, 396px) */}
-            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "26.1%", top: "42%" }}>
-              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="mercado" size={20} className="text-[#033D6B]" />
+            <div className="absolute w-7 h-7 flex items-center justify-center" style={{ left: "26.1%", top: "42%" }}>
+              <div className="w-7 h-7 rounded-full border-1.5 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="mercado" size={14} className="text-[#033D6B]" />
               </div>
             </div>
 
             {/* Comercio 3 (387px, 554px) */}
-            <div className="absolute w-10 h-10 flex items-center justify-center" style={{ left: "23.1%", top: "58.8%" }}>
-              <div className="w-10 h-10 rounded-full border-2 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-md">
-                <Icon name="mercado" size={20} className="text-[#033D6B]" />
+            <div className="absolute w-7 h-7 flex items-center justify-center" style={{ left: "23.1%", top: "58.8%" }}>
+              <div className="w-7 h-7 rounded-full border-1.5 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="mercado" size={14} className="text-[#033D6B]" />
               </div>
             </div>
 
