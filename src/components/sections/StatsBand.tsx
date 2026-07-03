@@ -46,7 +46,7 @@ const StatCard = ({ iconName, value, label, iconColor, bgGradient, hoveredIdx, i
       rotateX: -10,
     }}
     transition={{ type: "spring", stiffness: 350, damping: 25 }}
-    className="group h-20 md:h-24 rounded-xl px-2 md:px-3 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 relative shrink-0"
+    className="group h-20 md:h-24 rounded-xl px-2 md:px-3 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 relative shrink-0 basis-1/2 md:basis-auto"
     style={{
       background: `linear-gradient(${bgGradient}, ${bgGradient}), #ffffff`,
       boxShadow: hoveredIdx === idx
@@ -79,7 +79,11 @@ const StatCard = ({ iconName, value, label, iconColor, bgGradient, hoveredIdx, i
 
 export const StatsBand = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "center", loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    slidesToScroll: 1,
+    align: "start"
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -97,7 +101,7 @@ export const StatsBand = () => {
         {/* Mobile Carousel */}
         <div className="md:hidden">
           <div className="overflow-hidden -mx-6" ref={emblaRef}>
-            <div className="flex gap-3 px-6">
+            <div className="flex gap-2 px-6">
               {stats.map((stat, idx) => (
                 <StatCard key={stat.label} {...stat} idx={idx} hoveredIdx={hoveredIdx} setHoveredIdx={setHoveredIdx} />
               ))}
