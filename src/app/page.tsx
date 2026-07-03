@@ -15,11 +15,21 @@ export default async function Home() {
       <main className="pt-16">
         <HeroSection />
         <StatsBand />
-        <UbicacionSection />
-        <ConoceProyectoSection />
-        <InvierteSection />
-        <EncuentraEspacioIdeal />
-        <AgendaVisita />
+        <div id="ubicacion">
+          <UbicacionSection />
+        </div>
+        <div id="conoce">
+          <ConoceProyectoSection />
+        </div>
+        <div id="inversion">
+          <InvierteSection />
+        </div>
+        <div id="cotizador">
+          <EncuentraEspacioIdeal />
+        </div>
+        <div id="agenda">
+          <AgendaVisita />
+        </div>
       </main>
       <Footer />
     </>
