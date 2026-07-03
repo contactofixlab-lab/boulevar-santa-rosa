@@ -33,7 +33,7 @@ const itemVariants: Variants = {
   },
 };
 
-const StatCard = ({ iconName, value, label, iconColor, bgGradient, hoveredIdx, idx, setHoveredIdx }: any) => (
+const StatCard = ({ iconName, value, label, iconColor, bgGradient, hoveredIdx, idx, setHoveredIdx, isMobile }: any) => (
   <motion.div
     key={label}
     variants={itemVariants}
@@ -46,7 +46,9 @@ const StatCard = ({ iconName, value, label, iconColor, bgGradient, hoveredIdx, i
       rotateX: -10,
     }}
     transition={{ type: "spring", stiffness: 350, damping: 25 }}
-    className="group h-20 md:h-24 rounded-xl px-2 md:px-3 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 relative shrink-0 w-3/5 md:w-auto mx-auto"
+    className={`group h-20 md:h-24 rounded-xl px-2 md:px-3 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 relative shrink-0 ${
+      isMobile ? "w-3/5 mx-auto" : ""
+    }`}
     style={{
       background: `linear-gradient(${bgGradient}, ${bgGradient}), #ffffff`,
       boxShadow: hoveredIdx === idx
@@ -104,7 +106,7 @@ export const StatsBand = () => {
             <div className="flex gap-3">
               {stats.map((stat, idx) => (
                 <div key={stat.label} className="flex-shrink-0 w-full flex justify-center">
-                  <StatCard {...stat} idx={idx} hoveredIdx={hoveredIdx} setHoveredIdx={setHoveredIdx} />
+                  <StatCard {...stat} idx={idx} hoveredIdx={hoveredIdx} setHoveredIdx={setHoveredIdx} isMobile={true} />
                 </div>
               ))}
             </div>
