@@ -71,7 +71,7 @@ export const InvierteSection = () => {
           </div>
 
           {/* RIGHT (3/4): 4 tarjetas 3D premium */}
-          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 h-full" style={{ perspective: "1200px" }}>
+          <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 h-full" style={{ perspective: "1200px" }}>
             {metrics.map(({ iconName, value, title, description, bgGradient, iconColor }, idx) => (
               <motion.div
                 key={title}

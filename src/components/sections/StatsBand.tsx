@@ -38,7 +38,7 @@ export const StatsBand = () => {
     <section className="relative z-20 pb-6 md:pb-10" style={{ perspective: "1000px" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 -mt-[78px] md:-mt-[103px]"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-2.5 md:gap-3 -mt-[78px] md:-mt-[103px]"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

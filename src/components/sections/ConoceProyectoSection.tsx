@@ -162,7 +162,7 @@ export const ConoceProyectoSection = () => {
 
             {/* Flechas + miniaturas (20% más grandes, mitad dentro/mitad afuera) */}
             <div className="flex items-stretch gap-3 -mt-7 h-[72px] md:h-[96px] justify-center px-4">
-              <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="hidden md:flex items-center gap-2 flex-shrink-0">
                 <button
                   onClick={goPrev}
                   aria-label="Foto anterior"
