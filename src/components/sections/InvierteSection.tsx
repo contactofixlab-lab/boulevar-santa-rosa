@@ -86,7 +86,7 @@ export const InvierteSection = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="rounded-2xl px-5 py-12 sm:py-14 flex flex-col items-center justify-center gap-5 sm:gap-6 h-full text-center group overflow-hidden relative cursor-pointer"
+                className="rounded-2xl px-3 py-6 sm:py-8 lg:px-5 lg:py-12 flex flex-col items-center justify-center gap-3 sm:gap-4 lg:gap-5 h-full text-center group overflow-hidden relative cursor-pointer"
                 style={{
                   background: bgGradient,
                   transformStyle: "preserve-3d",
@@ -127,12 +127,12 @@ export const InvierteSection = () => {
                 <div className="space-y-2 relative z-10">
                   <motion.p
                     whileHover={{ scale: 1.1, color: iconColor }}
-                    className="text-3xl sm:text-4xl font-bold text-[#033D6B] transition-colors"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#033D6B] transition-colors"
                   >
                     {value}
                   </motion.p>
-                  <p className="text-xs sm:text-sm font-semibold text-[#033D6B]">{title}</p>
-                  <p className="text-xs text-[#4A6275] leading-relaxed">{description}</p>
+                  <p className="text-[10px] sm:text-xs lg:text-sm font-semibold text-[#033D6B]">{title}</p>
+                  <p className="text-[9px] sm:text-xs lg:text-xs text-[#4A6275] leading-relaxed">{description}</p>
                 </div>
 
                 {/* Efecto de borde brillante en 3D */}

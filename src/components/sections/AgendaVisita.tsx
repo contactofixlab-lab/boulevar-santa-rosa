@@ -106,7 +106,7 @@ export const AgendaVisita = () => {
         aria-hidden="true"
       />
 
-      <div className="relative z-30 max-w-7xl mx-auto px-6 py-28 md:py-32">
+      <div className="relative z-30 max-w-7xl mx-auto px-6 py-14 md:py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.4fr] gap-8 lg:gap-10 items-center max-w-3xl">
 
           {/* ── IZQUIERDA: título + descripción + contacto ── */}
@@ -150,7 +150,7 @@ export const AgendaVisita = () => {
             {/* Barra de acento con los colores de marca */}
             <div className="h-1.5 bg-gradient-to-r from-[#0671AE] via-[#5BB8EC] to-[#84CE25]" />
 
-            <div className="p-6 md:p-8">
+            <div className="p-4 md:p-5 lg:p-8">
               {/* Header del formulario */}
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-10 h-10 rounded-xl bg-[#E3F3FB] flex items-center justify-center flex-shrink-0">

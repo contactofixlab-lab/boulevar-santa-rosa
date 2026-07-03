@@ -3,7 +3,9 @@
 import { Icon } from "@/components/ui/Icon";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const stats = [
   { iconName: "proyecto-pisos",  value: "10",  label: "Pisos totales",     iconColor: "#0671AE", bgGradient: "rgba(6, 113, 174, 0.08)" },
@@ -31,81 +33,102 @@ const itemVariants: Variants = {
   },
 };
 
+const StatCard = ({ iconName, value, label, iconColor, bgGradient, hoveredIdx, idx, setHoveredIdx }: any) => (
+  <motion.div
+    key={label}
+    variants={itemVariants}
+    onMouseEnter={() => setHoveredIdx(idx)}
+    onMouseLeave={() => setHoveredIdx(null)}
+    whileHover={{
+      y: -16,
+      scale: 1.08,
+      rotateY: 10,
+      rotateX: -10,
+    }}
+    transition={{ type: "spring", stiffness: 350, damping: 25 }}
+    className="group h-20 md:h-24 rounded-xl px-2 md:px-3 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 relative shrink-0"
+    style={{
+      background: `linear-gradient(${bgGradient}, ${bgGradient}), #ffffff`,
+      boxShadow: hoveredIdx === idx
+        ? `0 25px 50px rgba(0, 0, 0, 0.15), 0 0 40px ${idx % 2 === 0 ? 'rgba(6, 113, 174, 0.25)' : 'rgba(132, 206, 37, 0.25)'}, inset 0 1px 2px rgba(255, 255, 255, 0.5)`
+        : `0 10px 30px rgba(0, 0, 0, 0.08), 0 0 20px ${idx % 2 === 0 ? 'rgba(6, 113, 174, 0.1)' : 'rgba(132, 206, 37, 0.1)'}, inset 0 1px 0 rgba(255, 255, 255, 1)`,
+    }}
+  >
+    <motion.div
+      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity"
+      style={{ background: `linear-gradient(135deg, ${iconColor}20, transparent)` }}
+    />
+    <motion.div
+      whileHover={{ scale: 1.25, rotate: 15, z: 10 }}
+      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+      className="relative z-10"
+    >
+      <Icon name={iconName} size={28} style={{ color: iconColor }} aria-hidden="true" />
+    </motion.div>
+    <motion.span
+      animate={{ color: hoveredIdx === idx ? iconColor : "#033D6B" }}
+      className="text-lg md:text-2xl font-bold leading-none text-center relative z-10"
+    >
+      {value}
+    </motion.span>
+    <span className="text-[10px] md:text-xs text-[#4A6275] font-medium leading-tight text-center relative z-10">
+      {label}
+    </span>
+  </motion.div>
+);
+
 export const StatsBand = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "center", loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.internalEngine().index.get());
+    emblaApi.on("select", onSelect);
+    onSelect();
+  }, [emblaApi]);
 
   return (
     <section className="relative z-20 pb-6 md:pb-10" style={{ perspective: "1000px" }}>
       <div className="max-w-7xl mx-auto px-6">
+        {/* Mobile Carousel */}
+        <div className="md:hidden">
+          <div className="overflow-hidden -mx-6" ref={emblaRef}>
+            <div className="flex gap-3 px-6">
+              {stats.map((stat, idx) => (
+                <StatCard key={stat.label} {...stat} idx={idx} hoveredIdx={hoveredIdx} setHoveredIdx={setHoveredIdx} />
+              ))}
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {stats.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => emblaApi?.scrollTo(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  idx === selectedIndex ? "bg-[#0671AE] w-6" : "bg-[#0671AE]/30 w-2"
+                }`}
+                aria-label={`Ir a stat ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Grid */}
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-2.5 md:gap-3 -mt-[78px] md:-mt-[103px]"
+          className="hidden md:grid grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5 md:gap-3 -mt-[78px] md:-mt-[103px]"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {stats.map(({ iconName, value, label, iconColor, bgGradient }, idx) => (
-            <motion.div
-              key={label}
-              variants={itemVariants}
-              onMouseEnter={() => setHoveredIdx(idx)}
-              onMouseLeave={() => setHoveredIdx(null)}
-              whileHover={{
-                y: -16,
-                scale: 1.08,
-                rotateY: 10,
-                rotateX: -10,
-              }}
-              transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              className="group h-20 md:h-24 rounded-xl px-2 md:px-3 py-3 md:py-4 flex flex-col items-center justify-center gap-1.5 relative"
-              style={{
-                background: `linear-gradient(${bgGradient}, ${bgGradient}), #ffffff`,
-                boxShadow: hoveredIdx === idx
-                  ? `
-                    0 25px 50px rgba(0, 0, 0, 0.15),
-                    0 0 40px ${idx % 2 === 0 ? 'rgba(6, 113, 174, 0.25)' : 'rgba(132, 206, 37, 0.25)'},
-                    inset 0 1px 2px rgba(255, 255, 255, 0.5)
-                  `
-                  : `
-                    0 10px 30px rgba(0, 0, 0, 0.08),
-                    0 0 20px ${idx % 2 === 0 ? 'rgba(6, 113, 174, 0.1)' : 'rgba(132, 206, 37, 0.1)'},
-                    inset 0 1px 0 rgba(255, 255, 255, 1)
-                  `,
-              }}
-            >
-              {/* Gradient overlay on hover */}
-              <motion.div
-                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity"
-                style={{
-                  background: `linear-gradient(135deg, ${iconColor}20, transparent)`,
-                }}
-              />
-
-              <motion.div
-                whileHover={{
-                  scale: 1.25,
-                  rotate: 15,
-                  z: 10,
-                }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                className="relative z-10"
-              >
-                <Icon name={iconName} size={28} style={{ color: iconColor }} aria-hidden="true" />
-              </motion.div>
-
-              <motion.span
-                animate={{
-                  color: hoveredIdx === idx ? iconColor : "#033D6B",
-                }}
-                className="text-lg md:text-2xl font-bold leading-none text-center relative z-10"
-              >
-                {value}
-              </motion.span>
-
-              <span className="text-[10px] md:text-xs text-[#4A6275] font-medium leading-tight text-center relative z-10">
-                {label}
-              </span>
-            </motion.div>
+          {stats.map((stat, idx) => (
+            <StatCard key={stat.label} {...stat} idx={idx} hoveredIdx={hoveredIdx} setHoveredIdx={setHoveredIdx} />
           ))}
         </motion.div>
       </div>
