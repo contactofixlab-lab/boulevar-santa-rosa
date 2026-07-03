@@ -99,11 +99,13 @@ export const StatsBand = () => {
     <section className="relative z-20 pb-6 md:pb-10" style={{ perspective: "1000px" }}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Mobile Carousel */}
-        <div className="md:hidden">
-          <div className="overflow-hidden -mx-6" ref={emblaRef}>
-            <div className="flex gap-2 px-6">
+        <div className="md:hidden flex flex-col items-center">
+          <div className="overflow-hidden w-full" ref={emblaRef}>
+            <div className="flex gap-3">
               {stats.map((stat, idx) => (
-                <StatCard key={stat.label} {...stat} idx={idx} hoveredIdx={hoveredIdx} setHoveredIdx={setHoveredIdx} />
+                <div key={stat.label} className="flex-shrink-0 w-full flex justify-center">
+                  <StatCard {...stat} idx={idx} hoveredIdx={hoveredIdx} setHoveredIdx={setHoveredIdx} />
+                </div>
               ))}
             </div>
           </div>
