@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Camera } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { SlideInSection } from "@/components/ui/SlideInSection";
@@ -86,6 +87,19 @@ const features: Record<PhotoType, Feature[]> = {
 export const ConoceProyectoSection = () => {
   const [selectedType, setSelectedType] = useState<PhotoType>("departamento");
   const [activeIndex, setActiveIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: false,
+    slidesToScroll: 1,
+    align: "start"
+  });
+  const [selectedFeatureIndex, setSelectedFeatureIndex] = useState(0);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedFeatureIndex(emblaApi.internalEngine().index.get());
+    emblaApi.on("select", onSelect);
+    onSelect();
+  }, [emblaApi, selectedType]);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const photos = photosByType[selectedType];
@@ -136,8 +150,8 @@ export const ConoceProyectoSection = () => {
           ))}
         </div>
 
-        {/* Grid sin scroll - Adaptativo */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {/* Desktop/Tablet Grid */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {currentFeatures.map((feature) => (
             <motion.div
               key={feature.title}
@@ -158,6 +172,49 @@ export const ConoceProyectoSection = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Mobile: Carousel sin scroll visible */}
+        <div className="md:hidden mb-12">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-4">
+              {currentFeatures.map((feature) => (
+                <div key={feature.title} className="flex-shrink-0 w-full flex justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm"
+                  >
+                    <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-[#033D6B] text-sm leading-tight mb-1">
+                        {feature.title}
+                      </h4>
+                      <p className="text-xs text-[#4A6275] leading-snug">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots indicadores */}
+          <div className="flex justify-center gap-2 mt-4">
+            {currentFeatures.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => emblaApi?.scrollTo(idx)}
+                className={`h-2 rounded-full transition-all ${
+                  idx === selectedFeatureIndex ? "bg-[#0671AE] w-6" : "bg-[#0671AE]/30 w-2"
+                }`}
+                aria-label={`Ir a tarjeta ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Galería: foto grande + miniaturas clicables */}
