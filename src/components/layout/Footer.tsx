@@ -117,8 +117,8 @@ export const Footer = async () => {
         </div>
 
         {/* Sección Construye - Logos de Empresas */}
-        <div className="mt-16 pt-12 border-t border-gray-100">
-          <h3 className="text-xs uppercase tracking-wider font-semibold text-[#033D6B] mb-6">
+        <div className="mt-8 pt-6">
+          <h3 className="text-xs uppercase tracking-wider font-semibold text-[#033D6B] mb-4">
             Construye:
           </h3>
 
@@ -146,7 +146,7 @@ export const Footer = async () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-100 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="border-t border-gray-100 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[#4A6275] text-xs">
             &copy; 2026 Boulevard Santa Rosa. Todos los derechos reservados.
           </p>
