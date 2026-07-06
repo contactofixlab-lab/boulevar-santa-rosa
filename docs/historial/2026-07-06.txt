@@ -670,17 +670,33 @@ ESTADO: ✅ CAMBIOS COMPLETADOS Y PUSHEADOS A GITHUB
 AJUSTE FINAL: POSICIONAMIENTO DEBAJO DE UF HOY
 SOLICITUD: Mover "Construye:" más cerca de la UF (debajo de la línea de UF Hoy)
 
-CAMBIOS:
-- mt-16 pt-12 → mt-8 pt-6 (reducir espaciado)
-- Remover border-top (para integración visual)
-- Mantener grid de logos limpios
+VERSIÓN 1 (DESCARTADA):
+- mt-16 pt-12 → mt-8 pt-6 (no fue suficiente)
+- Aún estaba fuera del grid principal
 
-RESULTADO: ✅ Sección "Construye:" posicionada inmediatamente debajo de UF Hoy
-           ✅ Integración visual natural con el footer
+VERSIÓN 2 (CORRECTA):
+- Mover "Construye:" DENTRO del grid principal de 4 columnas
+- Utilizar md:col-span-4 para que ocupe todo el ancho en nueva fila
+- Integración perfecta dentro del grid grid-cols-1 md:grid-cols-4
+
+ESTRUCTURA FINAL:
+```
+Grid md:grid-cols-4:
+  Column 1: Logo + redes
+  Column 2: Navegación
+  Column 3: Sala de Ventas
+  Column 4: UF Hoy
+  Column 1-4 (Nueva fila): Construye: + logos
+```
+
+RESULTADO: ✅ Sección "Construye:" dentro del grid principal
+           ✅ Posicionada inmediatamente debajo de UF Hoy
+           ✅ Ocupa todo el ancho disponible (md:col-span-4)
+           ✅ Integración visual perfecta, sin separaciones
            ✅ Listo para ingresar logos de constructoras
 
-BUILD: ✅ Compiled successfully in 4.3s
-COMMIT: ecaf271
+BUILD: ✅ Compiled successfully in 2.7s
+COMMIT: 1dbc76c
 
 ================================================================================
 FIN DEL REGISTRO — 6 de Julio 2026
