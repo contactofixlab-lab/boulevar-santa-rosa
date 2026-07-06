@@ -108,10 +108,14 @@ export const UbicacionSection = () => {
               </div>
             </div>
 
-            {/* Punto central - Boulevard (744px, 488px) */}
-            <div className="absolute w-14 h-14 flex items-center justify-center" style={{ left: "44.4%", top: "51.8%" }}>
-              <div className="w-14 h-14 rounded-full border-3 border-[#0671AE] flex items-center justify-center bg-white shadow-lg">
-                <div className="w-6 h-6 rounded-full bg-[#0671AE]" />
+            {/* Punto central - Boulevard con ícono y dirección */}
+            <div className="absolute flex items-center gap-2 bg-white rounded-lg px-3 py-2 shadow-lg" style={{ left: "40%", top: "50%" }}>
+              <svg className="w-6 h-6 text-[#0671AE] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5z"/>
+              </svg>
+              <div className="flex flex-col gap-0">
+                <p className="text-xs font-bold text-[#0671AE]">Boulevard</p>
+                <p className="text-[10px] text-[#033D6B] font-semibold">León Prado 515</p>
               </div>
             </div>
 
