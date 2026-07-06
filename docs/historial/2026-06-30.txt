@@ -1,0 +1,57 @@
+================================================================================
+HISTORIAL DE CAMBIOS — BOULEVARD SANTA ROSA
+Fecha: 30 de Junio 2026
+Duración: ~1 hora
+Commits: 1 cambio
+================================================================================
+
+RESUMEN GENERAL:
+Sesión corta enfocada en aplicación de tipografía Nunito Sans en toda la página
+como actualización global de fuentes.
+
+================================================================================
+1. APLICACIÓN DE NUNITO SANS
+================================================================================
+
+QUÉ SE HIZO:
+- Implementación global de Nunito Sans como tipografía principal
+- Aplicación en todas las secciones y componentes
+- Sincronización de fuentes en todo el proyecto
+
+CAMBIO PRINCIPAL:
+✓ Tipografía principal: Poppins → Nunito Sans
+✓ Aplicada en: layout.tsx, tailwind.config.ts, globals.css
+✓ Montserrat (Light 300, SemiBold 600) como fallback
+
+ARCHIVOS MODIFICADOS:
+✓ src/app/layout.tsx — Variable CSS --font-nunito-sans
+✓ tailwind.config.ts — Font family actualizada
+✓ src/app/globals.css — @font-face declarations
+
+COMMIT:
+- 2eb8ff3 | feat: aplicar Nunito Sans como tipografía principal en toda la página
+
+ESTADO: ✅ Completado
+
+================================================================================
+2. ESTADO FINAL ✅
+================================================================================
+
+COMPLETADO:
+✅ Tipografía Nunito Sans aplicada globalmente
+✅ Fallback Montserrat configurado
+✅ Fuentes locales correctamente cargadas
+✅ Commit realizado
+
+IMPACTO:
+- Toda la página ahora usa Nunito Sans
+- Consistencia tipográfica mejorada
+- Mejor apariencia visual
+
+PRÓXIMOS PASOS:
+- Verificación en producción
+- Responsive testing
+
+================================================================================
+FIN DEL REGISTRO — 30 de Junio 2026
+================================================================================

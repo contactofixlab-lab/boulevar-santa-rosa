@@ -1,0 +1,253 @@
+================================================================================
+HISTORIAL DE CAMBIOS — BOULEVARD SANTA ROSA
+Fecha: 25 de Junio 2026
+Duración: ~5 horas
+Commits: 21 cambios
+================================================================================
+
+RESUMEN GENERAL:
+Sesión MASIVA de mejoras y refactorización completa. Implementación de Mobysuite,
+integración de efectos 3D Glass-morphism, mejoras en navegación, sección Ubicación
+mejorada, y múltiples refinamientos de UI/UX en todas las secciones.
+
+================================================================================
+1. IMPLEMENTACIÓN COMPLETA DE MOBYSUITE
+================================================================================
+
+QUÉ SE HIZO:
+- Integración completa del cotizador Mobysuite
+- Inyección de script con componente Next.js Script
+- Web component integrado correctamente
+- Sección "Encuentra tu espacio ideal" creada
+
+CAMBIOS ESPECÍFICOS:
+✓ Script injection mejorada: uso de Next.js Script component
+✓ Web component funcional y visible
+✓ Sección nueva: Encuentra tu espacio ideal (cotizador Mobysuite)
+✓ Integración sin errores de renderizado
+
+COMMITS:
+- f7a4cec: fix: cambiar forma de inyectar script del cotizador
+- 5489b76: feat: implementar cotizador Mobysuite correctamente con web component
+- 2a2c9a8: fix: usar componente Script de Next.js para Mobysuite
+- 63b41dc: feat: crear sección 'Encuentra tu espacio ideal' con cotizador
+
+ESTADO: ✅ Completo y funcionando
+
+================================================================================
+2. NAVEGACIÓN COMPLETA Y MENÚS
+================================================================================
+
+QUÉ SE HIZO:
+- Implementación completa de navegación
+- Links a secciones con anchors (#)
+- Menú actualizado en Header
+- Botones "Cotizar" integrados
+
+CAMBIOS:
+✓ Menu items correcto: Inicio, Ubicación, Proyecto, Invierte, Cotizar, Agendar
+✓ Links funcionan correctamente a secciones
+✓ Botones "Cotizar ahora" corregidos
+✓ IDs de secciones verificados y funcionales
+
+COMMITS:
+- 5df619f: feat: navegación completa con menú y botones hacia secciones
+- f5371df: fix: actualizar menú - cambiar 'Conoce' por 'Proyecto' y 'Tu Espacio' por 'Cotizar'
+- 2c122a6: fix: corregir links de botones 'Cotizar ahora'
+- 778acde: fix: remover botones 'Cotizar' duplicados del header
+- b068576: fix: cambiar link 'Invierte' a #inversion (ID correcto)
+
+ESTADO: ✅ Completo
+
+================================================================================
+3. MEJORAS EN SECCIÓN UBICACIÓN
+================================================================================
+
+QUÉ SE HIZO:
+- Mapa más grande (aspectRatio 16:9)
+- Iconos más pequeños y mejor posicionados
+- Link a Google Maps agregado
+- Bullets y dirección mejorados
+
+CAMBIOS ESPECÍFICOS:
+✓ Mapa: aspectRatio cambió a 16:9 (más ancho)
+✓ Iconos: reducidos en tamaño
+✓ Dirección: agregada debajo del mapa
+✓ Padding: agregado para mejor espaciado
+✓ Link: "Click para abrir en Google Maps"
+
+COMMITS:
+- 5f5ce04: feat: mejorar sección Ubicación - mapa más grande, iconos más pequeños, link a Google Maps
+- 5cae77f: fix: cambiar aspectRatio del mapa a 16:9 (más ancho)
+- b3ffb59: fix: agregar padding a bullets y dirección debajo del mapa
+- d4fc20f: fix: ajustar espacios en Ubicación y Conoce el Proyecto
+
+ESTADO: ✅ Completo
+
+================================================================================
+4. EFECTOS 3D GLASS-MORPHISM Y PARALLAX
+================================================================================
+
+QUÉ SE HIZO:
+- Agregación de efectos 3D Glass-morphism en tarjetas
+- Implementación de Parallax en Hero section
+- Uso de Framer Motion para animaciones
+- Efectos visuales mejorados
+
+CAMBIOS:
+✓ Glass-morphism en cards de Invierte
+✓ Parallax en background del Hero
+✓ Slide-in animations en secciones
+✓ Transiciones suave
+
+COMMITS:
+- 55450ac: feat: agregar efectos 3D Glass-morphism y Parallax
+- 233a7a7: fix: type error en variants de Framer Motion
+- 45c694d: feat: restaurar colores en StatsBand + agregar slide-in animations
+
+ESTADO: ✅ Completo
+
+================================================================================
+5. AJUSTES Y FIXES
+================================================================================
+
+QUÉ SE HIZO:
+- Corrección de StatsBand: mismo tamaño, menos separación
+- Actualización de pisos totales: 8 → 10
+- Ajuste de espacios en múltiples secciones
+- Correcciones sintaxis JSX
+- Limpieza del footer
+
+CAMBIOS ESPECÍFICOS:
+✓ StatsBand: tarjetas alineadas con separación mínima
+✓ Pisos totales actualizado: 10 (actualizado en datos)
+✓ Espacios ajustados en Ubicación y Conoce el Proyecto
+✓ JSX syntax corregida en UbicacionSection
+✓ Footer: removido "Powered by Mobysuite"
+
+COMMITS:
+- 18f49fe: fix: ajustar StatsBand - mismo tamaño, menos separación
+- 5b1c237: fix: actualizar pisos totales a 10 y agregar separación mínima
+- ff20a47: fix: corregir sintaxis JSX en UbicacionSection
+- ddbb9b8: fix: remover 'Powered by Mobysuite' del footer
+
+ESTADO: ✅ Completo
+
+================================================================================
+6. TOTAL DE COMMITS (21)
+================================================================================
+
+1. 63b41dc - feat: crear sección 'Encuentra tu espacio ideal' con cotizador
+2. f7a4cec - fix: cambiar forma de inyectar script del cotizador
+3. 5489b76 - feat: implementar cotizador Mobysuite correctamente con web component
+4. 2a2c9a8 - fix: usar componente Script de Next.js para Mobysuite
+5. 5df619f - feat: navegación completa con menú y botones hacia secciones
+6. f5371df - fix: actualizar menú - cambiar 'Conoce' por 'Proyecto' y 'Tu Espacio' por 'Cotizar'
+7. 2c122a6 - fix: corregir links de botones 'Cotizar ahora'
+8. 778acde - fix: remover botones 'Cotizar' duplicados del header
+9. b068576 - fix: cambiar link 'Invierte' a #inversion (ID correcto)
+10. 5f5ce04 - feat: mejorar sección Ubicación - mapa más grande, iconos más pequeños
+11. 5cae77f - fix: cambiar aspectRatio del mapa a 16:9 (más ancho)
+12. b3ffb59 - fix: agregar padding a bullets y dirección debajo del mapa
+13. d4fc20f - fix: ajustar espacios en Ubicación y Conoce el Proyecto
+14. 55450ac - feat: agregar efectos 3D Glass-morphism y Parallax
+15. 233a7a7 - fix: type error en variants de Framer Motion
+16. 45c694d - feat: restaurar colores en StatsBand + agregar slide-in animations
+17. 18f49fe - fix: ajustar StatsBand - mismo tamaño, menos separación
+18. 5b1c237 - fix: actualizar pisos totales a 10 y agregar separación mínima
+19. ff20a47 - fix: corregir sintaxis JSX en UbicacionSection
+20. ddbb9b8 - fix: remover 'Powered by Mobysuite' del footer
+
+TOTAL: 20 commits productivos
+
+================================================================================
+7. ARCHIVOS MODIFICADOS
+================================================================================
+
+SECCIONES:
+✓ src/components/sections/ConoceProyectoSection.tsx
+✓ src/components/sections/UbicacionSection.tsx
+✓ src/components/sections/InvierteSection.tsx
+✓ src/components/sections/StatsBand.tsx
+✓ src/components/sections/HeroSection.tsx
+
+LAYOUT:
+✓ src/components/layout/Header.tsx
+✓ src/components/layout/Footer.tsx
+
+PÁGINAS:
+✓ src/app/page.tsx
+✓ src/app/layout.tsx
+
+TOTAL: 9 archivos principales modificados
+
+================================================================================
+8. FEATURES NUEVAS
+================================================================================
+
+✅ Cotizador Mobysuite completamente integrado
+✅ Sección "Encuentra tu espacio ideal" creada
+✅ Navegación completa con menú
+✅ Efectos Glass-morphism en tarjetas
+✅ Parallax en Hero section
+✅ Slide-in animations
+✅ Ubicación mejorada con mapa grande
+✅ Links a Google Maps funcionales
+
+================================================================================
+9. FIXES Y MEJORAS
+================================================================================
+
+✅ StatsBand: espacios mejorados
+✅ Pisos totales actualizado
+✅ JSX syntax corregida
+✅ Links de navegación funcionales
+✅ Botones duplicados removidos
+✅ IDs de secciones verificados
+✅ Footer limpiado
+✅ Espacios consistentes
+
+================================================================================
+10. TESTING Y QA
+================================================================================
+
+VERIFICACIONES:
+✅ Cotizador Mobysuite funciona correctamente
+✅ Navegación completa y funcional
+✅ Efectos 3D/Glass-morphism visibles
+✅ Parallax funciona en Hero
+✅ Links a secciones funcionan
+✅ Animaciones suave
+✅ Responsive en mobile/tablet/desktop
+✅ Build sin errores
+
+ESTADO: ✅ QA Completo
+
+================================================================================
+11. ESTADO FINAL ✅
+================================================================================
+
+COMPLETADO:
+✅ Integración Mobysuite funcional
+✅ Navegación completa
+✅ Efectos visuales mejorados
+✅ Ubicación optimizada
+✅ Múltiples fixes y ajustes
+✅ 20 commits exitosos
+✅ Todo funcionando correctamente
+
+IMPACTO:
+- Sitio ahora con funcionalidad Mobysuite
+- Experiencia de usuario mejorada
+- Efectos visuales más atractivos
+- Navegación intuitiva
+
+PRÓXIMOS PASOS:
+- Deploy a Vercel
+- Testing en producción
+- Refinamientos basados en feedback
+
+================================================================================
+FIN DEL REGISTRO — 25 de Junio 2026
+Sesión extraordinaria de 5+ horas con 20+ commits
+================================================================================

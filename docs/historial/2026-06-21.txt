@@ -1,0 +1,367 @@
+================================================================================
+HISTORIAL DE CAMBIOS — BOULEVARD SANTA ROSA
+Fecha: 21 de Junio 2026
+Duración: ~4 horas
+Commits: 2 cambios principales
+================================================================================
+
+RESUMEN GENERAL:
+Sesión enfocada en rediseño completo del cotizador con integración de Mobysuite
+y presentación de 3 opciones diferentes de implementación para que diseño/
+marketing seleccione la más adecuada.
+
+================================================================================
+PARTE 1: COTIZADOR v2 — REDISEÑO COMPLETO
+================================================================================
+
+QUÉ SE HIZO:
+- Rediseño completeto de CotizadorDetalle.tsx
+- Implementación de layout de 3 columnas
+- Sistema de carrito de múltiples bienes (departamento + bodegas/locales/estacionamientos)
+- Formulario de contacto integrado
+- Estados visuales (alerts, badges, etc.)
+
+DISEÑO DEL COTIZADOR:
+
+Layout de 3 columnas:
+┌──────────────────────────────────────────────────┐
+│ Izquierda | Centro | Derecha                     │
+├───────────┼────────┼──────────────────────────────┤
+│ Foto      │Edif.   │ Carrito de cotización        │
+│ deptos    │Detalle │ + Formulario contacto       │
+│ (lista)   │        │ + Estado (Success/Info)     │
+└───────────┴────────┴──────────────────────────────┘
+
+COLUMNA IZQUIERDA — Lista de Departamentos:
+- Scroll de departamentos disponibles
+- Click para seleccionar
+- Mostrada foto del depto seleccionado
+
+COLUMNA CENTRAL — Detalle del Departamento:
+- Visualización del edificio (floor stack vertical)
+- Piso seleccionado resaltado en verde
+- Plano del piso 2D
+- Ubicación en el edificio (Torre A, info)
+
+COLUMNA DERECHA — Carrito y Formulario:
+- Resumen de departamento seleccionado
+- Características (m², terraza, total, orientación, piso, estado)
+- Equipamiento y terminaciones (con checkmarks)
+- Agregar otros bienes: bodega, local, estacionamiento
+- Resumen de UF totales
+- Botones: "Descargar ficha" y "Solicitar cotización"
+- Formulario de contacto (nome, email, teléfono)
+- Alert de éxito después de envío
+
+ESTADO VISUAL — Floor Stack:
+- Pisos mostrados VERTICALMENTE (no horizontal)
+- Piso seleccionado resaltado en VERDE (#84CE25)
+- Dinámicamente adapta al máximo de pisos en los datos
+- Visual tipo "mini building"
+
+CARRITO DE MÚLTIPLES BIENES:
+- Departamento siempre incluido (no se puede remover)
+- Agregar: bodega, local, estacionamiento sin duplicados
+- Remover bienes individuales (excepto depto principal)
+- Resumen de UF totales actualizado dinámicamente
+
+INTERFAZ DEL FORMULARIO:
+- Se abre al click en "Solicitar cotización"
+- Campos requeridos: nombre completo, email, teléfono
+- Resumen de cotización: lista de bienes + total UF
+- Validación básica (campos requeridos)
+- Botones: "Enviar cotización" y "Cancelar"
+- Success Alert: "¡Cotización enviada!" tras envío exitoso
+
+ESTRUCTURA TÉCNICA:
+
+interface CartItem {
+  id: string;
+  tipo: string;
+  nombre: string;
+  precioUF: number;
+}
+
+interface ContactForm {
+  nombre: string;
+  email: string;
+  telefono: string;
+}
+
+Estados:
+- selectedDeptoId: depto principal seleccionado
+- cart: array de CartItem (multi-bienes)
+- showForm: muestra/oculta el formulario
+- formData: datos del formulario de contacto
+- submitted: controla el alert de éxito
+
+ARCHIVOS MODIFICADOS:
+✓ src/components/sections/CotizadorDetalle.tsx — Rediseño completo
+
+COMMIT: 50b8b2f
+Título: Redesign quoter with 3-column layout, multi-item cart, contact form
+Cambios: Completa reescritura de CotizadorDetalle.tsx
+
+ESTADO: ✅ Deployado a producción
+
+================================================================================
+PARTE 2: 3 OPCIONES DE COTIZADOR — COMPARATIVA
+================================================================================
+
+QUÉ SE HIZO:
+- Implementación de 3 opciones diferentes de presentar el cotizador
+- Página de comparativa con descripción de cada opción
+- Demo local de cada opción (NO subido a Vercel aún)
+
+OPCIÓN 1: MODAL FLOTANTE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Qué es:
+- Diálogo modal que se abre al hacer click en "Cotizar"
+- Cubre el landing con backdrop oscuro
+- Cotizador en 3 columnas dentro del modal
+
+Visual:
+┌─────────────────────────────┐
+│  Landing (fondo oscurecido)│
+│  ┌─────────────────────┐   │
+│  │ [X] COTIZADOR MODAL │   │
+│  │                     │   │
+│  │ 3 columnas...       │   │
+│  │                     │   │
+│  └─────────────────────┘   │
+└─────────────────────────────┘
+
+Acceso:
+- Click en cualquier botón "Cotizar" en la página
+- Header, Hero, Invierte, tarjetas de tipología
+
+Ventajas:
++ No distrae del landing
++ Accesible desde cualquier lugar
++ Experiencia rápida sin navegación
+
+Desventajas:
+- Usuario puede cerrar fácilmente
+- Puede sentirse intrusivo
+
+OPCIÓN 2: PÁGINA DEDICADA (/cotizador)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Qué es:
+- Página separada con cotizador a full-width
+- Header y Footer consistentes
+- Enfoque total en el cotizador
+
+Visual:
+┌─────────────────────────────┐
+│ Header                      │
+├─────────────────────────────┤
+│                             │
+│ COTIZADOR A FULL-WIDTH      │
+│ (sin distracciones)         │
+│                             │
+├─────────────────────────────┤
+│ Footer                      │
+└─────────────────────────────┘
+
+Acceso:
+- URL: /cotizador
+- Link "Opciones Cotizador" en Header
+- Botón en página de opciones
+
+Ventajas:
++ Enfoque total en cotizador
++ Mejor para SEO
++ Experiencia limpia
++ Mejor en mobile (espacio)
+
+Desventajas:
+- Usuario navega fuera del landing
+- Requiere navegación explícita
+
+OPCIÓN 3: SECCIÓN INLINE EN LANDING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Qué es:
+- Sección integrada en el landing
+- Scroll natural hasta el cotizador
+- Contexto completo visible
+
+Visual:
+┌─────────────────────────────┐
+│ Hero                        │
+│ Stats                       │
+│ Ubicación                   │
+│ Conoce el Proyecto          │
+│                             │
+│ Encuentro tu espacio ideal  │
+│ ┌─────────────────────────┐ │
+│ │ COTIZADOR (sección)     │ │
+│ │ 3 columnas              │ │
+│ │ (scroll naturalmente)    │ │
+│ └─────────────────────────┘ │
+│                             │
+│ Agenda tu visita            │
+│ Footer                      │
+└─────────────────────────────┘
+
+Ubicación:
+- Después de "Invierte en San Miguel"
+- Antes de "Agenda tu visita"
+- Scroll natural
+
+Ventajas:
++ Siempre visible
++ Contexto completo
++ Flujo natural
++ Mayor tasa de conversión
+
+Desventajas:
+- Más contenido en la página
+- Puede distraer del flujo
+
+PÁGINA DE COMPARATIVA:
+
+Archivo: src/app/cotizador-opciones/page.tsx
+Contenido:
+- Descripción de cada opción (con iconos)
+- Tabla comparativa:
+  - Carga inicial
+  - Tasa de conversión
+  - Nivel de distracción
+  - SEO impact
+  - Mobile experience
+- Botones para ver cada opción
+
+ARCHIVOS NUEVOS:
+✓ src/app/cotizador-opciones/page.tsx — Página comparativa
+✓ src/components/sections/CotizadorInline.tsx — Sección inline
+
+ARCHIVOS MODIFICADOS:
+✓ src/app/page.tsx — Agregó CotizadorInline
+✓ src/components/layout/Header.tsx — Agregó link "Opciones Cotizador"
+✓ src/components/sections/CotizadorDetalle.tsx — Botones lado a lado
+
+ESTADO: ✅ Implementado en local (NO subido a Vercel)
+
+================================================================================
+INTEGRACIÓN CON MOBYSUITE — LISTA PARA IMPLEMENTACIÓN
+================================================================================
+
+El cotizador está 100% listo para integración:
+
+PLACEHOLDERS PREPARADOS:
+- imagenPlanta (URL) → Foto del depto (columna izquierda)
+- floorPlan2D (URL) → Plano 2D del piso (columna centro)
+- edificioAltura (URL) → Edificio en altura (columna centro)
+
+ENDPOINTS ESPERADOS:
+- POST /descargar-ficha → Genera PDF de ficha
+- POST /solicitar-cotizacion → Captura datos de usuario
+
+DATOS ESPERADOS (por tipología):
+{
+  "id": "depto-305",
+  "nombre": "Depto. 305",
+  "imagenPlanta": "URL",
+  "floorPlan2D": "URL",
+  "edificioAltura": "URL",
+  "torre": "Torre A",
+  "piso": 3,
+  "m2": 42.5,
+  "terraza": 4.2,
+  "precioUF": 2850,
+  "caracteristicas": [...],
+  "equipamiento": [...]
+}
+
+PRÓXIMOS PASOS (cuando Mobysuite esté disponible):
+1. Reemplazar placeholders con URLs reales
+2. Conectar endpoints de descarga y cotización
+3. Integrar validación de datos
+4. Testing end-to-end
+
+================================================================================
+COMMITS REALIZADOS
+================================================================================
+
+Commit 1: 50b8b2f
+Título: Redesign quoter with 3-column layout, multi-item cart, contact form
+Cambios: CotizadorDetalle.tsx completo rediseño
+
+Commit 2: 0b0c4a0
+Título: Add 3 quoter options (modal, page, inline) with comparison page
+Cambios: CotizadorInline.tsx, cotizador-opciones/page.tsx, Header updates
+
+TOTAL COMMITS: 2
+
+================================================================================
+TESTING Y QA
+================================================================================
+
+VERIFICACIONES REALIZADAS:
+✅ Opción 1 (Modal) abre correctamente desde todos los botones
+✅ Opción 2 (Página) renderiza a full-width sin distracciones
+✅ Opción 3 (Inline) scrollea naturalmente en landing
+✅ Botones "Descargar ficha" y "Solicitar cotización" lado a lado
+✅ Formulario de cotización se abre al click
+✅ Validación de campos requeridos funciona
+✅ Alert de éxito se muestra tras envío
+✅ Layout responsive en mobile/tablet/desktop
+✅ Build compila sin errores TypeScript
+✅ Navegación funciona correctamente
+
+ESTADO: ✅ QA Completado — Todo funcionando
+
+================================================================================
+RESUMEN DE ARCHIVOS
+================================================================================
+
+NUEVOS:
+✓ src/app/cotizador-opciones/page.tsx
+  - Página comparativa de las 3 opciones
+  - Tabla de comparación
+  - Botones para acceder a cada opción
+
+✓ src/components/sections/CotizadorInline.tsx
+  - Sección inline para el landing
+  - 3 columnas del cotizador integradas
+
+MODIFICADOS:
+✓ src/app/page.tsx
+  - Agregó import CotizadorInline
+  - Agregó sección en el layout
+
+✓ src/components/layout/Header.tsx
+  - Agregó link "Opciones Cotizador"
+
+✓ src/components/sections/CotizadorDetalle.tsx
+  - Rediseño completo con 3 columnas
+  - Carrito de múltiples bienes
+  - Formulario de contacto integrado
+  - Estados visuales (alerts, badges)
+
+================================================================================
+NOTAS IMPORTANTES
+================================================================================
+
+ESTADO DEL DEPLOY:
+- Código: ✅ Compilado y funcionando en local
+- GitHub: ✅ Pusheado a rama main
+- Vercel: ✅ Deployado (solo parte 1 - cotizador v2)
+- Parte 2 (3 opciones): ✅ En local para presentación (NO en Vercel aún)
+
+PRÓXIMOS PASOS:
+1. Presentar las 3 opciones a diseño/marketing
+2. Recibir feedback sobre cuál opción preferir
+3. Integración con Mobysuite cuando documentación esté disponible
+4. Deploy final con la opción seleccionada
+
+FLUJO ESPERADO:
+Landing → Botones "Cotizar" → Opción seleccionada (modal/página/inline)
+→ Formulario contacto → Alert éxito → Envío a Mobysuite
+
+================================================================================
+FIN DEL REGISTRO — 21 de Junio 2026
+================================================================================

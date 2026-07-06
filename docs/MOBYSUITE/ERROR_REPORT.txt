@@ -1,0 +1,24 @@
+REPORTE DE ERROR - COTIZADOR MOBYSUITE
+=====================================
+Fecha: 2026-07-02
+Proyecto: Boulevard Santa Rosa
+
+DATOS DE CONFIGURACIÓN ENVIADOS:
+================================
+- project_id: 4
+- real_estate: inesdesuarez ✅ CORREGIDO
+- template: default
+- country_code: CL
+- primary_color: #0671AE
+- secondary_color: #84CE25
+- show_real_estate_logo: true
+- show_project_logo: true
+- success_view_type: simple
+
+UBICACIÓN DEL COTIZADOR:
+========================
+URL: http://localhost:3000/#cotizador
+Sección: "Encuentra tu espacio ideal"
+Web Component: <mobysuite-quote></mobysuite-quote>
+
+[Ver documentación completa en CONFIGURACION.txt]

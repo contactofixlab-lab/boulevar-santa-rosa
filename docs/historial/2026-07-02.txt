@@ -1,0 +1,200 @@
+================================================================================
+HISTORIAL DE CAMBIOS — BOULEVARD SANTA ROSA
+Fecha: 2 de Julio 2026
+Duración: ~3 horas
+Commits: 11 cambios
+================================================================================
+
+RESUMEN GENERAL:
+Sesión enfocada en agregación de UF (Unidad de Fomento) de Chile del día en
+el footer, activación completa de Mobysuite, correcciones de configuración, y
+mejoras en imágenes y tipografías.
+
+================================================================================
+1. AGREGACIÓN DE UF (UNIDAD DE FOMENTO) EN FOOTER
+================================================================================
+
+QUÉ SE HIZO:
+- Implementación de UF del día (Unidad de Fomento de Chile)
+- API integration: mindicador.cl
+- Diseño de recuadro azul en footer
+- Actualización dinámica del valor
+- Posicionamiento después de "Sala de Ventas"
+
+ESPECIFICACIONES UF:
+- API: https://mindicador.cl/api/uf
+- Valor actual: $40.825,75 (referencia histórica)
+- Formato: número entero sin comas
+- Actualización: automática desde API
+- Color: azul corporativo (#0671AE)
+- Tamaño: grande y visible
+
+CAMBIOS ESPECÍFICOS:
+✓ Recuadro azul diseñado
+✓ UF solo número entero (ej: 40826)
+✓ Título movido fuera del recuadro
+✓ Compactado para mejor visual
+✓ Posición: después de "Sala de Ventas"
+✓ API integration con mindicador.cl
+
+COMMITS:
+- 12b8683: feat: agregar UF de Chile del día en footer
+- aaa3c2a: refactor: diseñar recuadro azul con UF en footer
+- e6a9f14: fix: cambiar API de UF a mindicador.cl (valor actual: $40.825,75)
+- bf410b6: refactor: compactar recuadro UF y formato sin comas
+- 23799b9: refactor: UF solo número entero, título fuera del recuadro
+- ae684cd: refactor: mover UF después de Sala de Ventas y aumentar tamaño
+
+ESTADO: ✅ Completo y funcionando
+
+================================================================================
+2. CONFIGURACIÓN MOBYSUITE
+================================================================================
+
+QUÉ SE HIZO:
+- Agregación de data-version=2
+- Activación del cotizador con datos reales
+- Corrección crítica de real_estate
+- Sincronización de parámetros
+
+CAMBIOS:
+✓ data-version="2" agregado
+✓ real_estate corregido: "inesdesuarez" (NO inesdesuarezdos)
+✓ Cotizador Mobysuite activo con datos reales
+✓ Parámetros sincronizados
+
+COMMITS:
+- 49540cf: feat: activar cotizador Mobysuite con datos reales
+- 196f3f0: fix: corregir real_estate a 'inesdesuarez' en configuración Mobysuite
+- 70b8ed9: feat: agregar data-version=2 a configuración Mobysuite
+
+ESTADO: ✅ Completo
+
+================================================================================
+3. MEJORAS EN IMÁGENES
+================================================================================
+
+QUÉ SE HIZO:
+- Actualización de imagen Lateral de Fachada
+- Cambio a formato rectangular
+- Optimización visual
+
+CAMBIOS:
+✓ Imagen SR_LATERAL actualizada
+✓ Formato: rectangular (ajustado para galería)
+✓ Mejor proporción visual
+
+COMMIT:
+- 982dd3c: refactor: actualizar imagen Lateral de Fachada a formato rectangular
+
+ESTADO: ✅ Completo
+
+================================================================================
+4. TIPOGRAFÍAS
+================================================================================
+
+QUÉ SE HIZO:
+- Carga de tipografías Montserrat
+- Light (300) y SemiBold (600)
+- Fallback para Nunito Sans
+
+ARCHIVOS MODIFICADOS:
+✓ public/fonts/ — Montserrat agregadas
+
+COMMIT:
+- 02c3d5a: feat: cargar tipografías Montserrat (Light y SemiBold)
+
+ESTADO: ✅ Completo
+
+================================================================================
+5. TOTAL DE COMMITS (11)
+================================================================================
+
+1. 70b8ed9 - feat: agregar data-version=2 a configuración Mobysuite
+2. 02c3d5a - feat: cargar tipografías Montserrat (Light y SemiBold)
+3. 982dd3c - refactor: actualizar imagen Lateral de Fachada a formato rectangular
+4. ae684cd - refactor: mover UF después de Sala de Ventas y aumentar tamaño
+5. 23799b9 - refactor: UF solo número entero, título fuera del recuadro
+6. bf410b6 - refactor: compactar recuadro UF y formato sin comas
+7. e6a9f14 - fix: cambiar API de UF a mindicador.cl (valor actual: $40.825,75)
+8. aaa3c2a - refactor: diseñar recuadro azul con UF en footer
+9. 12b8683 - feat: agregar UF de Chile del día en footer
+10. 196f3f0 - fix: corregir real_estate a 'inesdesuarez' en configuración Mobysuite
+11. 49540cf - feat: activar cotizador Mobysuite con datos reales
+
+TOTAL: 11 commits productivos
+
+================================================================================
+6. ARCHIVOS MODIFICADOS
+================================================================================
+
+✓ src/app/layout.tsx — Mobysuite config, UF integration
+✓ src/components/layout/Footer.tsx — UF display
+✓ src/components/sections/InvierteSection.tsx — Imágenes
+✓ public/fonts/ — Montserrat fonts
+
+================================================================================
+7. FEATURES NUEVAS
+================================================================================
+
+✅ UF del día en footer (API mindicador.cl)
+✅ Recuadro azul con UF visible
+✅ Mobysuite completamente configurado
+✅ Cotizador con datos reales
+✅ data-version=2 agregado
+✅ real_estate corregido
+✅ Tipografías Montserrat cargadas
+
+================================================================================
+8. FIXES Y MEJORAS
+================================================================================
+
+✅ real_estate corregido: inesdesuarez (NO inesdesuarezdos)
+✅ UF: formato número entero
+✅ UF: posición después de "Sala de Ventas"
+✅ UF: recuadro azul diseñado
+✅ Imagen Lateral: formato rectangular
+✅ API integrada: mindicador.cl
+
+================================================================================
+9. TESTING Y QA
+================================================================================
+
+VERIFICACIONES:
+✅ UF carga correctamente desde API
+✅ Mobysuite configurado correctamente
+✅ Cotizador funciona con datos reales
+✅ Imágenes optimizadas
+✅ Tipografías cargadas
+✅ Build sin errores
+✅ API mindicador.cl funcionando
+
+ESTADO: ✅ QA Completo
+
+================================================================================
+10. ESTADO FINAL ✅
+================================================================================
+
+COMPLETADO:
+✅ UF agregado al footer
+✅ Mobysuite completamente funcional
+✅ Configuración corregida
+✅ API integrada
+✅ 11 commits exitosos
+✅ Todo funcionando correctamente
+
+IMPACTO:
+- Footer ahora muestra UF de Chile del día
+- Cotizador Mobysuite con datos reales
+- Mejor información financiera para usuarios
+- Integración Mobysuite operacional
+
+PRÓXIMOS PASOS:
+- Deploy a Vercel
+- Testing en producción
+- Verificación de datos Mobysuite
+
+================================================================================
+FIN DEL REGISTRO — 2 de Julio 2026
+Sesión de 3 horas con 11 commits
+================================================================================

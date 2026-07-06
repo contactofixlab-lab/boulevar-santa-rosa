@@ -58,27 +58,27 @@ const filterLabels: Record<PhotoType, string> = {
 
 const features: Record<PhotoType, Feature[]> = {
   departamento: [
-    { icon: "utensils", title: "Cocina americana equipada", description: "Completamente funcional" },
-    { icon: "sofa", title: "Living comedor integrado", description: "Espacios amplios y luminosos" },
-    { icon: "moon", title: "Dormitorio principal con clóset", description: "Óptimo aprovechamiento" },
-    { icon: "layers", title: "Excelente distribución", description: "Luz natural en todos los espacios" },
+    { icon: "dormitorios", title: "Cocina americana equipada", description: "Completamente funcional" },
+    { icon: "home", title: "Living comedor integrado", description: "Espacios amplios y luminosos" },
+    { icon: "dormitorios", title: "Dormitorio principal con clóset", description: "Óptimo aprovechamiento" },
+    { icon: "image", title: "Excelente distribución", description: "Luz natural en todos los espacios" },
   ],
   "areas-comunes": [
     { icon: "flame", title: "Quincho en azotea", description: "Espacio de encuentro elevado" },
     { icon: "users", title: "Sala Multiuso", description: "Flexible para eventos y reuniones" },
-    { icon: "bike", title: "Gimnasio y sala de box", description: "Bienestar y actividad física" },
-    { icon: "star", title: "Salones gourmet", description: "Para entretener y compartir" },
+    { icon: "clock", title: "Lavandería", description: "Servicio compartido moderno" },
+    { icon: "areas-verdes", title: "Espacios verdes", description: "Áreas de descanso y recreación" },
   ],
   fachada: [
     { icon: "building-2", title: "Diseño moderno", description: "Líneas limpias y contemporáneas" },
-    { icon: "image", title: "Fachada vidriada", description: "Máxima luminosidad y transparencia" },
+    { icon: "star", title: "Fachada vidriada", description: "Máxima luminosidad y transparencia" },
     { icon: "home", title: "Balcones amplios", description: "Espacios exteriores generosos" },
     { icon: "package", title: "Retail integrado", description: "Comercio en primer nivel" },
   ],
   local: [
     { icon: "package", title: "19 locales comerciales", description: "Mix de usos comerciales" },
     { icon: "trending-up", title: "Ubicación estratégica", description: "Esquina principal del proyecto" },
-    { icon: "monitor", title: "Espacios flexibles", description: "Adaptables a diferentes rubros" },
+    { icon: "zap", title: "Espacios flexibles", description: "Adaptables a diferentes rubros" },
     { icon: "star", title: "Alto potencial de arriendo", description: "Demanda comercial creciente" },
   ],
 };
@@ -136,8 +136,8 @@ export const ConoceProyectoSection = () => {
           ))}
         </div>
 
-        {/* Descripciones horizontales con ícono - Debajo de los botones */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {/* Descripciones: Grid desktop/tablet, Carousel mobile */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {currentFeatures.map((feature) => (
             <motion.div
               key={feature.title}
@@ -146,6 +146,33 @@ export const ConoceProyectoSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
+              <div className="flex-1 min-w-0">
+                <h4 className="font-semibold text-[#033D6B] text-sm leading-tight mb-1">
+                  {feature.title}
+                </h4>
+                <p className="text-xs text-[#4A6275] leading-snug">
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile: Carousel de tarjetas - Una tarjeta a la vez */}
+        <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory scrollbar-hide mb-12 -mx-6">
+          {currentFeatures.map((feature, idx) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className={`flex-shrink-0 snap-center flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm ${
+                idx === 0 ? 'ml-6' : ''
+              } ${idx === currentFeatures.length - 1 ? 'mr-6' : ''}`}
+              style={{ width: 'calc(100% - 48px)' }}
             >
               <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">

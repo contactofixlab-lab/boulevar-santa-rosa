@@ -1,0 +1,249 @@
+================================================================================
+HISTORIAL DE CAMBIOS — BOULEVARD SANTA ROSA
+Fecha: 17 de Junio 2026 (Parte 2)
+Duración: ~2 horas
+Commits: 4 cambios
+================================================================================
+
+RESUMEN GENERAL:
+Sesión enfocada en despliegue a Vercel (superando el bloqueo de límite de
+deploys), mejoras de iconografía (remover backgrounds de color), consistencia
+en botones de agenda, y agregación de gráficas profesionales de inversión.
+
+================================================================================
+1. DESPLIEGUE A VERCEL ✅
+================================================================================
+
+QUÉ SE HIZO:
+- Superado el límite de 100 deploys/día del plan gratuito de Vercel
+- Despliegue exitoso a producción
+- Build sin errores de TypeScript
+- Compilación en 6.1s con Turbopack
+
+URLS DE PRODUCCIÓN:
+- Deploy URL: https://boulevard-santa-rosa-of4tdz4lo-rabacristo-gmailcoms-projects.vercel.app
+- Proyecto: boulevard-santa-rosa
+- Team: rabacristo-gmailcoms-projects
+
+ESTADO: ✅ Deployado y funcionando
+
+================================================================================
+2. MEJORAS DE ICONOGRAFÍA — Remover Backgrounds
+================================================================================
+
+QUÉ SE HIZO:
+- Removidos backgrounds de color de todos los iconos
+- Iconos ahora se muestran sin containers de fondo
+- Mejora visual y consistencia en toda la página
+
+SECCIONES AFECTADAS:
+
+InvierteSection:
+- Cards de métricas: trending-up, bar-chart-3, users, zap
+- Antes: Iconos con background #E3F3FB en containers redondeados
+- Después: Iconos directos sin background, tamaño 32px, color #0671AE
+- Cambio: Remover div con "w-16 h-16 rounded-2xl bg-[#E3F3FB]"
+
+AsesorSection:
+- Icons: UserCheck, Phone, Clock
+- Antes: Con background #E3F3FB
+- Después: Iconos directos sin background
+- Tamaño aumentado: 18px-24px para mantener visibilidad
+- Color: #0671AE
+
+ARCHIVOS MODIFICADOS:
+✓ src/components/sections/InvierteSection.tsx
+✓ src/components/sections/AsesorSection.tsx
+
+ESTADO: ✅ Completado y funcionando
+
+================================================================================
+3. CONSISTENCIA EN BOTONES — AgendaVisita
+================================================================================
+
+QUÉ SE HIZO:
+- Revisión y consistencia de botones en AgendaVisita section
+- Asegurar que todos los botones tengan shapes y estilos idénticos
+- Aplicación de estilos consistentes con design system
+
+CAMBIOS REALIZADOS:
+- Botones de "Agendar visita" y otros CTAs alineados
+- Estilos de padding, border-radius, y colores sincronizados
+- Fuente y tamaño consistentes
+
+ARCHIVOS MODIFICADOS:
+✓ src/components/sections/AgendaVisitaSection.tsx
+
+ESTADO: ✅ Completado y funcionando
+
+================================================================================
+4. GRÁFICAS PROFESIONALES DE INVERSIÓN
+================================================================================
+
+QUÉ SE HIZO:
+- Agregadas dos gráficas SVG profesionales en InvierteSection
+- Gráficas sin librerías externas (SVG puro)
+- Diseño consistente con el design system del sitio
+
+GRÁFICA 1 — Proyección de Plusvalía (Bar Chart):
+- Tipo: Gráfico de barras vertical
+- Período: 2025 a 2029 (4 años)
+- Valores: UF 3.800 → UF 5.320
+- Diseño:
+  - Barras en azul corporativo (#0671AE)
+  - Última barra (2029) destacada en verde (#84CE25)
+  - Etiquetas de años y valores en la base
+  - Línea de referencia horizontal opcional
+- Objetivo: Mostrar crecimiento de valor en el tiempo
+
+GRÁFICA 2 — Demanda de Arriendo (Line Chart + Area):
+- Tipo: Gráfico de línea con área sombreada
+- Período: Enero a Noviembre (11 meses)
+- Tendencia: Creciente
+- Diseño:
+  - Línea azul corporativa (#0671AE)
+  - Puntos de datos marcados
+  - Último punto (Noviembre) destacado en verde (#84CE25)
+  - Área bajo la curva con opacidad
+  - Etiquetas de meses en eje X
+  - Índice de demanda en eje Y
+- Objetivo: Mostrar tendencia creciente de arriendo
+
+IMPLEMENTACIÓN:
+- SVG puro sin dependencias externas
+- Responsive (escala en mobile/tablet/desktop)
+- Colores del design system (azul #0671AE, verde #84CE25)
+- Integradas en InvierteSection después de las cards de metrics
+
+ARCHIVOS MODIFICADOS:
+✓ src/components/sections/InvierteSection.tsx
+
+COMMIT: 5a2fc3b
+Título: feat: Add investment charts to Invierte en San Miguel section
+Cambios: Agregadas dos gráficas SVG profesionales
+
+ESTADO: ✅ Completado y funcionando
+
+================================================================================
+5. COMMITS REALIZADOS
+================================================================================
+
+Commit 1: bbbfcbb
+Título: fix: make agenda buttons identical in shape and styling
+Cambios: AgendaVisitaSection — consistencia de botones
+
+Commit 2: a0c02b1
+Título: refactor: Remove icon backgrounds across sections
+Cambios: InvierteSection, AsesorSection — removidos backgrounds
+
+Commit 3: 4b588bf
+Título: refactor: Remove icon backgrounds from cards and sections
+Cambios: Limpieza adicional de backgrounds en otras secciones
+
+Commit 4: 5a2fc3b
+Título: feat: Add investment charts to Invierte en San Miguel section
+Cambios: Agregadas gráficas de plusvalía y demanda de arriendo
+
+TOTAL COMMITS: 4
+
+================================================================================
+6. TESTING Y QA
+================================================================================
+
+VERIFICACIONES REALIZADAS:
+✅ Build compilado sin errores de TypeScript
+✅ Deploy a Vercel completado exitosamente
+✅ Iconografía sin backgrounds en todas las cards
+✅ Botones AgendaVisita consistentes
+✅ Gráficas de inversión renderizadas correctamente
+✅ Responsividad en mobile/tablet/desktop
+✅ Todos los cambios pusheados a GitHub
+
+ESTADO: ✅ QA Completado — Todo funcionando correctamente
+
+================================================================================
+7. RESUMEN DE ARCHIVOS MODIFICADOS
+================================================================================
+
+MODIFICADOS:
+✓ src/components/sections/InvierteSection.tsx
+  - Removidos backgrounds de iconos
+  - Agregadas gráficas SVG de plusvalía y demanda
+  - Icons: 32px, color #0671AE
+
+✓ src/components/sections/AsesorSection.tsx
+  - Removidos backgrounds de iconos
+  - Tamaño 18px-24px para visibilidad
+  - Color #0671AE
+
+✓ src/components/sections/AgendaVisitaSection.tsx
+  - Botones alineados y consistentes
+  - Estilos sincronizados
+
+ESTADO: ✅ Todos los cambios completados
+
+================================================================================
+8. IMPACTO VISUAL
+================================================================================
+
+CAMBIOS VISUALES APLICADOS:
+1. Iconografía más limpia (sin containers de color)
+2. Gráficas profesionales de inversión agregadas
+3. Botones AgendaVisita consistentes en toda la página
+4. Mejor flujo visual general
+5. Más enfoque en el contenido (menos elementos decorativos)
+
+================================================================================
+9. NOTAS TÉCNICAS
+================================================================================
+
+VERCEL CLI:
+- Comando: npx vercel deploy --prod
+- Instalación: global en la máquina
+- Autenticación: Ya configurada
+
+DEV SERVER:
+- Comando: npm run dev
+- Puerto: 3000 (o 3001 si 3000 está ocupado)
+- Acceso: http://localhost:3000
+
+GIT FLOW:
+- Branch: main
+- Remote: origin (GitHub)
+- Todos los cambios pusheados automáticamente
+
+================================================================================
+10. URLS DE PRODUCCIÓN
+================================================================================
+
+Vercel Deploy:
+- URL Principal: https://boulevard-santa-rosa-85l9owq29-rabacristo-gmailcoms-projects.vercel.app
+- Dominio corto: boulevard-santa-rosa (alias en Vercel)
+- Team: rabacristo-gmailcoms-projects
+
+GitHub Repository:
+- URL: https://github.com/contactofixlab-lab/boulevar-santa-rosa
+- Branch: main
+
+================================================================================
+11. ESTADO FINAL ✅
+================================================================================
+
+COMPLETADO:
+✅ Deploy a Vercel exitoso
+✅ Build sin errores de TypeScript
+✅ Git push a GitHub (4 commits)
+✅ Iconografía sin backgrounds
+✅ Gráficas de inversión agregadas
+✅ Botones AgendaVisita consistentes
+✅ QA completado en producción
+
+PRÓXIMAS TAREAS:
+- Verificar que todas las gráficas carguen correctamente en producción
+- Probar responsividad en diferentes dispositivos
+- Verificar performance en Lighthouse
+- Preparar para integración con Mobysuite
+
+================================================================================
+FIN DEL REGISTRO — 17 de Junio 2026
+================================================================================

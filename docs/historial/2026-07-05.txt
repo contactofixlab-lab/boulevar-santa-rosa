@@ -1,0 +1,166 @@
+================================================================================
+HISTORIAL DE CAMBIOS — BOULEVARD SANTA ROSA
+Fecha: 5 de Julio 2026
+Duración: ~2 horas
+Commits: 3 cambios
+================================================================================
+
+RESUMEN GENERAL:
+Sesión de refinamiento enfocada en mejoras de secciones clave: Ubicación,
+Conoce Proyecto, y Hero. Reposicionamiento de elementos, movimiento de
+descripciones, y agregación de dirección con ícono.
+
+================================================================================
+1. MEJORAS EN SECCIÓN UBICACIÓN
+================================================================================
+
+QUÉ SE HIZO:
+- Agregación de dirección con ícono de ubicación
+- Posicionamiento dentro del mapa
+- Mejora visual de conectividad
+- Ícono específico para ubicación
+
+CAMBIOS:
+✓ Dirección agregada: "Boulevard, León Prado 515"
+✓ Ícono de ubicación (location pin) agregado
+✓ Posicionado en el mapa
+✓ Visual consistente con design system
+
+COMMIT:
+- 1236d00: feat: agregar dirección con ícono en sección Ubicación
+
+ESTADO: ✅ Completo
+
+================================================================================
+2. MOVIMIENTO DE DESCRIPCIONES EN CONOCE PROYECTO
+================================================================================
+
+QUÉ SE HIZO:
+- Reubicación de descripciones horizontales
+- Posicionadas debajo de botones de filtro
+- Antes de la galería de imágenes
+- Mejor flujo visual
+
+CAMBIOS:
+✓ Descripciones: movidas a posición correcta
+✓ Aparecen entre botones y galería
+✓ Dinámicamente según filtro seleccionado
+✓ Layout mejorado
+
+COMMIT:
+- 052ff39: fix: mover descripciones debajo de botones en Conoce Proyecto
+
+ESTADO: ✅ Completo
+
+================================================================================
+3. REFACTORIZACIÓN GENERAL
+================================================================================
+
+QUÉ SE HIZO:
+- Refactorización de secciones: Hero, Ubicación, ConoceProyecto
+- Mejoras generales de estructura
+- Optimización de componentes
+- Limpieza de código
+
+CAMBIOS:
+✓ Hero: mejorado
+✓ Ubicación: refactorizada
+✓ ConoceProyecto: optimizada
+✓ Estructura consistente
+
+COMMIT:
+- 52be6cd: refactor: mejoras en secciones Hero, Ubicación y Conoce Proyecto
+
+ESTADO: ✅ Completo
+
+================================================================================
+4. REPOSICIONAMIENTO DE ÍCONO EN MAPA
+================================================================================
+
+QUÉ SE HIZO:
+- Reposicionamiento correcto del ícono de ubicación dentro del mapa
+- Sincronización de dirección
+- Eliminación de dirección duplicada debajo del mapa
+
+CAMBIOS:
+✓ Ícono: reposicionado en mapa (León Prado)
+✓ Dirección: dentro del mapa (no duplicada)
+✓ Visual limpio y consistente
+
+COMMITS:
+- 3c2fce5: refactor: mover ícono de ubicación dentro del mapa
+- 6f1f67b: fix: posicionar correctamente ícono en mapa y quitar dirección duplicada
+
+ESTADO: ✅ Completo
+
+================================================================================
+5. TOTAL DE COMMITS (3)
+================================================================================
+
+1. 52be6cd - refactor: mejoras en secciones Hero, Ubicación y Conoce Proyecto
+2. 052ff39 - fix: mover descripciones debajo de botones en Conoce Proyecto
+3. 1236d00 - feat: agregar dirección con ícono en sección Ubicación
+
+ESTADO: ✅ Completo
+
+NOTA: Hay 2 commits adicionales relacionados al reposicionamiento del ícono
+que ocurrieron en el 6 de julio (punto de continuidad entre sesiones).
+
+================================================================================
+6. ARCHIVOS MODIFICADOS
+================================================================================
+
+✓ src/components/sections/HeroSection.tsx
+✓ src/components/sections/UbicacionSection.tsx
+✓ src/components/sections/ConoceProyectoSection.tsx
+
+================================================================================
+7. FEATURES MEJORADAS
+================================================================================
+
+✅ Dirección con ícono en Ubicación
+✅ Descripciones en posición correcta
+✅ Reposicionamiento del ícono del mapa
+✅ Secciones refactorizadas
+
+================================================================================
+8. TESTING Y QA
+================================================================================
+
+VERIFICACIONES:
+✅ Dirección visible en mapa
+✅ Ícono posicionado correctamente
+✅ Descripciones en posición correcta
+✅ Secciones renderizan correctamente
+✅ Layout responsive
+✅ Build sin errores
+
+ESTADO: ✅ QA Completo
+
+================================================================================
+9. ESTADO FINAL ✅
+================================================================================
+
+COMPLETADO:
+✅ Dirección agregada en Ubicación
+✅ Descripciones reposicionadas
+✅ Ícono en mapa reposicionado
+✅ Secciones refactorizadas
+✅ 3 commits + 2 relacionados
+✅ Todo funcionando correctamente
+
+IMPACTO:
+- Ubicación más clara e informativa
+- Flujo visual mejorado en ConoceProyecto
+- Información mejor organizada
+- Accesibilidad mejorada
+
+PRÓXIMOS PASOS:
+- Deploy a Vercel
+- Testing en producción
+- Verificación visual completa
+
+================================================================================
+FIN DEL REGISTRO — 5 de Julio 2026
+Sesión de 2 horas con 3 commits (refinamiento)
+================================================================================

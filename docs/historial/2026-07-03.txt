@@ -1,0 +1,248 @@
+================================================================================
+HISTORIAL DE CAMBIOS — BOULEVARD SANTA ROSA
+Fecha: 3 de Julio 2026
+Duración: ~4 horas
+Commits: 13 cambios
+================================================================================
+
+RESUMEN GENERAL:
+Sesión masiva de optimización mobile, mejoras en navegación smooth scroll,
+refinamiento de carrusel StatsBand (múltiples iteraciones), actualización de
+iconos, y customización del cotizador Mobysuite.
+
+================================================================================
+1. OPTIMIZACIÓN MOBILE
+================================================================================
+
+QUÉ SE HIZO:
+- Optimización completa de experiencia mobile
+- Compactación de espacios en secciones
+- Ajuste de tamaños en dispositivos pequeños
+- Mejora de flechas y controles
+
+CAMBIOS:
+✓ StatsBand: reducido ancho en mobile
+✓ Agenda: compactada para mobile
+✓ Invierte: espacios reducidos en mobile
+✓ Flechas: mejoradas para touch
+✓ Padding: ajustado para mobile
+
+COMMITS:
+- e4d8170: refactor: mejoras mobile - StatsBand, Flechas, Invierte
+- f6c3d14: refactor: optimizar mobile - compactar Agenda, Invierte, carrusel Stats
+- 384dd62: fix: restaurar tamaño tarjetas desktop, solo mobile compacto
+
+ESTADO: ✅ Completo
+
+================================================================================
+2. CARRUSEL STATSBBAND — MÚLTIPLES ITERACIONES
+================================================================================
+
+QUÉ SE HIZO:
+- Múltiples iteraciones del carrusel de stats
+- Pruebas: 2 tarjetas, 1 tarjeta, scroll
+- Optimización del comportamiento
+
+ITERACIONES REALIZADAS:
+1. Mostrar 2 tarjetas, scroll de 1 en 1 (22d3b5f)
+2. Vuelve a 1 tarjeta a la vez (fa342e4)
+3. Reducir ancho tarjeta (fc8750a)
+4. Solo 1 tarjeta visible, carrusel limpio (a5829b0)
+
+DECISIÓN FINAL: 1 tarjeta visible a la vez (más limpio y mobile-friendly)
+
+COMMITS:
+- 22d3b5f: refactor: carrusel Stats muestra 2 tarjetas, scroll de 1 en 1
+- fa342e4: refactor: carrusel Stats vuelve a 1 tarjeta a la vez
+- fc8750a: refactor: reducir ancho tarjeta carrusel Stats
+- a5829b0: refactor: carrusel Stats limpio - solo 1 tarjeta visible
+
+ESTADO: ✅ Finalizado con 1 tarjeta visible
+
+================================================================================
+3. SMOOTH SCROLL NAVIGATION
+================================================================================
+
+QUÉ SE HIZO:
+- Implementación de smooth scroll a secciones del landing
+- Links con anchors (#) para navegación
+- CSS scroll-behavior implementado
+
+CARACTERÍSTICAS:
+✓ Scroll suave al hacer click en links
+✓ Links de navegación funcionales a cada sección
+✓ Comportamiento consistent en todos los navegadores
+✓ Accesibilidad mejorada
+
+COMMIT:
+- 68d5d8a: feat: smooth scroll navigation a secciones del landing
+
+ESTADO: ✅ Completo
+
+================================================================================
+4. MEJORAS EN SECCIÓN UBICACIÓN
+================================================================================
+
+QUÉ SE HIZO:
+- Mejora completa de Ubicación section
+- Iconos ajustados en tamaño
+- Aspect ratio optimizado para mapa
+- Conectividad mejorada
+
+CAMBIOS:
+✓ Iconos: tamaño ajustado
+✓ Mapa: aspect ratio optimizado (16:9)
+✓ Bullets: mejorados y clarificados
+✓ Visual más limpio
+
+COMMITS:
+- dd2d823: feat: mejorar sección ubicación y conectividad
+- 100356e: fix: ajustar tamaño de iconos en mapa y aspect ratio
+
+ESTADO: ✅ Completo
+
+================================================================================
+5. ACTUALIZACIÓN DE ICONOS
+================================================================================
+
+QUÉ SE HIZO:
+- Actualización de iconos en tarjetas
+- Nuevo icono para estacionamientos (diseño auto vintage)
+- Icono departamentos usado en locales comerciales
+- Mejor representación visual
+
+CAMBIOS:
+✓ Estacionamientos: nuevo icono auto vintage
+✓ Locales comerciales: icono departamentos
+✓ Visual mejorado y consistente
+
+COMMITS:
+- 89444d2: feat: actualizar icono estacionamientos con diseño auto vintage
+- 0a80861: feat: usar icono departamentos en tarjeta locales comerciales
+
+ESTADO: ✅ Completo
+
+================================================================================
+6. CUSTOMIZACIÓN MOBYSUITE
+================================================================================
+
+QUÉ SE HIZO:
+- Customización de colores del cotizador Mobysuite
+- Sincronización con design system
+- Colores corporativos aplicados
+
+CAMBIOS:
+✓ Colores: azul corporativo (#0671AE)
+✓ Verde: #84CE25
+✓ Fallback: colores consistentes
+
+COMMIT:
+- 0caa4f0: style: customizar colores cotizador Mobysuite
+
+ESTADO: ✅ Completo
+
+================================================================================
+7. TOTAL DE COMMITS (13)
+================================================================================
+
+1. e4d8170 - refactor: mejoras mobile - StatsBand, Flechas, Invierte
+2. f6c3d14 - refactor: optimizar mobile - compactar Agenda, Invierte, carrusel Stats
+3. 22d3b5f - refactor: carrusel Stats muestra 2 tarjetas, scroll de 1 en 1
+4. fa342e4 - refactor: carrusel Stats vuelve a 1 tarjeta a la vez
+5. fc8750a - refactor: reducir ancho tarjeta carrusel Stats
+6. a5829b0 - refactor: carrusel Stats limpio - solo 1 tarjeta visible
+7. 384dd62 - fix: restaurar tamaño tarjetas desktop, solo mobile compacto
+8. 89444d2 - feat: actualizar icono estacionamientos con diseño auto vintage
+9. 0a80861 - feat: usar icono departamentos en tarjeta locales comerciales
+10. 68d5d8a - feat: smooth scroll navigation a secciones del landing
+11. dd2d823 - feat: mejorar sección ubicación y conectividad
+12. 100356e - fix: ajustar tamaño de iconos en mapa y aspect ratio
+13. 0caa4f0 - style: customizar colores cotizador Mobysuite
+
+TOTAL: 13 commits productivos
+
+================================================================================
+8. ARCHIVOS MODIFICADOS
+================================================================================
+
+✓ src/components/sections/StatsBand.tsx — Carrusel iteraciones
+✓ src/components/sections/UbicacionSection.tsx — Ubicación mejorada
+✓ src/components/sections/InvierteSection.tsx — Mobile optimizado
+✓ src/components/sections/AgendaVisitaSection.tsx — Mobile optimizado
+✓ src/app/globals.css — Smooth scroll behavior
+✓ src/app/layout.tsx — Mobysuite customización
+
+================================================================================
+9. FEATURES NUEVAS
+================================================================================
+
+✅ Smooth scroll navigation
+✅ Carrusel StatsBand optimizado (1 tarjeta visible)
+✅ Ubicación section mejorada
+✅ Iconos actualizados
+✅ Mobile experience optimizada
+✅ Colores Mobysuite customizados
+
+================================================================================
+10. OPTIMIZACIONES REALIZADAS
+================================================================================
+
+MOBILE:
+✅ StatsBand: compactado y responsive
+✅ Agenda: espacios reducidos en mobile
+✅ Invierte: layout optimizado para móvil
+✅ Flechas: mejoradas para touch
+
+NAVEGACIÓN:
+✅ Smooth scroll implementado
+✅ Links a secciones funcionales
+✅ Experiencia user mejorada
+
+VISUAL:
+✅ Iconos actualizados
+✅ Colores Mobysuite sincronizados
+✅ Aspect ratios optimizados
+
+================================================================================
+11. TESTING Y QA
+================================================================================
+
+VERIFICACIONES:
+✅ Mobile responsive en 375px, 768px, 1440px
+✅ Carrusel StatsBand funciona correctamente
+✅ Smooth scroll sin saltos
+✅ Iconos se cargan y muestran correctamente
+✅ Mobysuite colores applied
+✅ Build sin errores
+✅ Desktop size restaurado correctamente
+
+ESTADO: ✅ QA Completo
+
+================================================================================
+12. ESTADO FINAL ✅
+================================================================================
+
+COMPLETADO:
+✅ Optimización mobile completa
+✅ Carrusel StatsBand finalizado (1 tarjeta)
+✅ Smooth scroll navigation funcional
+✅ Ubicación mejorada
+✅ Iconos actualizados
+✅ 13 commits exitosos
+✅ Todo funcionando correctamente
+
+IMPACTO:
+- Experiencia mobile significativamente mejorada
+- Navegación más suave y intuitiva
+- Visual más consistente
+- Sitio más responsive y accesible
+
+PRÓXIMOS PASOS:
+- Deploy a Vercel
+- Testing en producción
+- Verificación mobile en dispositivos reales
+
+================================================================================
+FIN DEL REGISTRO — 3 de Julio 2026
+Sesión de 4 horas con 13 commits (optimización intensiva)
+================================================================================

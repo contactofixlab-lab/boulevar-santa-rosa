@@ -1,0 +1,12 @@
+================================================================================
+DOCUMENTACIÓN COTIZADOR WEB MOBYSUITE v2.0.4 - MANUAL DE USUARIO
+================================================================================
+
+Proyecto: Boulevard Santa Rosa
+Fecha: 2026-06-25
+Versión: 2.0.4
+
+[Contenido de documentación Mobysuite...]
+
+Ver CONFIGURACION.txt para parámetros específicos de Boulevard.
+Ver ERROR_REPORT.txt para issues reportados y soluciones.
