@@ -19,7 +19,7 @@ const pois = [
 
 export const UbicacionSection = () => {
   return (
-    <section id="ubicacion" className="relative py-12 bg-white overflow-hidden">
+    <section id="ubicacion" className="relative py-12 pb-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-[0.75fr_1.25fr] gap-12 items-start">
           {/* Left: título + bullets, sin párrafo descriptivo */}
@@ -109,7 +109,7 @@ export const UbicacionSection = () => {
             </div>
 
             {/* Punto central - Boulevard con ícono de ubicación y dirección */}
-            <div className="absolute flex items-center gap-2 bg-white rounded-lg px-2 py-1.5 shadow-lg border border-[#0671AE]" style={{ left: "44.4%", top: "51.8%", transform: "translate(-50%, -50%)" }}>
+            <div className="absolute flex items-center gap-2 bg-white rounded-lg px-2 py-1.5 shadow-lg border border-[#0671AE]" style={{ left: "65%", top: "55%", transform: "translate(-50%, -50%)" }}>
               <svg className="w-5 h-5 text-[#0671AE] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0C7.6 0 4 3.6 4 8c0 7 8 16 8 16s8-9 8-16c0-4.4-3.6-8-8-8zm0 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
               </svg>

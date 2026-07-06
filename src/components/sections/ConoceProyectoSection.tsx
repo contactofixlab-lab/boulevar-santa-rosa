@@ -58,27 +58,27 @@ const filterLabels: Record<PhotoType, string> = {
 
 const features: Record<PhotoType, Feature[]> = {
   departamento: [
-    { icon: "trending-up", title: "Cocina americana equipada", description: "Completamente funcional" },
-    { icon: "layout", title: "Living comedor integrado", description: "Espacios amplios y luminosos" },
-    { icon: "home", title: "Dormitorio principal con clóset", description: "Óptimo aprovechamiento" },
+    { icon: "utensils", title: "Cocina americana equipada", description: "Completamente funcional" },
+    { icon: "sofa", title: "Living comedor integrado", description: "Espacios amplios y luminosos" },
+    { icon: "moon", title: "Dormitorio principal con clóset", description: "Óptimo aprovechamiento" },
     { icon: "layers", title: "Excelente distribución", description: "Luz natural en todos los espacios" },
   ],
   "areas-comunes": [
-    { icon: "zap", title: "Quincho en azotea", description: "Espacio de encuentro elevado" },
+    { icon: "flame", title: "Quincho en azotea", description: "Espacio de encuentro elevado" },
     { icon: "users", title: "Sala Multiuso", description: "Flexible para eventos y reuniones" },
-    { icon: "home", title: "Gimnasio y sala de box", description: "Bienestar y actividad física" },
+    { icon: "bike", title: "Gimnasio y sala de box", description: "Bienestar y actividad física" },
     { icon: "star", title: "Salones gourmet", description: "Para entretener y compartir" },
   ],
   fachada: [
     { icon: "building-2", title: "Diseño moderno", description: "Líneas limpias y contemporáneas" },
-    { icon: "sun", title: "Fachada vidriada", description: "Máxima luminosidad y transparencia" },
+    { icon: "image", title: "Fachada vidriada", description: "Máxima luminosidad y transparencia" },
     { icon: "home", title: "Balcones amplios", description: "Espacios exteriores generosos" },
-    { icon: "zap", title: "Retail integrado", description: "Comercio en primer nivel" },
+    { icon: "package", title: "Retail integrado", description: "Comercio en primer nivel" },
   ],
   local: [
-    { icon: "store", title: "19 locales comerciales", description: "Mix de usos comerciales" },
+    { icon: "package", title: "19 locales comerciales", description: "Mix de usos comerciales" },
     { icon: "trending-up", title: "Ubicación estratégica", description: "Esquina principal del proyecto" },
-    { icon: "home", title: "Espacios flexibles", description: "Adaptables a diferentes rubros" },
+    { icon: "monitor", title: "Espacios flexibles", description: "Adaptables a diferentes rubros" },
     { icon: "star", title: "Alto potencial de arriendo", description: "Demanda comercial creciente" },
   ],
 };
