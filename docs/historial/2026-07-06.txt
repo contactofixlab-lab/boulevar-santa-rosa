@@ -502,28 +502,29 @@ CAMBIOS TOTALES EN ESTA SESIÓN:
    - Todos los cambios funcionando correctamente
 
 ================================================================================
-CORRECCIÓN FINAL — 6 de Julio 2026 (Carousel Mobile VERIFICADO)
+CORRECCIÓN FINAL — 6 de Julio 2026 (Grid Adaptativo, Sin Scroll)
 ================================================================================
 
-PROBLEMA IDENTIFICADO Y SOLUCIONADO:
-El carousel mobile no se estaba renderizando correctamente porque el CSS
-de los breakpoints no estaba siendo aplicado de forma explícita.
+ACLARACIÓN DEL USUARIO:
+- "Tarjetas del hero" = StatsBand (YA tiene carousel con embla-carousel ✓)
+- "Conoce el Proyecto" = NO debería tener scroll, debe ser GRID NORMAL
 
 SOLUCIÓN IMPLEMENTADA:
-✓ Cambio de `hidden md:grid` / `md:hidden` a `block md:hidden` / `md:block hidden`
-✓ Carousel ahora con `flex overflow-x-auto scroll-smooth snap-x snap-mandatory`
-✓ Tarjetas con ancho fijo: `width: calc(100vw - 48px)`
-✓ Margen horizontal: `marginLeft: marginRight: 24px`
+✓ Remover carousel de ConoceProyecto
+✓ Usar grid simple: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4`
+✓ SIN scroll horizontal (mucho más limpio)
+✓ Responsive: 1 col mobile, 2 col tablet, 4 col desktop
 
 VERIFICACIÓN EN MOBILE (375x812):
-✓ Carousel renderizado correctamente
-✓ 1 tarjeta visible a la vez
-✓ Tarjeta NO truncada/cortada
-✓ Bien posicionada (entre botones y galería)
-✓ Ícono visible (dormitorios)
-✓ Deslizable horizontalmente
+✓ Grid vertical (1 columna)
+✓ SIN scroll horizontal
+✓ Tarjetas visibles completas
+✓ Todos los iconos visibles (dormitorios, home, image, clock, etc.)
+✓ Galería debajo sin problemas
+✓ Layout limpio, sin elemento feo de scroll
 
-ESTADO: ✅ CAROUSEL MOBILE FUNCIONANDO CORRECTAMENTE
+ESTADO: ✅ CONOCE EL PROYECTO DISEÑO CORRECTO
+ESTADO: ✅ STATSBANDS CAROUSEL CORRECTO (ya estaba bien)
 
 ================================================================================
 FIN DEL REGISTRO — 6 de Julio 2026
