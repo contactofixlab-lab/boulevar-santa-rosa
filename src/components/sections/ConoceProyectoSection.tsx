@@ -136,8 +136,8 @@ export const ConoceProyectoSection = () => {
           ))}
         </div>
 
-        {/* Descripciones: Grid desktop/tablet, Carousel mobile */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {/* Grid sin scroll - Adaptativo */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {currentFeatures.map((feature) => (
             <motion.div
               key={feature.title}
@@ -146,33 +146,6 @@ export const ConoceProyectoSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
-              <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-[#033D6B] text-sm leading-tight mb-1">
-                  {feature.title}
-                </h4>
-                <p className="text-xs text-[#4A6275] leading-snug">
-                  {feature.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Mobile: Carousel de tarjetas - Una tarjeta a la vez */}
-        <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory scrollbar-hide mb-12 -mx-6">
-          {currentFeatures.map((feature, idx) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className={`flex-shrink-0 snap-center flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm ${
-                idx === 0 ? 'ml-6' : ''
-              } ${idx === currentFeatures.length - 1 ? 'mr-6' : ''}`}
-              style={{ width: 'calc(100% - 48px)' }}
             >
               <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
