@@ -15,7 +15,7 @@ export const Footer = async () => {
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
           {/* Logo + tagline */}
           <div className="md:col-span-1">
@@ -114,36 +114,36 @@ export const Footer = async () => {
             </div>
           </div>
 
-        </div>
+          {/* Sección Construye - Logos de Empresas (ocupa todo el ancho) */}
+          <div className="md:col-span-4 mt-8 pt-6">
+            <h3 className="text-xs uppercase tracking-wider font-semibold text-[#033D6B] mb-4">
+              Construye:
+            </h3>
 
-        {/* Sección Construye - Logos de Empresas */}
-        <div className="mt-8 pt-6">
-          <h3 className="text-xs uppercase tracking-wider font-semibold text-[#033D6B] mb-4">
-            Construye:
-          </h3>
-
-          {/* Grid de Logos - Limpio y ordenado */}
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {/* Placeholders para logos de constructoras */}
-            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-              Logo
-            </div>
-            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-              Logo
-            </div>
-            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-              Logo
-            </div>
-            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-              Logo
-            </div>
-            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-              Logo
-            </div>
-            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-              Logo
+            {/* Grid de Logos - Limpio y ordenado */}
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+              {/* Placeholders para logos de constructoras */}
+              <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+                Logo
+              </div>
+              <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+                Logo
+              </div>
+              <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+                Logo
+              </div>
+              <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+                Logo
+              </div>
+              <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+                Logo
+              </div>
+              <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+                Logo
+              </div>
             </div>
           </div>
+
         </div>
 
         <div className="border-t border-gray-100 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
