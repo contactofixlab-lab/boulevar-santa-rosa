@@ -14,8 +14,7 @@ import {
 import { Icon } from "@/components/ui/Icon";
 
 const phones = [
-  { text: "+56 9 9535 0637", href: "tel:+56995350637" },
-  { text: "+56 2 9535 0637", href: "tel:+56229535637" },
+  { text: "+56 9 9130 1877", href: "tel:+56991301877" },
 ];
 
 type FieldProps = {
@@ -137,11 +136,11 @@ export const AgendaVisita = () => {
             </div>
 
             <a
-              href="mailto:ventas_carrera@almago.cl"
+              href="mailto:arodriguez@iencinas.cl"
               className="inline-flex items-center gap-2 text-white/75 hover:text-white text-sm transition-colors"
             >
               <Mail size={15} aria-hidden="true" />
-              ventas_carrera@almago.cl
+              arodriguez@iencinas.cl
             </a>
           </div>
 

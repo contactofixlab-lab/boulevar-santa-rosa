@@ -119,10 +119,9 @@ export const Footer = async () => {
         {/* Sección Construye - Logos de Empresas */}
         <div className="mt-12 pt-10 border-t border-gray-100">
           <div className="mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#033D6B] mb-2">
-              Construye tu <span className="text-[#0671AE]">futuro</span> con nosotros
+            <h3 className="text-sm md:text-base font-semibold text-[#033D6B] mb-4">
+              Construye:
             </h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-[#0671AE] to-[#84CE25] rounded-full"></div>
           </div>
 
           {/* Grid de Logos */}

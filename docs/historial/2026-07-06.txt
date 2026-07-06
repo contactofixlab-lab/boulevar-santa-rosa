@@ -527,5 +527,110 @@ ESTADO: ✅ CONOCE EL PROYECTO DISEÑO CORRECTO
 ESTADO: ✅ STATSBANDS CAROUSEL CORRECTO (ya estaba bien)
 
 ================================================================================
+ACTUALIZACIÓN DE CONTACTO — 6 de Julio 2026 (Sesión Continuada III)
+================================================================================
+
+SOLICITUD DEL USUARIO:
+- Actualizar correo del ejecutivo: arodriguez@iencinas.cl
+- Actualizar teléfono: +56 9 9130 1877
+- Eliminar duplicados (había 2 números, dejando solo 1)
+- Aplicar cambios en sección "Agenda tu visita"
+
+CAMBIOS REALIZADOS EN AgendaVisita.tsx:
+
+ANTES:
+  const phones = [
+    { text: "+56 9 9535 0637", href: "tel:+56995350637" },
+    { text: "+56 2 9535 0637", href: "tel:+56229535637" },  ← DUPLICADO REMOVIDO
+  ];
+
+  <a href="mailto:ventas_carrera@almago.cl">
+    ventas_carrera@almago.cl
+  </a>
+
+DESPUÉS:
+  const phones = [
+    { text: "+56 9 9130 1877", href: "tel:+56991301877" },  ← ÚNICO
+  ];
+
+  <a href="mailto:arodriguez@iencinas.cl">
+    arodriguez@iencinas.cl
+  </a>
+
+DATOS NUEVA DEL EJECUTIVO:
+✓ Correo: arodriguez@iencinas.cl
+✓ Teléfono: +56 9 9130 1877
+✓ Sin duplicados (1 correo, 1 teléfono solamente)
+
+COMPILACIÓN Y QA:
+✓ npm run build: Exitosa sin errores
+✓ TypeScript check: Sin errores
+✓ Preview browser: Links actualizados correctamente
+  - Tel link: tel:+56991301877 ✓
+  - Mail link: mailto:arodriguez@iencinas.cl ✓
+✓ Accesibilidad: Elementos visibles en snapshot
+
+CAMBIOS TOTALES: 2 ediciones en AgendaVisita.tsx
+ESTADO: ✅ COMPLETADO Y VERIFICADO EN PREVIEW
+
+================================================================================
+CORRECCIONES FINALES — 6 de Julio 2026 (Sesión Continuada IV)
+================================================================================
+
+CORRECCIÓN 1: SECCIÓN "CONSTRUYE:" EN FOOTER
+SOLICITADO: Cambiar texto de call-to-action a simple identificación de constructoras
+
+ANTES:
+  <h3 className="text-2xl md:text-3xl font-bold text-[#033D6B] mb-2">
+    Construye tu <span className="text-[#0671AE]">futuro</span> con nosotros
+  </h3>
+  <div className="w-16 h-1 bg-gradient-to-r..."></div>
+
+DESPUÉS:
+  <h3 className="text-sm md:text-base font-semibold text-[#033D6B] mb-4">
+    Construye:
+  </h3>
+
+RESULTADO: ✅ Texto simplificado a "Construye:" (sin call-to-action)
+           ✅ Subtítulo removido
+           ✅ Línea decorativa removida
+           ✅ Spacio reservado para logos de empresas constructoras
+
+CORRECCIÓN 2: ICONOS SOBREPUESTOS EN MAPA (UbicacionSection)
+SOLICITADO: UN ícono por ubicación, sin superposición
+
+ANTES:
+  - 2 iconos en zona derecha: Supermercados (76.2%, 26.3%) + Educación (80.1%, 27.5%)
+  - 2 iconos en zona centro-izquierda: Comercio 2 (26.1%, 42%) + Comercio 3 (23.1%, 58.8%)
+  - 1 ícono en zona superior: Hospital (64.3%, 14%)
+  - 1 ícono en zona izquierda: Banco (28.1%, 27.3%)
+
+DESPUÉS:
+  POI 1: Supermercados (76.2%, 26.3%) - MANTENIDO
+  POI 2: Salud (64.3%, 14%) - MANTENIDO
+  POI 3: Banco (28.1%, 27.3%) - MANTENIDO
+  POI 4: Comercio (26.1%, 42%) - MANTENIDO
+  ✗ Educación removida (estaba demasiado cerca de Supermercados)
+  ✗ Comercio 3 removido (estaba en zona inferior innecesaria)
+
+RESULTADO: ✅ 4 POIs distribuidos uniformemente
+           ✅ Sin superposición visual
+           ✅ Cada ícono representa una categoría diferente
+           ✅ Mapa más limpio y legible
+
+VERIFICACIÓN QA:
+✅ Build compiló exitosamente
+✅ TypeScript sin errores
+✅ Preview: iconos en mapa verificados
+  - Supermercados (76.2%, 26.3%) ✓
+  - Salud (64.3%, 14%) ✓
+  - Banco (28.1%, 27.3%) ✓
+  - Comercio (26.1%, 42%) ✓
+✅ UF mostrando correctamente: $40837
+✅ Construcción está identificada correctamente en Footer
+
+ESTADO: ✅ TODAS LAS CORRECCIONES COMPLETADAS Y VERIFICADAS
+
+================================================================================
 FIN DEL REGISTRO — 6 de Julio 2026
 ================================================================================
