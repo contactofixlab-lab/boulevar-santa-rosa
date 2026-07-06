@@ -667,6 +667,21 @@ BUILD STATUS:
 
 ESTADO: ✅ CAMBIOS COMPLETADOS Y PUSHEADOS A GITHUB
 
+AJUSTE FINAL: POSICIONAMIENTO DEBAJO DE UF HOY
+SOLICITUD: Mover "Construye:" más cerca de la UF (debajo de la línea de UF Hoy)
+
+CAMBIOS:
+- mt-16 pt-12 → mt-8 pt-6 (reducir espaciado)
+- Remover border-top (para integración visual)
+- Mantener grid de logos limpios
+
+RESULTADO: ✅ Sección "Construye:" posicionada inmediatamente debajo de UF Hoy
+           ✅ Integración visual natural con el footer
+           ✅ Listo para ingresar logos de constructoras
+
+BUILD: ✅ Compiled successfully in 4.3s
+COMMIT: ecaf271
+
 ================================================================================
 FIN DEL REGISTRO — 6 de Julio 2026
 ================================================================================
