@@ -117,38 +117,36 @@ export const Footer = async () => {
         </div>
 
         {/* Sección Construye - Logos de Empresas */}
-        <div className="mt-12 pt-10 border-t border-gray-100">
-          <div className="mb-8">
-            <h3 className="text-sm md:text-base font-semibold text-[#033D6B] mb-4">
-              Construye:
-            </h3>
-          </div>
+        <div className="mt-16 pt-12 border-t border-gray-100">
+          <h3 className="text-xs uppercase tracking-wider font-semibold text-[#033D6B] mb-6">
+            Construye:
+          </h3>
 
-          {/* Grid de Logos */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
-            {/* Los logos irán aquí - Sin fondo, solo las imágenes */}
-            <div className="h-16 flex items-center justify-center text-[#4A6275] text-xs opacity-50">
-              Logo 1
+          {/* Grid de Logos - Limpio y ordenado */}
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {/* Placeholders para logos de constructoras */}
+            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+              Logo
             </div>
-            <div className="h-16 flex items-center justify-center text-[#4A6275] text-xs opacity-50">
-              Logo 2
+            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+              Logo
             </div>
-            <div className="h-16 flex items-center justify-center text-[#4A6275] text-xs opacity-50">
-              Logo 3
+            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+              Logo
             </div>
-            <div className="h-16 flex items-center justify-center text-[#4A6275] text-xs opacity-50">
-              Logo 4
+            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+              Logo
             </div>
-            <div className="h-16 flex items-center justify-center text-[#4A6275] text-xs opacity-50">
-              Logo 5
+            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+              Logo
             </div>
-            <div className="h-16 flex items-center justify-center text-[#4A6275] text-xs opacity-50">
-              Logo 6
+            <div className="h-20 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
+              Logo
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-5 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="border-t border-gray-100 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[#4A6275] text-xs">
             &copy; 2026 Boulevard Santa Rosa. Todos los derechos reservados.
           </p>
