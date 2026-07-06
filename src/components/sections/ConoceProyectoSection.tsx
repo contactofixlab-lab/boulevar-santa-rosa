@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
 import { SlideInSection } from "@/components/ui/SlideInSection";
 import { motion } from "framer-motion";
 
-type PhotoType = "departamento" | "areas-comunes" | "fachada";
+type PhotoType = "departamento" | "areas-comunes" | "fachada" | "local";
 
 interface Photo {
   id: string;
@@ -13,6 +14,12 @@ interface Photo {
   type: PhotoType;
   src: string;
   aspectRatio: number;
+}
+
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
 }
 
 const photosByType: Record<PhotoType, Photo[]> = {
@@ -37,12 +44,43 @@ const photosByType: Record<PhotoType, Photo[]> = {
     { id: "f3", label: "Entrada", type: "fachada", src: "/renders/Fachada/Entrada.jpg", aspectRatio: 1.778 },
     { id: "f4", label: "Retail", type: "fachada", src: "/renders/Fachada/SR_RETAIL_010.jpg", aspectRatio: 1.778 },
   ],
+  local: [
+    { id: "l1", label: "Locales Comerciales", type: "local", src: "/renders/Fachada/SR_RETAIL_010.jpg", aspectRatio: 1.778 },
+  ],
 };
 
 const filterLabels: Record<PhotoType, string> = {
   departamento: "Departamentos",
   "areas-comunes": "Áreas Comunes",
   fachada: "Fachada",
+  local: "Locales",
+};
+
+const features: Record<PhotoType, Feature[]> = {
+  departamento: [
+    { icon: "trending-up", title: "Cocina americana equipada", description: "Completamente funcional" },
+    { icon: "layout", title: "Living comedor integrado", description: "Espacios amplios y luminosos" },
+    { icon: "home", title: "Dormitorio principal con clóset", description: "Óptimo aprovechamiento" },
+    { icon: "layers", title: "Excelente distribución", description: "Luz natural en todos los espacios" },
+  ],
+  "areas-comunes": [
+    { icon: "zap", title: "Quincho en azotea", description: "Espacio de encuentro elevado" },
+    { icon: "users", title: "Sala Multiuso", description: "Flexible para eventos y reuniones" },
+    { icon: "home", title: "Gimnasio y sala de box", description: "Bienestar y actividad física" },
+    { icon: "star", title: "Salones gourmet", description: "Para entretener y compartir" },
+  ],
+  fachada: [
+    { icon: "building-2", title: "Diseño moderno", description: "Líneas limpias y contemporáneas" },
+    { icon: "sun", title: "Fachada vidriada", description: "Máxima luminosidad y transparencia" },
+    { icon: "home", title: "Balcones amplios", description: "Espacios exteriores generosos" },
+    { icon: "zap", title: "Retail integrado", description: "Comercio en primer nivel" },
+  ],
+  local: [
+    { icon: "store", title: "19 locales comerciales", description: "Mix de usos comerciales" },
+    { icon: "trending-up", title: "Ubicación estratégica", description: "Esquina principal del proyecto" },
+    { icon: "home", title: "Espacios flexibles", description: "Adaptables a diferentes rubros" },
+    { icon: "star", title: "Alto potencial de arriendo", description: "Demanda comercial creciente" },
+  ],
 };
 
 export const ConoceProyectoSection = () => {
@@ -52,6 +90,7 @@ export const ConoceProyectoSection = () => {
 
   const photos = photosByType[selectedType];
   const mainPhoto = photos[activeIndex];
+  const currentFeatures = features[selectedType];
   const thumbCount = Math.min(3, photos.length - 1);
   const thumbIndices = Array.from(
     { length: thumbCount },
@@ -67,11 +106,11 @@ export const ConoceProyectoSection = () => {
   const goNext = () => setActiveIndex((i) => (i + 1) % photos.length);
 
   return (
-    <section id="conoce" className="relative py-16 bg-[#F4F9FB] overflow-hidden">
+    <section id="conoce" className="relative py-8 md:py-12 bg-[#F4F9FB] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Título CENTRADO */}
-        <SlideInSection direction="left" className="flex justify-center">
-          <div className="text-center mb-12">
+        {/* Título CENTRADO - Padding reducido */}
+        <SlideInSection direction="left" className="flex justify-center mb-10">
+          <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-[#033D6B] leading-tight inline-block">
               Conoce el{" "}
               <span className="text-[#0671AE]">Proyecto</span>
@@ -81,7 +120,7 @@ export const ConoceProyectoSection = () => {
         </SlideInSection>
 
         {/* Filtros */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {(Object.keys(photosByType) as PhotoType[]).map((type) => (
             <button
               key={type}
@@ -98,7 +137,7 @@ export const ConoceProyectoSection = () => {
         </div>
 
         {/* Galería: foto grande + miniaturas clicables */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-12">
           <div className="w-full">
             {/* Foto principal */}
             <button
@@ -125,7 +164,7 @@ export const ConoceProyectoSection = () => {
                 <Camera size={16} className="text-[#033D6B]" />
               </div>
 
-              {/* Overlay al hover con icono de expandir */}
+              {/* Overlay al hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center">
                   <svg className="w-6 h-6 text-[#033D6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -160,7 +199,7 @@ export const ConoceProyectoSection = () => {
               </div>
             </button>
 
-            {/* Flechas + miniaturas (20% más grandes, mitad dentro/mitad afuera) */}
+            {/* Flechas + miniaturas */}
             <div className="flex items-stretch gap-3 -mt-7 h-[72px] md:h-[96px] justify-center px-4">
               <div className="hidden md:flex items-center gap-2 flex-shrink-0">
                 <button
@@ -179,12 +218,7 @@ export const ConoceProyectoSection = () => {
                 </button>
               </div>
 
-              <div
-                className="flex gap-3"
-                style={{
-                  maxWidth: "360px",
-                }}
-              >
+              <div className="flex gap-3" style={{ maxWidth: "360px" }}>
                 {thumbIndices.map((i) => {
                   const p = photos[i];
                   return (
@@ -211,15 +245,37 @@ export const ConoceProyectoSection = () => {
           </div>
         </div>
 
+        {/* Descripciones horizontales con ícono */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {currentFeatures.map((feature) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
+              <div className="flex-1 min-w-0">
+                <h4 className="font-semibold text-[#033D6B] text-sm leading-tight mb-1">
+                  {feature.title}
+                </h4>
+                <p className="text-xs text-[#4A6275] leading-snug">
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
         {/* Modal Lightbox */}
         {isLightboxOpen && (
           <div
             className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
             onClick={() => setIsLightboxOpen(false)}
           >
-            {/* Contenedor principal */}
             <div className="flex flex-col max-w-6xl w-full h-full max-h-[90vh] gap-3" onClick={(e) => e.stopPropagation()}>
-              {/* Foto grande */}
               <div
                 className="flex-1 rounded-xl overflow-hidden bg-gray-900 flex items-center justify-center"
                 style={{ maxHeight: "calc(90vh - 150px)" }}
@@ -234,9 +290,7 @@ export const ConoceProyectoSection = () => {
                 />
               </div>
 
-              {/* Controles: flechas + miniaturas */}
               <div className="flex items-center justify-between gap-3 px-2 py-3">
-                {/* Botón cerrar + flechas */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setIsLightboxOpen(false)}
@@ -261,7 +315,6 @@ export const ConoceProyectoSection = () => {
                   </button>
                 </div>
 
-                {/* Miniaturas horizontales */}
                 <div className="flex-1 flex gap-2 overflow-x-auto justify-center px-2">
                   {photos.map((p, i) => (
                     <button
@@ -283,7 +336,6 @@ export const ConoceProyectoSection = () => {
                   ))}
                 </div>
 
-                {/* Contador de fotos */}
                 <div className="text-white/70 text-sm whitespace-nowrap ml-2">
                   {activeIndex + 1} / {photos.length}
                 </div>
@@ -293,7 +345,7 @@ export const ConoceProyectoSection = () => {
         )}
       </div>
 
-      {/* ── Curva de transición hacia "Invierte en San Miguel" (blanco) ── */}
+      {/* Curva transición */}
       <svg
         className="absolute bottom-0 left-0 w-full h-20 md:h-28 pointer-events-none"
         viewBox="0 0 1440 200"

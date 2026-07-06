@@ -6,7 +6,6 @@ import { SlideInSection } from "@/components/ui/SlideInSection";
 const bullets = [
   { iconName: "metro",        text: "Metro Línea 2 operativa por Gran Avenida" },
   { iconName: "metro",        text: "Línea 9 proyectada por Av. Santa Rosa" },
-  { iconName: "colegios",     text: "Estación proyectada cercana a la esquina del proyecto" },
   { iconName: "autopista",    text: "Conexión a Av. Departamental y Ruta 5" },
   { iconName: "supermercados", text: "Servicios, salud, educación y comercio en el entorno" },
 ];

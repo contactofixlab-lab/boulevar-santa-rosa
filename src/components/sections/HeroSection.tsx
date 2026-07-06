@@ -76,7 +76,7 @@ export const HeroSection = () => {
                 className="shadow-xl cursor-pointer"
                 type="button"
               >
-                Cotizar ahora →
+                Cotizar ahora
               </Button>
             </Link>
             <Button
@@ -84,7 +84,7 @@ export const HeroSection = () => {
               size="md"
               className="!border-white !text-white hover:!bg-white/15 backdrop-blur-sm"
             >
-              Descargar brochure ↓
+              Descargar brochure
             </Button>
           </div>
         </div>
