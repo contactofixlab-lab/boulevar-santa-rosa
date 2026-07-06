@@ -136,6 +136,30 @@ export const ConoceProyectoSection = () => {
           ))}
         </div>
 
+        {/* Descripciones horizontales con ícono - Debajo de los botones */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {currentFeatures.map((feature) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow"
+            >
+              <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
+              <div className="flex-1 min-w-0">
+                <h4 className="font-semibold text-[#033D6B] text-sm leading-tight mb-1">
+                  {feature.title}
+                </h4>
+                <p className="text-xs text-[#4A6275] leading-snug">
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
         {/* Galería: foto grande + miniaturas clicables */}
         <div className="flex justify-center mb-12">
           <div className="w-full">
@@ -243,30 +267,6 @@ export const ConoceProyectoSection = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Descripciones horizontales con ícono */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {currentFeatures.map((feature) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
-              <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-[#033D6B] text-sm leading-tight mb-1">
-                  {feature.title}
-                </h4>
-                <p className="text-xs text-[#4A6275] leading-snug">
-                  {feature.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
         </div>
 
         {/* Modal Lightbox */}
