@@ -18,7 +18,7 @@ export const EncuentraEspacioIdeal = () => {
             {/* @ts-ignore */}
             <mobysuite-quote
               version="2"
-              real-estate="Boulevard Santa Rosa"
+              real-estate="inesdesuarez"
               project-id=""
               container="mobysuite-cotizador-boulevard"
               template="default"
