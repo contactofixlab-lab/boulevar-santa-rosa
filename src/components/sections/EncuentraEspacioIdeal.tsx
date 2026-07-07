@@ -17,20 +17,20 @@ export const EncuentraEspacioIdeal = () => {
           <div style={{ width: "100%", maxWidth: "1200px" }}>
             {/* @ts-ignore */}
             <mobysuite-quote
-              version="2"
-              real-estate="inesdesuarez"
-              project-id="4"
-              container="mobysuite-cotizador-boulevard"
-              template="default"
-              country-code="CL"
-              show-real-estate-logo="true"
-              show-project-logo="true"
-              primary-color="#0671AE"
-              secondary-color="#84CE25"
-              success-view-type="simple"
-              hide-selected-assets="false"
-              hide-project-data="true"
-              use-secondary-image="false"
+              data-version="2"
+              data-real-estate="inesdesuarez"
+              data-project-id="4"
+              data-container="mobysuite-cotizador-boulevard"
+              data-template="default"
+              data-country-code="CL"
+              data-show-real-estate-logo="true"
+              data-show-project-logo="true"
+              data-primary-color="#0671AE"
+              data-secondary-color="#84CE25"
+              data-success-view-type="simple"
+              data-hide-selected-assets="false"
+              data-hide-project-data="true"
+              data-use-secondary-image="false"
             />
           </div>
         </div>

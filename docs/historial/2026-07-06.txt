@@ -893,5 +893,37 @@ BUILD: ✅ Exitoso
 DEPLOY: En progreso a Vercel
 
 ================================================================================
+PARÁMETRO ADICIONAL — HIDE PROJECT DATA
+================================================================================
+
+CAMBIO REALIZADO:
+- Agregado parámetro: hide-project-data="true"
+
+ARCHIVO MODIFICADO:
+src/components/sections/EncuentraEspacioIdeal.tsx (línea 28)
+
+PARÁMETROS FINALES ACTUALIZADOS DEL WEB COMPONENT:
+<mobysuite-quote
+  version="2"
+  real-estate="inesdesuarez"
+  project-id="4"
+  container="mobysuite-cotizador-boulevard"
+  template="default"
+  country-code="CL"
+  show-real-estate-logo="true"
+  show-project-logo="true"
+  primary-color="#0671AE"
+  secondary-color="#84CE25"
+  success-view-type="simple"
+  hide-selected-assets="false"
+  hide-project-data="true"
+  use-secondary-image="false"
+/>
+
+COMMIT: 5c53d9f
+BUILD: ✅ Exitoso
+DEPLOY: En progreso a Vercel
+
+================================================================================
 FIN DEL REGISTRO — 6 de Julio 2026
 ================================================================================
