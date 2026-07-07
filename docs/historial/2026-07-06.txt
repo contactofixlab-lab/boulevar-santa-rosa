@@ -831,5 +831,36 @@ BUILD: ✅ Exitoso
 DEPLOY: En progreso a Vercel
 
 ================================================================================
+AJUSTE FINAL — PARÁMETRO REAL-ESTATE
+================================================================================
+
+CAMBIO REALIZADO:
+real-estate="Boulevard Santa Rosa" → real-estate="inesdesuarez"
+
+ARCHIVO MODIFICADO:
+src/components/sections/EncuentraEspacioIdeal.tsx (línea 20)
+
+PARÁMETROS ACTUALIZADOS DEL WEB COMPONENT:
+<mobysuite-quote
+  version="2"
+  real-estate="inesdesuarez"
+  project-id=""
+  container="mobysuite-cotizador-boulevard"
+  template="default"
+  country-code="CL"
+  show-real-estate-logo="true"
+  show-project-logo="true"
+  primary-color="#0671AE"
+  secondary-color="#84CE25"
+  success-view-type="simple"
+  hide-selected-assets="false"
+  use-secondary-image="false"
+/>
+
+COMMIT: dbfa692
+BUILD: ✅ Exitoso
+DEPLOY: En progreso a Vercel
+
+================================================================================
 FIN DEL REGISTRO — 6 de Julio 2026
 ================================================================================

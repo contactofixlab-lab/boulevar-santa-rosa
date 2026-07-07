@@ -19,7 +19,7 @@ export const EncuentraEspacioIdeal = () => {
             <mobysuite-quote
               version="2"
               real-estate="inesdesuarez"
-              project-id=""
+              project-id="4"
               container="mobysuite-cotizador-boulevard"
               template="default"
               country-code="CL"
