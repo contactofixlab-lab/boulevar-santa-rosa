@@ -29,6 +29,7 @@ export const EncuentraEspacioIdeal = () => {
               secondary-color="#84CE25"
               success-view-type="simple"
               hide-selected-assets="false"
+              hide-project-data="true"
               use-secondary-image="false"
             />
           </div>
