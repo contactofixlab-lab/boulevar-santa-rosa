@@ -17,13 +17,13 @@ export const EncuentraEspacioIdeal = () => {
           <div style={{ width: "100%", maxWidth: "1200px" }}>
             {/* @ts-ignore */}
             <mobysuite-quote
+              version="2"
               real-estate="Boulevard Santa Rosa"
               project-id=""
               container="mobysuite-cotizador-boulevard"
               template="default"
               country-code="CL"
               show-real-estate-logo="true"
-              real-estate-logo-url="/Boulevard_horizontal_color.png"
               show-project-logo="true"
               primary-color="#0671AE"
               secondary-color="#84CE25"
