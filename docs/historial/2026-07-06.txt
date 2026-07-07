@@ -730,5 +730,41 @@ BUILD: ✅ Compiled successfully
 COMMIT: d900b32
 
 ================================================================================
+MIGRACIÓN MOBYSUITE A WEB COMPONENT — 6 de Julio 2026 (Sesión Continuada VI)
+================================================================================
+
+SOLICITUD: Mover datos del script Mobysuite al web component mobysuite-quote
+- Cambiar de atributos data-* a atributos simples
+- Todos los parámetros en el componente, no en el script
+
+CAMBIOS REALIZADOS:
+
+1. CotizadorMobysuite.tsx
+   ANTES: Script inyectado con useEffect + atributos data-*
+   DESPUÉS: React.createElement con mobysuite-quote + atributos sin "data-"
+
+2. layout.tsx
+   ANTES: <Script src="..." data-version="2" data-real-estate="..." ... />
+   DESPUÉS: <Script src="https://cdn.mobysuite.com/quote/js/app.js" />
+   - Removidos todos los atributos data-*
+   - Script solo carga la librería
+
+3. Atributos migrados:
+   - data-version="2" → (removido del script)
+   - data-real-estate="inesdesuarez" → real-estate="Boulevard Santa Rosa" (en componente)
+   - data-project-id="4" → project-id="" (en componente)
+   - data-container="mobysuite-quote" → container="mobysuite-cotizador-boulevard"
+   - Todos los demás atributos color, template, etc. → en componente
+
+ESTRUCTURA FINAL:
+- Script global: Solo carga https://cdn.mobysuite.com/quote/js/app.js
+- Componente: <mobysuite-quote real-estate="..." project-id="..." ... />
+
+BUILD: ✅ Compiled successfully
+COMMIT: 7cb3f90
+
+DEPLOY: En proceso a Vercel
+
+================================================================================
 FIN DEL REGISTRO — 6 de Julio 2026
 ================================================================================
