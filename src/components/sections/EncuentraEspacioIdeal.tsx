@@ -16,7 +16,21 @@ export const EncuentraEspacioIdeal = () => {
         <div className="flex justify-center w-full" style={{ minHeight: "600px" }}>
           <div style={{ width: "100%", maxWidth: "1200px" }}>
             {/* @ts-ignore */}
-            <mobysuite-quote></mobysuite-quote>
+            <mobysuite-quote
+              real-estate="Boulevard Santa Rosa"
+              project-id=""
+              container="mobysuite-cotizador-boulevard"
+              template="default"
+              country-code="CL"
+              show-real-estate-logo="true"
+              real-estate-logo-url="/Boulevard_horizontal_color.png"
+              show-project-logo="true"
+              primary-color="#0671AE"
+              secondary-color="#84CE25"
+              success-view-type="simple"
+              hide-selected-assets="false"
+              use-secondary-image="false"
+            />
           </div>
         </div>
       </div>
