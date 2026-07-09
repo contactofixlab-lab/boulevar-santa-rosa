@@ -7,6 +7,7 @@ import { ConoceProyectoSection } from "@/components/sections/ConoceProyectoSecti
 import { InvierteSection } from "@/components/sections/InvierteSection";
 import { EncuentraEspacioIdeal } from "@/components/sections/EncuentraEspacioIdeal";
 import { AgendaVisita } from "@/components/sections/AgendaVisita";
+import { ProyectoPartnersSection } from "@/components/sections/ProyectoPartnersSection";
 
 export default async function Home() {
   return (
@@ -30,6 +31,7 @@ export default async function Home() {
         <div id="agenda">
           <AgendaVisita />
         </div>
+        <ProyectoPartnersSection />
       </main>
       <Footer />
     </>

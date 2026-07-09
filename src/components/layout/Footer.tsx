@@ -102,42 +102,15 @@ export const Footer = async () => {
             </div>
           </div>
 
-          {/* UF Hoy + Construye: */}
-          <div className="flex flex-col">
-            {/* UF Hoy */}
-            <div className="mb-6">
-              <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
-                UF Hoy
-              </h4>
-              <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block">
-                <p className="text-4xl font-bold text-[#0671AE]">
-                  ${Math.round(uf.value)}
-                </p>
-              </div>
-            </div>
-
-            {/* Sección Construye - Logos de Empresas */}
-            <div>
-              <h3 className="text-xs uppercase tracking-wider font-semibold text-[#033D6B] mb-3">
-                Construye:
-              </h3>
-
-              {/* Grid de Logos - Limpio y ordenado */}
-              <div className="grid grid-cols-2 gap-4 items-center justify-items-center">
-                {/* Placeholders para logos de constructoras */}
-                <div className="h-16 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-                  Logo
-                </div>
-                <div className="h-16 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-                  Logo
-                </div>
-                <div className="h-16 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-                  Logo
-                </div>
-                <div className="h-16 flex items-center justify-center bg-gray-100/50 rounded-lg text-[#4A6275] text-xs opacity-50 w-full">
-                  Logo
-                </div>
-              </div>
+          {/* UF Hoy */}
+          <div>
+            <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
+              UF Hoy
+            </h4>
+            <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block">
+              <p className="text-4xl font-bold text-[#0671AE]">
+                ${Math.round(uf.value)}
+              </p>
             </div>
           </div>
 
