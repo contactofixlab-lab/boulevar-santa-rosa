@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Boulevard Santa Rosa - Departamentos en San Miguel",
   description: "Departamentos, bodegas, locales y estacionamientos en Boulevard Santa Rosa, San Miguel. Desde UF 2.850.",
   keywords: "departamentos San Miguel, boulevard santa rosa, vivienda Santiago, inmobiliario Chile",
+  icons: {
+    icon: "/Boulevard_color.png",
+  },
   openGraph: {
     title: "Boulevard Santa Rosa",
     description: "Nuevo proyecto inmobiliario en San Miguel",
