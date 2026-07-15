@@ -66,17 +66,13 @@ export const ProyectoPartnersSection = () => {
                   <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
                     {partner.label}
                   </p>
-                  <div className={`flex items-center justify-center w-full ${
-                    partner.name === "PDS" ? "h-32" : "h-28"
-                  }`}>
+                  <div className="flex items-center justify-center w-full h-20">
                     <Image
                       src={partner.src}
                       alt={partner.name}
                       width={partner.width}
                       height={partner.height}
-                      className={`w-auto object-contain ${
-                        partner.name === "PDS" ? "h-28" : "h-16"
-                      }`}
+                      className="w-auto object-contain h-20"
                     />
                   </div>
                 </div>
@@ -111,17 +107,13 @@ export const ProyectoPartnersSection = () => {
               <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
                 {partner.label}
               </p>
-              <div className={`flex items-center justify-center w-full ${
-                partner.name === "PDS" ? "h-32" : "h-28"
-              }`}>
+              <div className="flex items-center justify-center w-full h-24">
                 <Image
                   src={partner.src}
                   alt={partner.name}
                   width={partner.width}
                   height={partner.height}
-                  className={`w-auto object-contain ${
-                    partner.name === "PDS" ? "h-32" : "h-20"
-                  }`}
+                  className="w-auto object-contain h-24"
                 />
               </div>
             </div>
