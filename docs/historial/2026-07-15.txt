@@ -1,0 +1,45 @@
+=============================================
+HISTORIAL DE CAMBIOS - 2026-07-15
+Boulevard Santa Rosa
+=============================================
+
+1. COTIZADOR MOBYSUITE - INTENTOS DE COLORES CORPORATIVOS
+---------------------------------------------------------
+- Se intentó aplicar colores corporativos (primary #0671AE azul,
+  secondary #84CE25 verde) al cotizador Mobysuite mediante múltiples
+  enfoques: data-* en script tag, data-* en DIV contenedor, script
+  tag directo en JSX, useEffect con inyección dinámica.
+- Ninguno de los enfoques aplicó los colores visualmente.
+- Se revirtió a la versión estable (commit d35d6fd) donde el
+  cotizador funciona correctamente (sin colores custom):
+  * Web component <mobysuite-quote> creado vía useEffect en
+    EncuentraEspacioIdeal.tsx
+  * Script global con data-* en layout.tsx (dangerouslySetInnerHTML)
+- Solución documentada en memoria de Claude para futuros proyectos.
+- PENDIENTE: consultar a soporte Mobysuite el método oficial para
+  personalizar colores del web component.
+
+2. NUEVA SECCIÓN "UN PROYECTO DE" (PARTNERS)
+---------------------------------------------------------
+- Creado componente: src/components/sections/ProyectoPartnersSection.tsx
+- Ubicación: en la home (page.tsx), DESPUÉS de "Agenda tu visita"
+  y ANTES del footer.
+- Título: "Un proyecto de" con divisor degradado azul→verde.
+- Se removió la sección "Construye:" (con 4 placeholders de logos)
+  del Footer.tsx. El footer quedó solo con UF Hoy en esa columna.
+
+3. LOGOS REALES DE PARTNERS INTEGRADOS
+---------------------------------------------------------
+- Logos agregados por el usuario en /public:
+  * logo_consorcio_2024.webp (Consorcio)
+  * logo_franulic_arquitectos.jpg (Franulic Arquitectos)
+    (renombrado desde "franulic arquitectos logo.jpg" para
+    evitar espacios en la URL)
+- Integrados en ProyectoPartnersSection con next/image,
+  altura 48px mobile / 56px desktop, centrados con flex-wrap.
+- QA: build OK, preview local verificado (ambos logos cargan,
+  sección visible entre Agenda tu visita y footer).
+- Commit + push a GitHub + deploy a Vercel producción.
+
+URL producción: https://boulevard-santa-rosa.vercel.app
+=============================================

@@ -1,3 +1,20 @@
+import Image from "next/image";
+
+const partners = [
+  {
+    name: "Consorcio",
+    src: "/logo_consorcio_2024.webp",
+    width: 991,
+    height: 189,
+  },
+  {
+    name: "Franulic Arquitectos",
+    src: "/logo_franulic_arquitectos.jpg",
+    width: 177,
+    height: 51,
+  },
+];
+
 export const ProyectoPartnersSection = () => {
   return (
     <section className="py-12 bg-white border-t border-gray-100">
@@ -9,21 +26,19 @@ export const ProyectoPartnersSection = () => {
           <div className="w-12 h-1 bg-gradient-to-r from-[#0671AE] to-[#84CE25] rounded-full mx-auto" />
         </div>
 
-        {/* Grid de Logos de Partners */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center max-w-3xl mx-auto">
-          {/* Placeholders para logos de socios/integrantes */}
-          <div className="h-20 flex items-center justify-center bg-gray-50 rounded-lg text-[#4A6275] text-xs opacity-60 w-full hover:bg-gray-100 transition-colors">
-            Partner 1
-          </div>
-          <div className="h-20 flex items-center justify-center bg-gray-50 rounded-lg text-[#4A6275] text-xs opacity-60 w-full hover:bg-gray-100 transition-colors">
-            Partner 2
-          </div>
-          <div className="h-20 flex items-center justify-center bg-gray-50 rounded-lg text-[#4A6275] text-xs opacity-60 w-full hover:bg-gray-100 transition-colors">
-            Partner 3
-          </div>
-          <div className="h-20 flex items-center justify-center bg-gray-50 rounded-lg text-[#4A6275] text-xs opacity-60 w-full hover:bg-gray-100 transition-colors">
-            Partner 4
-          </div>
+        {/* Logos de Partners */}
+        <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
+          {partners.map((partner) => (
+            <div key={partner.name} className="flex items-center justify-center">
+              <Image
+                src={partner.src}
+                alt={partner.name}
+                width={partner.width}
+                height={partner.height}
+                className="h-12 md:h-14 w-auto object-contain"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
