@@ -44,13 +44,17 @@ export const ProyectoPartnersSection = () => {
                 {partner.label}
               </p>
               {/* Logo */}
-              <div className="flex items-center justify-center h-20 w-full">
+              <div className={`flex items-center justify-center w-full ${
+                partner.name === "PDS" ? "h-32" : "h-28"
+              }`}>
                 <Image
                   src={partner.src}
                   alt={partner.name}
                   width={partner.width}
                   height={partner.height}
-                  className="h-16 md:h-20 w-auto object-contain"
+                  className={`w-auto object-contain ${
+                    partner.name === "PDS" ? "h-28 md:h-32" : "h-16 md:h-20"
+                  }`}
                 />
               </div>
             </div>
