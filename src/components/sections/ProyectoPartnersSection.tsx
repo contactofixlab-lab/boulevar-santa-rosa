@@ -29,7 +29,7 @@ const partners = [
 
 export const ProyectoPartnersSection = () => {
   return (
-    <section className="py-12 bg-white border-t border-gray-100">
+    <section className="py-12 bg-[#F4F9FB]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
           <h3 className="text-sm uppercase tracking-widest font-semibold text-[#4A6275] mb-2">
@@ -39,15 +39,18 @@ export const ProyectoPartnersSection = () => {
         </div>
 
         {/* Logos de Partners */}
-        <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
           {partners.map((partner) => (
-            <div key={partner.name} className="flex items-center justify-center">
+            <div
+              key={partner.name}
+              className="flex items-center justify-center h-24 w-full"
+            >
               <Image
                 src={partner.src}
                 alt={partner.name}
                 width={partner.width}
                 height={partner.height}
-                className="h-12 md:h-14 w-auto object-contain"
+                className="h-16 md:h-20 w-auto object-contain"
               />
             </div>
           ))}
