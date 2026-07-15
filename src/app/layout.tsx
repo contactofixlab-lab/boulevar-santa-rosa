@@ -18,8 +18,7 @@ export const metadata: Metadata = {
   keywords: "departamentos San Miguel, boulevard santa rosa, vivienda Santiago, inmobiliario Chile",
   icons: {
     icon: [
-      { url: "/favicon.ico?v=1", sizes: "any" },
-      { url: "/favicon.png?v=1", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.png?v=2", sizes: "any", type: "image/png" },
     ],
   },
   openGraph: {
