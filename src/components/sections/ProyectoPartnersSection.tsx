@@ -13,6 +13,18 @@ const partners = [
     width: 177,
     height: 51,
   },
+  {
+    name: "PDS",
+    src: "/logo_pds.jpeg",
+    width: 800,
+    height: 600,
+  },
+  {
+    name: "Iencinas",
+    src: "/logo_iencinas.png",
+    width: 800,
+    height: 800,
+  },
 ];
 
 export const ProyectoPartnersSection = () => {
