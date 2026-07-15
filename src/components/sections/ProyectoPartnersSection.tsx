@@ -3,27 +3,24 @@ import Image from "next/image";
 const partners = [
   {
     name: "Consorcio",
+    label: "el banco",
     src: "/logo_consorcio_2024.webp",
     width: 991,
     height: 189,
   },
   {
     name: "Franulic Arquitectos",
+    label: "arquitectos",
     src: "/logo_franulic_arquitectos.jpg",
     width: 177,
     height: 51,
   },
   {
     name: "PDS",
+    label: "del grupo",
     src: "/logo_pds.png",
     width: 1280,
     height: 720,
-  },
-  {
-    name: "Iencinas",
-    src: "/iencinas_logo.png",
-    width: 400,
-    height: 400,
   },
 ];
 
@@ -39,19 +36,23 @@ export const ProyectoPartnersSection = () => {
         </div>
 
         {/* Logos de Partners */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center justify-items-center">
           {partners.map((partner) => (
-            <div
-              key={partner.name}
-              className="flex items-center justify-center h-24 w-full"
-            >
-              <Image
-                src={partner.src}
-                alt={partner.name}
-                width={partner.width}
-                height={partner.height}
-                className="h-16 md:h-20 w-auto object-contain"
-              />
+            <div key={partner.name} className="flex flex-col items-center gap-3 w-full">
+              {/* Label encima del logo */}
+              <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
+                {partner.label}
+              </p>
+              {/* Logo */}
+              <div className="flex items-center justify-center h-20 w-full">
+                <Image
+                  src={partner.src}
+                  alt={partner.name}
+                  width={partner.width}
+                  height={partner.height}
+                  className="h-16 md:h-20 w-auto object-contain"
+                />
+              </div>
             </div>
           ))}
         </div>
