@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const partners = [
   {
@@ -25,6 +30,23 @@ const partners = [
 ];
 
 export const ProyectoPartnersSection = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "center", loop: true });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => {
+      setCanScrollPrev(emblaApi.canScrollPrev());
+      setCanScrollNext(emblaApi.canScrollNext());
+    };
+    emblaApi.on("select", onSelect);
+    onSelect();
+  }, [emblaApi]);
+
+  const scrollPrev = () => emblaApi?.scrollPrev();
+  const scrollNext = () => emblaApi?.scrollNext();
+
   return (
     <section className="py-12 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
@@ -35,15 +57,60 @@ export const ProyectoPartnersSection = () => {
           <div className="w-12 h-1 bg-gradient-to-r from-[#0671AE] to-[#84CE25] rounded-full mx-auto" />
         </div>
 
-        {/* Logos de Partners */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center justify-items-center">
+        {/* MOBILE: Carrusel */}
+        <div className="md:hidden">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {partners.map((partner) => (
+                <div key={partner.name} className="flex-[0_0_100%] min-w-0 flex flex-col items-center gap-4 px-4">
+                  <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
+                    {partner.label}
+                  </p>
+                  <div className={`flex items-center justify-center w-full ${
+                    partner.name === "PDS" ? "h-32" : "h-28"
+                  }`}>
+                    <Image
+                      src={partner.src}
+                      alt={partner.name}
+                      width={partner.width}
+                      height={partner.height}
+                      className={`w-auto object-contain ${
+                        partner.name === "PDS" ? "h-28" : "h-16"
+                      }`}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Botones navegación carrusel */}
+          <div className="flex justify-center gap-3 mt-6">
+            <button
+              onClick={scrollPrev}
+              disabled={!canScrollPrev}
+              className="w-10 h-10 rounded-full bg-[#E3F3FB] text-[#0671AE] flex items-center justify-center hover:bg-[#0671AE] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              aria-label="Anterior"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={scrollNext}
+              disabled={!canScrollNext}
+              className="w-10 h-10 rounded-full bg-[#E3F3FB] text-[#0671AE] flex items-center justify-center hover:bg-[#0671AE] hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              aria-label="Siguiente"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
+
+        {/* DESKTOP: Grid */}
+        <div className="hidden md:grid grid-cols-3 gap-12 items-center justify-items-center">
           {partners.map((partner) => (
             <div key={partner.name} className="flex flex-col items-center gap-3 w-full">
-              {/* Label encima del logo */}
               <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
                 {partner.label}
               </p>
-              {/* Logo */}
               <div className={`flex items-center justify-center w-full ${
                 partner.name === "PDS" ? "h-32" : "h-28"
               }`}>
@@ -53,7 +120,7 @@ export const ProyectoPartnersSection = () => {
                   width={partner.width}
                   height={partner.height}
                   className={`w-auto object-contain ${
-                    partner.name === "PDS" ? "h-28 md:h-32" : "h-16 md:h-20"
+                    partner.name === "PDS" ? "h-32" : "h-20"
                   }`}
                 />
               </div>
