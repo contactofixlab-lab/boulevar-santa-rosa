@@ -15,21 +15,21 @@ const partners = [
   },
   {
     name: "PDS",
-    src: "/logo_pds.jpeg",
-    width: 800,
-    height: 600,
+    src: "/logo_pds.png",
+    width: 1280,
+    height: 720,
   },
   {
     name: "Iencinas",
-    src: "/logo_iencinas.png",
-    width: 800,
-    height: 800,
+    src: "/iencinas_logo.png",
+    width: 400,
+    height: 400,
   },
 ];
 
 export const ProyectoPartnersSection = () => {
   return (
-    <section className="py-12 bg-[#F4F9FB]">
+    <section className="py-12 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
           <h3 className="text-sm uppercase tracking-widest font-semibold text-[#4A6275] mb-2">
