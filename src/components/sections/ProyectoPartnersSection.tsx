@@ -66,13 +66,13 @@ export const ProyectoPartnersSection = () => {
                   <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
                     {partner.label}
                   </p>
-                  <div className="flex items-center justify-center w-full h-32">
+                  <div className="flex items-center justify-center w-48 h-40">
                     <Image
                       src={partner.src}
                       alt={partner.name}
                       width={partner.width}
                       height={partner.height}
-                      className="w-auto object-contain h-32"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
@@ -107,13 +107,13 @@ export const ProyectoPartnersSection = () => {
               <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
                 {partner.label}
               </p>
-              <div className="flex items-center justify-center w-full h-32">
+              <div className="flex items-center justify-center w-56 h-40">
                 <Image
                   src={partner.src}
                   alt={partner.name}
                   width={partner.width}
                   height={partner.height}
-                  className="w-auto object-contain h-32"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </div>
