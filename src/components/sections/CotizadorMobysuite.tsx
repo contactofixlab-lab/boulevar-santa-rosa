@@ -15,9 +15,8 @@ export const CotizadorMobysuite = () => {
     mobysuite.setAttribute('container', 'mobysuite-cotizador-boulevard');
     mobysuite.setAttribute('template', 'default');
     mobysuite.setAttribute('country-code', 'CL');
-    mobysuite.setAttribute('show-real-estate-logo', 'true');
-    mobysuite.setAttribute('real-estate-logo-url', '/logos/Boulevard_horizontal_color.png');
-    mobysuite.setAttribute('show-project-logo', 'true');
+    mobysuite.setAttribute('show-real-estate-logo', 'false');
+    mobysuite.setAttribute('show-project-logo', 'false');
     mobysuite.setAttribute('primary-color', '#0671AE');
     mobysuite.setAttribute('secondary-color', '#84CE25');
     mobysuite.setAttribute('success-view-type', 'simple');
