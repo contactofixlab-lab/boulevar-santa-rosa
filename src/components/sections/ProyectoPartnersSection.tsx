@@ -8,22 +8,29 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const partners = [
   {
     name: "Consorcio",
-    label: "el banco",
+    label: "Banco",
     src: "/logos/logo_consorcio_2024.webp",
     width: 991,
     height: 189,
   },
   {
     name: "Franulic Arquitectos",
-    label: "arquitectos",
+    label: "Arquitectos",
     src: "/logos/logo_franulic_arquitectos.jpg",
     width: 177,
     height: 51,
   },
   {
     name: "PDS",
-    label: "del grupo",
+    label: "Constructor",
     src: "/logos/logo_pds.png",
+    width: 1280,
+    height: 720,
+  },
+  {
+    name: "Inmobiliaria",
+    label: "Inmobiliaria",
+    src: null, // Pendiente de agregar logo
     width: 1280,
     height: 720,
   },
@@ -67,13 +74,19 @@ export const ProyectoPartnersSection = () => {
                     {partner.label}
                   </p>
                   <div className="flex items-center justify-center w-48 h-40">
-                    <Image
-                      src={partner.src}
-                      alt={partner.name}
-                      width={partner.width}
-                      height={partner.height}
-                      className="w-full h-full object-contain"
-                    />
+                    {partner.src ? (
+                      <Image
+                        src={partner.src}
+                        alt={partner.name}
+                        width={partner.width}
+                        height={partner.height}
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-sm">
+                        Logo pendiente
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -101,20 +114,26 @@ export const ProyectoPartnersSection = () => {
         </div>
 
         {/* DESKTOP: Grid */}
-        <div className="hidden md:grid grid-cols-3 gap-12 items-center justify-items-center">
+        <div className="hidden md:grid grid-cols-4 gap-12 items-center justify-items-center">
           {partners.map((partner) => (
             <div key={partner.name} className="flex flex-col items-center gap-3 w-full">
               <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
                 {partner.label}
               </p>
               <div className="flex items-center justify-center w-56 h-40">
-                <Image
-                  src={partner.src}
-                  alt={partner.name}
-                  width={partner.width}
-                  height={partner.height}
-                  className="w-full h-full object-contain"
-                />
+                {partner.src ? (
+                  <Image
+                    src={partner.src}
+                    alt={partner.name}
+                    width={partner.width}
+                    height={partner.height}
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-sm">
+                    Logo pendiente
+                  </div>
+                )}
               </div>
             </div>
           ))}
