@@ -38,10 +38,10 @@ export const CotizadorMobysuite = () => {
   }, []);
 
   return (
-    <section id="cotizador" className="py-8 bg-surface-light">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="cotizador" className="py-4 bg-surface-light">
+      <div className="max-w-3xl mx-auto px-6">
         {/* Contenedor del cotizador Mobysuite - Web Component */}
-        <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
+        <div className="bg-white rounded-2xl shadow-lg p-2 md:p-3">
           <div ref={containerRef} id="mobysuite-cotizador-boulevard" />
         </div>
       </div>
