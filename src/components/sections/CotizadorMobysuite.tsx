@@ -49,11 +49,30 @@ export const CotizadorMobysuite = () => {
             } as React.CSSProperties}
           />
           <style>{`
+            #mobysuite-cotizador-boulevard * {
+              box-sizing: border-box;
+            }
+
+            /* Ocultar cualquier elemento que contenga "logo" en el atributo */
             #mobysuite-cotizador-boulevard [class*="logo"],
             #mobysuite-cotizador-boulevard [class*="Logo"],
+            #mobysuite-cotizador-boulevard [id*="logo"],
+            #mobysuite-cotizador-boulevard [id*="Logo"],
+            #mobysuite-cotizador-boulevard img[src*="logo"],
+            #mobysuite-cotizador-boulevard img[src*="Logo"],
             #mobysuite-cotizador-boulevard img[alt*="logo"],
-            #mobysuite-cotizador-boulevard img[alt*="Logo"] {
+            #mobysuite-cotizador-boulevard img[alt*="Logo"],
+            #mobysuite-cotizador-boulevard svg[class*="logo"],
+            #mobysuite-cotizador-boulevard svg[id*="logo"],
+            #mobysuite-cotizador-boulevard header,
+            #mobysuite-cotizador-boulevard .header,
+            #mobysuite-cotizador-boulevard [role="banner"] {
               display: none !important;
+              visibility: hidden !important;
+              height: 0 !important;
+              width: 0 !important;
+              margin: 0 !important;
+              padding: 0 !important;
             }
           `}</style>
         </div>
