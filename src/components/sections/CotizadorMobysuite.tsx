@@ -41,7 +41,21 @@ export const CotizadorMobysuite = () => {
       <div className="max-w-3xl mx-auto px-6">
         {/* Contenedor del cotizador Mobysuite - Web Component */}
         <div className="bg-white rounded-2xl shadow-lg p-2 md:p-3">
-          <div ref={containerRef} id="mobysuite-cotizador-boulevard" />
+          <div
+            ref={containerRef}
+            id="mobysuite-cotizador-boulevard"
+            style={{
+              '--mobysuite-logo-display': 'none',
+            } as React.CSSProperties}
+          />
+          <style>{`
+            #mobysuite-cotizador-boulevard [class*="logo"],
+            #mobysuite-cotizador-boulevard [class*="Logo"],
+            #mobysuite-cotizador-boulevard img[alt*="logo"],
+            #mobysuite-cotizador-boulevard img[alt*="Logo"] {
+              display: none !important;
+            }
+          `}</style>
         </div>
       </div>
     </section>
