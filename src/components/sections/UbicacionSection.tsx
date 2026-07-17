@@ -53,7 +53,7 @@ export const UbicacionSection = () => {
           >
             {/* Imagen del mapa */}
             <img
-              src="/Frame 4.png"
+              src="/images/Frame 4.png"
               alt="Mapa de ubicación Boulevard Santa Rosa - Click para abrir en Google Maps"
               className="w-full h-full object-cover"
             />

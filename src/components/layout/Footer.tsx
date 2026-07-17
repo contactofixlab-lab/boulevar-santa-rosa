@@ -21,7 +21,7 @@ export const Footer = async () => {
           <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/Boulevard_horizontal_color.png"
+                src="/logos/Boulevard_horizontal_color.png"
                 alt="Boulevard Santa Rosa"
                 width={160}
                 height={54}

@@ -43,7 +43,7 @@ export const AsesorSection = () => {
         {/* Logo */}
         <div className="mb-12">
           <Image
-            src="/Boulevard_color.png"
+            src="/logos/Boulevard_color.png"
             alt="Boulevard Santa Rosa"
             width={140}
             height={42}

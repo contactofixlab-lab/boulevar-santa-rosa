@@ -34,7 +34,7 @@ export const Header = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/Boulevard_horizontal_color.png"
+            src="/logos/Boulevard_horizontal_color.png"
             alt="Boulevard Santa Rosa"
             width={180}
             height={60}

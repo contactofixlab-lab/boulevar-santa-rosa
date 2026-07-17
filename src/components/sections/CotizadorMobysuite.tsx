@@ -16,7 +16,7 @@ export const CotizadorMobysuite = () => {
     mobysuite.setAttribute('template', 'default');
     mobysuite.setAttribute('country-code', 'CL');
     mobysuite.setAttribute('show-real-estate-logo', 'true');
-    mobysuite.setAttribute('real-estate-logo-url', '/Boulevard_horizontal_color.png');
+    mobysuite.setAttribute('real-estate-logo-url', '/logos/Boulevard_horizontal_color.png');
     mobysuite.setAttribute('show-project-logo', 'true');
     mobysuite.setAttribute('primary-color', '#0671AE');
     mobysuite.setAttribute('secondary-color', '#84CE25');
