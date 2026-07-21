@@ -16,9 +16,9 @@ const partners = [
   {
     name: "Franulic Arquitectos",
     label: "Arquitectos",
-    src: "/logos/logo_franulic_arquitectos.jpg",
-    width: 177,
-    height: 51,
+    src: "/logos/Logo-Franulic-Arq.png",
+    width: 766,
+    height: 219,
   },
   {
     name: "PDS",
