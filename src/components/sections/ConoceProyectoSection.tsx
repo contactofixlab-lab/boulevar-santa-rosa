@@ -59,7 +59,7 @@ const filterLabels: Record<PhotoType, string> = {
 
 const features: Record<PhotoType, Feature[]> = {
   departamento: [
-    { icon: "dormitorios", title: "Equipada con horno, encimera y campana", description: "Completamente funcional" },
+    { icon: "dormitorios", title: "Cocina americana equipada", description: "Equipada con horno, encimera y campana" },
     { icon: "home", title: "Living comedor integrado", description: "Espacios amplios y luminosos" },
     { icon: "dormitorios", title: "Dormitorio principal con walking clóset", description: "Óptimo aprovechamiento" },
     { icon: "image", title: "Excelente distribución", description: "Luz natural en todos los espacios" },
