@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getUFToday } from "@/lib/uf";
+import { getUFToday, getDollarToday } from "@/lib/uf";
 
 const navLinks = [
   { href: "/proyecto",       label: "El Proyecto" },
@@ -12,6 +12,7 @@ const navLinks = [
 
 export const Footer = async () => {
   const uf = await getUFToday();
+  const dollar = await getDollarToday();
   return (
     <footer className="bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-10">
@@ -102,14 +103,23 @@ export const Footer = async () => {
             </div>
           </div>
 
-          {/* UF Hoy */}
+          {/* UF Hoy y Dólar Hoy */}
           <div>
             <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
               UF Hoy
             </h4>
-            <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block">
+            <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block mb-4">
               <p className="text-4xl font-bold text-[#0671AE]">
                 ${Math.round(uf.value)}
+              </p>
+            </div>
+
+            <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
+              Dólar Hoy
+            </h4>
+            <div className="bg-gradient-to-br from-[#84CE25]/10 to-[#84CE25]/5 rounded-lg px-4 py-3 border border-[#84CE25]/20 inline-block">
+              <p className="text-4xl font-bold text-[#84CE25]">
+                ${Math.round(dollar.value)}
               </p>
             </div>
           </div>
