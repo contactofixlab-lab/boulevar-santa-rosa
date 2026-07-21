@@ -9,7 +9,7 @@ export async function getUFToday(): Promise<{ value: number; date: string }> {
     const response = await fetch(
       "https://mindicador.cl/api/uf",
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 86400 },
         signal: AbortSignal.timeout(5000), // Timeout de 5 segundos
       }
     );
