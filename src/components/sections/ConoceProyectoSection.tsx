@@ -43,7 +43,6 @@ const photosByType: Record<PhotoType, Photo[]> = {
     { id: "f1", label: "Frontal", type: "fachada", src: "/renders/Fachada/Frontal.jpg", aspectRatio: 1.778 },
     { id: "f2", label: "Lateral", type: "fachada", src: "/renders/Fachada/SR_LATERAL_010 (horizontal).jpg", aspectRatio: 1.778 },
     { id: "f3", label: "Entrada", type: "fachada", src: "/renders/Fachada/Entrada.jpg", aspectRatio: 1.778 },
-    { id: "f4", label: "Retail", type: "fachada", src: "/renders/Fachada/SR_RETAIL_010.jpg", aspectRatio: 1.778 },
   ],
   local: [
     { id: "l1", label: "Locales Comerciales", type: "local", src: "/renders/Fachada/SR_RETAIL_010.jpg", aspectRatio: 1.778 },
