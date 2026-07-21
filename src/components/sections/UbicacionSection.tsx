@@ -11,7 +11,6 @@ const bullets = [
 ];
 
 const pois = [
-  { iconName: "metro",           label: "Metro" },
   { iconName: "supermercados",   label: "Supermercados" },
   { iconName: "colegios",        label: "Educación" },
   { iconName: "centros-medicos", label: "Salud" },
