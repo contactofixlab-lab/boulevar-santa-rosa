@@ -59,16 +59,16 @@ const filterLabels: Record<PhotoType, string> = {
 
 const features: Record<PhotoType, Feature[]> = {
   departamento: [
-    { icon: "dormitorios", title: "Cocina americana equipada", description: "Completamente funcional" },
+    { icon: "dormitorios", title: "Equipada con horno, encimera y campana", description: "Completamente funcional" },
     { icon: "home", title: "Living comedor integrado", description: "Espacios amplios y luminosos" },
-    { icon: "dormitorios", title: "Dormitorio principal con clóset", description: "Óptimo aprovechamiento" },
+    { icon: "dormitorios", title: "Dormitorio principal con walking clóset", description: "Óptimo aprovechamiento" },
     { icon: "image", title: "Excelente distribución", description: "Luz natural en todos los espacios" },
   ],
   "areas-comunes": [
     { icon: "flame", title: "Quincho en azotea", description: "Espacio de encuentro elevado" },
-    { icon: "users", title: "Sala Multiuso", description: "Flexible para eventos y reuniones" },
+    { icon: "users", title: "Sala multiuso con cocina", description: "Flexible para eventos y reuniones" },
     { icon: "clock", title: "Lavandería", description: "Servicio compartido moderno" },
-    { icon: "areas-verdes", title: "Espacios verdes", description: "Áreas de descanso y recreación" },
+    { icon: "areas-verdes", title: "Piscina en azotea", description: "Áreas de descanso y recreación" },
   ],
   fachada: [
     { icon: "building-2", title: "Diseño moderno", description: "Líneas limpias y contemporáneas" },

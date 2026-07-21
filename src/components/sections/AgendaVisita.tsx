@@ -14,7 +14,7 @@ import {
 import { Icon } from "@/components/ui/Icon";
 
 const phones = [
-  { text: "+56 9 9130 1877", href: "tel:+56991301877" },
+  { text: "+56 9 27541955", href: "tel:+56927541955" },
 ];
 
 type FieldProps = {
