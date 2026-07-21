@@ -71,6 +71,7 @@ const features: Record<PhotoType, Feature[]> = {
   ],
   fachada: [
     { icon: "sparkles", title: "Diseño moderno", description: "Líneas limpias y contemporáneas" },
+    { icon: "star", title: "Fachada vidriada", description: "Máxima luminosidad y transparencia" },
     { icon: "home", title: "Balcones amplios", description: "Espacios exteriores generosos" },
     { icon: "package", title: "Retail integrado", description: "Comercio en primer nivel" },
   ],
