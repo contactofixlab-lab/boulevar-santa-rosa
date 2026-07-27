@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 export const WhatsAppFAB = () => {
   const phoneNumber = "56973301234"; // Sin espacios ni +
@@ -14,17 +14,21 @@ export const WhatsAppFAB = () => {
       rel="noopener noreferrer"
       className="
         fixed bottom-6 right-6 z-30
-        w-14 h-14 rounded-full
-        bg-green-500 hover:bg-green-600
+        w-14 h-14 rounded-full overflow-hidden
         flex items-center justify-center
-        shadow-lg hover:shadow-xl
+        shadow-lg hover:shadow-xl hover:scale-105
         transition-all duration-300
-        animate-pulse
       "
       aria-label="Contactar por WhatsApp"
       title="Contactar por WhatsApp"
     >
-      <MessageCircle className="w-7 h-7 text-white" />
+      <Image
+        src="/iconos/whatsapp%20icono.png"
+        alt="WhatsApp"
+        width={56}
+        height={56}
+        className="w-full h-full object-cover"
+      />
     </a>
   );
 };

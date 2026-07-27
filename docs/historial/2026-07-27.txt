@@ -1,0 +1,96 @@
+=============================================
+HISTORIAL DE CAMBIOS - 2026-07-27
+Boulevard Santa Rosa
+=============================================
+
+1. PIN DEL MAPA - REPOSICIONAMIENTO (UbicacionSection.tsx)
+---------------------------------------------------------
+- Movido el PIN de "Boulevard León Prado 515" de left:68% a left:60%
+  (más a la izquierda).
+- Reordenados los elementos internos: el texto ahora va ANTES del
+  ícono de ubicación (antes: ícono + texto; ahora: texto + ícono).
+- Motivo: el PIN tapaba el ícono del metro en el mapa.
+
+2. LEYENDA DEL MAPA - ÍCONO METRO (agregado y revertido)
+---------------------------------------------------------
+- Se agregó "Metro" a la tarjeta de POIs del mapa.
+- REVERTIDO por decisión del usuario: se veía mal en la leyenda.
+- Estado final: Supermercados, Educación, Salud, Comercio.
+
+3. FOOTER - UF HOY Y DÓLAR HOY (Footer.tsx, lib/uf.ts)
+---------------------------------------------------------
+- Nueva función getDollarToday() en src/lib/uf.ts que consulta
+  https://mindicador.cl/api/dolar
+- Nueva sección "Dólar Hoy" en el footer, debajo de "UF Hoy",
+  con color verde corporativo (#84CE25) para diferenciarla del
+  azul de la UF.
+- PROBLEMA DETECTADO: los valores no se actualizaban a diario.
+  Causa: `next: { revalidate: 86400 }` (24 h) mantenía la página
+  estática con el valor viejo hasta un día completo.
+- SOLUCIÓN: revalidate bajado a 3600 s (1 hora) en ambas funciones
+  (getUFToday y getDollarToday).
+- VERIFICADO en producción: UF $40845 (API: 40.844,79) y
+  Dólar $946 (API: 946,14). Ambos son valores reales, no los
+  fallback hardcodeados (40837 y 880).
+
+4. CONOCE EL PROYECTO - SECCIÓN FACHADA (ConoceProyectoSection.tsx)
+---------------------------------------------------------
+- Ícono de "Diseño moderno" cambiado de "building-2" a "star".
+  (Se intentó "sparkles" pero ese ícono NO existe en el set del
+  proyecto — el ícono no se renderizaba.)
+- Las tarjetas "Fachada vidriada" y "Balcones amplios" quedaron
+  PENDIENTES de redefinir: según diseño/marketing no describen
+  bien el proyecto, pero las alternativas propuestas se solapaban
+  con la sección "Áreas Comunes". Sin cambio por ahora.
+
+5. LOGO FRANULIC ARQUITECTOS (ProyectoPartnersSection.tsx)
+---------------------------------------------------------
+- Convertido Logo-Franulic-Arq.pdf a PNG con PyMuPDF a 300 DPI.
+- Archivo nuevo: public/logos/Logo-Franulic-Arq.png (766x219 px).
+- Reemplaza al antiguo logo_franulic_arquitectos.jpg (177x51 px).
+
+6. LOGOS - HEADER Y PARTNERS
+---------------------------------------------------------
+- Header: logo actualizado a public/logos/BOULEVARD COLOR.png
+  (versión nueva entregada por el usuario).
+- Partners: agregado NeoEncinas Inmobiliaria
+  (public/logos/NEOENCINA.png, 928x270) en el slot que estaba
+  como "Logo pendiente".
+
+7. FAVICON
+---------------------------------------------------------
+- Problema: la pestaña mostraba el favicon por defecto de Vercel.
+- Causas encontradas y corregidas:
+  * El PNG original medía 7115x7671 px (demasiado grande para
+    renderizarse como favicon).
+  * Convivían varios favicons (favicon.png, favicon-small.png)
+    que competían entre sí.
+- Solución final:
+  * favicon.ico generado con tamaños 16/32/48/64.
+  * Ubicado en public/favicon.ico Y en src/app/favicon.ico
+    (donde Next.js lo detecta automáticamente).
+  * Eliminado favicon-small.png.
+  * Query string de versión (?v=N) en layout.tsx para forzar
+    recarga en navegadores con caché.
+- Se hicieron varios intentos de rotación/espejo del ícono para
+  dejarlo en la orientación correcta según el logo de referencia.
+
+8. ÍCONO DE WHATSAPP (WhatsAppFAB.tsx)
+---------------------------------------------------------
+- Reemplazado el ícono MessageCircle de lucide-react por la imagen
+  public/iconos/whatsapp icono.png (logo oficial de WhatsApp).
+- La imagen ya trae su propio fondo verde, por lo que se quitó
+  la clase bg-green-500/hover:bg-green-600 del botón.
+- Se agregó overflow-hidden + rounded-full para mantener la forma
+  circular del FAB.
+- Se reemplazó animate-pulse por hover:scale-105 (el pulse hacía
+  parpadear toda la imagen, no solo el ícono).
+- QA: HTML renderiza correcto, imagen sirve HTTP 200 (53 KB),
+  npx tsc --noEmit sin errores.
+
+=============================================
+PENDIENTES
+=============================================
+- Redefinir las tarjetas "Fachada vidriada" y "Balcones amplios"
+  en la sección Fachada de "Conoce el Proyecto" (esperando
+  definición de diseño/marketing).
