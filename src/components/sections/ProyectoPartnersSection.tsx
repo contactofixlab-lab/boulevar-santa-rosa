@@ -28,11 +28,11 @@ const partners = [
     height: 720,
   },
   {
-    name: "Inmobiliaria",
+    name: "NeoEncinas",
     label: "Inmobiliaria",
-    src: null, // Pendiente de agregar logo
-    width: 1280,
-    height: 720,
+    src: "/logos/NEOENCINA.png",
+    width: 928,
+    height: 270,
   },
 ];
 

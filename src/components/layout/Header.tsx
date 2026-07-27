@@ -34,11 +34,11 @@ export const Header = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/logos/NEOENCINA.png"
-            alt="NeoEncinas Inmobiliaria"
-            width={200}
-            height={60}
-            className="h-16 w-auto object-contain"
+            src="/logos/BOULEVARD COLOR.png"
+            alt="Boulevard Santa Rosa"
+            width={160}
+            height={54}
+            className="h-14 w-auto object-contain"
             priority
           />
         </Link>
