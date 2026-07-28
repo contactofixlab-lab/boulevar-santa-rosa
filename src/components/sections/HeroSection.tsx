@@ -79,13 +79,22 @@ export const HeroSection = () => {
                 Cotizar ahora
               </Button>
             </Link>
-            <Button
-              variant="outline"
-              size="md"
-              className="!border-white !text-white hover:!bg-white/15 backdrop-blur-sm"
+            <a
+              href="/brochure/brochure-boulevard-santa-rosa.pdf"
+              download="Brochure-Boulevard-Santa-Rosa.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
             >
-              Descargar brochure
-            </Button>
+              <Button
+                variant="outline"
+                size="md"
+                className="!border-white !text-white hover:!bg-white/15 backdrop-blur-sm cursor-pointer"
+                type="button"
+              >
+                Descargar brochure
+              </Button>
+            </a>
           </div>
         </div>
       </div>

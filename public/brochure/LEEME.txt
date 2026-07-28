@@ -1,0 +1,42 @@
+=============================================
+CARPETA DEL BROCHURE - Boulevard Santa Rosa
+=============================================
+
+Aqui va el PDF que descargan los visitantes desde el boton
+"Descargar brochure" del hero (portada de la web).
+
+---------------------------------------------
+COMO AGREGAR O ACTUALIZAR EL BROCHURE
+---------------------------------------------
+
+1. Copia el PDF dentro de esta carpeta.
+
+2. El archivo DEBE llamarse exactamente:
+
+      brochure-boulevard-santa-rosa.pdf
+
+   (todo en minusculas, con guiones, sin espacios ni tildes)
+
+   Si el archivo tiene otro nombre, el boton dara error 404.
+
+3. Si estas reemplazando uno anterior, simplemente sobrescribe
+   el archivo con el mismo nombre.
+
+4. Avisar para hacer commit + deploy a Vercel. El cambio NO se
+   ve en la web publicada hasta que se deploya.
+
+---------------------------------------------
+DATOS TECNICOS
+---------------------------------------------
+
+- URL publica del archivo:
+  https://boulevard-santa-rosa.vercel.app/brochure/brochure-boulevard-santa-rosa.pdf
+
+- Nombre con que se descarga en el computador del visitante:
+  Brochure-Boulevard-Santa-Rosa.pdf
+
+- Boton que lo enlaza:
+  src/components/sections/HeroSection.tsx
+
+- Peso recomendado: bajo 25 MB. Si el PDF pesa mas, conviene
+  comprimirlo o evaluar alojarlo en Google Drive en vez de aqui.
