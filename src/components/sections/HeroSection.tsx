@@ -81,7 +81,6 @@ export const HeroSection = () => {
             </Link>
             <a
               href="/brochure/brochure-boulevard-santa-rosa.pdf"
-              download="Brochure-Boulevard-Santa-Rosa.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="block"
