@@ -14,8 +14,27 @@ export const Footer = async () => {
   const uf = await getUFToday();
   const dollar = await getDollarToday();
   return (
-    <footer className="bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 py-10">
+    <footer className="relative bg-white border-t border-gray-100 overflow-hidden">
+      {/* Ícono de marca gigante y translúcido, sangrando por los bordes (mismo
+          efecto que la referencia NeoUrbe, adaptado a fondo claro) */}
+      <Image
+        src="/logos/boulevard-icono.png"
+        alt=""
+        aria-hidden="true"
+        width={620}
+        height={751}
+        className="pointer-events-none select-none absolute -right-24 -bottom-32 w-[420px] h-auto opacity-[0.06] rotate-[8deg]"
+      />
+      <Image
+        src="/logos/boulevard-icono.png"
+        alt=""
+        aria-hidden="true"
+        width={620}
+        height={751}
+        className="pointer-events-none select-none absolute -left-20 -top-24 w-[260px] h-auto opacity-[0.05] -rotate-[10deg] hidden md:block"
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
           {/* Logo + tagline */}
