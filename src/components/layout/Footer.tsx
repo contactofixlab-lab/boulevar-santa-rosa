@@ -24,9 +24,9 @@ export const Footer = async () => {
               <Image
                 src="/logos/BOULEVARD COLOR.png"
                 alt="Boulevard Santa Rosa"
-                width={160}
-                height={84}
-                className="h-14 w-auto object-contain"
+                width={228}
+                height={120}
+                className="h-20 w-auto object-contain"
               />
             </Link>
             <p className="text-[#4A6275] text-xs leading-relaxed mb-4">
