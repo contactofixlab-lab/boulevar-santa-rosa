@@ -43,10 +43,10 @@ export const AsesorSection = () => {
         {/* Logo */}
         <div className="mb-12">
           <Image
-            src="/logos/Boulevard_color.png"
+            src="/logos/BOULEVARD COLOR.png"
             alt="Boulevard Santa Rosa"
             width={140}
-            height={42}
+            height={74}
             className="h-9 w-auto object-contain"
           />
         </div>

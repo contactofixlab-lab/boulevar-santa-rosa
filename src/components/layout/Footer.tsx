@@ -22,10 +22,10 @@ export const Footer = async () => {
           <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/logos/Boulevard_horizontal_color.png"
+                src="/logos/BOULEVARD COLOR.png"
                 alt="Boulevard Santa Rosa"
                 width={160}
-                height={54}
+                height={84}
                 className="h-14 w-auto object-contain"
               />
             </Link>
