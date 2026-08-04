@@ -131,7 +131,7 @@ export const Footer = async () => {
               UF Hoy
             </h4>
             <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block mb-4">
-              <p className="text-3xl font-bold text-[#0671AE]">
+              <p className="text-2xl font-bold text-[#0671AE]">
                 ${Math.round(uf.value)}
               </p>
             </div>
@@ -140,7 +140,7 @@ export const Footer = async () => {
               Dólar Hoy
             </h4>
             <div className="bg-gradient-to-br from-[#84CE25]/10 to-[#84CE25]/5 rounded-lg px-4 py-3 border border-[#84CE25]/20 inline-block">
-              <p className="text-3xl font-bold text-[#84CE25]">
+              <p className="text-2xl font-bold text-[#84CE25]">
                 ${Math.round(dollar.value)}
               </p>
             </div>
@@ -148,7 +148,75 @@ export const Footer = async () => {
 
         </div>
 
-        <div className="border-t border-gray-100 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        {/* Partners Section */}
+        <div className="border-t border-gray-100 mt-8 pt-8">
+          <div className="text-center mb-6">
+            <h4 className="font-semibold text-xs uppercase tracking-widest mb-3 text-[#4A6275]">
+              Un Proyecto De
+            </h4>
+            <div className="w-12 h-1 bg-gradient-to-r from-[#0671AE] to-[#84CE25] rounded-full mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center mb-8">
+            {/* Financia */}
+            <div className="flex flex-col items-center gap-2 w-full">
+              <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Financia</p>
+              <div className="h-12 flex items-center justify-center w-full">
+                <Image
+                  src="/logos/logo_consorcio_2024.webp"
+                  alt="Consorcio"
+                  width={991}
+                  height={189}
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Arquitectos */}
+            <div className="flex flex-col items-center gap-2 w-full">
+              <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Arquitectos</p>
+              <div className="h-12 flex items-center justify-center w-full">
+                <Image
+                  src="/logos/Logo-Franulic-Arq.png"
+                  alt="Franulic Arquitectos"
+                  width={766}
+                  height={219}
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Construye */}
+            <div className="flex flex-col items-center gap-2 w-full">
+              <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Construye</p>
+              <div className="h-12 flex items-center justify-center w-full">
+                <Image
+                  src="/logos/logo_pds.png"
+                  alt="PDS"
+                  width={1280}
+                  height={720}
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Gestora */}
+            <div className="flex flex-col items-center gap-2 w-full">
+              <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Gestora</p>
+              <div className="h-12 flex items-center justify-center w-full">
+                <Image
+                  src="/logos/NEOENCINA.png"
+                  alt="NeoEncinas"
+                  width={928}
+                  height={270}
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[#4A6275] text-xs">
             &copy; 2026 Boulevard Santa Rosa. Todos los derechos reservados.
           </p>
