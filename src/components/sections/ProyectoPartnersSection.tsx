@@ -73,7 +73,7 @@ export const ProyectoPartnersSection = () => {
                   <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
                     {partner.label}
                   </p>
-                  <div className="flex items-center justify-center w-48 h-40">
+                  <div className="flex items-center justify-center w-56 h-44">
                     {partner.src ? (
                       <Image
                         src={partner.src}
@@ -120,7 +120,7 @@ export const ProyectoPartnersSection = () => {
               <p className="text-xs uppercase tracking-wider font-semibold text-[#4A6275]">
                 {partner.label}
               </p>
-              <div className="flex items-center justify-center w-56 h-40">
+              <div className="flex items-center justify-center w-56 h-44">
                 {partner.src ? (
                   <Image
                     src={partner.src}
