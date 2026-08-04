@@ -48,8 +48,11 @@ export const Footer = async () => {
                 className="h-20 w-auto object-contain"
               />
             </Link>
-            <p className="text-[#4A6275] text-xs leading-relaxed mb-4">
+            <p className="text-[#4A6275] text-xs leading-relaxed mb-3">
               Nuevo proyecto inmobiliario en San Miguel, Santiago.
+            </p>
+            <p className="text-[#4A6275] text-xs leading-relaxed mb-4 font-medium">
+              12 pisos · 68 departamentos · 14 locales
             </p>
             <div className="flex gap-2">
               <a
@@ -128,7 +131,7 @@ export const Footer = async () => {
               UF Hoy
             </h4>
             <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block mb-4">
-              <p className="text-4xl font-bold text-[#0671AE]">
+              <p className="text-3xl font-bold text-[#0671AE]">
                 ${Math.round(uf.value)}
               </p>
             </div>
@@ -137,7 +140,7 @@ export const Footer = async () => {
               Dólar Hoy
             </h4>
             <div className="bg-gradient-to-br from-[#84CE25]/10 to-[#84CE25]/5 rounded-lg px-4 py-3 border border-[#84CE25]/20 inline-block">
-              <p className="text-4xl font-bold text-[#84CE25]">
+              <p className="text-3xl font-bold text-[#84CE25]">
                 ${Math.round(dollar.value)}
               </p>
             </div>

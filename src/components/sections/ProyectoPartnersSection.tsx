@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const partners = [
   {
     name: "Consorcio",
-    label: "Banco",
+    label: "Financia",
     src: "/logos/logo_consorcio_2024.webp",
     width: 991,
     height: 189,
@@ -22,14 +22,14 @@ const partners = [
   },
   {
     name: "PDS",
-    label: "Constructor",
+    label: "Construye",
     src: "/logos/logo_pds.png",
     width: 1280,
     height: 720,
   },
   {
     name: "NeoEncinas",
-    label: "Inmobiliaria",
+    label: "Gestora",
     src: "/logos/NEOENCINA.png",
     width: 928,
     height: 270,
