@@ -70,6 +70,50 @@ export const UbicacionSection = () => {
               alt="Mapa de ubicación Boulevard Santa Rosa - León Prado 515 - Click para abrir en Google Maps"
               className="w-full h-full object-cover"
             />
+
+            {/* Puntos de interés sobre la nueva imagen */}
+            {/* Supermercado (derecha) */}
+            <div className="absolute w-5 h-5 flex items-center justify-center" style={{ right: "15%", top: "25%" }}>
+              <div className="w-5 h-5 rounded-full border-1 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="supermercados" size={10} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Salud (derecha abajo) */}
+            <div className="absolute w-5 h-5 flex items-center justify-center" style={{ right: "12%", top: "65%" }}>
+              <div className="w-5 h-5 rounded-full border-1 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="centros-medicos" size={10} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Banco (izquierda arriba) */}
+            <div className="absolute w-5 h-5 flex items-center justify-center" style={{ left: "8%", top: "20%" }}>
+              <div className="w-5 h-5 rounded-full border-1 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="bancos" size={10} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Comercio (izquierda) */}
+            <div className="absolute w-5 h-5 flex items-center justify-center" style={{ left: "10%", top: "55%" }}>
+              <div className="w-5 h-5 rounded-full border-1 border-[#033D6B] flex items-center justify-center bg-white/80 shadow-sm">
+                <Icon name="mercado" size={10} className="text-[#033D6B]" />
+              </div>
+            </div>
+
+            {/* Tarjeta flotante con POIs, montada en la parte inferior del mapa - Oculta en mobile */}
+            <div className="hidden md:grid absolute bottom-3 left-3 right-3 bg-white rounded-2xl shadow-lg py-3 px-2 grid-cols-4 gap-1">
+              {pois.map(({ iconName, label }, i) => (
+                <div key={label} className="flex flex-col items-center gap-1.5 text-center">
+                  <Icon
+                    name={iconName}
+                    size={20}
+                    className={i % 2 === 0 ? "text-[#84CE25]" : "text-[#0671AE]"}
+                    aria-hidden="true"
+                  />
+                  <span className="text-[#033D6B] text-[10px] font-medium leading-tight">{label}</span>
+                </div>
+              ))}
+            </div>
           </a>
           </SlideInSection>
         </div>
