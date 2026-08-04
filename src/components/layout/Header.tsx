@@ -30,7 +30,9 @@ export const Header = () => {
         isScrolled ? "bg-white shadow-sm" : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <nav className={`max-w-7xl mx-auto px-6 flex items-center justify-between transition-all duration-300 ${
+        isScrolled ? "py-3" : "py-1"
+      }`}>
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
@@ -38,7 +40,9 @@ export const Header = () => {
             alt="Boulevard Santa Rosa"
             width={160}
             height={54}
-            className="h-20 w-auto object-contain"
+            className={`w-auto object-contain transition-all duration-300 ${
+              isScrolled ? "h-20" : "h-12"
+            }`}
             priority
           />
         </Link>
@@ -49,9 +53,7 @@ export const Header = () => {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors ${
-                isScrolled ? "text-[#033D6B] hover:text-[#0671AE]" : "text-white hover:text-gray-200"
-              }`}
+              className="text-sm font-medium text-[#033D6B] hover:text-[#0671AE] transition-colors"
             >
               {link.label}
             </Link>
@@ -60,9 +62,7 @@ export const Header = () => {
 
         {/* Mobile toggle */}
         <button
-          className={`lg:hidden p-2 transition-colors ${
-            isScrolled ? "text-[#033D6B]" : "text-white"
-          }`}
+          className="lg:hidden p-2 text-[#033D6B]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menú"
         >
