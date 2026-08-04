@@ -134,13 +134,13 @@ export const Footer = async () => {
             {/* Construye */}
             <div className="flex flex-col items-center gap-2 w-full">
               <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Construye</p>
-              <div className="h-12 flex items-center justify-center w-full">
+              <div className="h-16 flex items-center justify-center w-full">
                 <Image
                   src="/logos/logo_pds.png"
                   alt="PDS"
                   width={1280}
                   height={720}
-                  className="h-12 w-auto object-contain"
+                  className="h-16 w-auto object-contain"
                 />
               </div>
             </div>
