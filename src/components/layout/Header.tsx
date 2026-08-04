@@ -49,7 +49,9 @@ export const Header = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-[#033D6B] hover:text-[#0671AE] transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? "text-[#033D6B] hover:text-[#0671AE]" : "text-white hover:text-gray-200"
+              }`}
             >
               {link.label}
             </Link>
@@ -58,7 +60,9 @@ export const Header = () => {
 
         {/* Mobile toggle */}
         <button
-          className="lg:hidden p-2 text-[#033D6B]"
+          className={`lg:hidden p-2 transition-colors ${
+            isScrolled ? "text-[#033D6B]" : "text-white"
+          }`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menú"
         >
