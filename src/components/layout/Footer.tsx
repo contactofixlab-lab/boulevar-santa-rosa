@@ -98,7 +98,7 @@ export const Footer = async () => {
               Sala de Ventas
             </h4>
             <div className="space-y-2 text-xs text-[#4A6275]">
-              <p>San Miguel, Santiago, Chile</p>
+              <p>León Prado esquina Av. Santa Rosa, San Miguel, Santiago</p>
               <a href="tel:+56995350637" className="block hover:text-[#0671AE] transition-colors font-medium text-[#033D6B]">
                 +56 9 9535 0637
               </a>
