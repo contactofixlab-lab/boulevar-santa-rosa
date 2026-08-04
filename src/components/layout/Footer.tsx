@@ -89,24 +89,8 @@ export const Footer = async () => {
             </div>
           </div>
 
-          {/* Navegación */}
-          <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-4 text-[#033D6B]">
-              Navegación
-            </h4>
-            <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[#4A6275] hover:text-[#0671AE] text-xs transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Navegación - Hidden */}
+          <div className="hidden"></div>
 
           {/* Sala de Ventas */}
           <div>
@@ -118,8 +102,8 @@ export const Footer = async () => {
               <a href="tel:+56995350637" className="block hover:text-[#0671AE] transition-colors font-medium text-[#033D6B]">
                 +56 9 9535 0637
               </a>
-              <a href="mailto:ventas_carrera@almago.cl" className="block hover:text-[#0671AE] transition-colors break-all">
-                ventas_carrera@almago.cl
+              <a href="mailto:arodriguez@iencinas.cl" className="block hover:text-[#0671AE] transition-colors break-all">
+                arodriguez@iencinas.cl
               </a>
               <p>Lun–Dom · 10:00 a 19:00 hrs.</p>
             </div>
