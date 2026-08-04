@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
+import { Button } from "@/components/ui/Button";
 import { SlideInSection } from "@/components/ui/SlideInSection";
 
 const bullets = [
@@ -40,21 +42,32 @@ export const UbicacionSection = () => {
                 </div>
               ))}
             </div>
+
+            {/* Botón Cotizar ahora */}
+            <Link href="/#cotizador" className="block">
+              <Button
+                variant="primary"
+                size="md"
+                type="button"
+              >
+                Cotizar ahora →
+              </Button>
+            </Link>
           </SlideInSection>
 
           {/* Right: map con imagen real y puntos de interés */}
           <SlideInSection direction="right">
             <a
-              href="https://maps.google.com/?q=Boulevard+Santa+Rosa,+San+Miguel,+Santiago,+Chile"
+              href="https://maps.google.com/?q=León+Prado+esquina+Av.+Santa+Rosa,+San+Miguel,+Santiago,+Chile"
             target="_blank"
             rel="noopener noreferrer"
             className="relative w-full rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer block"
             style={{ aspectRatio: "16/9" }}
           >
-            {/* Imagen del mapa */}
+            {/* Imagen del mapa - León Prado 515 esquina Av. Santa Rosa */}
             <img
-              src="/images/Frame 4.png"
-              alt="Mapa de ubicación Boulevard Santa Rosa - Click para abrir en Google Maps"
+              src="/images/mapa-ubicacion-boulevard.png"
+              alt="Mapa de ubicación Boulevard Santa Rosa - León Prado 515 - Click para abrir en Google Maps"
               className="w-full h-full object-cover"
             />
 
@@ -99,8 +112,8 @@ export const UbicacionSection = () => {
               </svg>
             </div>
 
-            {/* Tarjeta flotante con POIs, montada en la parte inferior del mapa */}
-            <div className="absolute bottom-3 left-3 right-3 bg-white rounded-2xl shadow-lg py-3 px-2 grid grid-cols-4 gap-1">
+            {/* Tarjeta flotante con POIs, montada en la parte inferior del mapa - Oculta en mobile */}
+            <div className="hidden md:grid absolute bottom-3 left-3 right-3 bg-white rounded-2xl shadow-lg py-3 px-2 grid-cols-4 gap-1">
               {pois.map(({ iconName, label }, i) => (
                 <div key={label} className="flex flex-col items-center gap-1.5 text-center">
                   <Icon
