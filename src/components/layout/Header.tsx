@@ -30,9 +30,7 @@ export const Header = () => {
         isScrolled ? "bg-white shadow-sm" : "bg-transparent"
       }`}
     >
-      <nav className={`max-w-7xl mx-auto px-6 flex items-center justify-between transition-all duration-300 ${
-        isScrolled ? "py-3" : "py-1"
-      }`}>
+      <nav className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
@@ -40,9 +38,7 @@ export const Header = () => {
             alt="Boulevard Santa Rosa"
             width={160}
             height={54}
-            className={`w-auto object-contain transition-all duration-300 ${
-              isScrolled ? "h-20" : "h-12"
-            }`}
+            className="h-20 w-auto object-contain"
             priority
           />
         </Link>
