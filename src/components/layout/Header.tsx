@@ -31,8 +31,8 @@ export const Header = () => {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        {/* Logo - desaparece cuando no está scrolleado */}
-        <Link href="/" className={`flex items-center transition-all duration-300 ${isScrolled ? "visible opacity-100" : "invisible opacity-0"}`}>
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
           <Image
             src="/logos/BOULEVARD COLOR.png"
             alt="Boulevard Santa Rosa"
@@ -44,7 +44,7 @@ export const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className={`hidden lg:flex items-center gap-6 transition-all duration-300 ${isScrolled ? "visible opacity-100" : "invisible opacity-0"}`}>
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -58,7 +58,7 @@ export const Header = () => {
 
         {/* Mobile toggle */}
         <button
-          className={`lg:hidden p-2 text-[#033D6B] transition-all duration-300 ${isScrolled ? "visible opacity-100" : "invisible opacity-0"}`}
+          className="lg:hidden p-2 text-[#033D6B]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menú"
         >
