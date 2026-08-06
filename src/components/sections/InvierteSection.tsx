@@ -59,7 +59,7 @@ export const InvierteSection = () => {
               San Miguel es una de las comunas con mayor crecimiento en Santiago.
               La demanda de arriendo supera la oferta y la plusvalía crece año a año.
             </p>
-            <Link href="/#cotizador" className="block">
+            <a href="#cotizador" className="block">
               <Button
                 variant="primary"
                 size="md"
@@ -67,7 +67,7 @@ export const InvierteSection = () => {
               >
                 Cotizar ahora →
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* RIGHT (3/4): 4 tarjetas 3D premium */}
