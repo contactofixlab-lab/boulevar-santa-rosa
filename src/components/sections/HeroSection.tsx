@@ -1,28 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
-/**
- * Hero con foto de fondo completa (edificio, locales, bus, personas) y el borde
- * inferior recortado con esquinas redondeadas asimétricas — igual al tratamiento
- * de neourbe.cl (medido píxel a píxel sobre su referencia): plateau plano en el
- * centro, esquina izquierda con radio marcado, esquina derecha con un radio mayor
- * y más suave. El texto va centrado verticalmente sobre la foto, no pegado abajo.
- */
 export const HeroSection = () => {
   return (
     <section className="relative min-h-[94vh] flex items-center overflow-hidden">
 
-      {/* ── Imagen del render COMPLETA de fondo ── */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: "url(/renders/Fachada/Frontal.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center 55%",
-        }}
-        aria-hidden="true"
+      {/* Hero background image - optimized for LCP */}
+      <Image
+        src="/renders/Fachada/Frontal.jpg"
+        alt="Boulevard Santa Rosa - Fachada"
+        fill
+        className="object-cover object-[center_55%]"
+        priority
+        quality={85}
       />
 
       {/* ── Degradado para legibilidad del texto ── */}

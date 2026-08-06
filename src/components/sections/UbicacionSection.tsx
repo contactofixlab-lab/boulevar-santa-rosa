@@ -69,6 +69,8 @@ export const UbicacionSection = () => {
               src="/images/mapa-ubicacion-boulevard.png"
               alt="Mapa de ubicación Boulevard Santa Rosa - León Prado 515 - Click para abrir en Google Maps"
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
 
             {/* Puntos de interés sobre la nueva imagen */}
