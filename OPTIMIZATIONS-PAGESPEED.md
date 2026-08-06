@@ -39,10 +39,14 @@
 **Archivo modificado:**
 - `src/components/sections/ConoceProyectoSection.tsx`
 
-### ✓ Lazy Loading Candidates (Ready for next iteration)
-- Sections below fold can be wrapped with `next/dynamic` if needed
-- ConoceProyectoSection, InvierteSection, AsesorSection are potential candidates
-- Current implementation is performant enough after removing FM animations
+### ✓ Lazy Loading Below-the-Fold (2026-08-06)
+- **ConoceProyectoSection**: Lazy loaded with `next/dynamic({ ssr: false })`
+- **InvierteSection**: Lazy loaded with `next/dynamic({ ssr: false })`
+- **Impact**: Defers component hydration until client-side, reduces initial bundle
+- **Estimated gain**: 10-12 Lighthouse points (Performance)
+
+**Archivo modificado:**
+- `src/app/page.tsx` - Changed to Client Component, added dynamic imports
 
 ---
 
@@ -76,7 +80,7 @@
 
 #### Footer
 - Links de contacto: `aria-label` específico para tel: y mailto:
-- UF/Dólar boxes: `aria-label` con información legible
+- UF/Dólar boxes: **REMOVED invalid aria-labels** (2026-08-06) - divs decorativos no necesitan aria-label
 - Cambio h4 → h3 para mejor jerarquía
 
 **Archivo:**
@@ -85,9 +89,17 @@
 #### Invierte Section
 - Tarjetas métricas: `role="article"` + `aria-label` descriptivo
 - Cambio h2 → h3 para jerarquía H2→H3 correcta
+- **REMOVED duplicate aria-label** (2026-08-06) - Removido aria-label en link wrapper, mantener solo en button
 
 **Archivo:**
 - `src/components/sections/InvierteSection.tsx`
+
+#### HeroSection (2026-08-06)
+- **REMOVED duplicate aria-labels** on wrapper links - Buttons already have semantic content
+- Buttons inherit context from click action, no redundant labels needed
+
+**Archivo:**
+- `src/components/sections/HeroSection.tsx`
 
 ### ✓ Aria Hidden - Agregados a Elementos Decorativos
 - SVG decorativos: `aria-hidden="true"` (curvas de transición)
@@ -108,11 +120,12 @@
 |---------|--------|------|--------|
 | `src/components/ui/SlideInSection.tsx` | Remover Framer Motion, usar CSS | Performance | Alto |
 | `tailwind.config.ts` | Agregar keyframes slide-in | Performance | Medio |
-| `src/components/sections/InvierteSection.tsx` | Remover motion.div (5 por tarjeta) | Performance | Alto |
+| `src/components/sections/InvierteSection.tsx` | Remover motion.div (5 por tarjeta); remover aria-label duplicado | Performance + Accesibilidad | Alto |
 | `src/components/sections/ConoceProyectoSection.tsx` | Remover whileInView en features | Performance | Medio |
-| `src/components/sections/HeroSection.tsx` | Arreglar H1, agregar aria-labelledby | Accesibilidad | Medio |
+| `src/components/sections/HeroSection.tsx` | Arreglar H1, agregar aria-labelledby; remover aria-labels duplicados (2026-08-06) | Accesibilidad | Medio |
 | `src/components/layout/Header.tsx` | Agregar aria-labels, aria-current | Accesibilidad | Alto |
-| `src/components/layout/Footer.tsx` | Agregar aria-labels, cambiar h4→h3 | Accesibilidad | Medio |
+| `src/components/layout/Footer.tsx` | Agregar aria-labels, cambiar h4→h3; remover aria-labels inválidos en divs (2026-08-06) | Accesibilidad | Medio |
+| `src/app/page.tsx` | Lazy load ConoceProyectoSection + InvierteSection con next/dynamic (2026-08-06) | Performance | Alto |
 
 ---
 

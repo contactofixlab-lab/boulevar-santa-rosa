@@ -61,13 +61,12 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Link href="/#cotizador" className="block" aria-label="Ir a cotizador de departamentos">
+            <Link href="/#cotizador" className="block">
               <Button
                 variant="primary"
                 size="md"
                 className="shadow-xl cursor-pointer"
                 type="button"
-                aria-label="Cotizar ahora"
               >
                 Cotizar ahora
               </Button>
@@ -77,14 +76,12 @@ export const HeroSection = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="block"
-              aria-label="Descargar brochure de Boulevard Santa Rosa"
             >
               <Button
                 variant="outline"
                 size="md"
                 className="!border-white !text-white hover:!bg-white/15 backdrop-blur-sm cursor-pointer"
                 type="button"
-                aria-label="Descargar brochure"
               >
                 Descargar brochure
               </Button>

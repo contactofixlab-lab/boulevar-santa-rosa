@@ -58,12 +58,11 @@ export const InvierteSection = () => {
               San Miguel es una de las comunas con mayor crecimiento en Santiago.
               La demanda de arriendo supera la oferta y la plusvalía crece año a año.
             </p>
-            <a href="#cotizador" className="block" aria-label="Ir a cotizador de inversión">
+            <a href="#cotizador" className="block">
               <Button
                 variant="primary"
                 size="md"
                 type="button"
-                aria-label="Cotizar inversión en Boulevard Santa Rosa"
               >
                 Cotizar ahora →
               </Button>
