@@ -14,8 +14,8 @@ const variants = {
 };
 
 const sizes = {
-  sm: "px-5 py-2.5 text-sm rounded-full",
-  md: "px-7 py-3.5 text-base rounded-full min-h-[48px] flex items-center justify-center",
+  sm: "px-4 py-2 text-sm rounded-full",
+  md: "px-6 py-3 text-base rounded-full",
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
