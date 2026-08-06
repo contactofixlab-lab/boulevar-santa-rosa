@@ -44,11 +44,12 @@ export const UbicacionSection = () => {
             </div>
 
             {/* Botón Cotizar ahora */}
-            <Link href="/#cotizador" className="block">
+            <Link href="/#cotizador" className="block" aria-label="Ir a cotizador">
               <Button
                 variant="primary"
                 size="md"
                 type="button"
+                aria-label="Cotizar departamento en Boulevard Santa Rosa"
               >
                 Cotizar ahora →
               </Button>
@@ -67,7 +68,8 @@ export const UbicacionSection = () => {
             {/* Imagen del mapa - León Prado 515 esquina Av. Santa Rosa */}
             <img
               src="/images/mapa-ubicacion-boulevard.png"
-              alt="Mapa de ubicación Boulevard Santa Rosa - León Prado 515 - Click para abrir en Google Maps"
+              alt="Mapa de ubicación Boulevard Santa Rosa ubicado en León Prado 515 esquina Avenida Santa Rosa, San Miguel - Haz clic para abrir en Google Maps"
+              title="Ubicación de Boulevard Santa Rosa"
               className="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
