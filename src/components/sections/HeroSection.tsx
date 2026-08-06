@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[94vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[94vh] flex items-center overflow-hidden" aria-labelledby="hero-title">
 
       {/* Hero background image - optimized for LCP */}
       <Image
@@ -48,10 +48,9 @@ export const HeroSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pb-10">
         <div className="max-w-[520px]">
 
-          <h1 className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold
+          <h1 id="hero-title" className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold
                          leading-[1.15] mb-5 drop-shadow-sm">
-            <span className="text-white">Vive conectado<br />
-            al nuevo</span>{" "}
+            <span className="text-white">Vive conectado al nuevo</span>{" "}
             <span className="text-[#84CE25]">San Miguel</span>
           </h1>
 
