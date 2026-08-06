@@ -25,27 +25,27 @@ interface Feature {
 
 const photosByType: Record<PhotoType, Photo[]> = {
   departamento: [
-    { id: "d1", label: "Living Comedor Cocina", type: "departamento", src: "/renders/Departamento/Living-Comerdor-Cocina.jpg", aspectRatio: 1.778 },
-    { id: "d2", label: "Living Comedor", type: "departamento", src: "/renders/Departamento/Living-Comedor.jpg", aspectRatio: 1.778 },
-    { id: "d3", label: "Cocina", type: "departamento", src: "/renders/Departamento/Cocina.jpg", aspectRatio: 1.778 },
-    { id: "d4", label: "Cocina 2", type: "departamento", src: "/renders/Departamento/Cocina-2.jpg", aspectRatio: 1.778 },
-    { id: "d5", label: "Dormitorio Principal", type: "departamento", src: "/renders/Departamento/Dormitorio.jpg", aspectRatio: 1.778 },
-    { id: "d6", label: "Dormitorio 2", type: "departamento", src: "/renders/Departamento/Dormitorio-2.jpg", aspectRatio: 1.778 },
-    { id: "d7", label: "Dormitorio 3", type: "departamento", src: "/renders/Departamento/Dormitorio-3.jpg", aspectRatio: 1.778 },
-    { id: "d8", label: "Baño", type: "departamento", src: "/renders/Departamento/Baño.jpg", aspectRatio: 1.0 },
+    { id: "d1", label: "Living Comedor Cocina", type: "departamento", src: "/renders/Departamento/Living-Comerdor-Cocina.webp", aspectRatio: 1.778 },
+    { id: "d2", label: "Living Comedor", type: "departamento", src: "/renders/Departamento/Living-Comedor.webp", aspectRatio: 1.778 },
+    { id: "d3", label: "Cocina", type: "departamento", src: "/renders/Departamento/Cocina.webp", aspectRatio: 1.778 },
+    { id: "d4", label: "Cocina 2", type: "departamento", src: "/renders/Departamento/Cocina-2.webp", aspectRatio: 1.778 },
+    { id: "d5", label: "Dormitorio Principal", type: "departamento", src: "/renders/Departamento/Dormitorio.webp", aspectRatio: 1.778 },
+    { id: "d6", label: "Dormitorio 2", type: "departamento", src: "/renders/Departamento/Dormitorio-2.webp", aspectRatio: 1.778 },
+    { id: "d7", label: "Dormitorio 3", type: "departamento", src: "/renders/Departamento/Dormitorio-3.webp", aspectRatio: 1.778 },
+    { id: "d8", label: "Baño", type: "departamento", src: "/renders/Departamento/Baño.webp", aspectRatio: 1.0 },
   ],
   "areas-comunes": [
-    { id: "a1", label: "Quincho", type: "areas-comunes", src: "/renders/Areas-Comunes/Quincho.jpg", aspectRatio: 1.778 },
-    { id: "a2", label: "Sala Multiuso", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso.jpg", aspectRatio: 1.778 },
-    { id: "a3", label: "Sala Multiuso - Foto 2", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso-foto-2.jpg", aspectRatio: 1.778 },
+    { id: "a1", label: "Quincho", type: "areas-comunes", src: "/renders/Areas-Comunes/Quincho.webp", aspectRatio: 1.778 },
+    { id: "a2", label: "Sala Multiuso", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso.webp", aspectRatio: 1.778 },
+    { id: "a3", label: "Sala Multiuso - Foto 2", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso-foto-2.webp", aspectRatio: 1.778 },
   ],
   fachada: [
-    { id: "f1", label: "Frontal", type: "fachada", src: "/renders/Fachada/Frontal.jpg", aspectRatio: 1.778 },
-    { id: "f2", label: "Lateral", type: "fachada", src: "/renders/Fachada/SR_LATERAL_010 (horizontal).jpg", aspectRatio: 1.778 },
-    { id: "f3", label: "Entrada", type: "fachada", src: "/renders/Fachada/Entrada.jpg", aspectRatio: 1.778 },
+    { id: "f1", label: "Frontal", type: "fachada", src: "/renders/Fachada/Frontal.webp", aspectRatio: 1.778 },
+    { id: "f2", label: "Lateral", type: "fachada", src: "/renders/Fachada/SR_LATERAL_010 (horizontal).webp", aspectRatio: 1.778 },
+    { id: "f3", label: "Entrada", type: "fachada", src: "/renders/Fachada/Entrada.webp", aspectRatio: 1.778 },
   ],
   local: [
-    { id: "l1", label: "Locales Comerciales", type: "local", src: "/renders/Fachada/SR_RETAIL_010.jpg", aspectRatio: 1.778 },
+    { id: "l1", label: "Locales Comerciales", type: "local", src: "/renders/Fachada/SR_RETAIL_010.webp", aspectRatio: 1.778 },
   ],
 };
 

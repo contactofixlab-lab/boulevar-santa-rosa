@@ -10,7 +10,7 @@ export const HeroSection = () => {
 
       {/* Hero background image - optimized for LCP */}
       <Image
-        src="/renders/Fachada/Frontal.jpg"
+        src="/renders/Fachada/Frontal.webp"
         alt="Boulevard Santa Rosa - Fachada"
         fill
         className="object-cover object-[center_55%]"
