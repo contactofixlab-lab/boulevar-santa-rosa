@@ -54,7 +54,7 @@ export default async function RootLayout({
         {/* Mobysuite Cotizador Script - Con atributos data-* correctos */}
         <Script
           id="mobysuite-script"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
