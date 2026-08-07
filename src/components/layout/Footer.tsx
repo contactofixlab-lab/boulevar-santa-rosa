@@ -60,8 +60,8 @@ export const Footer = async () => {
             </h4>
             <div className="space-y-2 text-xs text-[#4A6275]">
               <p>León Prado 515 esquina Av. Santa Rosa, San Miguel, Santiago</p>
-              <a href="tel:+56995350637" className="block hover:text-[#0671AE] transition-colors font-medium text-[#033D6B]">
-                +56 9 9535 0637
+              <a href="tel:+56927541955" className="block hover:text-[#0671AE] transition-colors font-medium text-[#033D6B]">
+                56927541955
               </a>
               <a href="mailto:arodriguez@iencinas.cl" className="block hover:text-[#0671AE] transition-colors break-all">
                 arodriguez@iencinas.cl
