@@ -14,6 +14,7 @@ export const EncuentraEspacioIdeal = () => {
         {/* Cotizador Mobysuite - Script global lo carga aquí automáticamente */}
         <div className="flex justify-center w-full" style={{ minHeight: "600px" }}>
           <div
+            id="mobysuite-cotizador-boulevard"
             style={{ width: "100%", maxWidth: "1200px" }}
           />
         </div>

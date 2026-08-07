@@ -47,9 +47,6 @@ export default async function RootLayout({
         <WhatsAppFAB />
         <CotizadorDialogGlobal tipologias={tipologias} />
 
-        {/* Mobysuite Cotizador - Contenedor */}
-        <div id="mobysuite-cotizador-boulevard"></div>
-
         {/* Mobysuite Cotizador Script - Direct script tag */}
         <script
           dangerouslySetInnerHTML={{
