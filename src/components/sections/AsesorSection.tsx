@@ -121,8 +121,8 @@ export const AsesorSection = () => {
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3">
                 <Icon name="telefono" size={18} className="text-[#0671AE] flex-shrink-0" aria-hidden="true" />
-                <a href="tel:+56927541955" className="text-[#033D6B] font-semibold hover:text-[#0671AE] transition-colors">
-                  56927541955
+                <a href="tel:+56995350637" className="text-[#033D6B] font-semibold hover:text-[#0671AE] transition-colors">
+                  +56 9 9535 0637
                 </a>
               </div>
               <div className="flex items-center gap-3">
@@ -140,7 +140,7 @@ export const AsesorSection = () => {
                 Agendar reunión
               </a>
               <a
-                href="https://wa.me/56927541955"
+                href="https://wa.me/56995350637"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#84CE25] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#65A81A] transition-colors text-sm"
