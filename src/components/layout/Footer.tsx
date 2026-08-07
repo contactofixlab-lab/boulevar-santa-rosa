@@ -75,7 +75,7 @@ export const Footer = async () => {
             <h3 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
               UF Hoy
             </h3>
-            <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block mb-4">
+            <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block mb-4" aria-label={`Valor UF hoy: ${Math.round(uf.value)}`}>
               <p className="text-2xl font-bold text-[#0671AE]" aria-hidden="true">
                 ${Math.round(uf.value)}
               </p>
@@ -84,7 +84,7 @@ export const Footer = async () => {
             <h3 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
               Dólar Hoy
             </h3>
-            <div className="bg-gradient-to-br from-[#84CE25]/10 to-[#84CE25]/5 rounded-lg px-4 py-3 border border-[#84CE25]/20 inline-block">
+            <div className="bg-gradient-to-br from-[#84CE25]/10 to-[#84CE25]/5 rounded-lg px-4 py-3 border border-[#84CE25]/20 inline-block" aria-label={`Valor dólar hoy: ${Math.round(dollar.value)}`}>
               <p className="text-2xl font-bold text-[#84CE25]" aria-hidden="true">
                 ${Math.round(dollar.value)}
               </p>
