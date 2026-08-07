@@ -1,28 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
-/**
- * Hero con foto de fondo completa (edificio, locales, bus, personas) y el borde
- * inferior recortado con esquinas redondeadas asimétricas — igual al tratamiento
- * de neourbe.cl (medido píxel a píxel sobre su referencia): plateau plano en el
- * centro, esquina izquierda con radio marcado, esquina derecha con un radio mayor
- * y más suave. El texto va centrado verticalmente sobre la foto, no pegado abajo.
- */
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[94vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[94vh] flex items-center overflow-hidden" aria-labelledby="hero-title">
 
-      {/* ── Imagen del render COMPLETA de fondo ── */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: "url(/renders/Fachada/Frontal.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center 55%",
-        }}
-        aria-hidden="true"
+      {/* Hero background image - optimized for LCP */}
+      <Image
+        src="/renders/Fachada/Frontal.webp"
+        alt="Boulevard Santa Rosa - Fachada"
+        fill
+        className="object-cover object-[center_55%]"
+        priority
+        quality={85}
       />
 
       {/* ── Degradado para legibilidad del texto ── */}
@@ -55,10 +48,9 @@ export const HeroSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pb-10">
         <div className="max-w-[520px]">
 
-          <h1 className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold
+          <h1 id="hero-title" className="text-4xl md:text-5xl xl:text-[3.4rem] font-bold
                          leading-[1.15] mb-5 drop-shadow-sm">
-            <span className="text-white">Vive conectado<br />
-            al nuevo</span>{" "}
+            <span className="text-white">Vive conectado al nuevo</span>{" "}
             <span className="text-[#84CE25]">San Miguel</span>
           </h1>
 

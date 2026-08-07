@@ -55,15 +55,15 @@ export const Footer = async () => {
 
           {/* Sala de Ventas */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-4 text-[#033D6B]">
+            <h3 className="font-semibold text-xs uppercase tracking-wider mb-4 text-[#033D6B]">
               Sala de Ventas
-            </h4>
+            </h3>
             <div className="space-y-2 text-xs text-[#4A6275]">
               <p>León Prado 515 esquina Av. Santa Rosa, San Miguel, Santiago</p>
-              <a href="tel:+56992754195" className="block hover:text-[#0671AE] transition-colors font-medium text-[#033D6B]">
+              <a href="tel:+56992754195" className="block hover:text-[#0671AE] transition-colors font-medium text-[#033D6B]" aria-label="Llamar al +56 9 9275 4195">
                 +56 9 9275 4195
               </a>
-              <a href="mailto:arodriguez@iencinas.cl" className="block hover:text-[#0671AE] transition-colors break-all">
+              <a href="mailto:arodriguez@iencinas.cl" className="block hover:text-[#0671AE] transition-colors break-all" aria-label="Enviar email a arodriguez@iencinas.cl">
                 arodriguez@iencinas.cl
               </a>
               <p>Lun–Dom · 10:00 a 19:00 hrs.</p>
@@ -72,20 +72,20 @@ export const Footer = async () => {
 
           {/* UF Hoy y Dólar Hoy */}
           <div>
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
+            <h3 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
               UF Hoy
-            </h4>
+            </h3>
             <div className="bg-gradient-to-br from-[#0671AE]/10 to-[#0671AE]/5 rounded-lg px-4 py-3 border border-[#0671AE]/20 inline-block mb-4">
-              <p className="text-2xl font-bold text-[#0671AE]">
+              <p className="text-2xl font-bold text-[#0671AE]" aria-hidden="true">
                 ${Math.round(uf.value)}
               </p>
             </div>
 
-            <h4 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
+            <h3 className="font-semibold text-xs uppercase tracking-wider mb-2 text-[#033D6B]">
               Dólar Hoy
-            </h4>
+            </h3>
             <div className="bg-gradient-to-br from-[#84CE25]/10 to-[#84CE25]/5 rounded-lg px-4 py-3 border border-[#84CE25]/20 inline-block">
-              <p className="text-2xl font-bold text-[#84CE25]">
+              <p className="text-2xl font-bold text-[#84CE25]" aria-hidden="true">
                 ${Math.round(dollar.value)}
               </p>
             </div>

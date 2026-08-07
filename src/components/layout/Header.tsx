@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -17,6 +18,7 @@ const navLinks = [
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
@@ -28,10 +30,10 @@ export const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       <nav className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center" aria-label="Volver al inicio - Boulevard Santa Rosa">
           <Image
             src="/logos/BOULEVARD COLOR.png"
-            alt="Boulevard Santa Rosa"
+            alt="Boulevard Santa Rosa - Logo"
             width={160}
             height={54}
             className="h-20 w-auto object-contain"
@@ -41,15 +43,19 @@ export const Header = () => {
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+            return (
             <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-[#033D6B] hover:text-[#0671AE] transition-colors"
+              aria-current={isActive ? "page" : undefined}
             >
               {link.label}
             </Link>
-          ))}
+            );
+          })}
         </div>
 
         {/* Mobile toggle */}
@@ -65,16 +71,20 @@ export const Header = () => {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4 shadow-lg">
-          {navLinks.map((link) => (
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+            return (
             <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-[#033D6B] hover:text-[#0671AE] transition-colors py-1"
               onClick={() => setMobileOpen(false)}
+              aria-current={isActive ? "page" : undefined}
             >
               {link.label}
             </Link>
-          ))}
+            );
+          })}
         </div>
       )}
     </header>

@@ -5,7 +5,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight, Camera } from "lucide-react";
 import { Icon } from "@/components/ui/Icon";
 import { SlideInSection } from "@/components/ui/SlideInSection";
-import { motion } from "framer-motion";
 
 type PhotoType = "departamento" | "areas-comunes" | "fachada" | "local";
 
@@ -25,27 +24,27 @@ interface Feature {
 
 const photosByType: Record<PhotoType, Photo[]> = {
   departamento: [
-    { id: "d1", label: "Living Comedor Cocina", type: "departamento", src: "/renders/Departamento/Living-Comerdor-Cocina.jpg", aspectRatio: 1.778 },
-    { id: "d2", label: "Living Comedor", type: "departamento", src: "/renders/Departamento/Living-Comedor.jpg", aspectRatio: 1.778 },
-    { id: "d3", label: "Cocina", type: "departamento", src: "/renders/Departamento/Cocina.jpg", aspectRatio: 1.778 },
-    { id: "d4", label: "Cocina 2", type: "departamento", src: "/renders/Departamento/Cocina-2.jpg", aspectRatio: 1.778 },
-    { id: "d5", label: "Dormitorio Principal", type: "departamento", src: "/renders/Departamento/Dormitorio.jpg", aspectRatio: 1.778 },
-    { id: "d6", label: "Dormitorio 2", type: "departamento", src: "/renders/Departamento/Dormitorio-2.jpg", aspectRatio: 1.778 },
-    { id: "d7", label: "Dormitorio 3", type: "departamento", src: "/renders/Departamento/Dormitorio-3.jpg", aspectRatio: 1.778 },
-    { id: "d8", label: "Baño", type: "departamento", src: "/renders/Departamento/Baño.jpg", aspectRatio: 1.0 },
+    { id: "d1", label: "Living Comedor Cocina", type: "departamento", src: "/renders/Departamento/Living-Comerdor-Cocina.webp", aspectRatio: 1.778 },
+    { id: "d2", label: "Living Comedor", type: "departamento", src: "/renders/Departamento/Living-Comedor.webp", aspectRatio: 1.778 },
+    { id: "d3", label: "Cocina", type: "departamento", src: "/renders/Departamento/Cocina.webp", aspectRatio: 1.778 },
+    { id: "d4", label: "Cocina 2", type: "departamento", src: "/renders/Departamento/Cocina-2.webp", aspectRatio: 1.778 },
+    { id: "d5", label: "Dormitorio Principal", type: "departamento", src: "/renders/Departamento/Dormitorio.webp", aspectRatio: 1.778 },
+    { id: "d6", label: "Dormitorio 2", type: "departamento", src: "/renders/Departamento/Dormitorio-2.webp", aspectRatio: 1.778 },
+    { id: "d7", label: "Dormitorio 3", type: "departamento", src: "/renders/Departamento/Dormitorio-3.webp", aspectRatio: 1.778 },
+    { id: "d8", label: "Baño", type: "departamento", src: "/renders/Departamento/Baño.webp", aspectRatio: 1.0 },
   ],
   "areas-comunes": [
-    { id: "a1", label: "Quincho", type: "areas-comunes", src: "/renders/Areas-Comunes/Quincho.jpg", aspectRatio: 1.778 },
-    { id: "a2", label: "Sala Multiuso", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso.jpg", aspectRatio: 1.778 },
-    { id: "a3", label: "Sala Multiuso - Foto 2", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso-foto-2.jpg", aspectRatio: 1.778 },
+    { id: "a1", label: "Quincho", type: "areas-comunes", src: "/renders/Areas-Comunes/Quincho.webp", aspectRatio: 1.778 },
+    { id: "a2", label: "Sala Multiuso", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso.webp", aspectRatio: 1.778 },
+    { id: "a3", label: "Sala Multiuso - Foto 2", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso-foto-2.webp", aspectRatio: 1.778 },
   ],
   fachada: [
-    { id: "f1", label: "Frontal", type: "fachada", src: "/renders/Fachada/Frontal.jpg", aspectRatio: 1.778 },
-    { id: "f2", label: "Lateral", type: "fachada", src: "/renders/Fachada/SR_LATERAL_010 (horizontal).jpg", aspectRatio: 1.778 },
-    { id: "f3", label: "Entrada", type: "fachada", src: "/renders/Fachada/Entrada.jpg", aspectRatio: 1.778 },
+    { id: "f1", label: "Frontal", type: "fachada", src: "/renders/Fachada/Frontal.webp", aspectRatio: 1.778 },
+    { id: "f2", label: "Lateral", type: "fachada", src: "/renders/Fachada/SR_LATERAL_010 (horizontal).webp", aspectRatio: 1.778 },
+    { id: "f3", label: "Entrada", type: "fachada", src: "/renders/Fachada/Entrada.webp", aspectRatio: 1.778 },
   ],
   local: [
-    { id: "l1", label: "Locales Comerciales", type: "local", src: "/renders/Fachada/SR_RETAIL_010.jpg", aspectRatio: 1.778 },
+    { id: "l1", label: "Locales Comerciales", type: "local", src: "/renders/Fachada/SR_RETAIL_010.webp", aspectRatio: 1.778 },
   ],
 };
 
@@ -133,7 +132,7 @@ export const ConoceProyectoSection = () => {
         </SlideInSection>
 
         {/* Filtros */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-12" role="group" aria-label="Filtros de fotos">
           {(Object.keys(photosByType) as PhotoType[]).map((type) => (
             <button
               key={type}
@@ -143,6 +142,8 @@ export const ConoceProyectoSection = () => {
                   ? "bg-[#84CE25] text-white shadow-md"
                   : "bg-white text-[#033D6B] border-2 border-[#0671AE] hover:border-[#84CE25] hover:bg-[#E3F3FB]"
               }`}
+              aria-pressed={selectedType === type}
+              aria-label={`Ver fotos de ${filterLabels[type]}`}
             >
               {filterLabels[type]}
             </button>
@@ -152,15 +153,11 @@ export const ConoceProyectoSection = () => {
         {/* Desktop/Tablet Grid */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {currentFeatures.map((feature) => (
-            <motion.div
+            <div
               key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
               className="flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow"
             >
-              <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
+              <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" aria-hidden="true" />
               <div className="flex-1 min-w-0">
                 <h4 className="font-semibold text-[#033D6B] text-sm leading-tight mb-1">
                   {feature.title}
@@ -169,7 +166,7 @@ export const ConoceProyectoSection = () => {
                   {feature.description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
@@ -179,14 +176,10 @@ export const ConoceProyectoSection = () => {
             <div className="flex gap-4">
               {currentFeatures.map((feature) => (
                 <div key={feature.title} className="flex-shrink-0 w-full flex justify-center">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                  <div
                     className="w-full flex gap-3 items-start bg-white rounded-xl p-4 shadow-sm"
                   >
-                    <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" />
+                    <Icon name={feature.icon} size={24} className="text-[#0671AE] flex-shrink-0 mt-0.5" aria-hidden="true" />
                     <div className="flex-1 min-w-0">
                       <h4 className="font-semibold text-[#033D6B] text-sm leading-tight mb-1">
                         {feature.title}
@@ -195,7 +188,7 @@ export const ConoceProyectoSection = () => {
                         {feature.description}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -228,7 +221,7 @@ export const ConoceProyectoSection = () => {
                 maxHeight: "500px",
                 maxWidth: `${500 * mainPhoto.aspectRatio}px`,
               }}
-              aria-label="Ver foto en grande"
+              aria-label={`Ver ${mainPhoto.label} en pantalla completa`}
             >
               <img
                 key={mainPhoto.id}
