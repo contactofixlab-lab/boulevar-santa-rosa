@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 export const WhatsAppFAB = () => {
-  const phoneNumber = "56973301234"; // Sin espacios ni +
+  const phoneNumber = "56927541955"; // Sin espacios ni +
   const message = "Hola, quiero información sobre Boulevard Santa Rosa";
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
