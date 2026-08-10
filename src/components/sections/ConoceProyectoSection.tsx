@@ -37,6 +37,7 @@ const photosByType: Record<PhotoType, Photo[]> = {
     { id: "a1", label: "Quincho", type: "areas-comunes", src: "/renders/Areas-Comunes/Quincho.webp", aspectRatio: 1.778 },
     { id: "a2", label: "Sala Multiuso", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso.webp", aspectRatio: 1.778 },
     { id: "a3", label: "Sala Multiuso - Foto 2", type: "areas-comunes", src: "/renders/Areas-Comunes/Sala-Multiuso-foto-2.webp", aspectRatio: 1.778 },
+    { id: "a4", label: "Piscina en Azotea", type: "areas-comunes", src: "/renders/Areas-Comunes/Piscina.jpg", aspectRatio: 1.778 },
   ],
   fachada: [
     { id: "f1", label: "Frontal", type: "fachada", src: "/renders/Fachada/Frontal.webp", aspectRatio: 1.778 },
