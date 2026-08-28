@@ -59,7 +59,7 @@ export const UbicacionSection = () => {
           {/* Right: map con imagen real y puntos de interés */}
           <SlideInSection direction="right">
             <a
-              href="https://maps.google.com/?q=León+Prado+esquina+Av.+Santa+Rosa,+San+Miguel,+Santiago,+Chile"
+              href="https://www.google.com/maps/place/Boulevard+Santa+Rosa/@-33.5078908,-70.6389992,16.93z/data=!4m6!3m5!1s0x9662dbe789c57ff1:0xef0ec7d65f3258a0!8m2!3d-33.5078862!4d-70.6389987!16s%2Fg%2F11ntyldxkt"
             target="_blank"
             rel="noopener noreferrer"
             className="relative w-full rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer block"
