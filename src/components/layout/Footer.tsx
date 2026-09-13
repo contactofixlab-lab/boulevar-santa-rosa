@@ -106,7 +106,7 @@ export const Footer = async () => {
             {/* Financia */}
             <div className="flex flex-col items-center gap-2 w-full">
               <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Financia</p>
-              <div className="h-12 flex items-center justify-center w-full">
+              <div className="h-24 flex items-center justify-center w-full">
                 <Image
                   src="/logos/logo_consorcio_2024.webp"
                   alt="Consorcio"
@@ -120,7 +120,7 @@ export const Footer = async () => {
             {/* Arquitectos */}
             <div className="flex flex-col items-center gap-2 w-full">
               <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Arquitectos</p>
-              <div className="h-12 flex items-center justify-center w-full">
+              <div className="h-24 flex items-center justify-center w-full">
                 <Image
                   src="/logos/Logo-Franulic-Arq.png"
                   alt="Franulic Arquitectos"
@@ -148,7 +148,7 @@ export const Footer = async () => {
             {/* Gestora */}
             <div className="flex flex-col items-center gap-2 w-full">
               <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Gestora</p>
-              <div className="h-12 flex items-center justify-center w-full">
+              <div className="h-24 flex items-center justify-center w-full">
                 <Image
                   src="/logos/NEOENCINA.png"
                   alt="NeoEncinas"
