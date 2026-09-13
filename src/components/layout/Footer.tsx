@@ -112,7 +112,7 @@ export const Footer = async () => {
                   alt="Consorcio"
                   width={991}
                   height={189}
-                  className="h-20 w-auto object-contain"
+                  className="w-36 h-auto object-contain"
                 />
               </div>
             </div>
@@ -126,7 +126,7 @@ export const Footer = async () => {
                   alt="Franulic Arquitectos"
                   width={766}
                   height={219}
-                  className="h-20 w-auto object-contain"
+                  className="w-36 h-auto object-contain"
                 />
               </div>
             </div>
@@ -140,7 +140,7 @@ export const Footer = async () => {
                   alt="PDS"
                   width={1280}
                   height={720}
-                  className="h-20 w-auto object-contain"
+                  className="w-36 h-auto object-contain"
                 />
               </div>
             </div>
@@ -154,7 +154,7 @@ export const Footer = async () => {
                   alt="NeoEncinas Inmobiliaria"
                   width={928}
                   height={270}
-                  className="h-20 w-auto object-contain"
+                  className="w-36 h-auto object-contain"
                 />
               </div>
               <p className="text-[9px] uppercase tracking-wider text-[#4A6275]/70">Inmobiliaria</p>
