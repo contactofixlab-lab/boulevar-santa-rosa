@@ -1,3 +1,8 @@
+/** Formato moneda chilena con decimales reales (ej. $39.280,53), igual al valor publicado por el mercado. */
+export function formatoCLP(valor: number): string {
+  return new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 2 }).format(valor);
+}
+
 export async function getUFToday(): Promise<{ value: number; date: string }> {
   // Fallback value por defecto para evitar errores de compilación
   const defaultUF = {
@@ -26,7 +31,7 @@ export async function getUFToday(): Promise<{ value: number; date: string }> {
       if (ufData.valor && typeof ufData.valor === 'number') {
         return {
           value: Math.round(ufData.valor * 100) / 100,
-          date: new Date().toISOString().split("T")[0],
+          date: ufData.fecha ?? new Date().toISOString().split("T")[0],
         };
       }
     }
@@ -66,7 +71,7 @@ export async function getDollarToday(): Promise<{ value: number; date: string }>
       if (dollarData.valor && typeof dollarData.valor === 'number') {
         return {
           value: Math.round(dollarData.valor * 100) / 100,
-          date: new Date().toISOString().split("T")[0],
+          date: dollarData.fecha ?? new Date().toISOString().split("T")[0],
         };
       }
     }
