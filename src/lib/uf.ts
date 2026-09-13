@@ -1,6 +1,6 @@
-/** Formato moneda chilena con decimales reales (ej. $39.280,53), igual al valor publicado por el mercado. */
+/** Formato moneda chilena sin decimales (ej. $40.918), con punto como separador de miles. */
 export function formatoCLP(valor: number): string {
-  return new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 2 }).format(valor);
+  return new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 }).format(valor);
 }
 
 export async function getUFToday(): Promise<{ value: number; date: string }> {
