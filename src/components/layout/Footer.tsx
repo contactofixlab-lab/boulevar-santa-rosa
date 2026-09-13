@@ -102,7 +102,7 @@ export const Footer = async () => {
             <div className="w-12 h-1 bg-gradient-to-r from-[#0671AE] to-[#84CE25] rounded-full mx-auto" />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-center justify-items-center mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-start justify-items-center mb-8">
             {/* Financia */}
             <div className="flex flex-col items-center gap-2 w-full">
               <p className="text-[10px] uppercase tracking-wider font-semibold text-[#4A6275]">Financia</p>
