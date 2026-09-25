@@ -1,0 +1,18 @@
+=============================================
+HISTORIAL DE CAMBIOS - 2026-09-25
+Boulevard Santa Rosa
+=============================================
+
+1. STATS BAND - CANTIDAD DE DEPARTAMENTOS (StatsBand.tsx)
+---------------------------------------------------------
+- Corregido el valor de la tarjeta "Departamentos" en la franja de
+  estadísticas del home: mostraba 94, el número correcto es 95.
+- Archivo: src/components/sections/StatsBand.tsx (línea 12), campo
+  `value` del stat "departamentos".
+- Verificado en local (localhost:3006): la tarjeta ahora muestra 95.
+- Desplegado a Vercel (commit + push a origin/main, auto-deploy).
+
+=============================================
+PENDIENTES
+=============================================
+- (ninguno nuevo de esta sesión)
