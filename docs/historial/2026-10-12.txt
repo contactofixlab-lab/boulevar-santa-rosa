@@ -1,0 +1,39 @@
+=============================================
+HISTORIAL DE CAMBIOS - 2026-10-12
+Boulevard Santa Rosa
+=============================================
+
+1. FOOTER - UF HOY / DÓLAR HOY DEJABAN DE FUNCIONAR (src/lib/uf.ts)
+---------------------------------------------------------
+- PROBLEMA: el footer mostraba valores viejos o el respaldo fijo
+  del código (UF $40.837 / dólar $880) en vez del valor real.
+- CAUSA: la única fuente era https://mindicador.cl y esa API es
+  INTERMITENTE (a ratos corta la conexión con ECONNRESET / "other side
+  closed", y su home llegó a responder HTTP 500). Cuando fallaba, el
+  código devolvía el valor fijo. Además Next.js sirve la respuesta
+  cacheada aunque la fuente esté caída, así que un valor viejo podía
+  quedar congelado mostrándose como "hoy".
+- SOLUCIÓN (solo src/lib/uf.ts; Footer.tsx no cambió):
+  * Función única obtenerIndicador() con cadena de fuentes:
+    1° mindicador.cl, 2° findic.cl (mismo formato { serie:[{fecha,valor}] }
+    y mismos valores, verificado: UF 41.146,83 en ambas).
+  * Chequeo de antigüedad de la fecha: si el dato de una fuente es más
+    viejo que 3 días (UF) / 6 días (dólar, que no se publica en feriados
+    ni fines de semana) se prueba la siguiente fuente en vez de mostrarlo.
+  * Si ninguna fuente sirve, se usa el dato más reciente que haya
+    respondido; y solo si no hay ninguno, el respaldo fijo.
+  * Timeout por fuente bajado a 4 s (antes 5 s).
+  * Respaldos fijos actualizados: UF 40837 -> 41147, dólar 880 -> 982.
+  * La fecha del dato ahora se guarda como YYYY-MM-DD.
+- Firmas públicas sin cambios: getUFToday(), getDollarToday(),
+  formatoCLP(). Formato visible igual ($41.147 / $982, sin decimales).
+- QA: 7 escenarios simulados con fetch falso (fuente fresca, caída,
+  HTTP 500, caché viejo, ambas viejas, ambas caídas, dólar tras fin de
+  semana largo) = todos OK; navegador local muestra UF $41.147 y
+  dólar $982 sin errores de consola; npx tsc --noEmit sin errores.
+- Estado: SOLO LOCAL, pendiente de aprobación para subir a Vercel.
+
+=============================================
+PENDIENTES
+=============================================
+- Subir a Vercel el arreglo de uf.ts (esperando aprobación).

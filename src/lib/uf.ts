@@ -3,82 +3,56 @@ export function formatoCLP(valor: number): string {
   return new Intl.NumberFormat("es-CL", { style: "currency", currency: "CLP", maximumFractionDigits: 0 }).format(valor);
 }
 
-export async function getUFToday(): Promise<{ value: number; date: string }> {
-  // Fallback value por defecto para evitar errores de compilación
-  const defaultUF = {
-    value: 40837,
-    date: new Date().toISOString().split("T")[0],
-  };
+type Indicador = { value: number; date: string };
 
-  try {
-    const response = await fetch(
-      "https://mindicador.cl/api/uf",
-      {
+// Ambas APIs devuelven { serie: [{ fecha, valor }, ...] } con el valor más reciente primero.
+// mindicador.cl es intermitente (a veces corta la conexión o demora), por eso hay un respaldo.
+const FUENTES = [
+  (codigo: string) => `https://mindicador.cl/api/${codigo}`,
+  (codigo: string) => `https://findic.cl/api/${codigo}`,
+];
+
+const MS_POR_DIA = 86_400_000;
+
+async function obtenerIndicador(codigo: "uf" | "dolar", maxDias: number, respaldo: Indicador): Promise<Indicador> {
+  let masReciente: Indicador | null = null;
+
+  for (const urlDe of FUENTES) {
+    try {
+      const response = await fetch(urlDe(codigo), {
         next: { revalidate: 3600 },
-        signal: AbortSignal.timeout(5000), // Timeout de 5 segundos
-      }
-    );
+        signal: AbortSignal.timeout(4000),
+      });
+      if (!response.ok) continue;
 
-    if (!response.ok) {
-      return defaultUF;
+      const serie = (await response.json())?.serie?.[0];
+      if (!serie || typeof serie.valor !== "number" || serie.valor <= 0 || typeof serie.fecha !== "string") continue;
+
+      const candidato = { value: Math.round(serie.valor * 100) / 100, date: serie.fecha.slice(0, 10) };
+
+      // Next sirve la respuesta cacheada aunque la fuente esté caída: si el dato quedó viejo,
+      // se prueba la siguiente fuente en vez de mostrar un valor congelado como si fuera de hoy.
+      const antiguedadDias = (Date.now() - new Date(candidato.date).getTime()) / MS_POR_DIA;
+      if (antiguedadDias <= maxDias) return candidato;
+      if (!masReciente || candidato.date > masReciente.date) masReciente = candidato;
+    } catch {
+      // Esta fuente falló o demoró: se intenta con la siguiente.
     }
-
-    const data = await response.json();
-
-    if (data.serie && Array.isArray(data.serie) && data.serie.length > 0) {
-      const ufData = data.serie[0];
-
-      if (ufData.valor && typeof ufData.valor === 'number') {
-        return {
-          value: Math.round(ufData.valor * 100) / 100,
-          date: ufData.fecha ?? new Date().toISOString().split("T")[0],
-        };
-      }
-    }
-
-    return defaultUF;
-  } catch {
-    // Silently return default value on any error
-    return defaultUF;
   }
+  return masReciente ?? respaldo;
 }
 
-export async function getDollarToday(): Promise<{ value: number; date: string }> {
-  // Fallback value por defecto para evitar errores de compilación
-  const defaultDollar = {
-    value: 880,
+// La UF se publica todos los días; el dólar observado solo en días hábiles (hasta ~4 días sin dato en fines de semana largos).
+export async function getUFToday(): Promise<Indicador> {
+  return obtenerIndicador("uf", 3, {
+    value: 41147,
     date: new Date().toISOString().split("T")[0],
-  };
+  });
+}
 
-  try {
-    const response = await fetch(
-      "https://mindicador.cl/api/dolar",
-      {
-        next: { revalidate: 3600 },
-        signal: AbortSignal.timeout(5000), // Timeout de 5 segundos
-      }
-    );
-
-    if (!response.ok) {
-      return defaultDollar;
-    }
-
-    const data = await response.json();
-
-    if (data.serie && Array.isArray(data.serie) && data.serie.length > 0) {
-      const dollarData = data.serie[0];
-
-      if (dollarData.valor && typeof dollarData.valor === 'number') {
-        return {
-          value: Math.round(dollarData.valor * 100) / 100,
-          date: dollarData.fecha ?? new Date().toISOString().split("T")[0],
-        };
-      }
-    }
-
-    return defaultDollar;
-  } catch {
-    // Silently return default value on any error
-    return defaultDollar;
-  }
+export async function getDollarToday(): Promise<Indicador> {
+  return obtenerIndicador("dolar", 6, {
+    value: 982,
+    date: new Date().toISOString().split("T")[0],
+  });
 }
