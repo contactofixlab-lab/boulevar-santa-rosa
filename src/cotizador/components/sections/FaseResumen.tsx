@@ -20,7 +20,7 @@ import type { DatosCliente } from "./FaseDatos";
 export type EstadoCotizacion =
   | { estado: "idle" }
   | { estado: "enviando" }
-  | { estado: "listo"; codigo: string | null }
+  | { estado: "listo"; codigo: string | null; pdfUrl: string | null }
   | { estado: "error"; mensaje: string };
 
 interface FaseResumenProps {
@@ -75,17 +75,11 @@ export function FaseResumen({
               <RotateCcw size={17} />
               Nueva
             </button>
-            {/* Deshabilitado a propósito: el PDF debe ser el de la cotización oficial de
-                Mobysuite y todavía no está conectado; no se simula con el resumen en pantalla. */}
-            <button
-              type="button"
-              disabled
-              title="Próximamente: PDF de la cotización oficial"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary-blue px-4 py-2.5 text-sm font-semibold text-primary-blue disabled:opacity-50"
-            >
-              <Download size={17} />
-              Descargar
-            </button>
+            <BotonDescargar
+              cotizacion={cotizacion}
+              texto="Descargar"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary-blue px-4 py-2.5 text-sm font-semibold text-primary-blue"
+            />
             <BotonReserva
               cotizacion={cotizacion}
               onReservar={() => setAvisoReserva(true)}
@@ -190,6 +184,50 @@ export function BotonReserva({
     <button type="button" onClick={onReservar} disabled={cotizacion.estado !== "listo"} className={className}>
       <CalendarCheck size={17} />
       Reservar
+    </button>
+  );
+}
+
+/**
+ * "Descargar" abre el PDF de la cotización oficial, que genera Mobysuite al registrarla
+ * (no se imprime el resumen en pantalla). Sin PDF disponible queda deshabilitado.
+ */
+export function BotonDescargar({
+  cotizacion,
+  texto,
+  className,
+}: {
+  cotizacion: EstadoCotizacion;
+  texto: string;
+  className: string;
+}) {
+  if (cotizacion.estado === "listo" && cotizacion.pdfUrl) {
+    return (
+      <a
+        href={cotizacion.pdfUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${className} transition-colors hover:bg-surface-blue`}
+      >
+        <Download size={17} />
+        {texto}
+      </a>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      disabled
+      title={
+        cotizacion.estado === "listo"
+          ? "El PDF de tu cotización no está disponible por ahora"
+          : "Disponible cuando se registre tu cotización"
+      }
+      className={`${className} disabled:opacity-50`}
+    >
+      <Download size={17} />
+      {texto}
     </button>
   );
 }

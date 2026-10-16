@@ -76,8 +76,13 @@ PUNTO DE RETORNO (si hay que volver al cotizador anterior):
   pago en línea (Fintoc) que se conectará cuando el usuario entregue la
   API; la reserva debe quedar registrada en Mobysuite (POST /booking).
   Mientras tanto avisa "La reserva en línea estará disponible muy pronto".
-- Botón "Descargar": deshabilitado. El PDF debe ser el de la cotización
-  oficial de Mobysuite; falta confirmar cómo lo entrega la API.
+- Botón "Descargar": abre el PDF de la cotización OFICIAL que genera
+  Mobysuite (no se imprime el resumen en pantalla). El widget oficial lo
+  toma de la respuesta de la cotización en `cotizacion.urlDocumento`; la
+  ruta /api/cotizador/cotizar lee ese campo (y variantes de nombre) y lo
+  devuelve como `pdfUrl` (solo https). Si la respuesta no trae PDF, el
+  botón queda deshabilitado. PENDIENTE de confirmar con una cotización real
+  que la API administrativa devuelva ese campo.
 - Los datos destino de compra / rango de renta / rango de edad que pide el
   formulario NO viajan: la API de cotización no tiene esos campos.
 
@@ -86,7 +91,8 @@ PENDIENTES
 =============================================
 - API de Fintoc para el pago de la reserva y registrar POST /booking en
   Mobysuite (la entrega el usuario).
-- PDF oficial de la cotización ("Descargar").
+- Confirmar con una cotización real que la respuesta de Mobysuite traiga el
+  PDF (cotizacion.urlDocumento) y que "Descargar" lo abra.
 - Guardar destino de compra / renta / edad en el cliente de Mobysuite
   (PUT /v1/api/integrations/customers).
 - Confirmar con el cliente: Mobysuite tiene 94 departamentos cargados y el

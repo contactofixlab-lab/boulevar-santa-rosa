@@ -112,7 +112,7 @@ export function Cotizador({ assets, nombreProyecto, logoUrl, logoAlt }: Cotizado
         });
         return;
       }
-      setCotizacion({ estado: "listo", codigo: json.codigo ?? null });
+      setCotizacion({ estado: "listo", codigo: json.codigo ?? null, pdfUrl: json.pdfUrl ?? null });
     } catch {
       setCotizacion({ estado: "error", mensaje: "No hay conexión. Revisa tu internet e inténtalo de nuevo." });
     }

@@ -115,7 +115,15 @@ export async function POST(req: Request) {
     });
 
     const codigo = buscarCampo(respuesta, ["quoteCode", "code", "codigo", "quote_code", "codigoCotizacion"]);
-    console.log("[cotizador] cotización creada", { codigo, departamento: departamento.assetNumber, extras: extrasIds.length });
+    // El PDF oficial lo genera Mobysuite: el widget oficial lo toma de `cotizacion.urlDocumento`.
+    const urlPdf = buscarCampo(respuesta, ["urlDocumento", "pdfURL", "pdfUrl", "urlPdf", "url_documento", "documentUrl"]);
+    const pdfUrl = urlPdf && /^https:\/\//i.test(urlPdf) ? urlPdf : null;
+    console.log("[cotizador] cotización creada", {
+      codigo,
+      conPdf: Boolean(pdfUrl),
+      departamento: departamento.assetNumber,
+      extras: extrasIds.length,
+    });
     if (process.env.NODE_ENV !== "production") {
       console.log("[cotizador] respuesta de Mobysuite (solo dev):", JSON.stringify(respuesta).slice(0, 2000));
     }
@@ -123,6 +131,7 @@ export async function POST(req: Request) {
     return NextResponse.json({
       ok: true,
       codigo,
+      pdfUrl,
       // Solo en desarrollo: ver la forma real de la respuesta de Mobysuite.
       ...(process.env.NODE_ENV !== "production" && { debug: respuesta }),
     });

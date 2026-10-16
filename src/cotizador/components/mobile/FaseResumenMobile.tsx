@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, RotateCcw } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import type { MobysuiteAsset } from "@/cotizador/lib/mobysuite";
 import { assetTypeLabel, formatUF } from "@/cotizador/lib/mobysuite/format";
 import { area, superficieTotal, tipoLabel } from "@/cotizador/lib/tipologias";
@@ -9,6 +9,7 @@ import type { DatosCliente } from "@/cotizador/components/sections/FaseDatos";
 import {
   AvisoCotizacion,
   AvisoReserva,
+  BotonDescargar,
   BotonReserva,
   type EstadoCotizacion,
 } from "@/cotizador/components/sections/FaseResumen";
@@ -93,16 +94,11 @@ export function FaseResumenMobile({
           onReservar={() => setAvisoReserva(true)}
           className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-green py-3 text-sm font-semibold text-white transition-colors hover:bg-secondary-green-dark disabled:opacity-60"
         />
-        {/* Deshabilitado a propósito: falta conectar el PDF de la cotización oficial de Mobysuite. */}
-        <button
-          type="button"
-          disabled
-          title="Próximamente: PDF de la cotización oficial"
-          className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary-blue py-3 text-sm font-semibold text-primary-blue disabled:opacity-50"
-        >
-          <Download size={17} />
-          Descargar cotización
-        </button>
+        <BotonDescargar
+          cotizacion={cotizacion}
+          texto="Descargar cotización"
+          className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary-blue py-3 text-sm font-semibold text-primary-blue"
+        />
         <button
           type="button"
           onClick={onNuevaCotizacion}
