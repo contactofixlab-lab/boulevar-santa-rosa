@@ -1,61 +1,20 @@
-"use client";
+import "@/cotizador/cotizador.css";
+import type { MobysuiteAsset } from "@/cotizador/lib/mobysuite";
+import { getCatalogo } from "@/cotizador/lib/mobysuite/admin";
+import { Cotizador } from "@/cotizador/components/sections/Cotizador";
+import { NOMBRE_PROYECTO, PROYECTO } from "@/cotizador/config";
 
-import { useEffect, useRef } from "react";
-
-export const EncuentraEspacioIdeal = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const mobysuite = document.createElement("mobysuite-quote");
-    mobysuite.setAttribute("version", "2");
-    mobysuite.setAttribute("real-estate", "inesdesuarez");
-    mobysuite.setAttribute("project-id", "4");
-    mobysuite.setAttribute("container", "mobysuite-cotizador-boulevard");
-    mobysuite.setAttribute("template", "default");
-    mobysuite.setAttribute("country-code", "CL");
-    mobysuite.setAttribute("show-real-estate-logo", "true");
-    mobysuite.setAttribute("show-project-logo", "true");
-    mobysuite.setAttribute("success-view-type", "simple");
-    mobysuite.setAttribute("hide-selected-assets", "false");
-    mobysuite.setAttribute("hide-project-data", "true");
-    mobysuite.setAttribute("use-secondary-image", "false");
-
-    containerRef.current.appendChild(mobysuite);
-
-    // Inyectar colores DESPUÉS de montaje
-    setTimeout(() => {
-      try {
-        // Intento 1: Propiedades JavaScript (camelCase)
-        (mobysuite as any).primaryColor = "#0671AE";
-        (mobysuite as any).secondaryColor = "#84CE25";
-
-        // Intento 2: Si es un método setConfig
-        if (typeof (mobysuite as any).setConfig === "function") {
-          (mobysuite as any).setConfig({
-            primaryColor: "#0671AE",
-            secondaryColor: "#84CE25",
-          });
-        }
-
-        // Intento 3: Dataset attributes
-        mobysuite.setAttribute("data-primary-color", "#0671AE");
-        mobysuite.setAttribute("data-secondary-color", "#84CE25");
-      } catch (e) {
-        console.warn("Mobysuite API no disponible en tiempo de espera");
-      }
-    }, 500);
-
-    return () => {
-      if (containerRef.current && mobysuite.parentNode === containerRef.current) {
-        containerRef.current.removeChild(mobysuite);
-      }
-    };
-  }, []);
+// Cotizador 2.0 (src/cotizador): catálogo en vivo desde Mobysuite, con el estado real de cada bien.
+export const EncuentraEspacioIdeal = async () => {
+  let assets: MobysuiteAsset[] | null = null;
+  try {
+    assets = await getCatalogo(PROYECTO);
+  } catch {
+    // Si Mobysuite no responde se muestra un aviso en esta sección, sin tumbar el resto de la página.
+  }
 
   return (
-    <section className="py-20 bg-white">
+    <section className="bg-surface-light py-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -66,13 +25,27 @@ export const EncuentraEspacioIdeal = () => {
           <div className="w-14 h-[3px] bg-[#84CE25] rounded-full mx-auto mt-3" />
         </div>
 
-        {/* Cotizador Mobysuite - Web Component */}
-        <div className="flex justify-center w-full" style={{ minHeight: "600px" }}>
-          <div
-            ref={containerRef}
-            style={{ width: "100%", maxWidth: "1200px" }}
-          />
-        </div>
+        {assets ? (
+          <div className="text-secondary-navy">
+            <Cotizador assets={assets} nombreProyecto={NOMBRE_PROYECTO} />
+          </div>
+        ) : (
+          <div className="mx-auto max-w-xl rounded-2xl bg-white p-8 text-center shadow-sm">
+            <p className="text-lg font-bold text-secondary-navy">
+              No pudimos cargar los departamentos disponibles
+            </p>
+            <p className="mt-2 text-sm text-slate-blue">
+              Estamos teniendo un inconveniente momentáneo. Déjanos tus datos y un ejecutivo te
+              ayudará a cotizar.
+            </p>
+            <a
+              href="#agenda"
+              className="mt-5 inline-flex items-center justify-center rounded-lg bg-primary-blue px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-secondary-navy"
+            >
+              Agenda tu visita
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

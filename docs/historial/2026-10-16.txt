@@ -1,0 +1,94 @@
+=============================================
+HISTORIAL DE CAMBIOS - 2026-10-16
+Boulevard Santa Rosa
+=============================================
+
+PUNTO DE RETORNO (si hay que volver al cotizador anterior):
+  git revert del commit de esta fecha, o volver al commit 5914cd9
+  (último estado con el widget oficial de Mobysuite).
+
+1. COTIZADOR 2.0 REEMPLAZA AL WIDGET DE MOBYSUITE
+---------------------------------------------------------
+- La sección "Encuentra tu espacio ideal" (div #cotizador del home) ahora
+  muestra el Cotizador 2.0 (4 fases: Departamento, Extras, Tus datos,
+  Cotización; versión de escritorio y versión propia móvil/tablet).
+- Código del módulo copiado de ".../Pagina Web/cotizador-2.0" a una carpeta
+  aislada: src/cotizador/ (components, lib, config.ts, cotizador.css).
+  Los import internos usan el alias @/cotizador/...
+- src/components/sections/EncuentraEspacioIdeal.tsx: mismo nombre y mismo
+  encabezado, pero ahora es un componente de servidor que lee el catálogo
+  y renderiza <Cotizador/>. Si Mobysuite no responde, muestra un aviso con
+  botón a "Agenda tu visita" en vez de romper el home.
+- Todos los botones "Cotizar" siguen funcionando (apuntan a /#cotizador).
+- src/app/layout.tsx: se quitó el script del widget viejo
+  (cdn.mobysuite.com/quote/js/app.js) y su contenedor vacío. El script de
+  leads (form-scrapper) del formulario "Agenda tu visita" NO se tocó.
+- Rutas/archivos antiguos (/cotizador, /cotizador-opciones, CotizadorDetalle,
+  diálogo de tipologías, lib/mobysuite/api.ts) NO se tocaron.
+
+2. ADAPTACIONES AL SITIO (el módulo era una página completa)
+---------------------------------------------------------
+- Al cambiar de fase ya no sube al inicio de la web: vuelve al inicio del
+  cotizador (scrollIntoView con margen por el header fijo).
+- La barra de acción fija del móvil deja 96 px libres a la derecha para
+  que el botón flotante de WhatsApp no tape el botón principal.
+- Estilos: se agregó solo .scroll-marca (src/cotizador/cotizador.css); no se
+  trajeron las reglas de impresión (ocultaban toda la página al imprimir).
+
+3. DATOS REALES DEL PROYECTO
+---------------------------------------------------------
+- Catálogo: ahora viene de la API ADMINISTRATIVA de Mobysuite
+  (GET /v1/api/integrations/assets/all-assets?projectId=4), que trae los
+  239 bienes con su estado real (94 departamentos: 69 disponibles, 14
+  promesados, 5 reservados, 6 bloqueados para web). Antes solo se veían los
+  175 disponibles y el panel "Ubicación en el edificio" nunca mostraba
+  vendidos. Si la API admin falla, cae a la API pública (solo disponibles).
+- Comparación hecha: para los 175 bienes comunes, precios e imágenes son
+  IDÉNTICOS en ambas APIs (0 campos distintos). Los precios/planos que se
+  muestran son los reales de Mobysuite.
+- Equipamiento y terminaciones: antes era un texto genérico fijo (con
+  ítems que no existen en el proyecto, ej. "Baño con receptáculo de
+  ducha"). Mobysuite no entrega descripciones (campos vacíos), así que se
+  tomó del brochure oficial por tipología (A, B, C, D):
+  src/cotizador/lib/equipamiento.ts.
+- Superficies: se muestran útil, terraza y total (útil + terraza, como el
+  brochure). La API entrega "totalArea" igual a la útil (sin terraza).
+  Tarjetas de tipología: "Desde X m² útiles".
+- Tipo E no aparece: sin unidades disponibles.
+
+4. ENVÍO REAL DE LA COTIZACIÓN A MOBYSUITE
+---------------------------------------------------------
+- Nueva ruta de servidor: POST /api/cotizador/cotizar
+  (src/app/api/cotizador/cotizar/route.ts). Valida los datos (RUT módulo 11,
+  correo, teléfono por país), comprueba contra el catálogo que los bienes
+  sigan disponibles y crea la cotización con POST
+  /v1/api/integrations/quotes (source "WEB INMOBILIARIA", contact
+  "COTIZADOR WEB"). Freno básico: 6 solicitudes por IP cada 10 minutos.
+- La cotización se envía SOLA al pulsar "Ver mi cotización" (paso 3 -> 4).
+  Un solo estado compartido evita duplicados al girar el dispositivo.
+  Si falla, aparece "Reintentar envío". Al volver atrás y cambiar la
+  selección, la cotización registrada deja de corresponder y se puede
+  registrar otra.
+- Las credenciales van en variables de entorno SIN prefijo NEXT_PUBLIC_:
+  MOBYSUITE_HOST, MOBYSUITE_CLIENT_ID, MOBYSUITE_CLIENT_SECRET
+  (están en .env.local, ignorado por git; en Vercel hay que cargarlas).
+- Botón "Reservar": NO envía nada. Queda como entrada de la reserva con
+  pago en línea (Fintoc) que se conectará cuando el usuario entregue la
+  API; la reserva debe quedar registrada en Mobysuite (POST /booking).
+  Mientras tanto avisa "La reserva en línea estará disponible muy pronto".
+- Botón "Descargar": deshabilitado. El PDF debe ser el de la cotización
+  oficial de Mobysuite; falta confirmar cómo lo entrega la API.
+- Los datos destino de compra / rango de renta / rango de edad que pide el
+  formulario NO viajan: la API de cotización no tiene esos campos.
+
+=============================================
+PENDIENTES
+=============================================
+- API de Fintoc para el pago de la reserva y registrar POST /booking en
+  Mobysuite (la entrega el usuario).
+- PDF oficial de la cotización ("Descargar").
+- Guardar destino de compra / renta / edad en el cliente de Mobysuite
+  (PUT /v1/api/integrations/customers).
+- Confirmar con el cliente: Mobysuite tiene 94 departamentos cargados y el
+  brochure/web dicen 95.
+- Cargar MOBYSUITE_* en Vercel antes de usar el envío en producción.

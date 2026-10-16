@@ -1,0 +1,25 @@
+/* Scroll con los colores de marca, para listas largas (extras) que deben
+   quedar acotadas en alto en vez de estirar la página. */
+.scroll-marca {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary-blue) var(--color-surface-blue);
+}
+
+.scroll-marca::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-marca::-webkit-scrollbar-track {
+  background: var(--color-surface-blue);
+  border-radius: 999px;
+}
+
+.scroll-marca::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-blue);
+  border-radius: 999px;
+  border: 2px solid var(--color-surface-blue);
+}
+
+.scroll-marca::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-secondary-navy);
+}
