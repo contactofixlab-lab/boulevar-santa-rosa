@@ -1,9 +1,8 @@
 "use client";
 
-import { Bath, BedDouble, Building2, CheckCircle2, Compass, Maximize2, Ruler, Sun } from "lucide-react";
+import { Bath, BedDouble, Building2, Compass, Maximize2, Ruler, Sun } from "lucide-react";
 import type { MobysuiteAsset } from "@/cotizador/lib/mobysuite";
 import { formatUF } from "@/cotizador/lib/mobysuite/format";
-import { equipamientoDe } from "@/cotizador/lib/equipamiento";
 import {
   area,
   esDisponible,
@@ -173,17 +172,6 @@ export function FaseDepartamentoMobile({
             <p className="mt-1 text-[10px] leading-snug text-slate-blue">
               Toca un piso para ver ahí una unidad disponible de este tipo.
             </p>
-          </Desplegable>
-
-          <Desplegable titulo="Equipamiento y terminaciones" resumen={`${equipamientoDe(tipologia.key).length} incluidos`}>
-            <ul className="flex flex-col gap-2">
-              {equipamientoDe(tipologia.key).map((item) => (
-                <li key={item} className="flex items-start gap-2 text-[13px] leading-snug text-slate-blue">
-                  <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-primary-green" />
-                  {item}
-                </li>
-              ))}
-            </ul>
           </Desplegable>
         </div>
 

@@ -5,7 +5,6 @@ import {
   Bath,
   BedDouble,
   Building2,
-  CheckCircle2,
   Compass,
   LayoutGrid,
   Maximize2,
@@ -15,7 +14,6 @@ import {
 } from "lucide-react";
 import type { MobysuiteAsset } from "@/cotizador/lib/mobysuite";
 import { formatUF } from "@/cotizador/lib/mobysuite/format";
-import { equipamientoDe } from "@/cotizador/lib/equipamiento";
 import {
   area,
   esDisponible,
@@ -212,7 +210,7 @@ export function FaseDepartamento({
             </p>
           </div>
 
-          {/* Características + equipamiento */}
+          {/* Características */}
           <div className="flex flex-col gap-5">
             <div>
               <h4 className="mb-3 text-sm font-bold text-secondary-navy">Características</h4>
@@ -231,18 +229,6 @@ export function FaseDepartamento({
                 <Caracteristica icon={Compass} label="Orientación" value={orientacion(unidad.orientation)} />
                 <Caracteristica icon={Building2} label="Piso" value={String(unidad.floor)} />
               </dl>
-            </div>
-
-            <div className="rounded-xl border border-gray-200 p-4">
-              <h4 className="mb-3 text-sm font-bold text-secondary-navy">Equipamiento y terminaciones</h4>
-              <ul className="flex flex-col gap-2">
-                {equipamientoDe(tipologia.key).map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm leading-snug text-slate-blue">
-                    <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-primary-green" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>

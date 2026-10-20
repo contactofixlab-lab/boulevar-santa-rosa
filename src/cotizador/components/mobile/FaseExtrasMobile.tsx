@@ -11,8 +11,8 @@ const GRUPOS = [
   { tipo: "BODEGA", titulo: "Bodegas" },
   { tipo: "ESTACIONAMIENTO", titulo: "Estacionamientos" },
   // "Motos" a secas se prestaba a confusión (parecía venta de motos): esto es
-  // el estacionamiento para moto, no la moto.
-  { tipo: "ESTACIONAMIENTO_MOTO", titulo: "Estacionamientos motos" },
+  // el estacionamiento para moto, no la moto. Abreviado para caber en la pestaña.
+  { tipo: "ESTACIONAMIENTO_MOTO", titulo: "Est. Motos" },
 ] as const;
 
 /** Con 50+ unidades por tipo, en móvil se muestran de a tandas. */
@@ -80,12 +80,12 @@ export function FaseExtrasMobile({
                 type="button"
                 onClick={() => cambiarTipo(g.tipo)}
                 aria-pressed={activo}
-                className={`min-w-0 flex-1 rounded-md px-2 py-2 text-xs font-semibold leading-tight text-slate-blue transition-colors ${
+                className={`flex-auto rounded-md px-2 py-2 text-xs font-semibold leading-tight text-slate-blue transition-colors ${
                   activo ? "bg-primary-green shadow-sm" : ""
                 }`}
               >
-                {/* min-w-0 evita que el texto largo ("Estacionamientos motos")
-                    se desborde de su columna en vez de partirse en dos líneas. */}
+                {/* flex-auto: cada pestaña toma el ancho que pide su texto (sin min-w-0 no baja
+                    del largo de su palabra más larga), así "Estacionamientos" no se sale de su casilla. */}
                 {g.titulo}{" "}
                 <span className="font-normal">({elegidos > 0 ? `${elegidos}/${cantidad}` : cantidad})</span>
               </button>

@@ -1,0 +1,35 @@
+=============================================
+HISTORIAL DE CAMBIOS - 2026-10-20
+Boulevard Santa Rosa
+=============================================
+
+1. COTIZADOR - SE QUITA "EQUIPAMIENTO Y TERMINACIONES"
+---------------------------------------------------------
+- Pedido del usuario: el bloque era demasiado y esa información ya se
+  explica en la página (sección "Conoce el proyecto").
+- Escritorio (src/cotizador/components/sections/FaseDepartamento.tsx): se
+  eliminó la tarjeta "Equipamiento y terminaciones" bajo "Características".
+- Móvil (src/cotizador/components/mobile/FaseDepartamentoMobile.tsx): se
+  eliminó el desplegable "Equipamiento y terminaciones". Queda solo
+  "Ubicación en el edificio".
+- Se borró src/cotizador/lib/equipamiento.ts (datos del brochure por
+  tipología), que quedó sin uso. Sigue en el historial de git (commit
+  5e75154) por si se necesita de nuevo.
+- Sin cambios en precios, superficies, planos, envío de cotización ni PDF.
+- QA local: escritorio y móvil sin el bloque; npx tsc --noEmit sin errores.
+2. COTIZADOR MÓVIL - PESTAÑAS DE "EXTRAS" DESCUADRADAS
+---------------------------------------------------------
+- Problema (reportado por el usuario en el celular): en el paso "Extras"
+  la pestaña "Estacionamientos motos" quedaba descuadrada de su botón.
+  Medido a 375 px: las 3 pestañas medían 92 px fijos y las palabras
+  "Estacionamientos" se salían de su casilla.
+- Arreglo (src/cotizador/components/mobile/FaseExtrasMobile.tsx):
+  * La pestaña pasa a llamarse "Est. Motos" (como pidió el usuario).
+  * Las pestañas usan flex-auto en vez de flex-1 + min-w-0: cada una toma
+    el ancho de su texto (Bodegas 78 px, Estacionamientos 118 px, Est. Motos
+    79 px) y ninguna se desborda.
+- QA local a 375 px: sin desbordes; la pestaña Est. Motos lista sus 3
+  estacionamientos y el contador sube a 1/3 al elegir; tsc sin errores.
+- La versión de escritorio no se tocó.
+
+- Estado: SOLO LOCAL, pendiente de aprobación para subir a Vercel.
