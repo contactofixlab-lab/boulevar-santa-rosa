@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { LinkAncla } from "@/components/ui/LinkAncla";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
 import { SlideInSection } from "@/components/ui/SlideInSection";
@@ -44,7 +44,7 @@ export const UbicacionSection = () => {
             </div>
 
             {/* Botón Cotizar ahora */}
-            <Link href="/#cotizador" className="block" aria-label="Ir a cotizador">
+            <LinkAncla href="/#cotizador" className="block" aria-label="Ir a cotizador">
               <Button
                 variant="primary"
                 size="md"
@@ -53,7 +53,7 @@ export const UbicacionSection = () => {
               >
                 Cotizar ahora →
               </Button>
-            </Link>
+            </LinkAncla>
           </SlideInSection>
 
           {/* Right: map con imagen real y puntos de interés */}

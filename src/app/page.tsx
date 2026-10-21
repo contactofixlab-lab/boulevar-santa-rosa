@@ -25,7 +25,7 @@ export default async function Home() {
         <div id="inversion">
           <InvierteSection />
         </div>
-        <div id="cotizador">
+        <div id="cotizador" className="scroll-mt-24">
           <EncuentraEspacioIdeal />
         </div>
         <div id="agenda">

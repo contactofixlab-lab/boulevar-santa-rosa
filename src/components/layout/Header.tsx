@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { LinkAncla } from "@/components/ui/LinkAncla";
 
 const navLinks = [
   { href: "/", label: "Inicio" },
@@ -46,14 +47,14 @@ export const Header = () => {
           {navLinks.map((link) => {
             const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
             return (
-            <Link
+            <LinkAncla
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-[#033D6B] hover:text-[#0671AE] transition-colors"
               aria-current={isActive ? "page" : undefined}
             >
               {link.label}
-            </Link>
+            </LinkAncla>
             );
           })}
         </div>
@@ -74,7 +75,7 @@ export const Header = () => {
           {navLinks.map((link) => {
             const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
             return (
-            <Link
+            <LinkAncla
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-[#033D6B] hover:text-[#0671AE] transition-colors py-1"
@@ -82,7 +83,7 @@ export const Header = () => {
               aria-current={isActive ? "page" : undefined}
             >
               {link.label}
-            </Link>
+            </LinkAncla>
             );
           })}
         </div>

@@ -32,4 +32,40 @@ Boulevard Santa Rosa
   estacionamientos y el contador sube a 1/3 al elegir; tsc sin errores.
 - La versión de escritorio no se tocó.
 
-- Estado: SOLO LOCAL, pendiente de aprobación para subir a Vercel.
+- Estado: DESPLEGADO a producción (commit 295bf2f, https://boulevardsantarosa.cl).
+  Verificado en el sitio real: sin bloque de equipamiento; pestañas
+  "Bodegas / Estacionamientos / Est. Motos" sin desbordes; piso 2 con 0/6.
+
+3. BOTONES "COTIZAR" QUE NO FUNCIONABAN (enlaces a secciones de la portada)
+---------------------------------------------------------
+- Problema (reportado por el usuario): algunos botones "Cotizar" no hacían
+  nada. Reproducido en producción: el <Link> de Next no vuelve a desplazar la
+  página cuando la URL YA termina en el mismo "#ancla". El primer clic
+  funcionaba; si la persona subía con la rueda o tocaba otro botón al mismo
+  destino, "Cotizar ahora" del Hero y el de Ubicación quedaban muertos
+  (scroll 149 -> 149). El de Invierte (<a href="#cotizador" nativo>) sí
+  funcionaba. Afectaba igual a Ubicación, Proyecto, Invierte, Cotizar y
+  Agendar del menú superior (todos usaban <Link>).
+- Segundo defecto: el menú fijo mide 104 px y al saltar a #cotizador tapaba
+  parte del título "Encuentra tu espacio ideal" (quedaba entre 80 y 120 px).
+- Arreglo:
+  * Nuevo componente src/components/ui/LinkAncla.tsx: estando en la portada
+    desplaza SIEMPRE a la sección (scrollIntoView, respeta "reducir
+    movimiento", no intercepta ctrl/cmd/clic medio); desde otra página
+    navega como un <Link> normal.
+  * Usado en Header (escritorio y menú móvil), HeroSection y UbicacionSection.
+    InvierteSection no se tocó (ya usaba <a> nativo).
+  * src/app/page.tsx: <div id="cotizador" className="scroll-mt-24"> para que
+    la sección aterrice bajo el menú y el título quede visible.
+- QA local: escritorio 1366 y móvil 375; los 4 botones "Cotizar" + los 5
+  enlaces del menú, 3 clics seguidos cada uno (subiendo entre clics) y menú
+  hamburguesa del celular (se cierra y desplaza): todos llevan a la sección
+  (top = 96 px, título visible). Desde /tipologias el menú sigue yendo a la
+  portada y baja al cotizador. tsc sin errores.
+- Estado: DESPLEGADO a producción (ver commit "fix: botones Cotizar").
+
+PENDIENTE DETECTADO (sin tocar, pedir decisión al usuario):
+- /tipologias: los botones "Ver Detalles" abren un diálogo ANTIGUO ("Cotiza tu
+  espacio") con datos de relleno (Torre A, "Depto 1D+1B UF 2850", "Imagen del
+  floor plan…") que no es el cotizador real. La página no está enlazada desde
+  el menú. Propuesta: que esos botones lleven a /#cotizador.

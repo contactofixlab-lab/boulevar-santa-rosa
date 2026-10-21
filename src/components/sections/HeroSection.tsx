@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { LinkAncla } from "@/components/ui/LinkAncla";
 
 export const HeroSection = () => {
   return (
@@ -61,7 +61,7 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Link href="/#cotizador" className="block" aria-label="Ir a cotizador de departamentos">
+            <LinkAncla href="/#cotizador" className="block" aria-label="Ir a cotizador de departamentos">
               <Button
                 variant="primary"
                 size="md"
@@ -71,7 +71,7 @@ export const HeroSection = () => {
               >
                 Cotizar ahora
               </Button>
-            </Link>
+            </LinkAncla>
             <a
               href="/brochure/brochure-boulevard-santa-rosa.pdf"
               target="_blank"
