@@ -5,7 +5,6 @@ import { getUFToday, getDollarToday, formatoCLP } from "@/lib/uf";
 const navLinks = [
   { href: "/proyecto",       label: "El Proyecto" },
   { href: "/ubicacion",      label: "Ubicación" },
-  { href: "/tipologias",     label: "Departamentos" },
   { href: "/proceso-compra", label: "Proceso de Compra" },
   { href: "/contacto",       label: "Contacto" },
 ];

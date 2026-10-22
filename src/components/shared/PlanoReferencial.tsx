@@ -3,8 +3,8 @@ interface PlanoReferencialProps {
 }
 
 /**
- * Plano 2D referencial (línea blueprint) reutilizado en TipologiasPreview y en
- * el detalle del cotizador. Único plano dibujado hoy — se muestra para
+ * Plano 2D referencial (línea blueprint) del detalle del cotizador antiguo.
+ * Único plano dibujado hoy — se muestra para
  * cualquier tipología con la leyenda "Referencial" ya visible en el badge.
  */
 export const PlanoReferencial = ({ className = "" }: PlanoReferencialProps) => (

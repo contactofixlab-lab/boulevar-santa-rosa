@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import { WhatsAppFAB } from "@/components/layout/WhatsAppFAB";
-import { CotizadorDialogGlobal } from "@/components/sections/CotizadorDialogGlobal";
-import { getTipologiasFromMobysuite } from "@/lib/mobysuite/api";
 import "./globals.css";
 
 const nunitoSans = Nunito_Sans({
@@ -29,13 +27,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { data: tipologias } = await getTipologiasFromMobysuite();
-
   return (
     <html
       lang="es"
@@ -45,7 +41,6 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col bg-white text-slate-900">
         {children}
         <WhatsAppFAB />
-        <CotizadorDialogGlobal tipologias={tipologias} />
       </body>
     </html>
   );
